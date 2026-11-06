@@ -28,7 +28,9 @@ pacman -S --needed meson ninja gettext pkgconf glib2 glib2-devel libxml2 \
   mingw-w64-ucrt-x86_64-hicolor-icon-theme \
   mingw-w64-ucrt-x86_64-shared-mime-info \
   mingw-w64-ucrt-x86_64-desktop-file-utils \
-  mingw-w64-ucrt-x86_64-gcc
+  mingw-w64-ucrt-x86_64-gcc \
+  mingw-w64-ucrt-x86_64-meson \
+  mingw-w64-ucrt-x86_64-ninja
 ```
 
 `appstream` is needed at build time because `msgfmt` uses its `metainfo.its`
