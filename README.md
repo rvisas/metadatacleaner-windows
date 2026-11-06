@@ -2,7 +2,7 @@
 
 Unofficial Windows 10/11 port of [Metadata Cleaner](https://gitlab.com/metadatacleaner/metadatacleaner), the GTK4 application for viewing and removing metadata from files.
 
-> **Status:** early port for Windows 10/11 x64. The app builds and runs on Windows 11; metadata cleaning has been verified on JPEG, PDF, DOCX and MP4. The Inno Setup installer is in progress.
+> **Status:** Windows 10/11 x64 port. The app builds and runs on Windows 11; metadata cleaning has been verified on JPEG, PDF, DOCX and MP4. The Inno Setup installer is built and tested.
 
 ## Why this exists
 
@@ -52,11 +52,31 @@ Short version: install the UCRT64 GTK/Python stack, `pip install mat2==0.15.0 --
 
 The goal is to keep the Windows delta small and reviewable so it can follow upstream releases without becoming a separate product.
 
-## Packaging
+## Packaging and releases
 
-The Windows deliverable is an Inno Setup installer (`MetadataCleaner-Setup-x.y.z.exe`). It bundles the application, the GTK/Python runtime and the external tools, and creates Start Menu/Desktop shortcuts plus an uninstaller. A separate portable ZIP is not part of the current scope.
+The Windows deliverable is an Inno Setup installer named
+`MetadataCleaner-4.0.1-windows-x64-setup.exe`. It bundles the application, the
+GTK/Python runtime and the external tools, and creates Start Menu/Desktop
+shortcuts plus an uninstaller. A separate portable ZIP is not part of the
+current scope.
 
-The Inno Setup script lives in [`installer/metadatacleaner.iss`](installer/metadatacleaner.iss); code signing will use [SignPath Foundation](docs/SIGNPATH.md).
+Binaries are published as GitHub Releases, not committed to the repository.
+The tag convention is `v4.0.1-windows.1`; a rebuild of the same upstream
+version increments the suffix (`v4.0.1-windows.2`). Every release includes a
+`.sha256` sidecar and `SHA256SUMS.txt` so downloads can be verified.
+
+Pushing a tag triggers the automatic release workflow; the full procedure,
+asset naming rationale and checksum commands are in
+[`docs/RELEASING.md`](docs/RELEASING.md). The Inno Setup script lives in
+[`installer/metadatacleaner.iss`](installer/metadatacleaner.iss); code signing
+will use [SignPath Foundation](docs/SIGNPATH.md).
+
+## Tests
+
+`python -m unittest discover -s tests -v` runs the release-naming tests, the
+Windows patch guardrails and the native-launcher integration test (the last one
+needs Windows and `gcc`, and is skipped otherwise). CI runs the same suite on
+every push to `main` and on pull requests.
 
 ## License
 

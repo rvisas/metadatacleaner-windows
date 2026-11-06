@@ -13,7 +13,9 @@
 ;   dist\payload\tools\ffmpeg\...
 
 #define AppName "Metadata Cleaner"
+#ifndef AppVersion
 #define AppVersion "4.0.1"
+#endif
 #define AppPublisher "Ronny Visa"
 #define AppURL "https://github.com/rvisas/metadatacleaner-windows"
 #define AppExeName "MetadataCleaner.exe"
@@ -34,7 +36,7 @@ DefaultGroupName={#AppName}
 DisableProgramGroupPage=yes
 LicenseFile=..\LICENSE
 OutputDir=..\dist\installer
-OutputBaseFilename=MetadataCleaner-Setup-{#AppVersion}
+OutputBaseFilename=MetadataCleaner-{#AppVersion}-windows-x64-setup
 SetupIconFile=branding\metadatacleaner-windows.ico
 UninstallDisplayIcon={app}\{#AppExeName}
 Compression=lzma2/ultra64
@@ -47,7 +49,7 @@ PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 CloseApplications=yes
 RestartApplications=no
-VersionInfoVersion=4.0.1.0
+VersionInfoVersion={#AppVersion}.0
 VersionInfoCompany={#AppPublisher}
 VersionInfoDescription={#AppName} installer
 VersionInfoProductName={#AppName}

@@ -24,9 +24,9 @@ uninstaller. The payload is produced by the build/packaging step; see
 ## Launcher
 
 `launcher\MetadataCleaner.c` is a small native Win32 launcher with no .NET
-dependency. It sets `PATH`, `GSETTINGS_SCHEMA_DIR`, `XDG_DATA_DIRS`,
-`GI_TYPELIB_PATH` and `GDK_PIXBUF_MODULE_FILE`, then starts
-`runtime\bin\pythonw.exe` with `bin\metadata-cleaner` and forwards any
+dependency. It sets `PATH`, `GSETTINGS_SCHEMA_DIR`, `XDG_DATA_DIRS`
+(`share;runtime\share`), `GI_TYPELIB_PATH` and `GDK_PIXBUF_MODULE_FILE`, then
+starts `runtime\bin\pythonw.exe` with `bin\metadata-cleaner` and forwards any
 command-line arguments. Its working directory is `runtime\`, which is where the
 gdk-pixbuf loader cache paths are rooted.
 
@@ -50,7 +50,7 @@ gcc -municode -mwindows -static -O2 -s -o ..\..\dist\payload\MetadataCleaner.exe
    iscc installer\metadatacleaner.iss
    ```
 
-   The result is `dist\installer\MetadataCleaner-Setup-4.0.1.exe`.
+   The result is `dist\installer\MetadataCleaner-4.0.1-windows-x64-setup.exe`.
 
 The script installs per-user by default (`PrivilegesRequired=lowest`); the user
 can choose an all-users install from the privileges dialog. It targets Windows 10

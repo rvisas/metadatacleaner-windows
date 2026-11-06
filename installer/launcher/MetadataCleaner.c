@@ -38,6 +38,7 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
 
     wchar_t runtime[MAX_PATH];
     wchar_t runtime_bin[MAX_PATH];
+    wchar_t runtime_share[MAX_PATH];
     wchar_t share[MAX_PATH];
     wchar_t tools[MAX_PATH];
     wchar_t python[MAX_PATH];
@@ -53,6 +54,7 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
 
     join_path(runtime, MAX_PATH, root, L"runtime");
     join_path(runtime_bin, MAX_PATH, runtime, L"bin");
+    join_path(runtime_share, MAX_PATH, runtime, L"share");
     join_path(share, MAX_PATH, root, L"share");
     join_path(tools, MAX_PATH, root, L"tools");
     join_path(python, MAX_PATH, runtime_bin, L"pythonw.exe");
@@ -62,7 +64,7 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE previous, PWSTR command_line, 
     join_path(pixbuf_cache, MAX_PATH, runtime, L"lib\\gdk-pixbuf-2.0\\2.10.0\\loaders.cache");
     join_path(fonts, MAX_PATH, runtime, L"etc\\fonts");
 
-    swprintf(data_dirs, BUFFER_SIZE, L"%ls;%ls", share, runtime);
+    swprintf(data_dirs, BUFFER_SIZE, L"%ls;%ls", share, runtime_share);
 
     DWORD path_length = GetEnvironmentVariableW(L"PATH", old_path, BUFFER_SIZE);
     if (path_length == 0 || path_length >= BUFFER_SIZE)

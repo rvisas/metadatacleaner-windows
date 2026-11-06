@@ -1,0 +1,140 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*-windows.*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version without the v prefix (for example 4.0.1)"
+        required: true
+        default: "4.0.1"
+      revision:
+        description: "Port revision for the tag (1, 2, ...)"
+        required: true
+        default: "1"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve version
+        id: version
+        shell: pwsh
+        run: |
+          if ("${{ github.event_name }}" -eq "workflow_dispatch") {
+            $version = "${{ inputs.version }}"
+            $revision = "${{ inputs.revision }}"
+          } elseif ("${{ github.ref_name }}" -match '^v(?<version>\d+\.\d+\.\d+)-windows\.(?<revision>\d+)$') {
+            $version = $Matches['version']
+            $revision = $Matches['revision']
+          } else {
+            throw "Tag must look like v4.0.1-windows.1"
+          }
+          if ($version -notmatch '^\d+\.\d+\.\d+$') {
+            throw "Version must have three numeric components: $version"
+          }
+          "version=$version" >> $env:GITHUB_OUTPUT
+          "revision=$revision" >> $env:GITHUB_OUTPUT
+          "tag=v$version-windows.$revision" >> $env:GITHUB_OUTPUT
+
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          install: >-
+            meson ninja gettext pkgconf glib2 glib2-devel libxml2 patch
+            mingw-w64-ucrt-x86_64-gtk4
+            mingw-w64-ucrt-x86_64-libadwaita
+            mingw-w64-ucrt-x86_64-python
+            mingw-w64-ucrt-x86_64-python-pip
+            mingw-w64-ucrt-x86_64-python-gobject
+            mingw-w64-ucrt-x86_64-python-cairo
+            mingw-w64-ucrt-x86_64-python-mutagen
+            mingw-w64-ucrt-x86_64-poppler
+            mingw-w64-ucrt-x86_64-librsvg
+            mingw-w64-ucrt-x86_64-gdk-pixbuf2
+            mingw-w64-ucrt-x86_64-ffmpeg
+            mingw-w64-ucrt-x86_64-appstream
+            mingw-w64-ucrt-x86_64-adwaita-icon-theme
+            mingw-w64-ucrt-x86_64-hicolor-icon-theme
+            mingw-w64-ucrt-x86_64-shared-mime-info
+            mingw-w64-ucrt-x86_64-desktop-file-utils
+            mingw-w64-ucrt-x86_64-gcc
+
+      - name: Run tests
+        shell: msys2 {0}
+        run: python -m unittest discover -s tests -v
+
+      - name: Build payload
+        shell: msys2 {0}
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: ./scripts/build-windows.sh
+
+      - name: Install Inno Setup
+        shell: pwsh
+        run: |
+          choco install innosetup --no-progress -y
+          $iscc = Join-Path ${env:ProgramFiles(x86)} "Inno Setup 6\ISCC.exe"
+          if (-not (Test-Path $iscc)) {
+            throw "ISCC.exe not found after installing Inno Setup"
+          }
+          "ISCC=$iscc" >> $env:GITHUB_ENV
+
+      - name: Build installer and checksums
+        shell: pwsh
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          & $env:ISCC "/DAppVersion=$env:VERSION" installer\metadatacleaner.iss
+          if ($LASTEXITCODE -ne 0) {
+            throw "ISCC failed with exit code $LASTEXITCODE"
+          }
+
+          $asset = Get-ChildItem dist\installer\*.exe | Select-Object -First 1
+          if (-not $asset) {
+            throw "No installer was produced in dist\installer"
+          }
+          $hash = (Get-FileHash -LiteralPath $asset.FullName -Algorithm SHA256).Hash.ToLower()
+          $line = "$hash  $($asset.Name)"
+          Set-Content -LiteralPath "$($asset.FullName).sha256" -Value $line -Encoding ascii
+          Set-Content -LiteralPath "dist\installer\SHA256SUMS.txt" -Value $line -Encoding ascii
+
+          "ASSET=$($asset.FullName)" >> $env:GITHUB_ENV
+          "ASSET_NAME=$($asset.Name)" >> $env:GITHUB_ENV
+          "ASSET_SHA256=$hash" >> $env:GITHUB_ENV
+
+      - name: Publish the release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: Metadata Cleaner ${{ steps.version.outputs.version }} for Windows
+          prerelease: true
+          generate_release_notes: true
+          body: |
+            Unofficial Windows port of Metadata Cleaner ${{ steps.version.outputs.version }}.
+
+            This build is **unsigned** while the SignPath Foundation application is
+            pending, so Windows SmartScreen may warn on first launch.
+
+            Verify the download before running it:
+
+            ```powershell
+            Get-FileHash .\${{ env.ASSET_NAME }} -Algorithm SHA256
+            ```
+
+            The expected SHA-256 is in `${{ env.ASSET_NAME }}.sha256` and in
+            `SHA256SUMS.txt`.
+          files: |
+            dist/installer/*.exe
+            dist/installer/*.sha256
+            dist/installer/SHA256SUMS.txt
