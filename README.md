@@ -16,9 +16,6 @@
   <a href="https://github.com/rvisas/metadatacleaner-windows/releases">
     <img src="https://img.shields.io/github/v/release/rvisas/metadatacleaner-windows?include_prereleases&amp;style=flat-square&amp;label=release" alt="Release">
   </a>
-  <a href="https://github.com/rvisas/metadatacleaner-windows/releases">
-    <img src="https://img.shields.io/github/downloads/rvisas/metadatacleaner-windows/total?style=flat-square&amp;label=downloads" alt="Downloads">
-  </a>
   <a href="LICENSE">
     <img src="https://img.shields.io/github/license/rvisas/metadatacleaner-windows?style=flat-square" alt="License">
   </a>
@@ -26,8 +23,12 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/rvisas/metadatacleaner-windows/releases"><b>Download the installer</b></a>
-  &nbsp;·&nbsp;
+  <a href="https://github.com/rvisas/metadatacleaner-windows/releases">
+    <img src="https://img.shields.io/badge/Download-Windows%20installer-2ea44f?style=for-the-badge" alt="Download the Windows installer">
+  </a>
+</p>
+
+<p align="center">
   <a href="docs/BUILD.md">Build from source</a>
   &nbsp;·&nbsp;
   <a href="https://github.com/rvisas/metadatacleaner-windows/issues">Report a bug</a>
