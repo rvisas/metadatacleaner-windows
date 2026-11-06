@@ -14,12 +14,31 @@ dist\payload\
   runtime\                 Python, GTK/Poppler DLLs, typelibs, schemas
   share\                   application data, icons, locales
   tools\exiftool\          exiftool.exe and its files
-  tools\ffmpeg\            ffmpeg.exe and its DLLs
+  tools\ffmpeg\            ffmpeg.exe (runtime DLLs come from runtime\bin)
 ```
 
 `MetadataCleaner.exe` is the entry point referenced by the shortcuts and the
 uninstaller. The payload is produced by the build/packaging step; see
 [`../docs/BUILD.md`](../docs/BUILD.md).
+
+## Launcher
+
+`launcher\MetadataCleaner.c` is a small native Win32 launcher with no .NET
+dependency. It sets `PATH`, `GSETTINGS_SCHEMA_DIR`, `XDG_DATA_DIRS`,
+`GI_TYPELIB_PATH` and `GDK_PIXBUF_MODULE_FILE`, then starts
+`runtime\bin\pythonw.exe` with `bin\metadata-cleaner` and forwards any
+command-line arguments. Its working directory is `runtime\`, which is where the
+gdk-pixbuf loader cache paths are rooted.
+
+Build it with MSYS2 UCRT64:
+
+```bash
+cd installer\launcher
+windres MetadataCleaner.rc -O coff -o launcher.o
+gcc -municode -mwindows -static -O2 -s -o ..\..\dist\payload\MetadataCleaner.exe MetadataCleaner.c launcher.o
+```
+
+`windres` embeds `branding\metadatacleaner-windows.ico` into the launcher.
 
 ## Build the installer
 

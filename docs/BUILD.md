@@ -27,7 +27,8 @@ pacman -S --needed meson ninja gettext pkgconf glib2 glib2-devel libxml2 \
   mingw-w64-ucrt-x86_64-adwaita-icon-theme \
   mingw-w64-ucrt-x86_64-hicolor-icon-theme \
   mingw-w64-ucrt-x86_64-shared-mime-info \
-  mingw-w64-ucrt-x86_64-desktop-file-utils
+  mingw-w64-ucrt-x86_64-desktop-file-utils \
+  mingw-w64-ucrt-x86_64-gcc
 ```
 
 `appstream` is needed at build time because `msgfmt` uses its `metainfo.its`
@@ -103,7 +104,44 @@ print(f.state, f.error)
 `GLib.idle_add`, so it stays `0` until the main loop runs; use `f.metadata` to
 inspect the entries in a headless test.
 
-## 6. Known build notes
+## 6. Payload
+
+The installer payload bundles the app prefix and a pruned copy of the UCRT64
+prefix. Start from a working build, then assemble it outside the repository:
+
+```bash
+cp -a /c/mc-ephemeral/app/. /c/mc-ephemeral/payload/
+cp -a /c/mc-ephemeral/msys64/ucrt64 /c/mc-ephemeral/payload/runtime
+cp -a /c/mc-ephemeral/tools/exiftool /c/mc-ephemeral/payload/tools/exiftool
+mkdir -p /c/mc-ephemeral/payload/tools/ffmpeg
+cp /c/mc-ephemeral/payload/runtime/bin/ffmpeg.exe /c/mc-ephemeral/payload/tools/ffmpeg/
+```
+
+Prune development material from `runtime`: `include/`, `lib/*.a`,
+`lib/*.dll.a`, `share/doc`, `share/man`, `share/gtk-doc`, `share/info`,
+`share/locale`, `share/gir-1.0`, the Python `test`/`tkinter`/`idlelib` trees,
+and every `bin/*.exe` except `python.exe`, `pythonw.exe`,
+`gspawn-win64-helper*.exe`, `gdbus.exe` and `gdk-pixbuf-query-loaders.exe`.
+Keep the DLLs, typelibs, schemas, icon themes and gdk-pixbuf loaders.
+
+Merge the application schema into the runtime schema directory, then compile it
+once:
+
+```bash
+cp -f /c/mc-ephemeral/payload/runtime/share/glib-2.0/schemas/*.xml \
+      /c/mc-ephemeral/payload/share/glib-2.0/schemas/
+glib-compile-schemas /c/mc-ephemeral/payload/share/glib-2.0/schemas
+```
+
+The launcher is built last; see
+[`../installer/README.md`](../installer/README.md#launcher). Point
+`dist\payload` at the assembled directory, then compile the installer:
+
+```bat
+iscc installer\metadatacleaner.iss
+```
+
+## 7. Known build notes
 
 - Use one MSYS2 environment consistently: UCRT64. Mixing MINGW64 and UCRT64
   packages produces DLL/typelib mismatches.
