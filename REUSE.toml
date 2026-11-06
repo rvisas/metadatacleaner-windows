@@ -1,0 +1,16 @@
+version = 1
+SPDX-PackageName = "metadata-cleaner"
+SPDX-PackageSupplier = "segfault <segfault@riseup.net>"
+SPDX-PackageDownloadLocation = "https://gitlab.com/metadatacleaner/metadatacleaner"
+
+[[annotations]]
+path = "po/**.po"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Translators"
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = "build-aux/flathub-manifest/**"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Metadata Cleaner contributors and flathub contributors"
+SPDX-License-Identifier = "GPL-3.0-or-later"

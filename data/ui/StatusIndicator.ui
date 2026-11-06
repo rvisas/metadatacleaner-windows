@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<interface>
+  <template class="StatusIndicator" parent="GtkStack">
+    <property name="valign">center</property>
+    <property name="transition-type">crossfade</property>
+    <signal name="notify::file-store" handler="_on_file_store_changed" />
+    <child>
+      <object class="GtkStackPage">
+        <property name="name">buttons</property>
+        <property name="child">
+          <object class="GtkBox">
+            <property name="orientation">horizontal</property>
+            <property name="spacing">6</property>
+            <child>
+              <object class="SettingsButton" />
+            </child>
+            <child>
+              <object class="CleanMetadataButton" />
+            </child>
+          </object>
+        </property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkStackPage">
+        <property name="name">working</property>
+        <property name="child">
+          <object class="GtkBox">
+            <property name="spacing">6</property>
+            <property name="orientation">vertical</property>
+            <child>
+              <object class="GtkProgressBar" id="_progressbar">
+                <property name="hexpand">true</property>
+                <property name="valign">center</property>
+                <property name="text"></property>
+                <property name="show-text">True</property>
+                <property name="ellipsize">middle</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="icon-name">metadatacleaner-cancel-symbolic</property>
+                <!-- translators: button that cancels the cleaning process -->
+                <property name="tooltip-text" translatable="yes">Cancel</property>
+                <property name="halign">center</property>
+                <signal name="clicked" handler="_on_cancel_button_clicked" />
+                <style>
+                  <class name="circular" />
+                  <class name="error" />
+                </style>
+              </object>
+            </child>
+          </object>
+        </property>
+      </object>
+    </child>
+  </template>
+</interface>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<interface>
+  <template class="CleaningWarningDialog" parent="AdwAlertDialog">
+    <!-- translators: title in the dialog that shows up when clicking the main "clean" button -->
+    <property name="heading" translatable="yes">Clean Metadata?</property>
+    <!-- translators: subtitle in the dialog that shows up when clicking the main "clean" button -->
+    <property name="body" translatable="yes">Make sure you backed up your files! This is irreversible.</property>
+    <property name="default-response">clean</property>
+    <property name="close-response">cancel</property>
+    <responses>
+      <!-- translators: button in the dialog that shows up when clicking clean. This cancels the operation. -->
+      <response id="cancel" translatable="yes">_Cancel</response>
+      <!-- translators: button in the dialog that shows up when clicking clean. This proceeds and cleans the files. Do not underline. -->
+      <response id="clean" translatable="yes" appearance="destructive">Clean</response>
+    </responses>
+    <property name="extra-child">
+      <object class="GtkCheckButton" id="_checkbutton">
+        <!-- translators: checkbox in the dialog that shows up when clicking clean. Selecting it will stop showing this dialog and instead clean the metadata instantly -->
+        <property name="label" translatable="yes">Don't ask again</property>
+        <property name="halign">center</property>
+        <signal name="notify::active" handler="_on_settings_changed"/>
+      </object>
+    </property>
+  </template>
+</interface>

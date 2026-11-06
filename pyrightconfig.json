@@ -1,0 +1,8 @@
+{
+    "exclude": [
+        ".cache",
+        ".flatpak-builder",
+        "builddir",
+        "build-dir"
+    ]
+}

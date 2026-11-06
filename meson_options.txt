@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: Metadata Cleaner contributors
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+option (
+  'devel',
+  type: 'boolean',
+  value: false,
+  description: 'Build the app with the development style'
+)

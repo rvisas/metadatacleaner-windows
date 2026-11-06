@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<interface>
+  <template class="CreditsRole" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="spacing">6</property>
+    <child>
+      <object class="GtkLabel">
+        <property name="label" bind-source="CreditsRole" bind-property="role"/>
+        <property name="justify">center</property>
+        <style>
+          <class name="heading"/>
+        </style>
+      </object>
+    </child>
+    <child>
+      <object class="GtkLabel" id="_persons_label">
+        <property name="justify">center</property>
+        <property name="wrap">True</property>
+        <property name="width-chars">30</property>
+        <property name="max-width-chars">30</property>
+        <property name="use-markup">True</property>
+      </object>
+    </child>
+  </template>
+</interface>

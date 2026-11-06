@@ -1,0 +1,6 @@
+# SPDX-FileCopyrightText: Metadata Cleaner contributors
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+[D-BUS Service]
+Name=io.gitlab.metadatacleaner.metadatacleaner
+Exec=@bindir@/metadata-cleaner --gapplication-service

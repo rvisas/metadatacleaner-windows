@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+
+# SPDX-FileCopyrightText: Metadata Cleaner contributors
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+"""Entry script for Metadata Cleaner."""
+
+import gettext
+import locale
+import logging
+import mimetypes
+import os
+import signal
+import sys
+from pathlib import Path
+
+import gi
+
+gi.require_version("Gdk", "4.0")
+gi.require_version("Gtk", "4.0")
+gi.require_version("Adw", "1")
+
+
+APP_ID = "@app_id@"
+DEVEL = "@devel@" == "True"
+VERSION = "@version@"
+
+# Derive the install layout from this script's location so the build can be
+# relocated (needed for the Windows portable build, harmless on Linux).
+_APP_ROOT = Path(__file__).resolve().parent.parent
+LOCALE_DIR = str(_APP_ROOT / "share" / "locale")
+PKGDATA_DIR = str(_APP_ROOT / "share" / "metadata-cleaner")
+
+sys.path.insert(1, PKGDATA_DIR)
+os.unsetenv("GTK_THEME")
+
+
+def setup_i18n() -> None:
+    """Set the text domain for translations."""
+    try:
+        locale.bindtextdomain(APP_ID, LOCALE_DIR)  # type: ignore
+        locale.textdomain(APP_ID)  # type: ignore
+    except AttributeError as e:
+        logging.warning(
+            f"Unable to set the gettext translation domain.\nError:\n{e}"
+        )
+    gettext.bindtextdomain(APP_ID, LOCALE_DIR)
+    gettext.textdomain(APP_ID)
+
+
+def setup_resources() -> None:
+    """Load the application resources."""
+    from gi.repository import Gio
+
+    resource = Gio.Resource.load(
+        str(Path(PKGDATA_DIR) / f"{APP_ID}.gresource")
+    )
+    Gio.Resource._register(resource)
+
+
+def setup_mimetypes() -> None:
+    """Add a mime.types file for the Flatpak runtime."""
+    if Path("/.flatpak-info").exists():
+        mimetypes.init(files=mimetypes.knownfiles + ["/app/share/mime.types"])
+
+
+def run_app() -> int:
+    """Run the application.
+
+    Returns:
+        int: Exit status
+    """
+    from metadatacleaner.app import MetadataCleaner
+
+    app = MetadataCleaner(application_id=APP_ID, devel=DEVEL, version=VERSION)
+    signal.signal(signal.SIGINT, signal.SIG_DFL)
+    return app.run(sys.argv)
+
+
+if __name__ == "__main__":
+    setup_i18n()
+    setup_resources()
+    setup_mimetypes()
+
+    sys.exit(run_app())

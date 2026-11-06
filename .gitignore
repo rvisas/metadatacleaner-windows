@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: Metadata Cleaner contributors
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+.cache
+.idea
+.venv
+.vscode
+.ruff_cache
+.mypy_cache
+po/*~
+
+# Build directories
+build
+builddir
+build-dir
+dist
+.deps
+*.log
+
+# Flatpak temporary files
+.flatpak-builder
+
+# Glade temporary files
+**/*.ui~
+**/*.ui#
+
+# Python cache
+**/__pycache__

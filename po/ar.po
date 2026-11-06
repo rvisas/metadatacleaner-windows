@@ -1,0 +1,624 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.gitlab.metadatacleaner.metadatacleaner package.
+# Ali Aljishi <ahj696@hotmail.com>, 2022, 2023.
+# jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: io.gitlab.metadatacleaner.metadatacleaner\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-28 08:50+0200\n"
+"PO-Revision-Date: 2026-07-08 15:01+0000\n"
+"Last-Translator: jonnysemon <jonnysemon@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/metadata-cleaner/"
+"metadata-cleaner/ar/>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 2026.7.1.dev0\n"
+
+#. Translators: app name
+#. translators: app name
+msgid "Metadata Cleaner"
+msgstr "منظف البيانات الوصفية"
+
+#. Translators: desktop entry comment
+msgid "Clean metadata from your files"
+msgstr "نظف البيانات الوصفية من ملفاتك"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+msgid "Metadata;Remover;Cleaner;"
+msgstr "بيانات وصفية;مزيل;منظف;"
+
+#. translators: keyboard shortcut section title. "General shortcuts"
+#. translators: preferences window tab title, "general settings", unused at the moment
+msgid "General"
+msgstr "عام"
+
+#. translators: keyboard shortcut title. Opens a new window
+msgid "New window"
+msgstr "نافذة جديدة"
+
+#. translators: keyboard shortcut title. Opens the keyboard shortcut dialog
+msgid "Keyboard shortcuts"
+msgstr "اختصارات لوحة المفاتيح"
+
+#. translators: keyboard shortcut title. Closes the currently focused window
+msgid "Close Window"
+msgstr "أغلِق النافذة"
+
+#. translators: keyboard shortcut title. Closes the app completely
+msgid "Quit"
+msgstr "أنهِ"
+
+#. translators: keyboard shortcut section title. File-related shortcuts
+msgid "Files"
+msgstr "الملفات"
+
+#. translators: keyboard shortcut title. Opens the file picker
+msgid "Add Files"
+msgstr "أضف ملفات"
+
+#. translators: keyboard shortcut title. Opens the folder pickers
+msgid "Add Folders"
+msgstr "أضف مجلدات"
+
+#. translators: keyboard shortcut title. Starts the metadata cleaning process
+msgid "Clean Metadata"
+msgstr "نظف البيانات الوصفية"
+
+#. translators: keyboard shortcut title. Removes all files from the queue/file list
+msgid "Remove all files from the list"
+msgstr "أزِل كل الملفات من لائحة"
+
+#. translators: title in the dialog that shows up when clicking the main "clean" button
+msgid "Clean Metadata?"
+msgstr "نظف الملفات؟"
+
+#. translators: subtitle in the dialog that shows up when clicking the main "clean" button
+msgid "Make sure you backed up your files! This is irreversible."
+msgstr "تأكد من أنك نسخت ملفاتك احتياطيًا! هذا الإجراء لا يمكن التراجع عنه."
+
+#. translators: button in the dialog that shows up when clicking clean. This cancels the operation.
+msgid "_Cancel"
+msgstr "_ألغِ"
+
+#. translators: button in the dialog that shows up when clicking clean. This proceeds and cleans the files. Do not underline.
+msgid "Clean"
+msgstr "نظف"
+
+#. translators: checkbox in the dialog that shows up when clicking clean. Selecting it will stop showing this dialog and instead clean the metadata instantly
+msgid "Don't ask again"
+msgstr "لا تسأل مرة أخرى"
+
+#. translators: the main button at the bottom of the file list that cleans the file metadata. "Clean Metadata"
+msgid "_Clean"
+msgstr "_نظف"
+
+#. translators: tooltip text for the prefix button in the file rows. Clicking it will remove the file from the list.
+msgid "Remove File from List"
+msgstr "أزِل الملف من لائحة"
+
+#. translators: headerbar main menu item
+msgid "_New Window"
+msgstr "_نافذة جديدة"
+
+#. translators: headerbar main menu item. This one clears the file list, it will remove all files from the list. Please make sure it's clear that this will NOT delete the files on disk, it will only remove them from the list.
+msgid "_Remove All Files"
+msgstr "أزِل كل الملفات"
+
+#. translators: headerbar main menu item
+msgid "_Keyboard Shortcuts"
+msgstr "_اختصارات لوحة المفاتيح"
+
+#. translators: headerbar main menu item. Metadata Cleaner is the app name.
+msgid "_About Metadata Cleaner"
+msgstr "_حول منظف البيانات الوصفية"
+
+#. translators: tooltip text for the headerbar menu button
+msgid "Main Menu"
+msgstr "القائمة الرئيسة"
+
+#. translators: tooltip text for a button next to the "clean" button. It opens a settings dialog for cleaning-process related settings.
+msgid "Settings"
+msgstr "الإعدادات"
+
+#. translators: cleaning option row title
+msgid "Lightweight Cleaning"
+msgstr "التنظيف الخفيف"
+
+#. translators: cleaning option row subtitle. This describes what "Lightweight cleaning" is. Please be as clear as possible and don't assume the user knows what everything is
+msgid ""
+"By default, the removal process might alter a bit the data of your files, in "
+"order to remove as much metadata as possible. For example, texts in PDF "
+"might not be selectable anymore, compressed images might get compressed "
+"again… The lightweight mode, while not as thorough, will not make "
+"destructive changes to your files."
+msgstr ""
+"افتراضيًا، قد تؤدي عملية الإزالة إلى تغيير بيانات ملفاتك قليلاً، وذلك بهدف حذف "
+"أكبر قدر ممكن من البيانات الوصفية. على سبيل المثال، قد لا تعود النصوص في "
+"ملفات PDF قابلة للتحديد، وقد يتم ضغط الصور المضغوطة مرة أخرى... أما الوضع "
+"الخفيف، رغم أنه ليس شاملاً بنفس القدر، فإنه لن يجري أي تغييرات إتلافية على "
+"ملفاتك."
+
+#. translators: button that cancels the cleaning process
+msgid "Cancel"
+msgstr "ألغِ"
+
+#. translators: headerbar button menu item that opens the file picker
+msgid "Add Files…"
+msgstr "أضف ملفات…"
+
+#. translators: headerbar button menu item that opens the folder picker
+msgid "Add Folders…"
+msgstr "أضف مجلدات…"
+
+#. translators: overlay shown when dragging files above the app
+msgid "Drop files or folders to clean them"
+msgstr "اسقط الملفات أو المجلدات لتنظيفها"
+
+#. translators: headerbar button that opens a menu to pick files or folders and add them to the list aka "Add Files/Folders"
+msgid "Add"
+msgstr "أضف"
+
+#. translators: tooltip text on a headerbar button that toggles the side panel for metadata viewing
+msgid "Toggle Metadata"
+msgstr "بدل البيانات الوصفية"
+
+#. translators: subtitle in the empty view, drop as in drag-n-drop
+msgid "Drop files here to clean them"
+msgstr "اسقط الملفات هنا لتنظيفها"
+
+#. translators: button label that opens the file picker
+msgid "Open _Files…"
+msgstr "افتح _ملفات…"
+
+#. translators: button label that opens the folder picker. Please underline a different character than the one in the Open Files button
+msgid "Open F_olders…"
+msgstr "افتح مجل_دات…"
+
+#. translators: generic error message shown when the cleaning
+#. was unsuccessful but we don't know why
+msgid "An error occurred during the cleaning."
+msgstr "حدث خطأ أثناء التنظيف."
+
+#. translators: error message when a file is no longer
+#. available during cleaning. "Something
+#. bad happened" as in "Something went
+#. wrong"
+msgid "Something bad happened during the cleaning, cleaned file not found"
+msgstr "حصل خطأ أثناء عملية التنظيف، لم يُعثر على الملف المنظف"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Warning"
+msgstr "تحذير"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Error"
+msgstr "خطأ"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Cleaned"
+msgstr "نُظِّف"
+
+#. translators: side panel message when selecting a file that
+#. has been cleaned
+msgid "The File Has Been Cleaned"
+msgstr "نُظف الملف"
+
+#. translators: side panel subtitle when selecting a file
+#. that has been cleaned. The limitations can
+#. be viewed by clicking a button below it
+msgid ""
+"Known metadata have been removed, however the cleaning process has some "
+"limitations."
+msgstr ""
+"أزيلت البيانات الوصفية المعروفة، تنبه لأن عملية التنظيف لها بعض القيود."
+
+#. translators: button that shows more info about the
+#. cleaning process, it's shown below a
+#. label that gives it context
+msgid "Learn more"
+msgstr "تعرف على المزيد"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "Unable to Read the File"
+msgstr "تعذرت قراءة الملف"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "File Type not Supported"
+msgstr "نوع الملف غير مدعوم"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "Unable to Check for Metadata"
+msgstr "تعذر البحث عن البيانات الوصفية"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "No Known Metadata"
+msgstr "لا توجد بيانات وصفية معروفة"
+
+#. translators: error shown on the side panel when
+#. selecting a file
+msgid "Unable to Remove Metadata"
+msgstr "تعذرت إزالة البيانات الوصفية"
+
+#. translators: message shown on the side panel when selecting a
+#. file that doesn't have known metadata
+msgid "The file will be cleaned anyway to be sure."
+msgstr "سيُنظّف الملف على أي حال."
+
+#. translators: message shown on the side panel when no file
+#. has been selected
+msgid "Select a file to view its metadata"
+msgstr "حدّد ملفًا لعرض بياناته الوصفية"
+
+#. translators: progress bar subtitle while loading files
+msgid "Processing file {}/{}"
+msgstr "يُعالج الملف {}/{}"
+
+#. translators: progress bar subtitle while cleaning files
+msgid "Cleaning file {}/{}"
+msgstr "يُنظف الملف {}/{}"
+
+#, python-format
+msgid "%i file cleaned"
+msgid_plural "%i files cleaned"
+msgstr[0] "لا ملفات نظفت"
+msgstr[1] "نُظف ملف"
+msgstr[2] "نُظف ملفان"
+msgstr[3] "نُظف %i ملفات"
+msgstr[4] "نُظف %i ملفًا"
+msgstr[5] "نُظف %i ملف"
+
+#, python-format
+msgid "%i error occurred"
+msgid_plural "%i errors occurred"
+msgstr[0] "لم تحدث أية أخطاء"
+msgstr[1] "حدث خطأ واحد"
+msgstr[2] "حدث خطآن"
+msgstr[3] "حدثت %i أخطاء"
+msgstr[4] "حدثت %i خطأً"
+msgstr[5] "حدث %i خطأ"
+
+#. translators: filter name while picking files
+msgid "All supported files"
+msgstr "جميع الملفات المدعومة"
+
+#. translators: about dialog button that opens weblate
+msgid "Translate"
+msgstr "ترجم"
+
+#. translators: Translate this string as your translator credits.
+#. Name only:    Jane Doe
+#. Name + URL:   Jane Doe https://example.com/
+#. Name + Email: Jane Doe <janedoe@example.com>
+#. Do not remove existing names.
+#. Names are separated with newlines.
+msgid "translator-credits"
+msgstr "Ali Aljishi <ahj696@hotmail.com>"
+
+#. translators: dialog title that has some info about the
+#. cleaning process
+msgid "Info"
+msgstr "معلومات"
+
+#. translators: title for a section about the cleaning process
+msgid "Metadata & Privacy"
+msgstr "بيانات وصفية والخصوصية"
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+msgid ""
+"Metadata consists of information that characterizes data. Metadata is used "
+"to provide documentation for data products. In essence, metadata answers "
+"who, what, when, where, why, and how about every facet of the data that is "
+"being documented.\n"
+"\n"
+"Metadata within a file can tell a lot about you. Cameras record data about "
+"when and where a picture was taken and which camera was used. Office "
+"applications automatically add author and company information to documents "
+"and spreadsheets. This is sensitive information and you may not want to "
+"disclose it."
+msgstr ""
+"تتكون البيانات الوصفية من معلومات تميز البيانات، وتُستخدم لتوفير التوثيق "
+"للمنتجات البيانية. وبشكل أساسي، تجيب البيانات الوصفية على الأسئلة: من وماذا "
+"ومتى وأين ولماذا وكيف، فيما يتعلق بكل جانب من جوانب البيانات التي يتم "
+"توثيقها.\n"
+"\n"
+"يمكن للبيانات الوصفية الموجودة داخل الملف أن تكشف الكثير عنك؛ حيث تسجل "
+"الكاميرات بيانات حول زمان ومكان التقاط الصورة ونوع الكاميرا المستخدمة. كما "
+"تضيف تطبيقات الأوفيس تلقائيًا معلومات المؤلف والشركة إلى المستندات وجداول "
+"البيانات. وتعتبر هذه المعلومات حساسة وقد لا ترغب في الكشف عنها."
+
+#. translators: title for a section about the cleaning process
+msgid "Cleaning Process"
+msgstr "عملية التنظيف"
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+#. "Metadata Cleaner" is the app name. File
+#. formats as in "pdf", "png", "music files"
+#. etc. this section describes the case where
+#. we might not know what a file actually is
+#. and how to clean it.
+msgid ""
+"While Metadata Cleaner is doing its very best to display metadata, it "
+"doesn't mean that a file is clean from metadata if it doesn't show any. "
+"There is no reliable way to detect every single possible metadata for "
+"complex file formats. This is why you shouldn't rely on metadata's presence "
+"to decide if your file must be cleaned or not.\n"
+"\n"
+"Metadata Cleaner takes the content of  the file and puts it into a new one "
+"without metadata, ensuring that any undetected metadata is stripped."
+msgstr ""
+"بينما يبذل Metadata Cleaner قصارى جهده لعرض البيانات الوصفية، فإن عدم ظهور "
+"أي منها لا يعني بالضرورة أن الملف خالٍ تمامًا من هذه البيانات. فلا توجد طريقة "
+"موثوقة للكشف عن كل أنواع البيانات الوصفية المحتملة في تنسيقات الملفات "
+"المعقدة. ولهذا السبب، لا ينبغي أن تعتمد على وجود البيانات الوصفية من عدمه "
+"لتقرر ما إذا كان ملفك يحتاج إلى تنظيف أم لا.\n"
+"\n"
+"يقوم Metadata Cleaner بأخذ محتوى الملف ووضعه في ملف جديد بدون بيانات وصفية، "
+"مما يضمن إزالة أي بيانات وصفية لم يتم اكتشافها."
+
+#. translators: title for a section about the cleaning process
+msgid "Limitations"
+msgstr "قيود"
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as
+#. is `\n`. If the language seems too
+#. advanced, please simplify it while
+#. staying true to the original; don't
+#. assume that the user has any knowledge
+#. on what metadata is. "Metadata Cleaner"
+#. is the app name.
+msgid ""
+"Be aware that metadata is not the only way of marking a file. If the content "
+"itself discloses personal information or has been watermarked, traditionally "
+"or via steganography, Metadata Cleaner will not protect you."
+msgstr ""
+"يُرجى الانتباه إلى أن البيانات الوصفية ليست الطريقة الوحيدة لتمييز الملف. فإذا "
+"كان المحتوى نفسه يكشف عن معلومات شخصية أو كان يتضمن علامة مائية، سواء كانت "
+"تقليدية أو عن طريق إخفاء المعلومات (steganography)، فإن برنامج Metadata "
+"Cleaner لن يحميك."
+
+#~ msgid "View and clean metadata in files"
+#~ msgstr "استعرض ونظف البيانات الوصفية من الملفات"
+
+#~ msgid ""
+#~ "Metadata within a file can tell a lot about you. Cameras record data "
+#~ "about when and where a picture was taken and which camera was used. "
+#~ "Office applications automatically add author and company information to "
+#~ "documents and spreadsheets. This is sensitive information and you may not "
+#~ "want to disclose it."
+#~ msgstr ""
+#~ "يمكن للبيانات الوصفية داخل الملف أن تبدي معلومات كثيرة عنك، فترى "
+#~ "الكاميرات تحفظ معلومات عن أين ومتى صُوِّرت الصورة وأي كاميرا اُستخدمت، وترى "
+#~ "تطبيقات الحزم المكتبية تضيف معلومات المؤلف والشركة إلى المستندات وجداول "
+#~ "البيانات. هذه بيانات حساسة وقد لا تريد مشاركتها."
+
+#~ msgid ""
+#~ "This tool allows you to view metadata in your files and to get rid of it, "
+#~ "as much as possible."
+#~ msgstr ""
+#~ "تتيح لك هذه الأداة أن تستعرض بيانات التعريف المسجلة في ملفاتك والتخلص "
+#~ "منها قدر الإمكان."
+
+#~ msgid "Add files"
+#~ msgstr "أضف ملفات"
+
+#~ msgid "Add folders"
+#~ msgstr "أضف مجلدات"
+
+#~ msgid "Clean metadata"
+#~ msgstr "نظف البيانات الوصفية"
+
+#~ msgid "Clear all files from window"
+#~ msgstr "امسح كل الملفات من النافذة"
+
+#~ msgid "Close window"
+#~ msgstr "أغلق النافذة"
+
+#~ msgid "Help"
+#~ msgstr "المساعدة"
+
+#~ msgid "_Add Files"
+#~ msgstr "_أضف ملفات"
+
+#~ msgid "Add _Folders"
+#~ msgstr "أضف _مجلدات"
+
+#~ msgid "Make sure you backed up your files!"
+#~ msgstr "تأكد من أنك نسخت ملفاتك احتياطيًّا!"
+
+#~ msgid "Once the files are cleaned, there's no going back."
+#~ msgstr "لا يمكن التراجع عن إزالة البيانات الوصفية من الملفات."
+
+#~ msgid "Don't tell me again"
+#~ msgstr "لا تخبرني مرة أخرى"
+
+#~ msgid "Clean Your Traces"
+#~ msgstr "نظف آثارك"
+
+#~ msgid "Learn more about metadata and the cleaning process limitations"
+#~ msgstr "تعرف على المزيد حول البيانات الوصفية وقيود عملية الإزالة"
+
+#~ msgid "Remove file from list"
+#~ msgstr "ازل ملفاً من القائمة"
+
+#~ msgid "_Clear Window"
+#~ msgstr "_محو النافذة"
+
+#~ msgid "_Help"
+#~ msgstr "_المساعدة"
+
+#~ msgid "Cleaning settings"
+#~ msgstr "إعدادات التنظيف"
+
+#~ msgid "Learn more about the lightweight cleaning"
+#~ msgstr "تعرف على المزيد حول التنظيف الخفيف"
+
+#~ msgid "Details"
+#~ msgstr "التفاصيل"
+
+#~ msgid "Close"
+#~ msgstr "أغلق"
+
+#~ msgid "Choose files to clean"
+#~ msgstr "اختر الملفات التي تريد تنظيفها"
+
+#~ msgid "Choose folders to clean"
+#~ msgstr "اختر المجلدات التي تريد تنظيفها"
+
+#~ msgid "An error occured during the cleaning."
+#~ msgstr "حدث خطأ أثناء التنظيف."
+
+#~ msgid "Add files from subfolders"
+#~ msgstr "أضف ملفات من مجلدات فرعية"
+
+#, python-format
+#~ msgid "%i file cleaned."
+#~ msgid_plural "%i files cleaned."
+#~ msgstr[0] "لم يُنظَّف أيُّ ملفٍّ."
+#~ msgstr[1] "نُظِّف ملفٌّ واحد."
+#~ msgstr[2] "نُظِّف ملفَّان."
+#~ msgstr[3] "نُظِّفت %i ملفَّات."
+#~ msgstr[4] "نُظِّف %i ملفًّا."
+#~ msgstr[5] "نُظِّف %i ملفٍّ."
+
+#, python-format
+#~ msgid "%i error occured."
+#~ msgid_plural "%i errors occured."
+#~ msgstr[0] "لم يحصل أيُّ خطأ."
+#~ msgstr[1] "حصل خطأ واحد."
+#~ msgstr[2] "حصل خطآن."
+#~ msgstr[3] "حصلت %i أخطاء."
+#~ msgstr[4] "حصل %i خطأً."
+#~ msgstr[5] "حصل %i خطأ."
+
+#~ msgid "Libraries"
+#~ msgstr "المكتبات"
+
+#~ msgid "Clean without warning"
+#~ msgstr "نظف بلا تحذير"
+
+#~ msgid "Clean the files without showing the warning dialog"
+#~ msgstr "نظف البيانات الوصفية من الملفات بدون إظهار صندوق حوار التحذير"
+
+#~ msgid "Lightweight cleaning"
+#~ msgstr "الإزالة الخفيفة"
+
+#~ msgid "Don't make destructive changes to files but may leave some metadata"
+#~ msgstr "لا تقم بتغييرات قد تدمر الملف، قد يترك هذا بعض البيانات الوصفية"
+
+#~ msgid "Window width"
+#~ msgstr "عرض النافذة"
+
+#~ msgid "Saved width of the window"
+#~ msgstr "حُفظ عرض النافذة"
+
+#~ msgid "Window height"
+#~ msgstr "ارتفاع النافذة"
+
+#~ msgid "Saved height of the window"
+#~ msgstr "حُفظ ارتفاع النافذة"
+
+#~ msgid "Updated translations"
+#~ msgstr "الترجمات محدثة"
+
+#~ msgid "Improved user interface"
+#~ msgstr "حُسنت واجهة المستخدم"
+
+#~ msgid "New translations"
+#~ msgstr "ترجمات جديدة"
+
+#~ msgid "Bug fixes"
+#~ msgstr "إصلاحات أخطاء"
+
+#~ msgid "New button to add folders"
+#~ msgstr "زر جديد لإضافة المجلدات"
+
+#~ msgid "Improved adaptive user interface"
+#~ msgstr "حُسنت واجهة المستخدم التفاعلية"
+
+#~ msgid "New help pages"
+#~ msgstr "صفحات مساعدة جديدة"
+
+#~ msgid "One-click cleaning, no need to save after cleaning"
+#~ msgstr "إزالة بزر واحد، لا حاجة للحفظ بعد الإزالة"
+
+#~ msgid "Persistent lightweight cleaning option"
+#~ msgstr "خيار التنظيف الخفيف المستمر"
+
+#~ msgid "Files with uppercase extension can now be added"
+#~ msgstr "يمكن الآن إضافة الملفات ذات الامتدادات كبيرة الحروف"
+
+#~ msgid "About"
+#~ msgstr "حول"
+
+#~ msgid "Chat on Matrix"
+#~ msgstr "دردش في ماتركس"
+
+#~ msgid "View the code on GitLab"
+#~ msgstr "استعرض الكود في GitLab"
+
+#~ msgid "Translate on Weblate"
+#~ msgstr "ترجم في Weblate"
+
+#~ msgid "Support us on Liberapay"
+#~ msgstr "ادعمنا عن طريق Liberapay"
+
+#~ msgid "Credits"
+#~ msgstr "الإشادات"
+
+#~ msgid "Code"
+#~ msgstr "الكود"
+
+#~ msgid "Artwork"
+#~ msgstr "العمل الفني"
+
+#~ msgid "Documentation"
+#~ msgstr "التوثيق"
+
+#~ msgid "Translation"
+#~ msgstr "الترجمة"
+
+#~ msgid ""
+#~ "This program uses <a href=\"https://github.com/jvoisin/mat2\">mat2</a> to "
+#~ "parse and clean the metadata. Show them some love!"
+#~ msgstr ""
+#~ "يستعمل هذا البرنامج <a href=\"https://github.com/jvoisin/mat2\">mat2</a> "
+#~ "للتحليل وإزالة البيانات الوصفية. أظهر بعض الحب لهم!"
+
+#~ msgid ""
+#~ "The source code of this program is released under the terms of the <a "
+#~ "href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL 3.0 or later</"
+#~ "a>. The original artwork and translations are released under the terms of "
+#~ "the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA "
+#~ "4.0</a>."
+#~ msgstr ""
+#~ "ينشر الكود المصدري هذه البرنامج بموجب شروط <a href=\"https://www.gnu.org/"
+#~ "licenses/gpl-3.0.html\"> قنو جي.بي.إل 3.0 أو أحدث</a>. تٌنشر الأعمال "
+#~ "الفنية الأصلية والترجمات بموجب شروط <a href=\"https://creativecommons.org/"
+#~ "licenses/by-sa/4.0/\">CC BY-SA 4.0</a>."
+
+#~ msgid "Adding files…"
+#~ msgstr "تتم إضافة الملفات…"

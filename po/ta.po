@@ -1,0 +1,586 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.gitlab.metadatacleaner.metadatacleaner package.
+# K.B.Dharun Krishna <kbdharunkrishna@gmail.com>, 2022, 2023.
+# "K.B.Dharun Krishna" <kbdharunkrishna@gmail.com>, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: io.gitlab.metadatacleaner.metadatacleaner\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-28 08:50+0200\n"
+"PO-Revision-Date: 2023-08-31 17:53+0000\n"
+"Last-Translator: \"K.B.Dharun Krishna\" <kbdharunkrishna@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/metadata-cleaner/"
+"application/ta/>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.0.1-dev\n"
+
+#. Translators: app name
+#. translators: app name
+msgid "Metadata Cleaner"
+msgstr "மெட்டாடேட்டா கிளீனர்"
+
+#. Translators: desktop entry comment
+msgid "Clean metadata from your files"
+msgstr "உங்கள் கோப்புகளிலிருந்து மெட்டாடேட்டாவை சுத்தம் செய்யவும்"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+msgid "Metadata;Remover;Cleaner;"
+msgstr "மெட்டாடேட்டா;நீக்குபவர்;துப்புரவாளர்;"
+
+#. translators: keyboard shortcut section title. "General shortcuts"
+#. translators: preferences window tab title, "general settings", unused at the moment
+msgid "General"
+msgstr "பொது"
+
+#. translators: keyboard shortcut title. Opens a new window
+msgid "New window"
+msgstr "புதிய சாளரம்"
+
+#. translators: keyboard shortcut title. Opens the keyboard shortcut dialog
+msgid "Keyboard shortcuts"
+msgstr "விசைப்பலகை குறுக்குவழிகள்"
+
+#. translators: keyboard shortcut title. Closes the currently focused window
+msgid "Close Window"
+msgstr ""
+
+#. translators: keyboard shortcut title. Closes the app completely
+msgid "Quit"
+msgstr "வெளியேறு"
+
+#. translators: keyboard shortcut section title. File-related shortcuts
+msgid "Files"
+msgstr "கோப்புகள்"
+
+#. translators: keyboard shortcut title. Opens the file picker
+msgid "Add Files"
+msgstr ""
+
+#. translators: keyboard shortcut title. Opens the folder pickers
+msgid "Add Folders"
+msgstr ""
+
+#. translators: keyboard shortcut title. Starts the metadata cleaning process
+msgid "Clean Metadata"
+msgstr ""
+
+#. translators: keyboard shortcut title. Removes all files from the queue/file list
+msgid "Remove all files from the list"
+msgstr ""
+
+#. translators: title in the dialog that shows up when clicking the main "clean" button
+msgid "Clean Metadata?"
+msgstr ""
+
+#. translators: subtitle in the dialog that shows up when clicking the main "clean" button
+msgid "Make sure you backed up your files! This is irreversible."
+msgstr ""
+
+#. translators: button in the dialog that shows up when clicking clean. This cancels the operation.
+msgid "_Cancel"
+msgstr ""
+
+#. translators: button in the dialog that shows up when clicking clean. This proceeds and cleans the files. Do not underline.
+msgid "Clean"
+msgstr "சுத்தம் செய்"
+
+#. translators: checkbox in the dialog that shows up when clicking clean. Selecting it will stop showing this dialog and instead clean the metadata instantly
+msgid "Don't ask again"
+msgstr ""
+
+#. translators: the main button at the bottom of the file list that cleans the file metadata. "Clean Metadata"
+msgid "_Clean"
+msgstr "_சுத்தம்"
+
+#. translators: tooltip text for the prefix button in the file rows. Clicking it will remove the file from the list.
+msgid "Remove File from List"
+msgstr ""
+
+#. translators: headerbar main menu item
+msgid "_New Window"
+msgstr "_புதிய சாளரம்"
+
+#. translators: headerbar main menu item. This one clears the file list, it will remove all files from the list. Please make sure it's clear that this will NOT delete the files on disk, it will only remove them from the list.
+msgid "_Remove All Files"
+msgstr ""
+
+#. translators: headerbar main menu item
+msgid "_Keyboard Shortcuts"
+msgstr "_விசைப்பலகை குறுக்குவழிகள்"
+
+#. translators: headerbar main menu item. Metadata Cleaner is the app name.
+msgid "_About Metadata Cleaner"
+msgstr "_மெட்டாடேட்டா கிளீனர் பற்றி"
+
+#. translators: tooltip text for the headerbar menu button
+msgid "Main Menu"
+msgstr "முதன்மை பட்டியல்"
+
+#. translators: tooltip text for a button next to the "clean" button. It opens a settings dialog for cleaning-process related settings.
+msgid "Settings"
+msgstr ""
+
+#. translators: cleaning option row title
+msgid "Lightweight Cleaning"
+msgstr "இலகுரக சுத்தம்"
+
+#. translators: cleaning option row subtitle. This describes what "Lightweight cleaning" is. Please be as clear as possible and don't assume the user knows what everything is
+msgid ""
+"By default, the removal process might alter a bit the data of your files, in "
+"order to remove as much metadata as possible. For example, texts in PDF "
+"might not be selectable anymore, compressed images might get compressed "
+"again… The lightweight mode, while not as thorough, will not make "
+"destructive changes to your files."
+msgstr ""
+
+#. translators: button that cancels the cleaning process
+msgid "Cancel"
+msgstr "ரத்துசெய்"
+
+#. translators: headerbar button menu item that opens the file picker
+msgid "Add Files…"
+msgstr ""
+
+#. translators: headerbar button menu item that opens the folder picker
+msgid "Add Folders…"
+msgstr ""
+
+#. translators: overlay shown when dragging files above the app
+msgid "Drop files or folders to clean them"
+msgstr ""
+
+#. translators: headerbar button that opens a menu to pick files or folders and add them to the list aka "Add Files/Folders"
+msgid "Add"
+msgstr ""
+
+#. translators: tooltip text on a headerbar button that toggles the side panel for metadata viewing
+msgid "Toggle Metadata"
+msgstr ""
+
+#. translators: subtitle in the empty view, drop as in drag-n-drop
+msgid "Drop files here to clean them"
+msgstr ""
+
+#. translators: button label that opens the file picker
+msgid "Open _Files…"
+msgstr ""
+
+#. translators: button label that opens the folder picker. Please underline a different character than the one in the Open Files button
+msgid "Open F_olders…"
+msgstr ""
+
+#. translators: generic error message shown when the cleaning
+#. was unsuccessful but we don't know why
+msgid "An error occurred during the cleaning."
+msgstr ""
+
+#. translators: error message when a file is no longer
+#. available during cleaning. "Something
+#. bad happened" as in "Something went
+#. wrong"
+msgid "Something bad happened during the cleaning, cleaned file not found"
+msgstr "சுத்தம் செய்யும் போது ஏதோ தவறு நடந்தது, சுத்தம் செய்யப்பட்ட கோப்பு கிடைக்கவில்லை"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Warning"
+msgstr "எச்சரிக்கை"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Error"
+msgstr "பிழை"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Cleaned"
+msgstr "சுத்தம் செய்யப்பட்டது"
+
+#. translators: side panel message when selecting a file that
+#. has been cleaned
+msgid "The File Has Been Cleaned"
+msgstr "கோப்பு சுத்தம் செய்யப்பட்டுள்ளது"
+
+#. translators: side panel subtitle when selecting a file
+#. that has been cleaned. The limitations can
+#. be viewed by clicking a button below it
+msgid ""
+"Known metadata have been removed, however the cleaning process has some "
+"limitations."
+msgstr ""
+"அறியப்பட்ட மெட்டாடேட்டா அகற்றப்பட்டது, இருப்பினும் சுத்தம் செய்யும் செயல்முறைக்கு சில "
+"வரம்புகள் உள்ளன."
+
+#. translators: button that shows more info about the
+#. cleaning process, it's shown below a
+#. label that gives it context
+msgid "Learn more"
+msgstr "மேலும் அறிக"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "Unable to Read the File"
+msgstr "கோப்பைப் படிக்க முடியவில்லை"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "File Type not Supported"
+msgstr "கோப்பு வகை ஆதரிக்கப்படவில்லை"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "Unable to Check for Metadata"
+msgstr "மெட்டாடேட்டாவைச் சரிபார்க்க முடியவில்லை"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "No Known Metadata"
+msgstr "அறியப்பட்ட மெட்டாடேட்டா இல்லை"
+
+#. translators: error shown on the side panel when
+#. selecting a file
+msgid "Unable to Remove Metadata"
+msgstr "மெட்டாடேட்டாவை அகற்ற முடியவில்லை"
+
+#. translators: message shown on the side panel when selecting a
+#. file that doesn't have known metadata
+msgid "The file will be cleaned anyway to be sure."
+msgstr "உறுதியாக இருக்க கோப்பு எப்படியும் சுத்தம் செய்யப்படும்."
+
+#. translators: message shown on the side panel when no file
+#. has been selected
+msgid "Select a file to view its metadata"
+msgstr ""
+
+#. translators: progress bar subtitle while loading files
+msgid "Processing file {}/{}"
+msgstr "{}/{} கோப்பைச் செயலாக்குகிறது"
+
+#. translators: progress bar subtitle while cleaning files
+msgid "Cleaning file {}/{}"
+msgstr "கோப்பை சுத்தம் செய்கிறது {}/{}"
+
+#, python-format
+msgid "%i file cleaned"
+msgid_plural "%i files cleaned"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid "%i error occurred"
+msgid_plural "%i errors occurred"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: filter name while picking files
+msgid "All supported files"
+msgstr "அனைத்து ஆதரிக்கப்படும் கோப்புகள்"
+
+#. translators: about dialog button that opens weblate
+msgid "Translate"
+msgstr ""
+
+#. translators: Translate this string as your translator credits.
+#. Name only:    Jane Doe
+#. Name + URL:   Jane Doe https://example.com/
+#. Name + Email: Jane Doe <janedoe@example.com>
+#. Do not remove existing names.
+#. Names are separated with newlines.
+msgid "translator-credits"
+msgstr "K.B.Dharun Krishna <kbdharunkrishna@gmail.com>"
+
+#. translators: dialog title that has some info about the
+#. cleaning process
+msgid "Info"
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+msgid "Metadata & Privacy"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+msgid ""
+"Metadata consists of information that characterizes data. Metadata is used "
+"to provide documentation for data products. In essence, metadata answers "
+"who, what, when, where, why, and how about every facet of the data that is "
+"being documented.\n"
+"\n"
+"Metadata within a file can tell a lot about you. Cameras record data about "
+"when and where a picture was taken and which camera was used. Office "
+"applications automatically add author and company information to documents "
+"and spreadsheets. This is sensitive information and you may not want to "
+"disclose it."
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+msgid "Cleaning Process"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+#. "Metadata Cleaner" is the app name. File
+#. formats as in "pdf", "png", "music files"
+#. etc. this section describes the case where
+#. we might not know what a file actually is
+#. and how to clean it.
+msgid ""
+"While Metadata Cleaner is doing its very best to display metadata, it "
+"doesn't mean that a file is clean from metadata if it doesn't show any. "
+"There is no reliable way to detect every single possible metadata for "
+"complex file formats. This is why you shouldn't rely on metadata's presence "
+"to decide if your file must be cleaned or not.\n"
+"\n"
+"Metadata Cleaner takes the content of  the file and puts it into a new one "
+"without metadata, ensuring that any undetected metadata is stripped."
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+msgid "Limitations"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as
+#. is `\n`. If the language seems too
+#. advanced, please simplify it while
+#. staying true to the original; don't
+#. assume that the user has any knowledge
+#. on what metadata is. "Metadata Cleaner"
+#. is the app name.
+msgid ""
+"Be aware that metadata is not the only way of marking a file. If the content "
+"itself discloses personal information or has been watermarked, traditionally "
+"or via steganography, Metadata Cleaner will not protect you."
+msgstr ""
+
+#~ msgid "View and clean metadata in files"
+#~ msgstr "கோப்புகளில் உள்ள மெட்டாடேட்டாவைப் பார்த்து சுத்தம் செய்யவும்"
+
+#~ msgid ""
+#~ "Metadata within a file can tell a lot about you. Cameras record data "
+#~ "about when and where a picture was taken and which camera was used. "
+#~ "Office applications automatically add author and company information to "
+#~ "documents and spreadsheets. This is sensitive information and you may not "
+#~ "want to disclose it."
+#~ msgstr ""
+#~ "ஒரு கோப்பில் உள்ள மெட்டாடேட்டா உங்களைப் பற்றி நிறைய சொல்ல முடியும். ஒரு படம் எப்போது, "
+#~ "எங்கு எடுக்கப்பட்டது, எந்த கேமரா பயன்படுத்தப்பட்டது என்பது பற்றிய தரவை கேமராக்கள் "
+#~ "பதிவு செய்கின்றன. அலுவலக பயன்பாடுகள் தானாக ஆசிரியர் மற்றும் நிறுவனத்தின் தகவல்களை "
+#~ "ஆவணங்கள் மற்றும் விரிதாள்களில் சேர்க்கும். இது முக்கியமான தகவல் மற்றும் நீங்கள் அதை "
+#~ "வெளியிட விரும்பாமல் இருக்கலாம்."
+
+#~ msgid ""
+#~ "This tool allows you to view metadata in your files and to get rid of it, "
+#~ "as much as possible."
+#~ msgstr ""
+#~ "இந்தக் கருவி உங்கள் கோப்புகளில் உள்ள மெட்டாடேட்டாவைப் பார்க்கவும்,முடிந்தவரை அதிலிருந்து "
+#~ "விடுபடவும் உங்களை அனுமதிக்கிறது."
+
+#~ msgid "Add files"
+#~ msgstr "கோப்புகளைச் சேர்க்கவும்"
+
+#~ msgid "Add folders"
+#~ msgstr "கோப்புறைகளைச் சேர்க்கவும்"
+
+#~ msgid "Clean metadata"
+#~ msgstr "மெட்டாடேட்டாவை சுத்தம் செய்யுங்கள்"
+
+#~ msgid "Clear all files from window"
+#~ msgstr "சாளரத்திலிருந்து எல்லா கோப்புகளையும் அழிக்கவும்"
+
+#~ msgid "Close window"
+#~ msgstr "சாளரத்தை மூடு"
+
+#~ msgid "Help"
+#~ msgstr "உதவி"
+
+#~ msgid "_Add Files"
+#~ msgstr "_கோப்புகளைச் சேர்க்கவும்"
+
+#~ msgid "Add _Folders"
+#~ msgstr "கோப்புறைகளைச்_சேர்க்கவும்"
+
+#~ msgid "Make sure you backed up your files!"
+#~ msgstr "உங்கள் கோப்புகளை காப்புப் பிரதி எடுத்திருப்பதை உறுதிசெய்யவும்!"
+
+#~ msgid "Once the files are cleaned, there's no going back."
+#~ msgstr "கோப்புகளை சுத்தம் செய்தவுடன், திரும்பப் போவதில்லை."
+
+#~ msgid "Don't tell me again"
+#~ msgstr "மீண்டும் என்னிடம் சொல்லாதே"
+
+#~ msgid "Clean Your Traces"
+#~ msgstr "உங்கள் தடயங்களை சுத்தம் செய்யவும்"
+
+#~ msgid "Learn more about metadata and the cleaning process limitations"
+#~ msgstr "மெட்டாடேட்டா மற்றும் சுத்தம் செய்யும் செயல்முறை வரம்புகள் பற்றி மேலும் அறிக"
+
+#~ msgid "Remove file from list"
+#~ msgstr "பட்டியலிலிருந்து கோப்பை அகற்று"
+
+#~ msgid "_Clear Window"
+#~ msgstr "_சாளரத்தை அழிக்கவும்"
+
+#~ msgid "_Help"
+#~ msgstr "_உதவி"
+
+#~ msgid "Cleaning settings"
+#~ msgstr "சுத்தம் செய்யும் அமைப்புகள்"
+
+#~ msgid "Learn more about the lightweight cleaning"
+#~ msgstr "இலகுரக சுத்தம் செய்வது பற்றி மேலும் அறிக"
+
+#~ msgid "Details"
+#~ msgstr "விவரங்கள்"
+
+#~ msgid "Close"
+#~ msgstr "மூடுங்கள்"
+
+#~ msgid "Choose files to clean"
+#~ msgstr "சுத்தம் செய்ய கோப்புகளைத் தேர்ந்தெடுக்கவும்"
+
+#~ msgid "Choose folders to clean"
+#~ msgstr "சுத்தம் செய்ய கோப்புறைகளைத் தேர்ந்தெடுக்கவும்"
+
+#~ msgid "An error occured during the cleaning."
+#~ msgstr "சுத்தம் செய்யும் போது ஒரு பிழை ஏற்பட்டது."
+
+#~ msgid "Add files from subfolders"
+#~ msgstr "துணை கோப்புறைகளிலிருந்து கோப்புகளைச் சேர்க்கவும்"
+
+#, python-format
+#~ msgid "%i file cleaned."
+#~ msgid_plural "%i files cleaned."
+#~ msgstr[0] "%i கோப்பு சுத்தம் செய்யப்பட்டது."
+#~ msgstr[1] "%i கோப்புகள் சுத்தம் செய்யப்பட்டன."
+
+#, python-format
+#~ msgid "%i error occured."
+#~ msgid_plural "%i errors occured."
+#~ msgstr[0] "%i பிழை ஏற்பட்டது."
+#~ msgstr[1] "%i பிழைகள் ஏற்பட்டன."
+
+#~ msgid "Libraries"
+#~ msgstr "நூலகங்கள்"
+
+#~ msgid "Clean without warning"
+#~ msgstr "எச்சரிக்கை இல்லாமல் சுத்தம் செய்யுங்கள்"
+
+#~ msgid "Clean the files without showing the warning dialog"
+#~ msgstr "எச்சரிக்கை உரையாடலைக் காட்டாமல் கோப்புகளை சுத்தம் செய்யவும்"
+
+#~ msgid "Lightweight cleaning"
+#~ msgstr "இலகுரக சுத்தப்படுத்துதல்"
+
+#~ msgid "Don't make destructive changes to files but may leave some metadata"
+#~ msgstr ""
+#~ "கோப்புகளில் அழிவுகரமான மாற்றங்களைச் செய்ய வேண்டாம், ஆனால் சில மெட்டாடேட்டாவை "
+#~ "விட்டுவிடலாம்"
+
+#~ msgid "Window width"
+#~ msgstr "சாளர அகலம்"
+
+#~ msgid "Saved width of the window"
+#~ msgstr "சாளரத்தின் சேமிக்கப்பட்ட அகலம்"
+
+#~ msgid "Window height"
+#~ msgstr "சாளரத்தின் உயரம்"
+
+#~ msgid "Saved height of the window"
+#~ msgstr "சாளரத்தின் சேமிக்கப்பட்ட உயரம்"
+
+#~ msgid "Updated translations"
+#~ msgstr "புதுப்பிக்கப்பட்ட மொழிபெயர்ப்புகள்"
+
+#~ msgid "Improved user interface"
+#~ msgstr "மேம்படுத்தப்பட்ட பயனர் இடைமுகம்"
+
+#~ msgid "New translations"
+#~ msgstr "புதிய மொழிபெயர்ப்புகள்"
+
+#~ msgid "Bug fixes"
+#~ msgstr "பிழை திருத்தங்கள்"
+
+#~ msgid "New button to add folders"
+#~ msgstr "கோப்புறைகளைச் சேர்க்க புதிய பொத்தான்"
+
+#~ msgid "Improved adaptive user interface"
+#~ msgstr "மேம்படுத்தப்பட்ட தகவமைப்பு பயனர் இடைமுகம்"
+
+#~ msgid "New help pages"
+#~ msgstr "புதிய உதவி பக்கங்கள்"
+
+#~ msgid "One-click cleaning, no need to save after cleaning"
+#~ msgstr "ஒரே கிளிக்கில் சுத்தம் செய்தல், சுத்தம் செய்த பிறகு சேமிக்க வேண்டிய அவசியமில்லை"
+
+#~ msgid "Persistent lightweight cleaning option"
+#~ msgstr "தொடர்ந்து இலகுரக சுத்தம் செய்யும் விருப்பம்"
+
+#~ msgid "Files with uppercase extension can now be added"
+#~ msgstr "பெரிய எழுத்து நீட்டிப்பு கொண்ட கோப்புகளை இப்போது சேர்க்கலாம்"
+
+#~ msgid "About"
+#~ msgstr "பற்றி"
+
+#~ msgid "Chat on Matrix"
+#~ msgstr "மேட்ரிக்ஸில் பேசுங்கள்"
+
+#~ msgid "View the code on GitLab"
+#~ msgstr "GitLab இல் குறியீட்டைக் காண்க"
+
+#~ msgid "Translate on Weblate"
+#~ msgstr "வெப்லேட்டில் மொழிபெயர்க்கவும்"
+
+#~ msgid "Support us on Liberapay"
+#~ msgstr "Liberapay இல் எங்களை ஆதரிக்கவும்"
+
+#~ msgid "Credits"
+#~ msgstr "வரவுகள்"
+
+#~ msgid "Code"
+#~ msgstr "குறியீடு"
+
+#~ msgid "Artwork"
+#~ msgstr "கலைப்படைப்பு"
+
+#~ msgid "Documentation"
+#~ msgstr "ஆவணப்படுத்தல்"
+
+#~ msgid "Translation"
+#~ msgstr "மொழிபெயர்ப்பு"
+
+#~ msgid ""
+#~ "This program uses <a href=\"https://github.com/jvoisin/mat2\">mat2</a> to "
+#~ "parse and clean the metadata. Show them some love!"
+#~ msgstr ""
+#~ "இந்த நிரல் மெட்டாடேட்டாவை அலசவும் சுத்தம் செய்யவும் <a href=\"https://github.com/"
+#~ "jvoisin/mat2\">mat2</a> ஐப் பயன்படுத்துகிறது. அவர்களுக்கு கொஞ்சம் அன்பைக் காட்டுங்கள்!"
+
+#~ msgid ""
+#~ "The source code of this program is released under the terms of the <a "
+#~ "href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL 3.0 or later</"
+#~ "a>. The original artwork and translations are released under the terms of "
+#~ "the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA "
+#~ "4.0</a>."
+#~ msgstr ""
+#~ "இந்த நிரலின் மூலக் குறியீடு <a href=\"https://www.gnu.org/licenses/"
+#~ "gpl-3.0.html\">GNU GPL 3.0 அல்லது அதற்குப் பிறகு</a> விதிமுறைகளின் கீழ் "
+#~ "வெளியிடப்பட்டது. அசல் கலைப்படைப்பு மற்றும் மொழிபெயர்ப்புகள் <a href=\"https://"
+#~ "creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a> விதிமுறைகளின் "
+#~ "கீழ் வெளியிடப்பட்டது."
+
+#~ msgid "Adding files…"
+#~ msgstr "கோப்புகளைச் சேர்க்கிறது…"

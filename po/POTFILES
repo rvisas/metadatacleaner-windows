@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: Metadata Cleaner contributors
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+./builddir/data/io.gitlab.metadatacleaner.metadatacleaner.desktop.in
+./data/io.gitlab.metadatacleaner.metadatacleaner.desktop.in
+./data/io.gitlab.metadatacleaner.metadatacleaner.service.in
+./src/metadata-cleaner.in
+
+./data/gtk/shortcuts-dialog.ui
+./data/ui/CleaningWarningDialog.ui
+./data/ui/CleanMetadataButton.ui
+./data/ui/FileRow.ui
+./data/ui/MenuButton.ui
+./data/ui/SettingsButton.ui
+./data/ui/StatusIndicator.ui
+./data/ui/Window.ui
+
+./src/app.py
+./src/modules/file.py
+./src/ui/badge.py
+./src/ui/detailsview.py
+./src/ui/statusindicator.py
+./src/ui/window.py

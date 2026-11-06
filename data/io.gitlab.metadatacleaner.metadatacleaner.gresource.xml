@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<gresources>
+	<gresource prefix="/io/gitlab/metadatacleaner/metadatacleaner">
+		<file alias="style.css">style.css</file>
+		<file preprocess="xml-stripblanks" alias="shortcuts-dialog.ui">gtk/shortcuts-dialog.ui</file>
+		<file preprocess="xml-stripblanks" alias="icons/metadatacleaner-illustration.svg">icons/illustration.svg</file>
+		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-about-symbolic.svg">icons/about-symbolic.svg</file>
+		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-plus-symbolic.svg">icons/plus-symbolic.svg</file>
+		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-cancel-symbolic.svg">icons/cancel-symbolic.svg</file>
+		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-credits-symbolic.svg">icons/credits-symbolic.svg</file>
+		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-go-next-symbolic.svg">icons/go-next-symbolic.svg</file>
+		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-go-next-symbolic-rtl.svg">icons/go-next-symbolic-rtl.svg</file>
+		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-remove-symbolic.svg">icons/remove-symbolic.svg</file>
+		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-settings-symbolic.svg">icons/settings-symbolic.svg</file>
+		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-sidebar-show-right-symbolic.svg">icons/sidebar-show-right-symbolic.svg</file>
+		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-sidebar-show-right-symbolic-rtl.svg">icons/sidebar-show-right-symbolic-rtl.svg</file>
+		<file preprocess="xml-stripblanks" alias="icons/scalable/status/metadatacleaner-ok-symbolic.svg">icons/ok-symbolic.svg</file>
+		<file preprocess="xml-stripblanks" alias="icons/scalable/status/metadatacleaner-error-symbolic.svg">icons/error-symbolic.svg</file>
+		<file preprocess="xml-stripblanks" alias="icons/scalable/status/metadatacleaner-warning-symbolic.svg">icons/warning-symbolic.svg</file>
+		<file preprocess="xml-stripblanks" alias="icons/scalable/status/metadatacleaner-paper-symbolic.svg">icons/paper-symbolic.svg</file>
+		<file preprocess="xml-stripblanks">ui/Badge.ui</file>
+		<file preprocess="xml-stripblanks">ui/CleaningWarningDialog.ui</file>
+		<file preprocess="xml-stripblanks">ui/CleanMetadataButton.ui</file>
+		<file preprocess="xml-stripblanks">ui/CreditsRole.ui</file>
+		<file preprocess="xml-stripblanks">ui/DetailsView.ui</file>
+		<file preprocess="xml-stripblanks">ui/FileRow.ui</file>
+		<file preprocess="xml-stripblanks">ui/FilesView.ui</file>
+		<file preprocess="xml-stripblanks">ui/MenuButton.ui</file>
+		<file preprocess="xml-stripblanks">ui/MetadataDetails.ui</file>
+		<file preprocess="xml-stripblanks">ui/MetadataDetailsRow.ui</file>
+		<file preprocess="xml-stripblanks">ui/MetadataView.ui</file>
+		<file preprocess="xml-stripblanks">ui/SettingsButton.ui</file>
+		<file preprocess="xml-stripblanks">ui/StatusIndicator.ui</file>
+		<file preprocess="xml-stripblanks">ui/Window.ui</file>
+	</gresource>
+</gresources>

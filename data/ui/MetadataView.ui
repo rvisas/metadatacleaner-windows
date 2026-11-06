@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<interface>
+  <template class="MetadataView" parent="GtkScrolledWindow">
+    <property name="vexpand">True</property>
+    <property name="hscrollbar-policy">never</property>
+    <child>
+      <object class="GtkListView">
+        <property name="margin-start">8</property>
+        <property name="margin-end">8</property>
+        <property name="model">
+          <object class="GtkNoSelection">
+            <property name="model" bind-source="MetadataView" bind-property="metadata" bind-flags="sync-create" />
+          </object>
+        </property>
+        <property name="factory">
+          <object class="GtkBuilderListItemFactory">
+            <property name="bytes">
+              <![CDATA[
+                <interface>
+                  <template class="GtkListItem">
+                    <property name="activatable">False</property>
+                    <property name="child">
+                      <object class="MetadataDetails">
+                        <binding name="filename">
+                          <lookup name="filename" type="MetadataFile">
+                            <lookup name="item">GtkListItem</lookup>
+                          </lookup>
+                        </binding>
+                        <binding name="metadata-list">
+                          <lookup name="metadata" type="MetadataFile">
+                            <lookup name="item">GtkListItem</lookup>
+                          </lookup>
+                        </binding>
+                      </object>
+                    </property>
+                  </template>
+                </interface>
+              ]]>
+            </property>
+          </object>
+        </property>
+        <style>
+          <class name="metadata" />
+        </style>
+      </object>
+    </child>
+  </template>
+</interface>

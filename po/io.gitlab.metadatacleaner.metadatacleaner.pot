@@ -1,0 +1,436 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-28 08:50+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#. Translators: app name
+#. translators: app name
+#: builddir/data/io.gitlab.metadatacleaner.metadatacleaner.desktop.in:6
+#: builddir/data/io.gitlab.metadatacleaner.metadatacleaner.desktop.in:7
+#: data/io.gitlab.metadatacleaner.metadatacleaner.desktop.in:6
+#: data/io.gitlab.metadatacleaner.metadatacleaner.desktop.in:7
+#: data/ui/Window.ui:91 src/app.py:32
+msgid "Metadata Cleaner"
+msgstr ""
+
+#. Translators: desktop entry comment
+#: builddir/data/io.gitlab.metadatacleaner.metadatacleaner.desktop.in:9
+#: data/io.gitlab.metadatacleaner.metadatacleaner.desktop.in:9
+msgid "Clean metadata from your files"
+msgstr ""
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: builddir/data/io.gitlab.metadatacleaner.metadatacleaner.desktop.in:16
+#: data/io.gitlab.metadatacleaner.metadatacleaner.desktop.in:16
+msgid "Metadata;Remover;Cleaner;"
+msgstr ""
+
+#. translators: keyboard shortcut section title. "General shortcuts"
+#. translators: preferences window tab title, "general settings", unused at the moment
+#: data/gtk/shortcuts-dialog.ui:11 data/ui/SettingsButton.ui:23
+msgid "General"
+msgstr ""
+
+#. translators: keyboard shortcut title. Opens a new window
+#: data/gtk/shortcuts-dialog.ui:15
+msgid "New window"
+msgstr ""
+
+#. translators: keyboard shortcut title. Opens the keyboard shortcut dialog
+#: data/gtk/shortcuts-dialog.ui:22
+msgid "Keyboard shortcuts"
+msgstr ""
+
+#. translators: keyboard shortcut title. Closes the currently focused window
+#: data/gtk/shortcuts-dialog.ui:29
+msgid "Close Window"
+msgstr ""
+
+#. translators: keyboard shortcut title. Closes the app completely
+#: data/gtk/shortcuts-dialog.ui:36
+msgid "Quit"
+msgstr ""
+
+#. translators: keyboard shortcut section title. File-related shortcuts
+#: data/gtk/shortcuts-dialog.ui:45
+msgid "Files"
+msgstr ""
+
+#. translators: keyboard shortcut title. Opens the file picker
+#: data/gtk/shortcuts-dialog.ui:49
+msgid "Add Files"
+msgstr ""
+
+#. translators: keyboard shortcut title. Opens the folder pickers
+#: data/gtk/shortcuts-dialog.ui:56
+msgid "Add Folders"
+msgstr ""
+
+#. translators: keyboard shortcut title. Starts the metadata cleaning process
+#: data/gtk/shortcuts-dialog.ui:63
+msgid "Clean Metadata"
+msgstr ""
+
+#. translators: keyboard shortcut title. Removes all files from the queue/file list
+#: data/gtk/shortcuts-dialog.ui:70
+msgid "Remove all files from the list"
+msgstr ""
+
+#. translators: title in the dialog that shows up when clicking the main "clean" button
+#: data/ui/CleaningWarningDialog.ui:9
+msgid "Clean Metadata?"
+msgstr ""
+
+#. translators: subtitle in the dialog that shows up when clicking the main "clean" button
+#: data/ui/CleaningWarningDialog.ui:11
+msgid "Make sure you backed up your files! This is irreversible."
+msgstr ""
+
+#. translators: button in the dialog that shows up when clicking clean. This cancels the operation.
+#: data/ui/CleaningWarningDialog.ui:16
+msgid "_Cancel"
+msgstr ""
+
+#. translators: button in the dialog that shows up when clicking clean. This proceeds and cleans the files. Do not underline.
+#: data/ui/CleaningWarningDialog.ui:18
+msgid "Clean"
+msgstr ""
+
+#. translators: checkbox in the dialog that shows up when clicking clean. Selecting it will stop showing this dialog and instead clean the metadata instantly
+#: data/ui/CleaningWarningDialog.ui:23
+msgid "Don't ask again"
+msgstr ""
+
+#. translators: the main button at the bottom of the file list that cleans the file metadata. "Clean Metadata"
+#: data/ui/CleanMetadataButton.ui:11
+msgid "_Clean"
+msgstr ""
+
+#. translators: tooltip text for the prefix button in the file rows. Clicking it will remove the file from the list.
+#: data/ui/FileRow.ui:17
+msgid "Remove File from List"
+msgstr ""
+
+#. translators: headerbar main menu item
+#: data/ui/MenuButton.ui:11
+msgid "_New Window"
+msgstr ""
+
+#. translators: headerbar main menu item. This one clears the file list, it will remove all files from the list. Please make sure it's clear that this will NOT delete the files on disk, it will only remove them from the list.
+#: data/ui/MenuButton.ui:16
+msgid "_Remove All Files"
+msgstr ""
+
+#. translators: headerbar main menu item
+#: data/ui/MenuButton.ui:24
+msgid "_Keyboard Shortcuts"
+msgstr ""
+
+#. translators: headerbar main menu item. Metadata Cleaner is the app name.
+#: data/ui/MenuButton.ui:29
+msgid "_About Metadata Cleaner"
+msgstr ""
+
+#. translators: tooltip text for the headerbar menu button
+#: data/ui/MenuButton.ui:39
+msgid "Main Menu"
+msgstr ""
+
+#. translators: tooltip text for a button next to the "clean" button. It opens a settings dialog for cleaning-process related settings.
+#: data/ui/SettingsButton.ui:9
+msgid "Settings"
+msgstr ""
+
+#. translators: cleaning option row title
+#: data/ui/SettingsButton.ui:29
+msgid "Lightweight Cleaning"
+msgstr ""
+
+#. translators: cleaning option row subtitle. This describes what "Lightweight cleaning" is. Please be as clear as possible and don't assume the user knows what everything is
+#: data/ui/SettingsButton.ui:32
+msgid ""
+"By default, the removal process might alter a bit the data of your files, in "
+"order to remove as much metadata as possible. For example, texts in PDF "
+"might not be selectable anymore, compressed images might get compressed "
+"again… The lightweight mode, while not as thorough, will not make "
+"destructive changes to your files."
+msgstr ""
+
+#. translators: button that cancels the cleaning process
+#: data/ui/StatusIndicator.ui:48
+msgid "Cancel"
+msgstr ""
+
+#. translators: headerbar button menu item that opens the file picker
+#: data/ui/Window.ui:10
+msgid "Add Files…"
+msgstr ""
+
+#. translators: headerbar button menu item that opens the folder picker
+#: data/ui/Window.ui:15
+msgid "Add Folders…"
+msgstr ""
+
+#. translators: overlay shown when dragging files above the app
+#: data/ui/Window.ui:30
+msgid "Drop files or folders to clean them"
+msgstr ""
+
+#. translators: headerbar button that opens a menu to pick files or folders and add them to the list aka "Add Files/Folders"
+#: data/ui/Window.ui:44
+msgid "Add"
+msgstr ""
+
+#. translators: tooltip text on a headerbar button that toggles the side panel for metadata viewing
+#: data/ui/Window.ui:55
+msgid "Toggle Metadata"
+msgstr ""
+
+#. translators: subtitle in the empty view, drop as in drag-n-drop
+#: data/ui/Window.ui:93
+msgid "Drop files here to clean them"
+msgstr ""
+
+#. translators: button label that opens the file picker
+#: data/ui/Window.ui:102
+msgid "Open _Files…"
+msgstr ""
+
+#. translators: button label that opens the folder picker. Please underline a different character than the one in the Open Files button
+#: data/ui/Window.ui:114
+msgid "Open F_olders…"
+msgstr ""
+
+#. translators: generic error message shown when the cleaning
+#. was unsuccessful but we don't know why
+#: src/modules/file.py:275
+msgid "An error occurred during the cleaning."
+msgstr ""
+
+#. translators: error message when a file is no longer
+#. available during cleaning. "Something
+#. bad happened" as in "Something went
+#. wrong"
+#: src/modules/file.py:283
+msgid "Something bad happened during the cleaning, cleaned file not found"
+msgstr ""
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+#: src/ui/badge.py:64
+msgid "Warning"
+msgstr ""
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+#: src/ui/badge.py:74
+msgid "Error"
+msgstr ""
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+#: src/ui/badge.py:89
+msgid "Cleaned"
+msgstr ""
+
+#. translators: side panel message when selecting a file that
+#. has been cleaned
+#: src/ui/detailsview.py:55
+msgid "The File Has Been Cleaned"
+msgstr ""
+
+#. translators: side panel subtitle when selecting a file
+#. that has been cleaned. The limitations can
+#. be viewed by clicking a button below it
+#: src/ui/detailsview.py:60
+msgid ""
+"Known metadata have been removed, however the cleaning process has some "
+"limitations."
+msgstr ""
+
+#. translators: button that shows more info about the
+#. cleaning process, it's shown below a
+#. label that gives it context
+#: src/ui/detailsview.py:67
+msgid "Learn more"
+msgstr ""
+
+#. translators: error shown on the side panel when selecting
+#. a file
+#: src/ui/detailsview.py:83
+msgid "Unable to Read the File"
+msgstr ""
+
+#. translators: error shown on the side panel when selecting
+#. a file
+#: src/ui/detailsview.py:86
+msgid "File Type not Supported"
+msgstr ""
+
+#. translators: error shown on the side panel when selecting
+#. a file
+#: src/ui/detailsview.py:90
+msgid "Unable to Check for Metadata"
+msgstr ""
+
+#. translators: error shown on the side panel when selecting
+#. a file
+#: src/ui/detailsview.py:94
+msgid "No Known Metadata"
+msgstr ""
+
+#. translators: error shown on the side panel when
+#. selecting a file
+#: src/ui/detailsview.py:98
+msgid "Unable to Remove Metadata"
+msgstr ""
+
+#. translators: message shown on the side panel when selecting a
+#. file that doesn't have known metadata
+#: src/ui/detailsview.py:105
+msgid "The file will be cleaned anyway to be sure."
+msgstr ""
+
+#. translators: message shown on the side panel when no file
+#. has been selected
+#: src/ui/detailsview.py:120
+msgid "Select a file to view its metadata"
+msgstr ""
+
+#. translators: progress bar subtitle while loading files
+#: src/ui/statusindicator.py:40
+msgid "Processing file {}/{}"
+msgstr ""
+
+#. translators: progress bar subtitle while cleaning files
+#: src/ui/statusindicator.py:44
+msgid "Cleaning file {}/{}"
+msgstr ""
+
+#: src/ui/statusindicator.py:86
+#, python-format
+msgid "%i file cleaned"
+msgid_plural "%i files cleaned"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/ui/statusindicator.py:92
+#, python-format
+msgid "%i error occurred"
+msgid_plural "%i errors occurred"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: filter name while picking files
+#: src/ui/window.py:61
+msgid "All supported files"
+msgstr ""
+
+#. translators: about dialog button that opens weblate
+#: src/ui/window.py:154
+msgid "Translate"
+msgstr ""
+
+#. translators: Translate this string as your translator credits.
+#. Name only:    Jane Doe
+#. Name + URL:   Jane Doe https://example.com/
+#. Name + Email: Jane Doe <janedoe@example.com>
+#. Do not remove existing names.
+#. Names are separated with newlines.
+#: src/ui/window.py:210
+msgid "translator-credits"
+msgstr ""
+
+#. translators: dialog title that has some info about the
+#. cleaning process
+#: src/ui/window.py:377
+msgid "Info"
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+#: src/ui/window.py:384
+msgid "Metadata & Privacy"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+#: src/ui/window.py:401
+msgid ""
+"Metadata consists of information that characterizes data. Metadata is used "
+"to provide documentation for data products. In essence, metadata answers "
+"who, what, when, where, why, and how about every facet of the data that is "
+"being documented.\n"
+"\n"
+"Metadata within a file can tell a lot about you. Cameras record data about "
+"when and where a picture was taken and which camera was used. Office "
+"applications automatically add author and company information to documents "
+"and spreadsheets. This is sensitive information and you may not want to "
+"disclose it."
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+#: src/ui/window.py:421
+msgid "Cleaning Process"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+#. "Metadata Cleaner" is the app name. File
+#. formats as in "pdf", "png", "music files"
+#. etc. this section describes the case where
+#. we might not know what a file actually is
+#. and how to clean it.
+#: src/ui/window.py:443
+msgid ""
+"While Metadata Cleaner is doing its very best to display metadata, it "
+"doesn't mean that a file is clean from metadata if it doesn't show any. "
+"There is no reliable way to detect every single possible metadata for "
+"complex file formats. This is why you shouldn't rely on metadata's presence "
+"to decide if your file must be cleaned or not.\n"
+"\n"
+"Metadata Cleaner takes the content of  the file and puts it into a new one "
+"without metadata, ensuring that any undetected metadata is stripped."
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+#: src/ui/window.py:461
+msgid "Limitations"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as
+#. is `\n`. If the language seems too
+#. advanced, please simplify it while
+#. staying true to the original; don't
+#. assume that the user has any knowledge
+#. on what metadata is. "Metadata Cleaner"
+#. is the app name.
+#: src/ui/window.py:480
+msgid ""
+"Be aware that metadata is not the only way of marking a file. If the content "
+"itself discloses personal information or has been watermarked, traditionally "
+"or via steganography, Metadata Cleaner will not protect you."
+msgstr ""

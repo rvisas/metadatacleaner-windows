@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<interface>
+  <template class="Badge" parent="AdwBin">
+    <property name="width-request">22</property>
+    <property name="height-request">22</property>
+    <style>
+      <class name="badge"/>
+    </style>
+  </template>
+</interface>

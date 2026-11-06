@@ -1,0 +1,598 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.gitlab.metadatacleaner.metadatacleaner package.
+# poi <erbaotao@outlook.com>, 2022, 2024.
+# Eric <alchemillatruth@purelymail.com>, 2022.
+# Ujhhgtg <feyxiexzf@gmail.com>, 2022, 2023.
+# D XC <hello_cmd@outlook.com>, 2023.
+# Eric <zxmegaxqug@hldrive.com>, 2024.
+# 大王叫我来巡山 <hamburger2048@users.noreply.hosted.weblate.org>, 2024.
+# Sketch6580 <sketch6580@users.noreply.hosted.weblate.org>, 2026.
+msgid ""
+msgstr ""
+"Project-Id-Version: io.gitlab.metadatacleaner.metadatacleaner\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-28 08:50+0200\n"
+"PO-Revision-Date: 2026-04-08 03:46+0000\n"
+"Last-Translator: Sketch6580 <sketch6580@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
+"projects/metadata-cleaner/metadata-cleaner/zh_Hans/>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.17-dev\n"
+
+#. Translators: app name
+#. translators: app name
+msgid "Metadata Cleaner"
+msgstr "Metadata Cleaner"
+
+#. Translators: desktop entry comment
+msgid "Clean metadata from your files"
+msgstr "清理文件中的元数据"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+msgid "Metadata;Remover;Cleaner;"
+msgstr "Metadata;Remover;Cleaner;元数据;移除器;清理器;"
+
+#. translators: keyboard shortcut section title. "General shortcuts"
+#. translators: preferences window tab title, "general settings", unused at the moment
+msgid "General"
+msgstr "常规"
+
+#. translators: keyboard shortcut title. Opens a new window
+msgid "New window"
+msgstr "新建窗口"
+
+#. translators: keyboard shortcut title. Opens the keyboard shortcut dialog
+msgid "Keyboard shortcuts"
+msgstr "键盘快捷键"
+
+#. translators: keyboard shortcut title. Closes the currently focused window
+msgid "Close Window"
+msgstr "关闭窗口"
+
+#. translators: keyboard shortcut title. Closes the app completely
+msgid "Quit"
+msgstr "退出"
+
+#. translators: keyboard shortcut section title. File-related shortcuts
+msgid "Files"
+msgstr "文件"
+
+#. translators: keyboard shortcut title. Opens the file picker
+msgid "Add Files"
+msgstr "添加文件"
+
+#. translators: keyboard shortcut title. Opens the folder pickers
+msgid "Add Folders"
+msgstr "添加文件夹"
+
+#. translators: keyboard shortcut title. Starts the metadata cleaning process
+msgid "Clean Metadata"
+msgstr "清理元数据"
+
+#. translators: keyboard shortcut title. Removes all files from the queue/file list
+msgid "Remove all files from the list"
+msgstr "从列表中移除所有文件"
+
+#. translators: title in the dialog that shows up when clicking the main "clean" button
+msgid "Clean Metadata?"
+msgstr "清理元数据？"
+
+#. translators: subtitle in the dialog that shows up when clicking the main "clean" button
+msgid "Make sure you backed up your files! This is irreversible."
+msgstr "请确保已备份您的文件！此操作不可逆。"
+
+#. translators: button in the dialog that shows up when clicking clean. This cancels the operation.
+msgid "_Cancel"
+msgstr "取消(_C)"
+
+#. translators: button in the dialog that shows up when clicking clean. This proceeds and cleans the files. Do not underline.
+msgid "Clean"
+msgstr "清理"
+
+#. translators: checkbox in the dialog that shows up when clicking clean. Selecting it will stop showing this dialog and instead clean the metadata instantly
+msgid "Don't ask again"
+msgstr "不再询问"
+
+#. translators: the main button at the bottom of the file list that cleans the file metadata. "Clean Metadata"
+msgid "_Clean"
+msgstr "清理(_C)"
+
+#. translators: tooltip text for the prefix button in the file rows. Clicking it will remove the file from the list.
+msgid "Remove File from List"
+msgstr "从列表中移除文件"
+
+#. translators: headerbar main menu item
+msgid "_New Window"
+msgstr "新建窗口(_N)"
+
+#. translators: headerbar main menu item. This one clears the file list, it will remove all files from the list. Please make sure it's clear that this will NOT delete the files on disk, it will only remove them from the list.
+msgid "_Remove All Files"
+msgstr "移除所有文件(_R)"
+
+#. translators: headerbar main menu item
+msgid "_Keyboard Shortcuts"
+msgstr "键盘快捷键(_K)"
+
+#. translators: headerbar main menu item. Metadata Cleaner is the app name.
+msgid "_About Metadata Cleaner"
+msgstr "关于 Metadata Cleaner(_A)"
+
+#. translators: tooltip text for the headerbar menu button
+msgid "Main Menu"
+msgstr "主菜单"
+
+#. translators: tooltip text for a button next to the "clean" button. It opens a settings dialog for cleaning-process related settings.
+msgid "Settings"
+msgstr "设置"
+
+#. translators: cleaning option row title
+msgid "Lightweight Cleaning"
+msgstr "轻量级清理模式"
+
+#. translators: cleaning option row subtitle. This describes what "Lightweight cleaning" is. Please be as clear as possible and don't assume the user knows what everything is
+msgid ""
+"By default, the removal process might alter a bit the data of your files, in "
+"order to remove as much metadata as possible. For example, texts in PDF "
+"might not be selectable anymore, compressed images might get compressed "
+"again… The lightweight mode, while not as thorough, will not make "
+"destructive changes to your files."
+msgstr ""
+"默认情况下，清理过程可能会轻微改变您的文件数据，以便尽可能多地移除元数据。例"
+"如，PDF 中的文本可能变得不可选择，压缩图像可能会再次被压缩……轻量级模式虽然清"
+"理不够彻底，但不会对您的文件造成破坏性更改。"
+
+#. translators: button that cancels the cleaning process
+msgid "Cancel"
+msgstr "取消"
+
+#. translators: headerbar button menu item that opens the file picker
+msgid "Add Files…"
+msgstr "添加文件…"
+
+#. translators: headerbar button menu item that opens the folder picker
+msgid "Add Folders…"
+msgstr "添加文件夹…"
+
+#. translators: overlay shown when dragging files above the app
+msgid "Drop files or folders to clean them"
+msgstr "拖放文件或文件夹进行清理"
+
+#. translators: headerbar button that opens a menu to pick files or folders and add them to the list aka "Add Files/Folders"
+msgid "Add"
+msgstr "添加"
+
+#. translators: tooltip text on a headerbar button that toggles the side panel for metadata viewing
+msgid "Toggle Metadata"
+msgstr "切换元数据"
+
+#. translators: subtitle in the empty view, drop as in drag-n-drop
+msgid "Drop files here to clean them"
+msgstr "将文件拖放到此处进行清理"
+
+#. translators: button label that opens the file picker
+msgid "Open _Files…"
+msgstr "打开文件(_F)…"
+
+#. translators: button label that opens the folder picker. Please underline a different character than the one in the Open Files button
+msgid "Open F_olders…"
+msgstr "打开文件夹(_O)…"
+
+#. translators: generic error message shown when the cleaning
+#. was unsuccessful but we don't know why
+msgid "An error occurred during the cleaning."
+msgstr "清理过程中发生错误。"
+
+#. translators: error message when a file is no longer
+#. available during cleaning. "Something
+#. bad happened" as in "Something went
+#. wrong"
+msgid "Something bad happened during the cleaning, cleaned file not found"
+msgstr "清理过程中出现问题，未找到已清理的文件"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Warning"
+msgstr "警告"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Error"
+msgstr "错误"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Cleaned"
+msgstr "已清理"
+
+#. translators: side panel message when selecting a file that
+#. has been cleaned
+msgid "The File Has Been Cleaned"
+msgstr "文件已清理"
+
+#. translators: side panel subtitle when selecting a file
+#. that has been cleaned. The limitations can
+#. be viewed by clicking a button below it
+msgid ""
+"Known metadata have been removed, however the cleaning process has some "
+"limitations."
+msgstr "已知元数据已移除，但清理过程存在局限。"
+
+#. translators: button that shows more info about the
+#. cleaning process, it's shown below a
+#. label that gives it context
+msgid "Learn more"
+msgstr "了解更多"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "Unable to Read the File"
+msgstr "无法读取文件"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "File Type not Supported"
+msgstr "文件类型不受支持"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "Unable to Check for Metadata"
+msgstr "无法检查元数据"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "No Known Metadata"
+msgstr "无已知元数据"
+
+#. translators: error shown on the side panel when
+#. selecting a file
+msgid "Unable to Remove Metadata"
+msgstr "无法移除元数据"
+
+#. translators: message shown on the side panel when selecting a
+#. file that doesn't have known metadata
+msgid "The file will be cleaned anyway to be sure."
+msgstr "为确保万无一失，仍会对文件进行清理。"
+
+#. translators: message shown on the side panel when no file
+#. has been selected
+msgid "Select a file to view its metadata"
+msgstr "选择文件以查看其元数据"
+
+#. translators: progress bar subtitle while loading files
+msgid "Processing file {}/{}"
+msgstr "正在处理文件 {}/{}"
+
+#. translators: progress bar subtitle while cleaning files
+msgid "Cleaning file {}/{}"
+msgstr "正在清理文件 {}/{}"
+
+#, python-format
+msgid "%i file cleaned"
+msgid_plural "%i files cleaned"
+msgstr[0] "已清理 %i 个文件"
+
+#, python-format
+msgid "%i error occurred"
+msgid_plural "%i errors occurred"
+msgstr[0] "发生 %i 个错误"
+
+#. translators: filter name while picking files
+msgid "All supported files"
+msgstr "所有支持的文件"
+
+#. translators: about dialog button that opens weblate
+msgid "Translate"
+msgstr "翻译"
+
+#. translators: Translate this string as your translator credits.
+#. Name only:    Jane Doe
+#. Name + URL:   Jane Doe https://example.com/
+#. Name + Email: Jane Doe <janedoe@example.com>
+#. Do not remove existing names.
+#. Names are separated with newlines.
+msgid "translator-credits"
+msgstr "匿名"
+
+#. translators: dialog title that has some info about the
+#. cleaning process
+msgid "Info"
+msgstr "信息"
+
+#. translators: title for a section about the cleaning process
+msgid "Metadata & Privacy"
+msgstr "元数据与隐私"
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+msgid ""
+"Metadata consists of information that characterizes data. Metadata is used "
+"to provide documentation for data products. In essence, metadata answers "
+"who, what, when, where, why, and how about every facet of the data that is "
+"being documented.\n"
+"\n"
+"Metadata within a file can tell a lot about you. Cameras record data about "
+"when and where a picture was taken and which camera was used. Office "
+"applications automatically add author and company information to documents "
+"and spreadsheets. This is sensitive information and you may not want to "
+"disclose it."
+msgstr ""
+"元数据是描述数据特征的信息，用于为数据产品提供文档支持。本质上，元数据从“何人"
+"、何事、何时、何地、为何及如何”等维度，全面记录被描述数据的每个方面。\n"
+"\n"
+"文件中的元数据可能泄露大量个人信息。例如，相机记录照片的拍摄时间、地点以及使"
+"用的相机型号；办公应用程序自动在文档和电子表格中添加作者与公司信息。这些信息"
+"属于敏感信息，您可能不希望泄露。"
+
+#. translators: title for a section about the cleaning process
+msgid "Cleaning Process"
+msgstr "清理过程"
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+#. "Metadata Cleaner" is the app name. File
+#. formats as in "pdf", "png", "music files"
+#. etc. this section describes the case where
+#. we might not know what a file actually is
+#. and how to clean it.
+msgid ""
+"While Metadata Cleaner is doing its very best to display metadata, it "
+"doesn't mean that a file is clean from metadata if it doesn't show any. "
+"There is no reliable way to detect every single possible metadata for "
+"complex file formats. This is why you shouldn't rely on metadata's presence "
+"to decide if your file must be cleaned or not.\n"
+"\n"
+"Metadata Cleaner takes the content of  the file and puts it into a new one "
+"without metadata, ensuring that any undetected metadata is stripped."
+msgstr ""
+"即便 Metadata Cleaner 已全力显示元数据，未显示任何元数据绝不等于文件已彻底清"
+"理元数据。对于复杂文件格式，尚无可靠方法能检测所有潜在元数据。因此，不应仅凭"
+"元数据显示与否判断文件是否需要清理。\n"
+"\n"
+"Metadata Cleaner 通过提取文件内容并重建为不含元数据的新文件，确保所有未检测到"
+"的元数据被彻底剥离。"
+
+#. translators: title for a section about the cleaning process
+msgid "Limitations"
+msgstr "局限性"
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as
+#. is `\n`. If the language seems too
+#. advanced, please simplify it while
+#. staying true to the original; don't
+#. assume that the user has any knowledge
+#. on what metadata is. "Metadata Cleaner"
+#. is the app name.
+msgid ""
+"Be aware that metadata is not the only way of marking a file. If the content "
+"itself discloses personal information or has been watermarked, traditionally "
+"or via steganography, Metadata Cleaner will not protect you."
+msgstr ""
+"请注意，元数据并非标记文件的唯一方式。如果文件内容本身泄露个人信息，或者嵌入"
+"了传统水印或隐写术水印，Metadata Cleaner 无法为您提供保护。"
+
+#~ msgid "View and clean metadata in files"
+#~ msgstr "查看、删除文件里的元数据"
+
+#~ msgid ""
+#~ "Metadata within a file can tell a lot about you. Cameras record data "
+#~ "about when and where a picture was taken and which camera was used. "
+#~ "Office applications automatically add author and company information to "
+#~ "documents and spreadsheets. This is sensitive information and you may not "
+#~ "want to disclose it."
+#~ msgstr ""
+#~ "文件的元数据暗藏着许多重要的隐私信息。照相机会在元数据中记录拍照的时间地"
+#~ "点，还会记录照片是由哪台照相机拍的；办公软件会自动把文档作者和公司信息添加"
+#~ "到文档和电子表格文件中。这些信息可能很敏感，人们可能不想披露这些信息。"
+
+#~ msgid ""
+#~ "This tool allows you to view metadata in your files and to get rid of it, "
+#~ "as much as possible."
+#~ msgstr "此工具可以用来尽可能地查看或删除文件里的元数据。"
+
+#~ msgid "Add files"
+#~ msgstr "添加文件"
+
+#~ msgid "Add folders"
+#~ msgstr "添加文件夹"
+
+#~ msgid "Clean metadata"
+#~ msgstr "删除元数据"
+
+#~ msgid "Clear all files from window"
+#~ msgstr "清空窗口中所有的文件"
+
+#~ msgid "Close window"
+#~ msgstr "关闭窗口"
+
+#~ msgid "Help"
+#~ msgstr "调出帮助"
+
+#~ msgid "_Add Files"
+#~ msgstr "添加文件 (_A)"
+
+#~ msgid "Add _Folders"
+#~ msgstr "添加文件夹 (_A)"
+
+#~ msgid "Make sure you backed up your files!"
+#~ msgstr "请一定要备份您的文件！"
+
+#~ msgid "Once the files are cleaned, there's no going back."
+#~ msgstr "一但文件被清理元数据，就无法撤销了。"
+
+#~ msgid "Don't tell me again"
+#~ msgstr "不再提示此警告"
+
+#~ msgid "Clean Your Traces"
+#~ msgstr "清理您的隐私信息"
+
+#~ msgid "Learn more about metadata and the cleaning process limitations"
+#~ msgstr "详细了解元数据及本软件将其删除过程的局限性"
+
+#~ msgid "Remove file from list"
+#~ msgstr "把列表中的文件移走"
+
+#~ msgid "_Clear Window"
+#~ msgstr "清空窗口 (_C)"
+
+#~ msgid "_Help"
+#~ msgstr "帮助 (_H)"
+
+#~ msgid "Cleaning settings"
+#~ msgstr "清理选项"
+
+#~ msgid "Learn more about the lightweight cleaning"
+#~ msgstr "详细了解浅层删除"
+
+#~ msgid "Details"
+#~ msgstr "详情"
+
+#~ msgid "Close"
+#~ msgstr "关闭"
+
+#~ msgid "Choose files to clean"
+#~ msgstr "选择待清理文件"
+
+#~ msgid "Choose folders to clean"
+#~ msgstr "选择待清理文件夹"
+
+#~ msgid "An error occured during the cleaning."
+#~ msgstr "在清理过程中发生了一个错误。"
+
+#~ msgid "Add files from subfolders"
+#~ msgstr "也添加子文件夹中文件"
+
+#, python-format
+#~ msgid "%i file cleaned."
+#~ msgid_plural "%i files cleaned."
+#~ msgstr[0] "清理了 %i 个文件的元数据。"
+
+#, python-format
+#~ msgid "%i error occured."
+#~ msgid_plural "%i errors occured."
+#~ msgstr[0] "遇到 %i 个错误。"
+
+#~ msgid "Libraries"
+#~ msgstr "库"
+
+#~ msgid "Romain Vigier"
+#~ msgstr "Romain Vigier"
+
+#~ msgid "Clean without warning"
+#~ msgstr "要删除时不进行警告"
+
+#~ msgid "Clean the files without showing the warning dialog"
+#~ msgstr "删除文件元数据时不显示警告对话框"
+
+#~ msgid "Lightweight cleaning"
+#~ msgstr "浅层删除"
+
+#~ msgid "Don't make destructive changes to files but may leave some metadata"
+#~ msgstr "不破坏性修改文件，但可能会残留一些元数据"
+
+#~ msgid "Window width"
+#~ msgstr "窗口宽度"
+
+#~ msgid "Saved width of the window"
+#~ msgstr "记忆的窗口宽度的值"
+
+#~ msgid "Window height"
+#~ msgstr "窗口高度"
+
+#~ msgid "Saved height of the window"
+#~ msgstr "记忆的窗口高度的值"
+
+#~ msgid "Updated translations"
+#~ msgstr "更新了翻译"
+
+#~ msgid "Improved user interface"
+#~ msgstr "改进了用户界面"
+
+#~ msgid "New translations"
+#~ msgstr "新增翻译"
+
+#~ msgid "Bug fixes"
+#~ msgstr "修正软件错误"
+
+#~ msgid "New button to add folders"
+#~ msgstr "新增用来添加文件夹的按钮"
+
+#~ msgid "Improved adaptive user interface"
+#~ msgstr "改进了自适应用户界面"
+
+#~ msgid "New help pages"
+#~ msgstr "新增了帮助页面"
+
+#~ msgid "One-click cleaning, no need to save after cleaning"
+#~ msgstr "一键删除元数据，删完后无需保存"
+
+#~ msgid "Persistent lightweight cleaning option"
+#~ msgstr "可以记住浅层删除选项的选中状态了"
+
+#~ msgid "Files with uppercase extension can now be added"
+#~ msgstr "现在扩展名大写的文件也可以添加了"
+
+#~ msgid "About"
+#~ msgstr "关于"
+
+#~ msgid "Chat on Matrix"
+#~ msgstr "在 Matrix 上联系开发者"
+
+#~ msgid "View the code on GitLab"
+#~ msgstr "在 GitLab 上查看软件代码"
+
+#~ msgid "Translate on Weblate"
+#~ msgstr "在 Weblate 上翻译软件"
+
+#~ msgid "Support us on Liberapay"
+#~ msgstr "用 Liberapay 支持开发者"
+
+#~ msgid "Credits"
+#~ msgstr "致谢"
+
+#~ msgid "Code"
+#~ msgstr "程序编写"
+
+#~ msgid "Artwork"
+#~ msgstr "美术设计"
+
+#~ msgid "Documentation"
+#~ msgstr "帮助文档"
+
+#~ msgid "Translation"
+#~ msgstr "翻译"
+
+#~ msgid ""
+#~ "This program uses <a href=\"https://github.com/jvoisin/mat2\">mat2</a> to "
+#~ "parse and clean the metadata. Show them some love!"
+#~ msgstr ""
+#~ "此软件使用 <a href=\"https://github.com/jvoisin/mat2\">mat2</a> 解析、删除"
+#~ "文件元数据。给 mat2 开发者们一些爱吧！"
+
+#~ msgid ""
+#~ "The source code of this program is released under the terms of the <a "
+#~ "href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL 3.0 or later</"
+#~ "a>. The original artwork and translations are released under the terms of "
+#~ "the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA "
+#~ "4.0</a>."
+#~ msgstr ""
+#~ "本程序源代码根据 <a href=\"https://www.gnu.org/licenses/gpl-3.0.html\"> "
+#~ "GNU 通用公共许可证，第 3 版及以上</a> 的条款发布。原始美术设计作品和翻译根"
+#~ "据 <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">知识共享版"
+#~ "权归属-相同方式共享 4.0 国际 公共许可证</a> 的条款发布。"
+
+#~ msgid "Adding files…"
+#~ msgstr "添加文件……"

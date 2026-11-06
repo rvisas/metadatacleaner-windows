@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<interface>
+  <menu id="app-menu">
+    <section>
+      <item>
+        <!-- translators: headerbar main menu item -->
+        <attribute name="label" translatable="yes">_New Window</attribute>
+        <attribute name="action">app.new-window</attribute>
+      </item>
+      <item>
+        <!-- translators: headerbar main menu item. This one clears the file list, it will remove all files from the list. Please make sure it's clear that this will NOT delete the files on disk or clean the files' metadata, it will only remove them from the list. -->
+        <attribute name="label" translatable="yes">Clea_r List of Files</attribute>
+        <attribute name="action">win.clear-files</attribute>
+        <attribute name="hidden-when">action-disabled</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <!-- translators: headerbar main menu item -->
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+        <attribute name="action">app.shortcuts</attribute>
+      </item>
+      <item>
+        <!-- translators: headerbar main menu item. Metadata Cleaner is the app name. -->
+        <attribute name="label" translatable="yes">_About Metadata Cleaner</attribute>
+        <attribute name="action">win.about</attribute>
+      </item>
+    </section>
+  </menu>
+  <template class="MenuButton" parent="GtkMenuButton">
+    <property name="direction">none</property>
+    <property name="menu-model">app-menu</property>
+    <property name="primary">True</property>
+    <!-- translators: tooltip text for the headerbar menu button -->
+    <property name="tooltip-text" translatable="yes">Main Menu</property>
+  </template>
+</interface>

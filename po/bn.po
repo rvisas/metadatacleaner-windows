@@ -1,0 +1,527 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.gitlab.metadatacleaner.metadatacleaner package.
+# Bingo <eulises.leyendecker@easyonlinemail.net>, 2022.
+# hELLOwORLD <helloworld@allfreemail.net>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: io.gitlab.metadatacleaner.metadatacleaner\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-28 08:50+0200\n"
+"PO-Revision-Date: 2022-04-19 22:35+0000\n"
+"Last-Translator: hELLOwORLD <helloworld@allfreemail.net>\n"
+"Language-Team: Bengali <https://hosted.weblate.org/projects/metadata-cleaner/"
+"application/bn/>\n"
+"Language: bn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.12-dev\n"
+
+#. Translators: app name
+#. translators: app name
+msgid "Metadata Cleaner"
+msgstr "মেটাডেটা ক্লিনার"
+
+#. Translators: desktop entry comment
+msgid "Clean metadata from your files"
+msgstr "আপনার ফাইলগুলো থেকে মেটাডেটা অপসারণ করুন"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+msgid "Metadata;Remover;Cleaner;"
+msgstr ""
+
+#. translators: keyboard shortcut section title. "General shortcuts"
+#. translators: preferences window tab title, "general settings", unused at the moment
+msgid "General"
+msgstr "সাধারণ"
+
+#. translators: keyboard shortcut title. Opens a new window
+msgid "New window"
+msgstr "নতুন উইন্ডো"
+
+#. translators: keyboard shortcut title. Opens the keyboard shortcut dialog
+msgid "Keyboard shortcuts"
+msgstr "কিবোর্ড শর্টকাট"
+
+#. translators: keyboard shortcut title. Closes the currently focused window
+msgid "Close Window"
+msgstr ""
+
+#. translators: keyboard shortcut title. Closes the app completely
+msgid "Quit"
+msgstr "বের হন"
+
+#. translators: keyboard shortcut section title. File-related shortcuts
+msgid "Files"
+msgstr "ফাইলস"
+
+#. translators: keyboard shortcut title. Opens the file picker
+msgid "Add Files"
+msgstr ""
+
+#. translators: keyboard shortcut title. Opens the folder pickers
+msgid "Add Folders"
+msgstr ""
+
+#. translators: keyboard shortcut title. Starts the metadata cleaning process
+msgid "Clean Metadata"
+msgstr ""
+
+#. translators: keyboard shortcut title. Removes all files from the queue/file list
+msgid "Remove all files from the list"
+msgstr ""
+
+#. translators: title in the dialog that shows up when clicking the main "clean" button
+msgid "Clean Metadata?"
+msgstr ""
+
+#. translators: subtitle in the dialog that shows up when clicking the main "clean" button
+msgid "Make sure you backed up your files! This is irreversible."
+msgstr ""
+
+#. translators: button in the dialog that shows up when clicking clean. This cancels the operation.
+msgid "_Cancel"
+msgstr ""
+
+#. translators: button in the dialog that shows up when clicking clean. This proceeds and cleans the files. Do not underline.
+msgid "Clean"
+msgstr "সরান"
+
+#. translators: checkbox in the dialog that shows up when clicking clean. Selecting it will stop showing this dialog and instead clean the metadata instantly
+msgid "Don't ask again"
+msgstr ""
+
+#. translators: the main button at the bottom of the file list that cleans the file metadata. "Clean Metadata"
+msgid "_Clean"
+msgstr "_সরান"
+
+#. translators: tooltip text for the prefix button in the file rows. Clicking it will remove the file from the list.
+msgid "Remove File from List"
+msgstr ""
+
+#. translators: headerbar main menu item
+msgid "_New Window"
+msgstr "_নতুন উইন্ডো"
+
+#. translators: headerbar main menu item. This one clears the file list, it will remove all files from the list. Please make sure it's clear that this will NOT delete the files on disk, it will only remove them from the list.
+msgid "_Remove All Files"
+msgstr ""
+
+#. translators: headerbar main menu item
+msgid "_Keyboard Shortcuts"
+msgstr "_কিবোর্ড শর্টকাট"
+
+#. translators: headerbar main menu item. Metadata Cleaner is the app name.
+msgid "_About Metadata Cleaner"
+msgstr "মেটাডেটা ক্লিনার _সম্পর্কে"
+
+#. translators: tooltip text for the headerbar menu button
+msgid "Main Menu"
+msgstr ""
+
+#. translators: tooltip text for a button next to the "clean" button. It opens a settings dialog for cleaning-process related settings.
+msgid "Settings"
+msgstr ""
+
+#. translators: cleaning option row title
+msgid "Lightweight Cleaning"
+msgstr ""
+
+#. translators: cleaning option row subtitle. This describes what "Lightweight cleaning" is. Please be as clear as possible and don't assume the user knows what everything is
+msgid ""
+"By default, the removal process might alter a bit the data of your files, in "
+"order to remove as much metadata as possible. For example, texts in PDF "
+"might not be selectable anymore, compressed images might get compressed "
+"again… The lightweight mode, while not as thorough, will not make "
+"destructive changes to your files."
+msgstr ""
+
+#. translators: button that cancels the cleaning process
+msgid "Cancel"
+msgstr "বাতিল করুন"
+
+#. translators: headerbar button menu item that opens the file picker
+msgid "Add Files…"
+msgstr ""
+
+#. translators: headerbar button menu item that opens the folder picker
+msgid "Add Folders…"
+msgstr ""
+
+#. translators: overlay shown when dragging files above the app
+msgid "Drop files or folders to clean them"
+msgstr ""
+
+#. translators: headerbar button that opens a menu to pick files or folders and add them to the list aka "Add Files/Folders"
+msgid "Add"
+msgstr ""
+
+#. translators: tooltip text on a headerbar button that toggles the side panel for metadata viewing
+msgid "Toggle Metadata"
+msgstr ""
+
+#. translators: subtitle in the empty view, drop as in drag-n-drop
+msgid "Drop files here to clean them"
+msgstr ""
+
+#. translators: button label that opens the file picker
+msgid "Open _Files…"
+msgstr ""
+
+#. translators: button label that opens the folder picker. Please underline a different character than the one in the Open Files button
+msgid "Open F_olders…"
+msgstr ""
+
+#. translators: generic error message shown when the cleaning
+#. was unsuccessful but we don't know why
+msgid "An error occurred during the cleaning."
+msgstr ""
+
+#. translators: error message when a file is no longer
+#. available during cleaning. "Something
+#. bad happened" as in "Something went
+#. wrong"
+msgid "Something bad happened during the cleaning, cleaned file not found"
+msgstr ""
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Warning"
+msgstr "সর্তকতা"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Error"
+msgstr "ত্রুটি"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Cleaned"
+msgstr "সরানো হয়েছে"
+
+#. translators: side panel message when selecting a file that
+#. has been cleaned
+msgid "The File Has Been Cleaned"
+msgstr ""
+
+#. translators: side panel subtitle when selecting a file
+#. that has been cleaned. The limitations can
+#. be viewed by clicking a button below it
+msgid ""
+"Known metadata have been removed, however the cleaning process has some "
+"limitations."
+msgstr ""
+
+#. translators: button that shows more info about the
+#. cleaning process, it's shown below a
+#. label that gives it context
+msgid "Learn more"
+msgstr "আরও জানুন"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "Unable to Read the File"
+msgstr "ফাইলটি পড়তে ব্যর্থ হয়েছে"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "File Type not Supported"
+msgstr "ফাইলের ধরন সমর্থিত নয়"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "Unable to Check for Metadata"
+msgstr "মেটাডেটা বিশ্লেষণ করতে ব্যর্থ হয়েছে"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "No Known Metadata"
+msgstr "জানা কোন মেটাডেটা নেই"
+
+#. translators: error shown on the side panel when
+#. selecting a file
+msgid "Unable to Remove Metadata"
+msgstr "মেটাডেটা অপসারণে ব্যর্থ হয়েছে"
+
+#. translators: message shown on the side panel when selecting a
+#. file that doesn't have known metadata
+msgid "The file will be cleaned anyway to be sure."
+msgstr "নিশ্চিত হতে ফাইলটিকে অবশ্যই পরিষ্কার করা হবে."
+
+#. translators: message shown on the side panel when no file
+#. has been selected
+msgid "Select a file to view its metadata"
+msgstr ""
+
+#. translators: progress bar subtitle while loading files
+msgid "Processing file {}/{}"
+msgstr "ফাইল প্রক্রিয়াকরণ হচ্ছে {}/{}"
+
+#. translators: progress bar subtitle while cleaning files
+msgid "Cleaning file {}/{}"
+msgstr "ফাইলের মেটাডেটা অপসারণ হচ্ছে {}/{}"
+
+#, python-format
+msgid "%i file cleaned"
+msgid_plural "%i files cleaned"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid "%i error occurred"
+msgid_plural "%i errors occurred"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: filter name while picking files
+msgid "All supported files"
+msgstr "সকল সমর্থিত ফাইলস"
+
+#. translators: about dialog button that opens weblate
+msgid "Translate"
+msgstr ""
+
+#. translators: Translate this string as your translator credits.
+#. Name only:    Jane Doe
+#. Name + URL:   Jane Doe https://example.com/
+#. Name + Email: Jane Doe <janedoe@example.com>
+#. Do not remove existing names.
+#. Names are separated with newlines.
+msgid "translator-credits"
+msgstr ""
+
+#. translators: dialog title that has some info about the
+#. cleaning process
+msgid "Info"
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+msgid "Metadata & Privacy"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+msgid ""
+"Metadata consists of information that characterizes data. Metadata is used "
+"to provide documentation for data products. In essence, metadata answers "
+"who, what, when, where, why, and how about every facet of the data that is "
+"being documented.\n"
+"\n"
+"Metadata within a file can tell a lot about you. Cameras record data about "
+"when and where a picture was taken and which camera was used. Office "
+"applications automatically add author and company information to documents "
+"and spreadsheets. This is sensitive information and you may not want to "
+"disclose it."
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+msgid "Cleaning Process"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+#. "Metadata Cleaner" is the app name. File
+#. formats as in "pdf", "png", "music files"
+#. etc. this section describes the case where
+#. we might not know what a file actually is
+#. and how to clean it.
+msgid ""
+"While Metadata Cleaner is doing its very best to display metadata, it "
+"doesn't mean that a file is clean from metadata if it doesn't show any. "
+"There is no reliable way to detect every single possible metadata for "
+"complex file formats. This is why you shouldn't rely on metadata's presence "
+"to decide if your file must be cleaned or not.\n"
+"\n"
+"Metadata Cleaner takes the content of  the file and puts it into a new one "
+"without metadata, ensuring that any undetected metadata is stripped."
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+msgid "Limitations"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as
+#. is `\n`. If the language seems too
+#. advanced, please simplify it while
+#. staying true to the original; don't
+#. assume that the user has any knowledge
+#. on what metadata is. "Metadata Cleaner"
+#. is the app name.
+msgid ""
+"Be aware that metadata is not the only way of marking a file. If the content "
+"itself discloses personal information or has been watermarked, traditionally "
+"or via steganography, Metadata Cleaner will not protect you."
+msgstr ""
+
+#~ msgid "View and clean metadata in files"
+#~ msgstr "ফাইলের মেটাডেটা দেখুন এবং সরিয়ে ফেলুন"
+
+#~ msgid ""
+#~ "Metadata within a file can tell a lot about you. Cameras record data "
+#~ "about when and where a picture was taken and which camera was used. "
+#~ "Office applications automatically add author and company information to "
+#~ "documents and spreadsheets. This is sensitive information and you may not "
+#~ "want to disclose it."
+#~ msgstr ""
+#~ "ফাইলের মধ্যে মেটাডেটা আপনার সম্পর্কে অনেক কিছু বলে দিতে পারে. ক্যামেরার রেকর্ড "
+#~ "তথ্য অর্থাৎ কখন এবং কোথায় ছবিটি তোলা হয়েছে এবং কোন ক্যামেরা ব্যবহৃত হয়েছিল. "
+#~ "অফিস আ্যপলিকেশনগুলো স্বয়ংক্রিয়ভাবে লেখক এবং কোম্পানির তথ্য ডকুমেন্ট ও স্প্রেডশিটে "
+#~ "যুক্ত করে দেয়. এগুলো খুবই সূক্ষ্ম এবং গুরুত্বপূর্ণ তথ্য এবং আপনি হয়তো এগুলো প্রকাশ করতে "
+#~ "চান না."
+
+#~ msgid ""
+#~ "This tool allows you to view metadata in your files and to get rid of it, "
+#~ "as much as possible."
+#~ msgstr ""
+#~ "এই টুলটি যথাসম্ভব আপনাকে আপনার ফাইলের মেটাডেটা দেখতে এবং অপসারণ করতে সাহায্য "
+#~ "করবে."
+
+#~ msgid "Add files"
+#~ msgstr "ফাইল যুক্ত করুন"
+
+#~ msgid "Add folders"
+#~ msgstr "ফোল্ডার যুক্ত করুন"
+
+#~ msgid "Clean metadata"
+#~ msgstr "মেটাডেটা সরান"
+
+#~ msgid "Clear all files from window"
+#~ msgstr "উইন্ডো থেকে সকল ফাইল সরান"
+
+#~ msgid "Close window"
+#~ msgstr "উইন্ডোটি বন্ধ করুন"
+
+#~ msgid "Help"
+#~ msgstr "সাহায্য"
+
+#~ msgid "_Add Files"
+#~ msgstr "_ফাইল যুক্ত করুন"
+
+#~ msgid "Add _Folders"
+#~ msgstr "_ফোল্ডার যুক্ত করুন"
+
+#~ msgid "Make sure you backed up your files!"
+#~ msgstr "আপনি আপনার ফাইল ব্যাকআপ করেছেন কিনা নিশ্চিত হন!"
+
+#~ msgid "Once the files are cleaned, there's no going back."
+#~ msgstr "একবার মেটাডেটা সরিয়ে ফেললে, তা পুনরায় ফেরত আনা সম্ভব নয়."
+
+#~ msgid "Don't tell me again"
+#~ msgstr "আমাকে আবার বলবেন না"
+
+#~ msgid "Clean Your Traces"
+#~ msgstr "আপনার পদচিহ্ন সরিয়ে ফেলুন"
+
+#~ msgid "Learn more about metadata and the cleaning process limitations"
+#~ msgstr "মেটাডেটা এবং তা সরানোর সীমাবদ্ধতা সম্পর্কে আরও জানুন"
+
+#~ msgid "Remove file from list"
+#~ msgstr "তালিকা থেকে ফাইলটি সরান"
+
+#~ msgid "_Clear Window"
+#~ msgstr "_উইন্ডো পরিষ্কার করুন"
+
+#~ msgid "_Help"
+#~ msgstr "_সাহায্য"
+
+#~ msgid "Cleaning settings"
+#~ msgstr "মেটাডেটা সরানোর সেটিং"
+
+#~ msgid "Add files from subfolders"
+#~ msgstr "সাবফোল্ডার থেকে ফাইল যুক্ত করুন"
+
+#~ msgid "Clean without warning"
+#~ msgstr "সতর্কীকরণ ছাড়াই অপসারণ"
+
+#~ msgid "Clean the files without showing the warning dialog"
+#~ msgstr "সতর্কবাণী ডায়ালগ না দেখিয়ে ফাইলগুলোর মেটাডেটা অপসারণ করুন"
+
+#~ msgid "Lightweight cleaning"
+#~ msgstr "সাধারন মেটাডেটা অপসারণ করুন"
+
+#~ msgid "Window width"
+#~ msgstr "উইন্ডোর প্রস্থ"
+
+#~ msgid "Window height"
+#~ msgstr "উইন্ডোর উচ্চতা"
+
+#~ msgid "Updated translations"
+#~ msgstr "হালনাগাদকৃত অনুবাদ"
+
+#~ msgid "Improved user interface"
+#~ msgstr "উন্নত ইউজার ইন্টারফেস"
+
+#~ msgid "New translations"
+#~ msgstr "নতুন অনুবাদ"
+
+#~ msgid "Bug fixes"
+#~ msgstr "বাগ সংশোধন"
+
+#~ msgid "New button to add folders"
+#~ msgstr "ফোল্ডার যোগ করতে নতুন বাটন"
+
+#~ msgid "New help pages"
+#~ msgstr "নতুন সাহায্য পৃষ্ঠা"
+
+#~ msgid "One-click cleaning, no need to save after cleaning"
+#~ msgstr "এক-ক্লিকের অপসারণ, অপসারণের পর সংরক্ষণের প্রয়োজন নেই"
+
+#~ msgid "Files with uppercase extension can now be added"
+#~ msgstr "বড় হাতের অক্ষরের এক্সটেনশন যুক্ত ফাইল এখন যুক্ত করা যাবে"
+
+#~ msgid "Chat on Matrix"
+#~ msgstr "Matrix এ চেট করুন"
+
+#~ msgid "View the code on GitLab"
+#~ msgstr "GitLab এ সোর্সকোড দেখুন"
+
+#~ msgid "Translate on Weblate"
+#~ msgstr "Weblate এ অনুবাদ করুন"
+
+#~ msgid "Support us on Liberapay"
+#~ msgstr "Liberapay এর মাধ্যমে আমাদের সমর্থন করুন"
+
+#~ msgid "Code"
+#~ msgstr "কোড"
+
+#~ msgid "Artwork"
+#~ msgstr "কারুকার্য"
+
+#~ msgid "Documentation"
+#~ msgstr "ডকুমেন্টেশন"
+
+#~ msgid "Translation"
+#~ msgstr "অনুবাদ"
+
+#~ msgid ""
+#~ "This program uses <a href=\"https://github.com/jvoisin/mat2\">mat2</a> to "
+#~ "parse and clean the metadata. Show them some love!"
+#~ msgstr ""
+#~ "এই প্রোগ্রামটি মেটাডেটাগুলো বিশ্লেষণ ও সরাতে <a href=\"https://github.com/"
+#~ "jvoisin/mat2\">mat2</a> ব্যবহার করে. তাই তাদের কিছু ভালবাসা দেখান!"
+
+#~ msgid ""
+#~ "The source code of this program is released under the terms of the <a "
+#~ "href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL 3.0 or later</"
+#~ "a>. The original artwork and translations are released under the terms of "
+#~ "the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA "
+#~ "4.0</a>."
+#~ msgstr ""
+#~ "এই প্রোগ্রামের সোর্সকোড প্রকাশিত হয়েছে <a href=\"https://www.gnu.org/licenses/"
+#~ "gpl-3.0.html\">GNU GPL 3.0 or later</a> শর্তাবলীর অধীনে. মূল কারুকার্য ও "
+#~ "অনুবাদ প্রকাশিত হয়েছে <a href=\"https://creativecommons.org/licenses/by-sa/"
+#~ "4.0/\">CC BY-SA 4.0</a> এর শর্তাবলীর অধীনে."
+
+#~ msgid "Adding files…"
+#~ msgstr "ফাইল যুক্ত হচ্ছে…"

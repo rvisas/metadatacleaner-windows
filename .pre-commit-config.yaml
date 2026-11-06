@@ -1,0 +1,59 @@
+# SPDX-FileCopyrightText: Metadata Cleaner contributors
+# SPDX-License-Identifier: CC-BY-SA-4.0
+
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+# build-aux/flathub-manifest/ is vendored as-is from
+# https://github.com/flathub/io.gitlab.metadatacleaner.metadatacleaner and must stay
+# diffable against upstream, so hooks that would rewrite it skip it.
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+    -   id: trailing-whitespace
+        exclude: ^build-aux/flathub-manifest/
+    -   id: end-of-file-fixer
+        exclude: ^build-aux/flathub-manifest/
+    -   id: check-yaml
+    -   id: check-xml
+    -   id: check-json
+    -   id: pretty-format-json
+        args: ["--autofix", "--no-sort-keys", "--indent", "4"]
+    -   id: check-added-large-files
+
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.11
+    hooks:
+    -   id: ruff-check
+        args: [ "--fix" ]
+    -   id: ruff-format
+
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.19.1
+    hooks:
+    -   id: mypy
+        args: [ "--ignore-missing-imports" ]
+        additional_dependencies:
+          - types-PyYAML
+
+-   repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+    -   id: codespell
+        exclude: ^(po/|build-aux/flathub-manifest/|.*\.svg|.*/pride.py|.*\.pot?$)
+
+-   repo: https://codeberg.org/fsfe/reuse-tool
+    rev: v6.2.0
+    hooks:
+    -   id: reuse
+
+-   repo: local
+    hooks:
+    -   id: generate-flatpak-manifest
+        name: Regenerate flatpak manifest from build-aux/flathub-manifest
+        entry: python3 build-aux/generate-manifest.py
+        language: python
+        additional_dependencies: [pyyaml]
+        files: ^build-aux/(flathub-manifest/.*\.yaml|generate-manifest\.py|io\.gitlab\.metadatacleaner\.metadatacleaner\.json)$
+        pass_filenames: false

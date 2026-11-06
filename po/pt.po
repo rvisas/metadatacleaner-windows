@@ -1,0 +1,584 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.gitlab.metadatacleaner.metadatacleaner package.
+# Juliano de Souza Camargo <julianosc@protonmail.com>, 2022.
+# ssantos <ssantos@web.de>, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: io.gitlab.metadatacleaner.metadatacleaner\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-28 08:50+0200\n"
+"PO-Revision-Date: 2023-12-21 14:06+0000\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/metadata-"
+"cleaner/application/pt/>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.4-dev\n"
+
+#. Translators: app name
+#. translators: app name
+msgid "Metadata Cleaner"
+msgstr "Limpador de metadados"
+
+#. Translators: desktop entry comment
+msgid "Clean metadata from your files"
+msgstr "Limpar os metadados de seus ficheiros"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+msgid "Metadata;Remover;Cleaner;"
+msgstr "Metadado;Metainformação;Eliminar;Remover;Limpador;"
+
+#. translators: keyboard shortcut section title. "General shortcuts"
+#. translators: preferences window tab title, "general settings", unused at the moment
+msgid "General"
+msgstr "Geral"
+
+#. translators: keyboard shortcut title. Opens a new window
+msgid "New window"
+msgstr "Nova janela"
+
+#. translators: keyboard shortcut title. Opens the keyboard shortcut dialog
+msgid "Keyboard shortcuts"
+msgstr "Atalhos de teclado"
+
+#. translators: keyboard shortcut title. Closes the currently focused window
+msgid "Close Window"
+msgstr ""
+
+#. translators: keyboard shortcut title. Closes the app completely
+msgid "Quit"
+msgstr "Sair"
+
+#. translators: keyboard shortcut section title. File-related shortcuts
+msgid "Files"
+msgstr "Ficheiros"
+
+#. translators: keyboard shortcut title. Opens the file picker
+msgid "Add Files"
+msgstr ""
+
+#. translators: keyboard shortcut title. Opens the folder pickers
+msgid "Add Folders"
+msgstr ""
+
+#. translators: keyboard shortcut title. Starts the metadata cleaning process
+msgid "Clean Metadata"
+msgstr ""
+
+#. translators: keyboard shortcut title. Removes all files from the queue/file list
+msgid "Remove all files from the list"
+msgstr ""
+
+#. translators: title in the dialog that shows up when clicking the main "clean" button
+msgid "Clean Metadata?"
+msgstr ""
+
+#. translators: subtitle in the dialog that shows up when clicking the main "clean" button
+msgid "Make sure you backed up your files! This is irreversible."
+msgstr ""
+
+#. translators: button in the dialog that shows up when clicking clean. This cancels the operation.
+msgid "_Cancel"
+msgstr ""
+
+#. translators: button in the dialog that shows up when clicking clean. This proceeds and cleans the files. Do not underline.
+msgid "Clean"
+msgstr "Limpar"
+
+#. translators: checkbox in the dialog that shows up when clicking clean. Selecting it will stop showing this dialog and instead clean the metadata instantly
+msgid "Don't ask again"
+msgstr ""
+
+#. translators: the main button at the bottom of the file list that cleans the file metadata. "Clean Metadata"
+msgid "_Clean"
+msgstr "_Limpar"
+
+#. translators: tooltip text for the prefix button in the file rows. Clicking it will remove the file from the list.
+msgid "Remove File from List"
+msgstr ""
+
+#. translators: headerbar main menu item
+msgid "_New Window"
+msgstr "_Nova janela"
+
+#. translators: headerbar main menu item. This one clears the file list, it will remove all files from the list. Please make sure it's clear that this will NOT delete the files on disk, it will only remove them from the list.
+msgid "_Remove All Files"
+msgstr ""
+
+#. translators: headerbar main menu item
+msgid "_Keyboard Shortcuts"
+msgstr "Atalhos de _teclado"
+
+#. translators: headerbar main menu item. Metadata Cleaner is the app name.
+msgid "_About Metadata Cleaner"
+msgstr "Acerca do Limpador de _metadados"
+
+#. translators: tooltip text for the headerbar menu button
+msgid "Main Menu"
+msgstr "Menu principal"
+
+#. translators: tooltip text for a button next to the "clean" button. It opens a settings dialog for cleaning-process related settings.
+msgid "Settings"
+msgstr ""
+
+#. translators: cleaning option row title
+msgid "Lightweight Cleaning"
+msgstr "Limpeza ligeira"
+
+#. translators: cleaning option row subtitle. This describes what "Lightweight cleaning" is. Please be as clear as possible and don't assume the user knows what everything is
+msgid ""
+"By default, the removal process might alter a bit the data of your files, in "
+"order to remove as much metadata as possible. For example, texts in PDF "
+"might not be selectable anymore, compressed images might get compressed "
+"again… The lightweight mode, while not as thorough, will not make "
+"destructive changes to your files."
+msgstr ""
+
+#. translators: button that cancels the cleaning process
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. translators: headerbar button menu item that opens the file picker
+msgid "Add Files…"
+msgstr ""
+
+#. translators: headerbar button menu item that opens the folder picker
+msgid "Add Folders…"
+msgstr ""
+
+#. translators: overlay shown when dragging files above the app
+msgid "Drop files or folders to clean them"
+msgstr ""
+
+#. translators: headerbar button that opens a menu to pick files or folders and add them to the list aka "Add Files/Folders"
+msgid "Add"
+msgstr ""
+
+#. translators: tooltip text on a headerbar button that toggles the side panel for metadata viewing
+msgid "Toggle Metadata"
+msgstr ""
+
+#. translators: subtitle in the empty view, drop as in drag-n-drop
+msgid "Drop files here to clean them"
+msgstr ""
+
+#. translators: button label that opens the file picker
+msgid "Open _Files…"
+msgstr ""
+
+#. translators: button label that opens the folder picker. Please underline a different character than the one in the Open Files button
+msgid "Open F_olders…"
+msgstr ""
+
+#. translators: generic error message shown when the cleaning
+#. was unsuccessful but we don't know why
+msgid "An error occurred during the cleaning."
+msgstr ""
+
+#. translators: error message when a file is no longer
+#. available during cleaning. "Something
+#. bad happened" as in "Something went
+#. wrong"
+msgid "Something bad happened during the cleaning, cleaned file not found"
+msgstr "Algo correu mal durante a limpeza, ficheiro limpo não encontrado"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Warning"
+msgstr "Advertência"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Error"
+msgstr "Erro"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Cleaned"
+msgstr "Limpo"
+
+#. translators: side panel message when selecting a file that
+#. has been cleaned
+msgid "The File Has Been Cleaned"
+msgstr "O ficheiro foi limpo"
+
+#. translators: side panel subtitle when selecting a file
+#. that has been cleaned. The limitations can
+#. be viewed by clicking a button below it
+msgid ""
+"Known metadata have been removed, however the cleaning process has some "
+"limitations."
+msgstr ""
+"Os metadados conhecidos foram removidos, contudo, o processo de limpeza tem "
+"algumas limitações."
+
+#. translators: button that shows more info about the
+#. cleaning process, it's shown below a
+#. label that gives it context
+msgid "Learn more"
+msgstr "Saiba mais"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "Unable to Read the File"
+msgstr "Não foi possível ler o ficheiro"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "File Type not Supported"
+msgstr "Tipo de ficheiro não suportado"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "Unable to Check for Metadata"
+msgstr "Não foi possível verificar os metadados"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "No Known Metadata"
+msgstr "Sem metadados conhecidos"
+
+#. translators: error shown on the side panel when
+#. selecting a file
+msgid "Unable to Remove Metadata"
+msgstr "Não foi possível remover os metadados"
+
+#. translators: message shown on the side panel when selecting a
+#. file that doesn't have known metadata
+msgid "The file will be cleaned anyway to be sure."
+msgstr "O ficheiro será limpo de qualquer maneira, para ter certeza."
+
+#. translators: message shown on the side panel when no file
+#. has been selected
+msgid "Select a file to view its metadata"
+msgstr ""
+
+#. translators: progress bar subtitle while loading files
+msgid "Processing file {}/{}"
+msgstr "A processar ficheiro {}/{}"
+
+#. translators: progress bar subtitle while cleaning files
+msgid "Cleaning file {}/{}"
+msgstr "A limpar ficheiro {}/{}"
+
+#, python-format
+msgid "%i file cleaned"
+msgid_plural "%i files cleaned"
+msgstr[0] ""
+msgstr[1] ""
+
+#, python-format
+msgid "%i error occurred"
+msgid_plural "%i errors occurred"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: filter name while picking files
+msgid "All supported files"
+msgstr "Todos os ficheiros compatíveis"
+
+#. translators: about dialog button that opens weblate
+msgid "Translate"
+msgstr ""
+
+#. translators: Translate this string as your translator credits.
+#. Name only:    Jane Doe
+#. Name + URL:   Jane Doe https://example.com/
+#. Name + Email: Jane Doe <janedoe@example.com>
+#. Do not remove existing names.
+#. Names are separated with newlines.
+msgid "translator-credits"
+msgstr "Juliano de Souza Camargo <julianosc@pm.me>"
+
+#. translators: dialog title that has some info about the
+#. cleaning process
+msgid "Info"
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+msgid "Metadata & Privacy"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+msgid ""
+"Metadata consists of information that characterizes data. Metadata is used "
+"to provide documentation for data products. In essence, metadata answers "
+"who, what, when, where, why, and how about every facet of the data that is "
+"being documented.\n"
+"\n"
+"Metadata within a file can tell a lot about you. Cameras record data about "
+"when and where a picture was taken and which camera was used. Office "
+"applications automatically add author and company information to documents "
+"and spreadsheets. This is sensitive information and you may not want to "
+"disclose it."
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+msgid "Cleaning Process"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+#. "Metadata Cleaner" is the app name. File
+#. formats as in "pdf", "png", "music files"
+#. etc. this section describes the case where
+#. we might not know what a file actually is
+#. and how to clean it.
+msgid ""
+"While Metadata Cleaner is doing its very best to display metadata, it "
+"doesn't mean that a file is clean from metadata if it doesn't show any. "
+"There is no reliable way to detect every single possible metadata for "
+"complex file formats. This is why you shouldn't rely on metadata's presence "
+"to decide if your file must be cleaned or not.\n"
+"\n"
+"Metadata Cleaner takes the content of  the file and puts it into a new one "
+"without metadata, ensuring that any undetected metadata is stripped."
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+msgid "Limitations"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as
+#. is `\n`. If the language seems too
+#. advanced, please simplify it while
+#. staying true to the original; don't
+#. assume that the user has any knowledge
+#. on what metadata is. "Metadata Cleaner"
+#. is the app name.
+msgid ""
+"Be aware that metadata is not the only way of marking a file. If the content "
+"itself discloses personal information or has been watermarked, traditionally "
+"or via steganography, Metadata Cleaner will not protect you."
+msgstr ""
+
+#~ msgid "View and clean metadata in files"
+#~ msgstr "Ver e limpar os metadados dos ficheiros"
+
+#~ msgid ""
+#~ "Metadata within a file can tell a lot about you. Cameras record data "
+#~ "about when and where a picture was taken and which camera was used. "
+#~ "Office applications automatically add author and company information to "
+#~ "documents and spreadsheets. This is sensitive information and you may not "
+#~ "want to disclose it."
+#~ msgstr ""
+#~ "Os metadados dum ficheiro podem dizer muito sobre alguém. As câmaras "
+#~ "registam dados sobre quando e onde se tomou uma foto e que câmara se "
+#~ "usou. As aplicações de escritório registam automaticamente informação "
+#~ "acerca do autor e da empresa nos documentos e folhas de cálculo. Trata-se "
+#~ "de informação delicada e é possível que não a queira revelar."
+
+#~ msgid ""
+#~ "This tool allows you to view metadata in your files and to get rid of it, "
+#~ "as much as possible."
+#~ msgstr ""
+#~ "Esta ferramenta permite-lhe ver os metadados nos seus ficheiros e "
+#~ "desfazer-se deles na medida do possível."
+
+#~ msgid "Add files"
+#~ msgstr "Adicionar ficheiros"
+
+#~ msgid "Add folders"
+#~ msgstr "Adicionar pastas"
+
+#~ msgid "Clean metadata"
+#~ msgstr "Limpar metadados"
+
+#~ msgid "Clear all files from window"
+#~ msgstr "Limpar todos os ficheiros da janela"
+
+#~ msgid "Close window"
+#~ msgstr "Fechar janela"
+
+#~ msgid "Help"
+#~ msgstr "Ajuda"
+
+#~ msgid "_Add Files"
+#~ msgstr "_Adicionar ficheiros"
+
+#~ msgid "Add _Folders"
+#~ msgstr "Adicionar _pastas"
+
+#~ msgid "Make sure you backed up your files!"
+#~ msgstr "Assegure-se de fazer uma cópia de segurança dos seus ficheiros!"
+
+#~ msgid "Once the files are cleaned, there's no going back."
+#~ msgstr "Uma vez limpados os ficheiros, não há volta atrás."
+
+#~ msgid "Don't tell me again"
+#~ msgstr "Não voltar a mostrar esta mensagem"
+
+#~ msgid "Clean Your Traces"
+#~ msgstr "Limpe as suas pegadas"
+
+#~ msgid "Learn more about metadata and the cleaning process limitations"
+#~ msgstr "Saiba mais sobre metadados e as limitações do processo de limpeza"
+
+#~ msgid "Remove file from list"
+#~ msgstr "Remover ficheiro da lista"
+
+#~ msgid "_Clear Window"
+#~ msgstr "_Limpar janela"
+
+#~ msgid "_Help"
+#~ msgstr "A_juda"
+
+#~ msgid "Cleaning settings"
+#~ msgstr "Ajustes de limpeza"
+
+#~ msgid "Learn more about the lightweight cleaning"
+#~ msgstr "Mais informação acerca da limpeza ligeira"
+
+#~ msgid "Details"
+#~ msgstr "Detalhes"
+
+#~ msgid "Close"
+#~ msgstr "Fechar"
+
+#~ msgid "Choose files to clean"
+#~ msgstr "Selecione os ficheiros que deseja limpar"
+
+#~ msgid "Choose folders to clean"
+#~ msgstr "Selecione as pastas que deseja limpar"
+
+#~ msgid "An error occured during the cleaning."
+#~ msgstr "Um erro ocorreu durante a limpeza."
+
+#~ msgid "Add files from subfolders"
+#~ msgstr "Adicionar ficheiros de subpastas"
+
+#, python-format
+#~ msgid "%i file cleaned."
+#~ msgid_plural "%i files cleaned."
+#~ msgstr[0] "%i ficheiro limpo."
+#~ msgstr[1] "%i ficheiros limpos."
+
+#, python-format
+#~ msgid "%i error occured."
+#~ msgid_plural "%i errors occured."
+#~ msgstr[0] "ocorreu %i erro."
+#~ msgstr[1] "ocorreram %i erros."
+
+#~ msgid "Libraries"
+#~ msgstr "Bibliotecas"
+
+#~ msgid "Clean without warning"
+#~ msgstr "Limpar sem advertir"
+
+#~ msgid "Clean the files without showing the warning dialog"
+#~ msgstr "Limpar os ficheiros sem mostrar o diálogo de advertência"
+
+#~ msgid "Lightweight cleaning"
+#~ msgstr "Limpeza ligeira"
+
+#~ msgid "Don't make destructive changes to files but may leave some metadata"
+#~ msgstr ""
+#~ "Não faz alterações destrutivas nos ficheiros mas pode ignorar algum "
+#~ "metadado"
+
+#~ msgid "Window width"
+#~ msgstr "Largura da janela"
+
+#~ msgid "Saved width of the window"
+#~ msgstr "Largura gravada da janela"
+
+#~ msgid "Window height"
+#~ msgstr "Altura da janela"
+
+#~ msgid "Saved height of the window"
+#~ msgstr "Altura gravada da janela"
+
+#, fuzzy
+#~| msgid "New translations"
+#~ msgid "Updated translations"
+#~ msgstr "Novas traduções"
+
+#, fuzzy
+#~| msgid "Improved adaptive user interface"
+#~ msgid "Improved user interface"
+#~ msgstr "Interface de utilizador adaptável aprimorada"
+
+#~ msgid "New translations"
+#~ msgstr "Novas traduções"
+
+#~ msgid "Bug fixes"
+#~ msgstr "Correção de erros"
+
+#~ msgid "New button to add folders"
+#~ msgstr "Novo botão para adicionar pastas"
+
+#~ msgid "Improved adaptive user interface"
+#~ msgstr "Interface de utilizador adaptável aprimorada"
+
+#~ msgid "New help pages"
+#~ msgstr "Novas páginas de ajuda"
+
+#~ msgid "One-click cleaning, no need to save after cleaning"
+#~ msgstr "Limpar com um clique, não há necessidade de gravar após a limpeza"
+
+#~ msgid "Persistent lightweight cleaning option"
+#~ msgstr "Opção de limpeza ligeira persistente"
+
+#~ msgid "Files with uppercase extension can now be added"
+#~ msgstr "Agora pode-se adicionar ficheiros com extensão em maiúsculas"
+
+#~ msgid "Chat on Matrix"
+#~ msgstr "Conversar em Matrix"
+
+#~ msgid "View the code on GitLab"
+#~ msgstr "Ver o código em GitLab"
+
+#~ msgid "Translate on Weblate"
+#~ msgstr "Traduzir em Weblate"
+
+#~ msgid "Support us on Liberapay"
+#~ msgstr "Apoie-nos em Liberapay"
+
+#~ msgid "Code"
+#~ msgstr "Código"
+
+#~ msgid "Artwork"
+#~ msgstr "Arte"
+
+#~ msgid "Documentation"
+#~ msgstr "Documentação"
+
+#~ msgid "Translation"
+#~ msgstr "Tradução"
+
+#~ msgid ""
+#~ "This program uses <a href=\"https://github.com/jvoisin/mat2\">mat2</a> to "
+#~ "parse and clean the metadata. Show them some love!"
+#~ msgstr ""
+#~ "Este programa usa <a href=\"https://github.com/jvoisin/mat2\">mat2</a> "
+#~ "para analisar e limpar os metadados. Ofereça-lhes um pouco de amor!"
+
+#~ msgid ""
+#~ "The source code of this program is released under the terms of the <a "
+#~ "href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL 3.0 or later</"
+#~ "a>. The original artwork and translations are released under the terms of "
+#~ "the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA "
+#~ "4.0</a>."
+#~ msgstr ""
+#~ "O código-fonte deste programa é publicado sob os termos da <a "
+#~ "href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL 3.0 ou "
+#~ "posterior</a>. O material gráfico e as traduções são publicadas sob os "
+#~ "termos <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-"
+#~ "SA 4.0</a>."
+
+#~ msgid "Adding files…"
+#~ msgstr "A adicionar ficheiros…"

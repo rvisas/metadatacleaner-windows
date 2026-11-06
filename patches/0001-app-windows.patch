@@ -1,0 +1,62 @@
+diff --git a/src/metadata-cleaner.in b/src/metadata-cleaner.in
+index e708470..697886e 100755
+--- a/src/metadata-cleaner.in
++++ b/src/metadata-cleaner.in
+@@ -24,9 +24,14 @@ gi.require_version("Adw", "1")
+ APP_ID = "@app_id@"
+ DEVEL = "@devel@" == "True"
+ VERSION = "@version@"
+-LOCALE_DIR = "@localedir@"
+ 
+-sys.path.insert(1, "@pkgdatadir@")
++# Derive the install layout from this script's location so the build can be
++# relocated (needed for the Windows portable build, harmless on Linux).
++_APP_ROOT = Path(__file__).resolve().parent.parent
++LOCALE_DIR = str(_APP_ROOT / "share" / "locale")
++PKGDATA_DIR = str(_APP_ROOT / "share" / "metadata-cleaner")
++
++sys.path.insert(1, PKGDATA_DIR)
+ os.unsetenv("GTK_THEME")
+ 
+ 
+@@ -48,7 +53,7 @@ def setup_resources() -> None:
+     from gi.repository import Gio
+ 
+     resource = Gio.Resource.load(
+-        str(Path("@pkgdatadir@") / f"{APP_ID}.gresource")
++        str(Path(PKGDATA_DIR) / f"{APP_ID}.gresource")
+     )
+     Gio.Resource._register(resource)
+ 
+diff --git a/src/modules/file.py b/src/modules/file.py
+index 79b776d..a86ba7e 100644
+--- a/src/modules/file.py
++++ b/src/modules/file.py
+@@ -4,6 +4,7 @@
+ """File object and states."""
+ 
+ import hashlib
++import os
+ import re
+ import tempfile
+ from enum import IntEnum, auto
+@@ -96,7 +97,7 @@ class File(GObject.GObject):
+         if doc_path_match:
+             # Remove the Document Store path
+             dir_path = dir_path.replace(doc_path_match.group(0), "", 1)
+-        elif re.match(GLib.get_home_dir(), dir_path):
++        elif dir_path.startswith(GLib.get_home_dir()):
+             # Replace the home path with the friendly ~
+             dir_path = dir_path.replace(GLib.get_home_dir(), "~", 1)
+         self.directory = dir_path
+@@ -104,6 +105,10 @@ class File(GObject.GObject):
+ 
+     def _extract_path(self, gfile: Gio.File) -> None:
+         self._simplify_dir_path(gfile.get_path())
++        # The document portal xattr only exists inside a Flatpak sandbox.
++        # Querying it on Windows raises once per file and spams the log.
++        if os.name == "nt":
++            return
+         if gfile:
+             gfile.query_info_async(
+                 "xattr::document-portal.host-path",

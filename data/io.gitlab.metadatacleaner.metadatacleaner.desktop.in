@@ -1,0 +1,16 @@
+# SPDX-FileCopyrightText: Metadata Cleaner contributors
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+[Desktop Entry]
+# Translators: app name
+Name=Metadata Cleaner
+GenericName=Metadata Cleaner
+# Translators: desktop entry comment
+Comment=Clean metadata from your files
+Icon=io.gitlab.metadatacleaner.metadatacleaner
+Exec=@bindir@/metadata-cleaner %F
+Type=Application
+DBusActivatable=true
+Categories=GNOME;GTK;Utility;
+# Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+Keywords=Metadata;Remover;Cleaner;

@@ -1,0 +1,97 @@
+diff --git a/libmat2/archive.py b/libmat2/archive.py
+index 09130a9..553ae51 100644
+--- a/libmat2/archive.py
++++ b/libmat2/archive.py
+@@ -160,7 +160,7 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
+                 except OSError as e:
+                     logging.error("Unable to extraxt %s from %s: %s", item, self.filename, e)
+ 
+-                os.chmod(full_path, stat.S_IRUSR)
++                os.chmod(full_path, stat.S_IRUSR | stat.S_IWUSR)
+ 
+                 specific_meta = self._specific_get_meta(full_path, member_name)
+                 local_meta = {**local_meta, **specific_meta}
+@@ -265,7 +265,7 @@ class ArchiveBasedAbstractParser(abstract.AbstractParser):
+                                             self.filename, member_name, mtype)
+                             abort = True
+                             continue
+-                        os.rename(member_parser.output_filename, full_path)
++                        os.replace(member_parser.output_filename, full_path)
+ 
+                 zinfo = self.member_class(member_name)  # type: ignore
+                 zinfo = self._set_member_permissions(zinfo, original_permissions)
+diff --git a/libmat2/pdf.py b/libmat2/pdf.py
+index 1217702..2c467e3 100644
+--- a/libmat2/pdf.py
++++ b/libmat2/pdf.py
+@@ -10,6 +10,8 @@ import re
+ import logging
+ import tempfile
+ import io
++import gc
++from pathlib import Path
+ 
+ import cairo
+ import gi
+@@ -27,7 +29,7 @@ class PDFParser(abstract.AbstractParser):
+ 
+     def __init__(self, filename):
+         super().__init__(filename)
+-        self.uri = 'file://' + GLib.Uri.escape_string(os.path.abspath(self.filename), '/', True)
++        self.uri = Path(os.path.abspath(self.filename)).as_uri()
+         self.__scale = 200 / 72.0  # how much precision do we want for the render
+         try:  # Check now that the file is valid, to avoid surprises later
+             document = Poppler.Document.new_from_file(self.uri, None)
+@@ -65,7 +67,8 @@ class PDFParser(abstract.AbstractParser):
+         document = Poppler.Document.new_from_file(self.uri, None)
+         pages_count = document.get_n_pages()
+ 
+-        tmp_path = tempfile.mkstemp()[1]
++        fd, tmp_path = tempfile.mkstemp()
++        os.close(fd)
+         pdf_surface = cairo.PDFSurface(tmp_path, 10, 10)  # resized later anyway
+         pdf_surface.restrict_to_version(self.pdf_version)
+         pdf_context = cairo.Context(pdf_surface)  # context draws on the surface
+@@ -82,6 +85,8 @@ class PDFParser(abstract.AbstractParser):
+         pdf_surface.finish()
+ 
+         self.__remove_superficial_meta(tmp_path, self.output_filename)
++        del pdf_context, pdf_surface
++        gc.collect()
+         os.remove(tmp_path)
+ 
+         return True
+@@ -94,7 +99,8 @@ class PDFParser(abstract.AbstractParser):
+         document = Poppler.Document.new_from_file(self.uri, None)
+         pages_count = document.get_n_pages()
+ 
+-        _, tmp_path = tempfile.mkstemp()
++        fd, tmp_path = tempfile.mkstemp()
++        os.close(fd)
+         pdf_surface = cairo.PDFSurface(tmp_path, 32, 32)  # resized later anyway
+         pdf_surface.restrict_to_version(self.pdf_version)
+         pdf_context = cairo.Context(pdf_surface)
+@@ -135,17 +141,21 @@ class PDFParser(abstract.AbstractParser):
+ 
+         # Removes metadata added by Poppler
+         self.__remove_superficial_meta(tmp_path, self.output_filename)
++        del pdf_context, pdf_surface
++        gc.collect()
+         os.remove(tmp_path)
+ 
+         return True
+ 
+     @staticmethod
+     def __remove_superficial_meta(in_file: str, out_file: str) -> bool:
+-        document = Poppler.Document.new_from_file('file://' + GLib.Uri.escape_string(in_file, '/', True))
++        document = Poppler.Document.new_from_file(Path(os.path.abspath(in_file)).as_uri())
+         document.set_producer('')
+         document.set_creator('')
+         document.set_creation_date(-1)
+-        document.save('file://' + GLib.Uri.escape_string(os.path.abspath(out_file), '/', True))
++        document.save(Path(os.path.abspath(out_file)).as_uri())
++        del document
++        gc.collect()
+ 
+         # Cairo adds "/Producer" and "/CreationDate", and Poppler sometimes
+         # fails to remove them, we have to use this terrible regex.

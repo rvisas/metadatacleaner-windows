@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<interface>
+  <menu id="add-menu-model">
+    <item>
+      <!-- translators: headerbar button menu item that opens the file picker -->
+      <attribute name="label" translatable="yes">Add Files…</attribute>
+      <attribute name="action">win.add-files</attribute>
+    </item>
+    <item>
+      <!-- translators: headerbar button menu item that opens the folder picker -->
+      <attribute name="label" translatable="yes">Add Folders…</attribute>
+      <attribute name="action">win.add-folders</attribute>
+    </item>
+  </menu>
+  <template class="Window" parent="AdwApplicationWindow">
+    <child>
+      <object class="AdwBreakpoint">
+        <!-- Double the sidebar: 360 * 2 -->
+        <condition>min-width: 720sp</condition>
+        <setter object="_split_view" property="collapsed">false</setter>
+      </object>
+    </child>
+    <property name="content">
+      <object class="DropOverlay" id="_drop_overlay">
+        <!-- translators: overlay shown when dragging files above the app -->
+        <property name="title" translatable="yes">Drop files or folders to clean them</property>
+        <property name="overlay-child">
+          <object class="AdwToastOverlay" id="_toast_overlay">
+            <child>
+              <object class="AdwToolbarView" id="_toolbar_view">
+                <child type="top">
+                  <object class="AdwHeaderBar" id="_header">
+                    <property name="show-title">0</property>
+                    <child type="start">
+                      <object class="GtkMenuButton" id="_add_files_button">
+                        <property name="visible">0</property>
+                        <property name="menu-model">add-menu-model</property>
+                        <property name="icon-name">metadatacleaner-plus-symbolic</property>
+                        <!-- translators: headerbar button that opens a menu to pick files or folders and add them to the list aka "Add Files/Folders" -->
+                        <property name="tooltip-text" translatable="yes">Add</property>
+                      </object>
+                    </child>
+                    <child type="end">
+                      <object class="MenuButton" />
+                    </child>
+                    <child type="end">
+                      <object class="GtkToggleButton" id="_metadata_button">
+                        <property name="active" bind-property="show-sidebar" bind-source="_split_view" />
+                        <property name="icon-name">metadatacleaner-sidebar-show-right-symbolic</property>
+                        <!-- translators: tooltip text on a headerbar button that toggles the side panel for metadata viewing -->
+                        <property name="tooltip-text" translatable="yes">Toggle Metadata</property>
+                        <property name="visible">0</property>
+                        <property name="action-name">win.toggle-details-view</property>
+                      </object>
+                    </child>
+                    <child type="end">
+                      <object class="GtkButton">
+                        <property name="icon-name">metadatacleaner-about-symbolic</property>
+                        <property name="tooltip-text">Info</property>
+                        <property name="action-name">win.info</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <property name="content">
+                  <object class="AdwOverlaySplitView" id="_split_view">
+                    <property name="sidebar-position">end</property>
+                    <property name="collapsed">1</property>
+                    <property name="pin-sidebar">1</property>
+                    <property name="show-sidebar">0</property>
+                    <property name="min-sidebar-width">360</property>
+                    <property name="max-sidebar-width">360</property>
+                    <signal name="notify::show-sidebar" handler="_on_sidebar_toggled" />
+                    <property name="content">
+                      <object class="GtkStack" id="_view_stack">
+                        <property name="transition-type">crossfade</property>
+                        <property name="vexpand">True</property>
+                        <property name="hhomogeneous">False</property>
+                        <child>
+                          <object class="GtkStackPage">
+                            <property name="name">empty</property>
+                            <property name="child">
+                              <object class="AdwStatusPage">
+                                <property name="vexpand">True</property>
+                                <property name="icon-name">metadatacleaner-illustration</property>
+                                <!-- translators: app name -->
+                                <property name="title" translatable="yes">Metadata Cleaner</property>
+                                <!-- translators: subtitle in the empty view, drop as in drag-n-drop -->
+                                <property name="description" translatable="yes">Drop files here to clean them</property>
+                                <child>
+                                  <object class="GtkBox">
+                                    <property name="orientation">vertical</property>
+                                    <property name="spacing">12</property>
+                                    <property name="halign">center</property>
+                                    <child>
+                                      <object class="GtkButton">
+                                        <!-- translators: button label that opens the file picker -->
+                                        <property name="label" translatable="yes">Open _Files…</property>
+                                        <property name="action-name">win.add-files</property>
+                                        <property name="use-underline">1</property>
+                                        <style>
+                                          <class name="pill" />
+                                          <class name="suggested-action" />
+                                        </style>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkButton">
+                                        <!-- translators: button label that opens the folder picker. Please underline a different character than the one in the Open Files button -->
+                                        <property name="label" translatable="yes">Open F_olders…</property>
+                                        <property name="action-name">win.add-folders</property>
+                                        <property name="use-underline">1</property>
+                                        <style>
+                                          <class name="pill" />
+                                        </style>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkStackPage">
+                            <property name="name">files</property>
+                            <property name="child">
+                              <object class="FilesView">
+                                <property name="file-store" bind-source="Window" bind-property="file-store" />
+                              </object>
+                            </property>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                    <property name="sidebar">
+                      <object class="DetailsView" id="_details_view" />
+                    </property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </property>
+      </object>
+    </property>
+  </template>
+  <object class="GtkFileDialog" id="_file_chooser_dialog">
+    <property name="modal">1</property>
+  </object>
+  <object class="CleaningWarningDialog" id="_cleaning_warning_dialog">
+    <binding name="settings">
+      <lookup name="settings" type="MetadataCleaner">
+        <lookup name="application" type="GtkApplicationWindow">
+          <lookup name="root" type="GtkWidget" />
+        </lookup>
+      </lookup>
+    </binding>
+    <signal name="response" handler="_on_cleaning_warning_dialog_response" />
+  </object>
+</interface>

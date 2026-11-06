@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<interface>
+  <template class="SettingsButton" parent="GtkButton">
+    <!-- translators: tooltip text for a button next to the "clean" button. It opens a settings dialog for cleaning-process related settings. -->
+    <property name="tooltip-text" translatable="yes">Settings</property>
+    <property name="icon-name">metadatacleaner-settings-symbolic</property>
+    <property name="valign">center</property>
+    <style>
+      <class name="circular" />
+    </style>
+  </template>
+  <object class="AdwPreferencesDialog" id="_preferences_dlg">
+    <property name="content-width">500</property>
+    <property name="content-height">350</property>
+    <child>
+      <object class="AdwPreferencesPage">
+        <property name="icon-name">metadatacleaner-settings-symbolic</property>
+        <!-- translators: preferences window tab title, "general settings", unused at the moment -->
+        <property name="title" translatable="yes">General</property>
+        <child>
+          <object class="AdwPreferencesGroup">
+            <child>
+              <object class="AdwSwitchRow">
+                <!-- translators: cleaning option row title -->
+                <property name="title" translatable="yes">Lightweight Cleaning</property>
+                <property name="action-name">app.lightweight-cleaning</property>
+                <!-- translators: cleaning option row subtitle. This describes what "Lightweight cleaning" is. Please be as clear as possible and don't assume the user knows what everything is -->
+                <property name="subtitle" translatable="yes">By default, the removal process might alter a bit the data of your files, in order to remove as much metadata as possible. For example, texts in PDF might not be selectable anymore, compressed images might get compressed again… The lightweight mode, while not as thorough, will not make destructive changes to your files.</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

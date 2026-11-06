@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<interface>
+  <template class="CleanMetadataButton" parent="GtkButton">
+    <property name="valign">center</property>
+    <property name="use-underline">1</property>
+    <!-- translators: the main button at the bottom of the file list that cleans the file metadata. "Clean Metadata" -->
+    <property name="label" translatable="yes">_Clean</property>
+    <property name="action-name">win.clean-metadata</property>
+    <style>
+      <class name="destructive-action"/>
+      <class name="pill"/>
+    </style>
+  </template>
+</interface>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<interface>
+  <template class="FilesView" parent="AdwBin">
+    <child>
+      <object class="AdwToolbarView">
+        <property name="content">
+          <object class="GtkScrolledWindow">
+            <property name="vexpand">True</property>
+            <property name="hscrollbar-policy">never</property>
+            <child>
+              <object class="GtkListView">
+                <property name="model">
+                  <object class="GtkSingleSelection" id="_selection_model">
+                    <property name="autoselect">False</property>
+                    <property name="can-unselect">True</property>
+                    <property name="model" bind-source="FilesView" bind-property="file-store" />
+                    <signal name="selection-changed" handler="_on_selection_changed" />
+                  </object>
+                </property>
+                <property name="factory">
+                  <object class="GtkBuilderListItemFactory">
+                    <property name="bytes">
+                  <![CDATA[
+                    <interface>
+                      <template class="GtkListItem">
+                        <property name="child">
+                          <object class="FileRow">
+                            <binding name="file">
+                              <lookup name="item">GtkListItem</lookup>
+                            </binding>
+                            <binding name="position">
+                              <lookup name="position">GtkListItem</lookup>
+                            </binding>
+                          </object>
+                        </property>
+                      </template>
+                    </interface>
+                  ]]>
+                </property>
+                  </object>
+                </property>
+                <style>
+                  <class name="files" />
+                </style>
+              </object>
+            </child>
+          </object>
+        </property>
+        <child type="bottom">
+          <object class="AdwBin">
+            <property name="margin-top">8</property>
+            <property name="margin-bottom">8</property>
+            <child>
+              <object class="AdwClamp">
+                <property name="halign">center</property>
+                <property name="child">
+                  <object class="StatusIndicator">
+                    <property name="file-store" bind-source="FilesView" bind-property="file-store" />
+                    <property name="hexpand">1</property>
+                  </object>
+                </property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
+</interface>

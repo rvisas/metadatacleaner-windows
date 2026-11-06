@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SPDX-FileCopyrightText: Metadata Cleaner contributors
+SPDX-License-Identifier: GPL-3.0-or-later
+-->
+<interface>
+  <object class="AdwShortcutsDialog" id="shortcuts_dialog">
+    <child>
+      <object class="AdwShortcutsSection">
+        <!-- translators: keyboard shortcut section title. "General shortcuts" -->
+        <property name="title" translatable="yes">General</property>
+        <child>
+          <object class="AdwShortcutsItem">
+            <!-- translators: keyboard shortcut title. Opens a new window -->
+            <property name="title" translatable="yes">New window</property>
+            <property name="action-name">app.new-window</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <!-- translators: keyboard shortcut title. Opens the keyboard shortcut dialog -->
+            <property name="title" translatable="yes">Keyboard shortcuts</property>
+            <property name="action-name">app.shortcuts</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <!-- translators: keyboard shortcut title. Closes the currently focused window -->
+            <property name="title" translatable="yes">Close Window</property>
+            <property name="action-name">win.close</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <!-- translators: keyboard shortcut title. Closes the app completely -->
+            <property name="title" translatable="yes">Quit</property>
+            <property name="action-name">app.quit</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="AdwShortcutsSection">
+        <!-- translators: keyboard shortcut section title. File-related shortcuts -->
+        <property name="title" translatable="yes">Files</property>
+        <child>
+          <object class="AdwShortcutsItem">
+            <!-- translators: keyboard shortcut title. Opens the file picker -->
+            <property name="title" translatable="yes">Add Files</property>
+            <property name="action-name">win.add-files</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <!-- translators: keyboard shortcut title. Opens the folder pickers -->
+            <property name="title" translatable="yes">Add Folders</property>
+            <property name="action-name">win.add-folders</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <!-- translators: keyboard shortcut title. Starts the metadata cleaning process -->
+            <property name="title" translatable="yes">Clean Metadata</property>
+            <property name="action-name">win.clean-metadata</property>
+          </object>
+        </child>
+        <child>
+          <object class="AdwShortcutsItem">
+            <!-- translators: keyboard shortcut title. Clears the file list. Please make sure it's clear that this will NOT delete the files on disk or clean the files' metadata, it will only remove them from the list. -->
+            <property name="title" translatable="yes">Clear list of files</property>
+            <property name="action-name">win.clear-files</property>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

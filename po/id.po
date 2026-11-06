@@ -1,0 +1,685 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.gitlab.metadatacleaner.metadatacleaner package.
+# liimee <alt3753.7@gmail.com>, 2021, 2022.
+# Reza Almanda <rezaalmanda27@gmail.com>, 2021, 2023.
+# Romain Vigier <romain@romainvigier.fr>, 2021.
+# neko <smurfkandy@tutanota.com>, 2021.
+# Ibnul Mutaki <ibnuul@gmail.com>, 2022.
+# Ciki Momogi <github.devility@aleeas.com>, 2023.
+msgid ""
+msgstr ""
+"Project-Id-Version: io.gitlab.metadatacleaner.metadatacleaner\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-28 08:50+0200\n"
+"PO-Revision-Date: 2023-09-04 19:50+0000\n"
+"Last-Translator: Reza Almanda <rezaalmanda27@gmail.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/metadata-"
+"cleaner/application/id/>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.0.1-dev\n"
+
+#. Translators: app name
+#. translators: app name
+msgid "Metadata Cleaner"
+msgstr "Pembersih Metadata"
+
+#. Translators: desktop entry comment
+msgid "Clean metadata from your files"
+msgstr "Membersihkan berkas Anda dari metadata"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+msgid "Metadata;Remover;Cleaner;"
+msgstr "Metadata;Penghapus;Pembersih;"
+
+#. translators: keyboard shortcut section title. "General shortcuts"
+#. translators: preferences window tab title, "general settings", unused at the moment
+msgid "General"
+msgstr "Umum"
+
+#. translators: keyboard shortcut title. Opens a new window
+msgid "New window"
+msgstr "Jendela baru"
+
+#. translators: keyboard shortcut title. Opens the keyboard shortcut dialog
+msgid "Keyboard shortcuts"
+msgstr "Pintasan papan ketik"
+
+#. translators: keyboard shortcut title. Closes the currently focused window
+msgid "Close Window"
+msgstr ""
+
+#. translators: keyboard shortcut title. Closes the app completely
+msgid "Quit"
+msgstr "Keluar"
+
+#. translators: keyboard shortcut section title. File-related shortcuts
+msgid "Files"
+msgstr "Berkas"
+
+#. translators: keyboard shortcut title. Opens the file picker
+msgid "Add Files"
+msgstr ""
+
+#. translators: keyboard shortcut title. Opens the folder pickers
+msgid "Add Folders"
+msgstr ""
+
+#. translators: keyboard shortcut title. Starts the metadata cleaning process
+msgid "Clean Metadata"
+msgstr ""
+
+#. translators: keyboard shortcut title. Removes all files from the queue/file list
+msgid "Remove all files from the list"
+msgstr ""
+
+#. translators: title in the dialog that shows up when clicking the main "clean" button
+msgid "Clean Metadata?"
+msgstr ""
+
+#. translators: subtitle in the dialog that shows up when clicking the main "clean" button
+msgid "Make sure you backed up your files! This is irreversible."
+msgstr ""
+
+#. translators: button in the dialog that shows up when clicking clean. This cancels the operation.
+msgid "_Cancel"
+msgstr ""
+
+#. translators: button in the dialog that shows up when clicking clean. This proceeds and cleans the files. Do not underline.
+msgid "Clean"
+msgstr "Bersihkan"
+
+#. translators: checkbox in the dialog that shows up when clicking clean. Selecting it will stop showing this dialog and instead clean the metadata instantly
+msgid "Don't ask again"
+msgstr ""
+
+#. translators: the main button at the bottom of the file list that cleans the file metadata. "Clean Metadata"
+msgid "_Clean"
+msgstr "_Bersihkan"
+
+#. translators: tooltip text for the prefix button in the file rows. Clicking it will remove the file from the list.
+msgid "Remove File from List"
+msgstr ""
+
+#. translators: headerbar main menu item
+msgid "_New Window"
+msgstr "_Jendela Baru"
+
+#. translators: headerbar main menu item. This one clears the file list, it will remove all files from the list. Please make sure it's clear that this will NOT delete the files on disk, it will only remove them from the list.
+msgid "_Remove All Files"
+msgstr ""
+
+#. translators: headerbar main menu item
+msgid "_Keyboard Shortcuts"
+msgstr "_Pintasan Papan Ketik"
+
+#. translators: headerbar main menu item. Metadata Cleaner is the app name.
+msgid "_About Metadata Cleaner"
+msgstr "_Tentang Metadata Cleaner"
+
+#. translators: tooltip text for the headerbar menu button
+msgid "Main Menu"
+msgstr "Menu utama"
+
+#. translators: tooltip text for a button next to the "clean" button. It opens a settings dialog for cleaning-process related settings.
+msgid "Settings"
+msgstr ""
+
+#. translators: cleaning option row title
+msgid "Lightweight Cleaning"
+msgstr "Pembersihan Ringan"
+
+#. translators: cleaning option row subtitle. This describes what "Lightweight cleaning" is. Please be as clear as possible and don't assume the user knows what everything is
+msgid ""
+"By default, the removal process might alter a bit the data of your files, in "
+"order to remove as much metadata as possible. For example, texts in PDF "
+"might not be selectable anymore, compressed images might get compressed "
+"again… The lightweight mode, while not as thorough, will not make "
+"destructive changes to your files."
+msgstr ""
+
+#. translators: button that cancels the cleaning process
+msgid "Cancel"
+msgstr "Batal"
+
+#. translators: headerbar button menu item that opens the file picker
+msgid "Add Files…"
+msgstr ""
+
+#. translators: headerbar button menu item that opens the folder picker
+msgid "Add Folders…"
+msgstr ""
+
+#. translators: overlay shown when dragging files above the app
+msgid "Drop files or folders to clean them"
+msgstr ""
+
+#. translators: headerbar button that opens a menu to pick files or folders and add them to the list aka "Add Files/Folders"
+msgid "Add"
+msgstr ""
+
+#. translators: tooltip text on a headerbar button that toggles the side panel for metadata viewing
+msgid "Toggle Metadata"
+msgstr ""
+
+#. translators: subtitle in the empty view, drop as in drag-n-drop
+msgid "Drop files here to clean them"
+msgstr ""
+
+#. translators: button label that opens the file picker
+msgid "Open _Files…"
+msgstr ""
+
+#. translators: button label that opens the folder picker. Please underline a different character than the one in the Open Files button
+msgid "Open F_olders…"
+msgstr ""
+
+#. translators: generic error message shown when the cleaning
+#. was unsuccessful but we don't know why
+msgid "An error occurred during the cleaning."
+msgstr ""
+
+#. translators: error message when a file is no longer
+#. available during cleaning. "Something
+#. bad happened" as in "Something went
+#. wrong"
+msgid "Something bad happened during the cleaning, cleaned file not found"
+msgstr ""
+"Telah terjadi sesuatu selama pembersihan, berkas yang telah dibersihkan "
+"tidak dapat ditemukan"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Warning"
+msgstr "Peringatan"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Error"
+msgstr "Error"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Cleaned"
+msgstr "Telah dibersihkan"
+
+#. translators: side panel message when selecting a file that
+#. has been cleaned
+msgid "The File Has Been Cleaned"
+msgstr "Berkas Telah Dibersihkan"
+
+#. translators: side panel subtitle when selecting a file
+#. that has been cleaned. The limitations can
+#. be viewed by clicking a button below it
+msgid ""
+"Known metadata have been removed, however the cleaning process has some "
+"limitations."
+msgstr ""
+"Metadata yang terdeteksi telah dihapus, namun proses pembersihan ini "
+"memiliki beberapa batasan."
+
+#. translators: button that shows more info about the
+#. cleaning process, it's shown below a
+#. label that gives it context
+msgid "Learn more"
+msgstr "Pelajari lebih lanjut"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "Unable to Read the File"
+msgstr "Tidak Dapat Membaca Berkas"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "File Type not Supported"
+msgstr "Jenis Berkas Tidak Didukung"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "Unable to Check for Metadata"
+msgstr "Tidak Dapat Memeriksa Metadata"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "No Known Metadata"
+msgstr "Tidak Ada Metadata yang Terdeteksi"
+
+#. translators: error shown on the side panel when
+#. selecting a file
+msgid "Unable to Remove Metadata"
+msgstr "Tidak Dapat Menghapus Metadata"
+
+#. translators: message shown on the side panel when selecting a
+#. file that doesn't have known metadata
+msgid "The file will be cleaned anyway to be sure."
+msgstr "Untuk berjaga-jaga, berkas akan tetap dibersihkan."
+
+#. translators: message shown on the side panel when no file
+#. has been selected
+msgid "Select a file to view its metadata"
+msgstr ""
+
+#. translators: progress bar subtitle while loading files
+msgid "Processing file {}/{}"
+msgstr "Memproses berkas {}/{}"
+
+#. translators: progress bar subtitle while cleaning files
+msgid "Cleaning file {}/{}"
+msgstr "Membersihkan berkas {}/{}"
+
+#, python-format
+msgid "%i file cleaned"
+msgid_plural "%i files cleaned"
+msgstr[0] ""
+
+#, python-format
+msgid "%i error occurred"
+msgid_plural "%i errors occurred"
+msgstr[0] ""
+
+#. translators: filter name while picking files
+msgid "All supported files"
+msgstr "Semua berkas yang didukung"
+
+#. translators: about dialog button that opens weblate
+msgid "Translate"
+msgstr ""
+
+#. translators: Translate this string as your translator credits.
+#. Name only:    Jane Doe
+#. Name + URL:   Jane Doe https://example.com/
+#. Name + Email: Jane Doe <janedoe@example.com>
+#. Do not remove existing names.
+#. Names are separated with newlines.
+msgid "translator-credits"
+msgstr ""
+"liimee\n"
+"rezaalmanda\n"
+"neko\n"
+"CikiMomogi"
+
+#. translators: dialog title that has some info about the
+#. cleaning process
+msgid "Info"
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+msgid "Metadata & Privacy"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+msgid ""
+"Metadata consists of information that characterizes data. Metadata is used "
+"to provide documentation for data products. In essence, metadata answers "
+"who, what, when, where, why, and how about every facet of the data that is "
+"being documented.\n"
+"\n"
+"Metadata within a file can tell a lot about you. Cameras record data about "
+"when and where a picture was taken and which camera was used. Office "
+"applications automatically add author and company information to documents "
+"and spreadsheets. This is sensitive information and you may not want to "
+"disclose it."
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+msgid "Cleaning Process"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+#. "Metadata Cleaner" is the app name. File
+#. formats as in "pdf", "png", "music files"
+#. etc. this section describes the case where
+#. we might not know what a file actually is
+#. and how to clean it.
+msgid ""
+"While Metadata Cleaner is doing its very best to display metadata, it "
+"doesn't mean that a file is clean from metadata if it doesn't show any. "
+"There is no reliable way to detect every single possible metadata for "
+"complex file formats. This is why you shouldn't rely on metadata's presence "
+"to decide if your file must be cleaned or not.\n"
+"\n"
+"Metadata Cleaner takes the content of  the file and puts it into a new one "
+"without metadata, ensuring that any undetected metadata is stripped."
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+msgid "Limitations"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as
+#. is `\n`. If the language seems too
+#. advanced, please simplify it while
+#. staying true to the original; don't
+#. assume that the user has any knowledge
+#. on what metadata is. "Metadata Cleaner"
+#. is the app name.
+msgid ""
+"Be aware that metadata is not the only way of marking a file. If the content "
+"itself discloses personal information or has been watermarked, traditionally "
+"or via steganography, Metadata Cleaner will not protect you."
+msgstr ""
+
+#~ msgid "View and clean metadata in files"
+#~ msgstr "Lihat dan bersihkan berkas dari metadata"
+
+#~ msgid ""
+#~ "Metadata within a file can tell a lot about you. Cameras record data "
+#~ "about when and where a picture was taken and which camera was used. "
+#~ "Office applications automatically add author and company information to "
+#~ "documents and spreadsheets. This is sensitive information and you may not "
+#~ "want to disclose it."
+#~ msgstr ""
+#~ "Metadata dari sebuah file berisi informasi penting tentang Anda. Misalnya "
+#~ "kamera dapat merekam data mengenai kapan dan di mana gambar diambil serta "
+#~ "jenis kamera apa yang sedang digunakan. Atau aplikasi Office yang secara "
+#~ "otomatis menambahkan informasi penulis dan perusahaan ke suatu dokumen "
+#~ "dan spreadsheet. Informasi-informasi ini bersifat sensitif dan Anda "
+#~ "mungkin tidak ingin menyebarkannya."
+
+#~ msgid ""
+#~ "This tool allows you to view metadata in your files and to get rid of it, "
+#~ "as much as possible."
+#~ msgstr ""
+#~ "Alat ini dapat digunakan untuk melihat dan menghapus metadata semaksimal "
+#~ "mungkin di sebuah berkas."
+
+#~ msgid "Add files"
+#~ msgstr "Tambah berkas"
+
+#~ msgid "Add folders"
+#~ msgstr "Tambah folder"
+
+#~ msgid "Clean metadata"
+#~ msgstr "Bersihkan metadata"
+
+#~ msgid "Clear all files from window"
+#~ msgstr "Hapus semua berkas dari jendela"
+
+#~ msgid "Close window"
+#~ msgstr "Tutup jendela"
+
+#~ msgid "Help"
+#~ msgstr "Bantuan"
+
+#~ msgid "_Add Files"
+#~ msgstr "_Tambah Berkas"
+
+#~ msgid "Add _Folders"
+#~ msgstr "Tambah _Folder"
+
+#~ msgid "Make sure you backed up your files!"
+#~ msgstr "Pastikan berkas sudah dicadangkan!"
+
+#~ msgid "Once the files are cleaned, there's no going back."
+#~ msgstr ""
+#~ "Setelah dibersihkan, berkas-berkas tersebut tidak bisa dikembalikan "
+#~ "seperti aslinya."
+
+#~ msgid "Don't tell me again"
+#~ msgstr "Jangan beritahu lagi"
+
+#~ msgid "Clean Your Traces"
+#~ msgstr "Hapus Jejak Anda"
+
+#~ msgid "Learn more about metadata and the cleaning process limitations"
+#~ msgstr ""
+#~ "Pelajari lebih lanjut tentang metadata dan batasan-batasan dalam proses "
+#~ "pembersihan"
+
+#~ msgid "Remove file from list"
+#~ msgstr "Hapus berkas dari daftar"
+
+#~ msgid "_Clear Window"
+#~ msgstr "_Bersihkan Jendela"
+
+#~ msgid "_Help"
+#~ msgstr "_Bantuan"
+
+#~ msgid "Cleaning settings"
+#~ msgstr "Pengaturan pembersihan"
+
+#~ msgid "Learn more about the lightweight cleaning"
+#~ msgstr "Pelajari lebih lanjut tentang pembersihan ringan"
+
+#~ msgid "Details"
+#~ msgstr "Keterangan"
+
+#~ msgid "Close"
+#~ msgstr "Tutup"
+
+#~ msgid "Choose files to clean"
+#~ msgstr "Pilih berkas yang ingin dibersihkan"
+
+#~ msgid "Choose folders to clean"
+#~ msgstr "Pilih folder yang ingin dibersihkan"
+
+#~ msgid "An error occured during the cleaning."
+#~ msgstr "Terjadi error saat melakukan pembersihan."
+
+#~ msgid "Add files from subfolders"
+#~ msgstr "Tambahkan berkas dari subfolder"
+
+#, python-format
+#~ msgid "%i file cleaned."
+#~ msgid_plural "%i files cleaned."
+#~ msgstr[0] "%i File dibersihkan."
+
+#, python-format
+#~ msgid "%i error occured."
+#~ msgid_plural "%i errors occured."
+#~ msgstr[0] "%i terjadi eror."
+
+#~ msgid "Libraries"
+#~ msgstr "Perpustakaan"
+
+#~ msgid "Romain Vigier"
+#~ msgstr "Romain Vigier"
+
+#~ msgid "Clean without warning"
+#~ msgstr "Bersihkan tanpa peringatan"
+
+#~ msgid "Clean the files without showing the warning dialog"
+#~ msgstr "Bersihkan berkas tanpa menampilkan dialog peringatan"
+
+#~ msgid "Lightweight cleaning"
+#~ msgstr "Pembersihan ringan"
+
+#~ msgid "Don't make destructive changes to files but may leave some metadata"
+#~ msgstr ""
+#~ "Jangan membuat perubahan yang dapat merusak file tapi mungkin akan "
+#~ "meninggalkan beberapa metadata"
+
+#~ msgid "Window width"
+#~ msgstr "Lebar tampilan"
+
+#~ msgid "Saved width of the window"
+#~ msgstr "Simpan lebar tampilan"
+
+#~ msgid "Window height"
+#~ msgstr "Tinggi tampilan"
+
+#~ msgid "Saved height of the window"
+#~ msgstr "Simpan tinggi tampilan"
+
+#~ msgid "Updated translations"
+#~ msgstr "Pembaruan terjemahan"
+
+#~ msgid "Improved user interface"
+#~ msgstr "Peningkatan tampilan"
+
+#~ msgid "New translations"
+#~ msgstr "Terjemahan baru"
+
+#~ msgid "Bug fixes"
+#~ msgstr "Perbaikan bug"
+
+#~ msgid "New button to add folders"
+#~ msgstr "Tombol baru untuk menambahkan folder"
+
+#~ msgid "Improved adaptive user interface"
+#~ msgstr "Peningkatan tampilan antarmuka adaptif"
+
+#~ msgid "New help pages"
+#~ msgstr "Halaman bantuan baru"
+
+#~ msgid "One-click cleaning, no need to save after cleaning"
+#~ msgstr "Pembersihan sekali klik, tidak perlu menyimpan setelah dibersihkan"
+
+#~ msgid "Persistent lightweight cleaning option"
+#~ msgstr "Opsi pembersihan ringan yang persisten"
+
+#~ msgid "Files with uppercase extension can now be added"
+#~ msgstr "Berkas dengan ekstensi huruf kapital kini bisa ditambahkan"
+
+#~ msgid "About"
+#~ msgstr "Tentang"
+
+#~ msgid "Chat on Matrix"
+#~ msgstr "Mengobrol di Matrix"
+
+#~ msgid "View the code on GitLab"
+#~ msgstr "Lihat kodenya di GitLab"
+
+#~ msgid "Translate on Weblate"
+#~ msgstr "Terjemahkan di Weblate"
+
+#~ msgid "Support us on Liberapay"
+#~ msgstr "Dukung kami di Liberapay"
+
+#~ msgid "Credits"
+#~ msgstr "Kredit"
+
+#~ msgid "Code"
+#~ msgstr "Kode"
+
+#~ msgid "Artwork"
+#~ msgstr "Ilustrasi"
+
+#~ msgid "Documentation"
+#~ msgstr "Dokumentasi"
+
+#~ msgid "Translation"
+#~ msgstr "Terjemahan"
+
+#~ msgid ""
+#~ "This program uses <a href=\"https://github.com/jvoisin/mat2\">mat2</a> to "
+#~ "parse and clean the metadata. Show them some love!"
+#~ msgstr ""
+#~ "Program ini menggunakan <a href=\"https://github.com/jvoisin/mat2\">mat2</"
+#~ "a> untuk membersihkan metadata. Beri mereka dukungan juga!"
+
+#~ msgid ""
+#~ "The source code of this program is released under the terms of the <a "
+#~ "href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL 3.0 or later</"
+#~ "a>. The original artwork and translations are released under the terms of "
+#~ "the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA "
+#~ "4.0</a>."
+#~ msgstr ""
+#~ "Kode sumber dari program ini dirilis berdasarkan ketentuan <a "
+#~ "href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL 3.0 atau yang "
+#~ "lebih baru</a>. Ilustrasi dan terjemahan dirilis berdasarkan ketentuan <a "
+#~ "href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a>."
+
+#~ msgid "Adding files…"
+#~ msgstr "Tambahkan berkas…"
+
+#~ msgid "Croatian translation (contributed by Milo Ivir)"
+#~ msgstr "Terjemahan Bahasa Kroasia (dikontribusikan oleh Milo Ivir)"
+
+#~ msgid "Portuguese (Brazil) translation (contributed by Gustavo Costa)"
+#~ msgstr ""
+#~ "Terjemahan Bahasa Portugis (Brazil) (dikontribusikan oleh Gustavo Costa)"
+
+#~ msgid "New in v1.0.4:"
+#~ msgstr "Apa yang baru di v1.0.4:"
+
+#~ msgid "Turkish translation (contributed by Oğuz Ersen)"
+#~ msgstr "Terjemahan bahasa Turki (oleh Oğuz Ersen)"
+
+#~ msgid "New in v1.0.2:"
+#~ msgstr "Baru di v1.0.2:"
+
+#~ msgid "Spanish translation (contributed by Óscar Fernández Díaz)"
+#~ msgstr "Terjemahan Bahasa Spanyol (disumbangkan oleh Óscar Fernández Díaz)"
+
+#~ msgid "Swedish translation (contributed by Åke Engelbrektson)"
+#~ msgstr "Terjemahan Swedia (disumbangkan oleh Åke Engelbrektson)"
+
+#~ msgid "New in v1.0.1:"
+#~ msgstr "Baru di v1.0.1:"
+
+#~ msgid "German translation (contributed by lux)"
+#~ msgstr "Terjemahan Bahasa Jerman (disumbangkan oleh lux)"
+
+#~ msgid ""
+#~ "Trade some metadata's presence in exchange of the guarantee that the data "
+#~ "won't be modified"
+#~ msgstr ""
+#~ "Perdagangkan beberapa metadata sebagai ganti jaminan bahwa data tidak "
+#~ "akan dimodifikasi"
+
+#~ msgid "Warn before saving cleaned files"
+#~ msgstr "Peringati sebelum menyimpan berkas-berkas yang telah dibersihkan"
+
+#~ msgid "Show the warning dialog before saving the cleaned files"
+#~ msgstr ""
+#~ "Tampilkan dialog peringatan sebelum menyimpan berkas-berkas yang telah "
+#~ "dibersihkan"
+
+#~ msgid "Note about metadata and privacy"
+#~ msgstr "Catatan tentang metadata dan privasi"
+
+#~ msgid "Note about _removing metadata"
+#~ msgstr "Catatan mengenai _menghapus metadata"
+
+#~ msgid "Metadata details"
+#~ msgstr "Rincian metadata"
+
+#~ msgid "_Save"
+#~ msgstr "_Simpan"
+
+#~ msgctxt "shortcut window"
+#~ msgid "Add files"
+#~ msgstr "Tambah berkas"
+
+#~ msgid "Done!"
+#~ msgstr "Selesai!"
+
+#~ msgid "Initializing…"
+#~ msgstr "Memulai…"
+
+#~ msgid "File type supported."
+#~ msgstr "Jenis berkas didukung."
+
+#~ msgid "Removing metadata…"
+#~ msgstr "Menghapus metadata…"
+
+#~ msgid "Error while removing metadata:"
+#~ msgstr "Galat saat menghapus metadata:"
+
+#~ msgid "Saving the cleaned file…"
+#~ msgstr "Menyimpan berkas yang dibersihkan…"
+
+#~ msgid "Error while saving the file:"
+#~ msgstr "Galat saat menyimpan berkas:"
+
+#~ msgid "The cleaned file has been saved."
+#~ msgstr "Berkas yang dibersihkan telah disimpan."
+
+#~ msgid "{filename}:"
+#~ msgstr "{filename}:"

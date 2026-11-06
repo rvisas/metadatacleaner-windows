@@ -1,0 +1,587 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the io.gitlab.metadatacleaner.metadatacleaner package.
+# Andrija Djakovic <bozika331@yahoo.com>, 2022, 2024.
+msgid ""
+msgstr ""
+"Project-Id-Version: io.gitlab.metadatacleaner.metadatacleaner\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-28 08:50+0200\n"
+"PO-Revision-Date: 2024-05-08 15:07+0000\n"
+"Last-Translator: Andrija Djakovic <bozika331@yahoo.com>\n"
+"Language-Team: Serbian <https://hosted.weblate.org/projects/metadata-cleaner/"
+"application/sr/>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.5.4-rc\n"
+
+#. Translators: app name
+#. translators: app name
+msgid "Metadata Cleaner"
+msgstr "Чистач Метаподатака"
+
+#. Translators: desktop entry comment
+msgid "Clean metadata from your files"
+msgstr "Очисти метаподатке са својих фајлова"
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+msgid "Metadata;Remover;Cleaner;"
+msgstr "Метаподаци;Уклањач;Чистач;"
+
+#. translators: keyboard shortcut section title. "General shortcuts"
+#. translators: preferences window tab title, "general settings", unused at the moment
+msgid "General"
+msgstr "Опште"
+
+#. translators: keyboard shortcut title. Opens a new window
+msgid "New window"
+msgstr "Нови прозор"
+
+#. translators: keyboard shortcut title. Opens the keyboard shortcut dialog
+msgid "Keyboard shortcuts"
+msgstr "Пречице на тастатури"
+
+#. translators: keyboard shortcut title. Closes the currently focused window
+msgid "Close Window"
+msgstr ""
+
+#. translators: keyboard shortcut title. Closes the app completely
+msgid "Quit"
+msgstr "Изађи"
+
+#. translators: keyboard shortcut section title. File-related shortcuts
+msgid "Files"
+msgstr "Фајлови"
+
+#. translators: keyboard shortcut title. Opens the file picker
+msgid "Add Files"
+msgstr ""
+
+#. translators: keyboard shortcut title. Opens the folder pickers
+msgid "Add Folders"
+msgstr ""
+
+#. translators: keyboard shortcut title. Starts the metadata cleaning process
+msgid "Clean Metadata"
+msgstr ""
+
+#. translators: keyboard shortcut title. Removes all files from the queue/file list
+msgid "Remove all files from the list"
+msgstr ""
+
+#. translators: title in the dialog that shows up when clicking the main "clean" button
+msgid "Clean Metadata?"
+msgstr ""
+
+#. translators: subtitle in the dialog that shows up when clicking the main "clean" button
+msgid "Make sure you backed up your files! This is irreversible."
+msgstr ""
+
+#. translators: button in the dialog that shows up when clicking clean. This cancels the operation.
+msgid "_Cancel"
+msgstr ""
+
+#. translators: button in the dialog that shows up when clicking clean. This proceeds and cleans the files. Do not underline.
+msgid "Clean"
+msgstr "Очисти"
+
+#. translators: checkbox in the dialog that shows up when clicking clean. Selecting it will stop showing this dialog and instead clean the metadata instantly
+msgid "Don't ask again"
+msgstr ""
+
+#. translators: the main button at the bottom of the file list that cleans the file metadata. "Clean Metadata"
+msgid "_Clean"
+msgstr "_Очисти"
+
+#. translators: tooltip text for the prefix button in the file rows. Clicking it will remove the file from the list.
+msgid "Remove File from List"
+msgstr ""
+
+#. translators: headerbar main menu item
+msgid "_New Window"
+msgstr "_Нов Прозор"
+
+#. translators: headerbar main menu item. This one clears the file list, it will remove all files from the list. Please make sure it's clear that this will NOT delete the files on disk, it will only remove them from the list.
+msgid "_Remove All Files"
+msgstr ""
+
+#. translators: headerbar main menu item
+msgid "_Keyboard Shortcuts"
+msgstr "_Пречице на Тастатури"
+
+#. translators: headerbar main menu item. Metadata Cleaner is the app name.
+msgid "_About Metadata Cleaner"
+msgstr "_О Чистачу Метаподатака"
+
+#. translators: tooltip text for the headerbar menu button
+msgid "Main Menu"
+msgstr "Главни Мени"
+
+#. translators: tooltip text for a button next to the "clean" button. It opens a settings dialog for cleaning-process related settings.
+msgid "Settings"
+msgstr ""
+
+#. translators: cleaning option row title
+msgid "Lightweight Cleaning"
+msgstr "Једноставно Чишћење"
+
+#. translators: cleaning option row subtitle. This describes what "Lightweight cleaning" is. Please be as clear as possible and don't assume the user knows what everything is
+msgid ""
+"By default, the removal process might alter a bit the data of your files, in "
+"order to remove as much metadata as possible. For example, texts in PDF "
+"might not be selectable anymore, compressed images might get compressed "
+"again… The lightweight mode, while not as thorough, will not make "
+"destructive changes to your files."
+msgstr ""
+
+#. translators: button that cancels the cleaning process
+msgid "Cancel"
+msgstr "Откажи"
+
+#. translators: headerbar button menu item that opens the file picker
+msgid "Add Files…"
+msgstr ""
+
+#. translators: headerbar button menu item that opens the folder picker
+msgid "Add Folders…"
+msgstr ""
+
+#. translators: overlay shown when dragging files above the app
+msgid "Drop files or folders to clean them"
+msgstr ""
+
+#. translators: headerbar button that opens a menu to pick files or folders and add them to the list aka "Add Files/Folders"
+msgid "Add"
+msgstr ""
+
+#. translators: tooltip text on a headerbar button that toggles the side panel for metadata viewing
+msgid "Toggle Metadata"
+msgstr ""
+
+#. translators: subtitle in the empty view, drop as in drag-n-drop
+msgid "Drop files here to clean them"
+msgstr ""
+
+#. translators: button label that opens the file picker
+msgid "Open _Files…"
+msgstr ""
+
+#. translators: button label that opens the folder picker. Please underline a different character than the one in the Open Files button
+msgid "Open F_olders…"
+msgstr ""
+
+#. translators: generic error message shown when the cleaning
+#. was unsuccessful but we don't know why
+msgid "An error occurred during the cleaning."
+msgstr ""
+
+#. translators: error message when a file is no longer
+#. available during cleaning. "Something
+#. bad happened" as in "Something went
+#. wrong"
+msgid "Something bad happened during the cleaning, cleaned file not found"
+msgstr "Нешто лоше се десило у току чишћења, очишћен фајл није пронађен"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Warning"
+msgstr "Упозорење"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Error"
+msgstr "Грешка"
+
+#. translators: tooltip text on the badge that shows an
+#. icon representing the state of the file
+msgid "Cleaned"
+msgstr "Очишћено"
+
+#. translators: side panel message when selecting a file that
+#. has been cleaned
+msgid "The File Has Been Cleaned"
+msgstr "Фајл је Очишћен"
+
+#. translators: side panel subtitle when selecting a file
+#. that has been cleaned. The limitations can
+#. be viewed by clicking a button below it
+msgid ""
+"Known metadata have been removed, however the cleaning process has some "
+"limitations."
+msgstr ""
+"Познати метаподаци су уклоњени, међутим процес чишћења има неких ограничења."
+
+#. translators: button that shows more info about the
+#. cleaning process, it's shown below a
+#. label that gives it context
+msgid "Learn more"
+msgstr "Сазнај више"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "Unable to Read the File"
+msgstr "Не могу да Прочитам Фајл"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "File Type not Supported"
+msgstr "Тип Фајла Није Подржан"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "Unable to Check for Metadata"
+msgstr "Не могу да Проверим има ли Метаподатака"
+
+#. translators: error shown on the side panel when selecting
+#. a file
+msgid "No Known Metadata"
+msgstr "Нема Познатих Метаподатака"
+
+#. translators: error shown on the side panel when
+#. selecting a file
+msgid "Unable to Remove Metadata"
+msgstr "Не могу да Уклоним Метаподатке"
+
+#. translators: message shown on the side panel when selecting a
+#. file that doesn't have known metadata
+msgid "The file will be cleaned anyway to be sure."
+msgstr "Фајл ће свеједно бити очишћен да би били сигурни."
+
+#. translators: message shown on the side panel when no file
+#. has been selected
+msgid "Select a file to view its metadata"
+msgstr ""
+
+#. translators: progress bar subtitle while loading files
+msgid "Processing file {}/{}"
+msgstr "Обрађујем фајл {}/{}"
+
+#. translators: progress bar subtitle while cleaning files
+msgid "Cleaning file {}/{}"
+msgstr "Чистим фајл {}/{}"
+
+#, python-format
+msgid "%i file cleaned"
+msgid_plural "%i files cleaned"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#, python-format
+msgid "%i error occurred"
+msgid_plural "%i errors occurred"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#. translators: filter name while picking files
+msgid "All supported files"
+msgstr "Сви подржани фајлови"
+
+#. translators: about dialog button that opens weblate
+msgid "Translate"
+msgstr ""
+
+#. translators: Translate this string as your translator credits.
+#. Name only:    Jane Doe
+#. Name + URL:   Jane Doe https://example.com/
+#. Name + Email: Jane Doe <janedoe@example.com>
+#. Do not remove existing names.
+#. Names are separated with newlines.
+msgid "translator-credits"
+msgstr "Андрија <andrija10djakovic@gmail.com>"
+
+#. translators: dialog title that has some info about the
+#. cleaning process
+msgid "Info"
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+msgid "Metadata & Privacy"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+msgid ""
+"Metadata consists of information that characterizes data. Metadata is used "
+"to provide documentation for data products. In essence, metadata answers "
+"who, what, when, where, why, and how about every facet of the data that is "
+"being documented.\n"
+"\n"
+"Metadata within a file can tell a lot about you. Cameras record data about "
+"when and where a picture was taken and which camera was used. Office "
+"applications automatically add author and company information to documents "
+"and spreadsheets. This is sensitive information and you may not want to "
+"disclose it."
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+msgid "Cleaning Process"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as is
+#. `\n`. If the language seems too advanced,
+#. please simplify it while staying true to
+#. the original; don't assume that the user
+#. has any knowledge on what metadata is.
+#. "Metadata Cleaner" is the app name. File
+#. formats as in "pdf", "png", "music files"
+#. etc. this section describes the case where
+#. we might not know what a file actually is
+#. and how to clean it.
+msgid ""
+"While Metadata Cleaner is doing its very best to display metadata, it "
+"doesn't mean that a file is clean from metadata if it doesn't show any. "
+"There is no reliable way to detect every single possible metadata for "
+"complex file formats. This is why you shouldn't rely on metadata's presence "
+"to decide if your file must be cleaned or not.\n"
+"\n"
+"Metadata Cleaner takes the content of  the file and puts it into a new one "
+"without metadata, ensuring that any undetected metadata is stripped."
+msgstr ""
+
+#. translators: title for a section about the cleaning process
+msgid "Limitations"
+msgstr ""
+
+#. translators: paragraphs that describe the cleaning
+#. process. Please keep the newlines as
+#. is `\n`. If the language seems too
+#. advanced, please simplify it while
+#. staying true to the original; don't
+#. assume that the user has any knowledge
+#. on what metadata is. "Metadata Cleaner"
+#. is the app name.
+msgid ""
+"Be aware that metadata is not the only way of marking a file. If the content "
+"itself discloses personal information or has been watermarked, traditionally "
+"or via steganography, Metadata Cleaner will not protect you."
+msgstr ""
+
+#~ msgid "View and clean metadata in files"
+#~ msgstr "Види и очисти метаподатке фајлова"
+
+#~ msgid ""
+#~ "Metadata within a file can tell a lot about you. Cameras record data "
+#~ "about when and where a picture was taken and which camera was used. "
+#~ "Office applications automatically add author and company information to "
+#~ "documents and spreadsheets. This is sensitive information and you may not "
+#~ "want to disclose it."
+#~ msgstr ""
+#~ "Метаподаци унутар фајла могу открити доста о теби. Камере чувају податке "
+#~ "\"где\" и \"када\" је слика усликана и која камера је коришћена. Офис "
+#~ "апликације аутоматски додају документима и табелама информације о аутору "
+#~ "и фирми. Ово су осетљиве информације и можда не би желео да их откријеш."
+
+#~ msgid ""
+#~ "This tool allows you to view metadata in your files and to get rid of it, "
+#~ "as much as possible."
+#~ msgstr ""
+#~ "Ова алатка ти дозвољава да видиш метаподатке твојих фајлова и отарасиш их "
+#~ "се, колико год то било могуће."
+
+#~ msgid "Add files"
+#~ msgstr "Додај фајлове"
+
+#~ msgid "Add folders"
+#~ msgstr "Додај фасцикле"
+
+#~ msgid "Clean metadata"
+#~ msgstr "Очисти метаподатке"
+
+#~ msgid "Clear all files from window"
+#~ msgstr "Очисти све фајлове из прозора"
+
+#~ msgid "Close window"
+#~ msgstr "Затвори прозор"
+
+#~ msgid "Help"
+#~ msgstr "Помоћ"
+
+#~ msgid "_Add Files"
+#~ msgstr "_Додај Фајлове"
+
+#~ msgid "Add _Folders"
+#~ msgstr "Додај_Фасцикле"
+
+#~ msgid "Make sure you backed up your files!"
+#~ msgstr "Увери се да си направио резервну копију твојих фајлова!"
+
+#~ msgid "Once the files are cleaned, there's no going back."
+#~ msgstr "Једном кад се фајлови очисте, нема повратка назад."
+
+#~ msgid "Don't tell me again"
+#~ msgstr "Не понављај више"
+
+#~ msgid "Clean Your Traces"
+#~ msgstr "Очисти Своје Трагове"
+
+#~ msgid "Learn more about metadata and the cleaning process limitations"
+#~ msgstr "Сазнај више о метаподацима и лимитима процеса чишћења"
+
+#~ msgid "Remove file from list"
+#~ msgstr "Уклони фајл са листе"
+
+#~ msgid "_Clear Window"
+#~ msgstr "_Очисти Прозор"
+
+#~ msgid "_Help"
+#~ msgstr "_Помоћ"
+
+#~ msgid "Cleaning settings"
+#~ msgstr "Поставке чишћења"
+
+#~ msgid "Learn more about the lightweight cleaning"
+#~ msgstr "Сазнај више о једноставном чишћењу"
+
+#~ msgid "Details"
+#~ msgstr "Детаљи"
+
+#~ msgid "Close"
+#~ msgstr "Затвори"
+
+#~ msgid "Choose files to clean"
+#~ msgstr "Одабери фајлове за чишћење"
+
+#~ msgid "Choose folders to clean"
+#~ msgstr "Одабери фасцикле за чишћење"
+
+#~ msgid "An error occured during the cleaning."
+#~ msgstr "Десила се грешка приликом чишћења."
+
+#~ msgid "Add files from subfolders"
+#~ msgstr "Додај фајлове из подфасцикли"
+
+#, python-format
+#~ msgid "%i file cleaned."
+#~ msgid_plural "%i files cleaned."
+#~ msgstr[0] "%i фајл очишћен."
+#~ msgstr[1] "%i фајлова очишћено."
+#~ msgstr[2] "%i фајлова очишћено."
+
+#, python-format
+#~ msgid "%i error occured."
+#~ msgid_plural "%i errors occured."
+#~ msgstr[0] "%i настала је грешка."
+#~ msgstr[1] "%i настале су грешке."
+#~ msgstr[2] "%i настале су грешке."
+
+#~ msgid "Libraries"
+#~ msgstr "Библиотеке"
+
+#~ msgid "Clean without warning"
+#~ msgstr "Очисти без упозорења"
+
+#~ msgid "Clean the files without showing the warning dialog"
+#~ msgstr "Очисти фајлове без приказивања упозорења"
+
+#~ msgid "Lightweight cleaning"
+#~ msgstr "Једноставно чишћење"
+
+#~ msgid "Don't make destructive changes to files but may leave some metadata"
+#~ msgstr ""
+#~ "Не прави деструктивне промене на фајловима али можда остави неки "
+#~ "метаподатак"
+
+#~ msgid "Window width"
+#~ msgstr "Ширина прозора"
+
+#~ msgid "Saved width of the window"
+#~ msgstr "Сачувана ширина прозора"
+
+#~ msgid "Window height"
+#~ msgstr "Висина прозора"
+
+#~ msgid "Saved height of the window"
+#~ msgstr "Сачувана висина прозора"
+
+#~ msgid "Updated translations"
+#~ msgstr "Ажурирани преводи"
+
+#~ msgid "Improved user interface"
+#~ msgstr "Побољшан кориснички интерфејс"
+
+#~ msgid "New translations"
+#~ msgstr "Нови преводи"
+
+#~ msgid "Bug fixes"
+#~ msgstr "Поправке багова"
+
+#~ msgid "New button to add folders"
+#~ msgstr "Ново дугме за додавање фасцикли"
+
+#~ msgid "Improved adaptive user interface"
+#~ msgstr "Побољшан адаптивни кориснички интерфејс"
+
+#~ msgid "New help pages"
+#~ msgstr "Нове странице за помоћ"
+
+#~ msgid "One-click cleaning, no need to save after cleaning"
+#~ msgstr "Чишћење једним кликом, нема потребе за чувањем након чишћења"
+
+#~ msgid "Persistent lightweight cleaning option"
+#~ msgstr "Доследна једноставна опција чишћења"
+
+#~ msgid "Files with uppercase extension can now be added"
+#~ msgstr "Фајлови са екстензијом великих слова се сада могу додати"
+
+#~ msgid "About"
+#~ msgstr "Основни подаци о"
+
+#~ msgid "Chat on Matrix"
+#~ msgstr "Ћаскај на \"Matrix\""
+
+#~ msgid "View the code on GitLab"
+#~ msgstr "Погледај код на \"GitLab\""
+
+#~ msgid "Translate on Weblate"
+#~ msgstr "Преведи на \"Weblate\""
+
+#~ msgid "Support us on Liberapay"
+#~ msgstr "Подржи нас на \"Liberapay\""
+
+#~ msgid "Credits"
+#~ msgstr "Заслуге"
+
+#~ msgid "Code"
+#~ msgstr "Код"
+
+#~ msgid "Artwork"
+#~ msgstr "Илустрације"
+
+#~ msgid "Documentation"
+#~ msgstr "Документација"
+
+#~ msgid "Translation"
+#~ msgstr "Превод"
+
+#~ msgid ""
+#~ "This program uses <a href=\"https://github.com/jvoisin/mat2\">mat2</a> to "
+#~ "parse and clean the metadata. Show them some love!"
+#~ msgstr ""
+#~ "Овај програм користи <a href=\"https://github.com/jvoisin/mat2\">mat2</a> "
+#~ "за анализу и чишћење метаподатака. Покажите им мало љубави!"
+
+#~ msgid ""
+#~ "The source code of this program is released under the terms of the <a "
+#~ "href=\"https://www.gnu.org/licenses/gpl-3.0.html\">GNU GPL 3.0 or later</"
+#~ "a>. The original artwork and translations are released under the terms of "
+#~ "the <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA "
+#~ "4.0</a>."
+#~ msgstr ""
+#~ "Изворни код овог програма је објављен под условима <a href=\"https://"
+#~ "www.gnu.org/licenses/gpl-3.0.html\">GNU GPL 3.0 or later</a>. Оригиналне "
+#~ "илустрације и преводи су објављени под условима <a href=\"https://"
+#~ "creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a>."
+
+#~ msgid "Adding files…"
+#~ msgstr "Додајем фајлове…"
