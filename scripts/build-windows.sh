@@ -13,6 +13,7 @@ ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 VERSION="${VERSION:-4.0.1}"
 MINGW_PREFIX="${MINGW_PREFIX:-/ucrt64}"
 PYTHON="$MINGW_PREFIX/bin/python.exe"
+MESON="$MINGW_PREFIX/bin/meson.exe"
 BUILD_DIR="${BUILD_DIR:-$ROOT/dist/build}"
 PAYLOAD_DIR="${PAYLOAD_DIR:-$ROOT/dist/payload}"
 TOOLS_DIR="$ROOT/dist/tools"
@@ -36,15 +37,19 @@ PY_VERSION=$("$PYTHON" -c 'import sys; print(f"{sys.version_info.major}.{sys.ver
 SITE_PACKAGES="$MINGW_PREFIX/lib/python$PY_VERSION/site-packages"
 (
     cd "$SITE_PACKAGES"
-    patch -p1 < "$ROOT/patches/0002-mat2-windows.patch"
+    if patch -p1 --dry-run < "$ROOT/patches/0002-mat2-windows.patch" >/dev/null 2>&1; then
+        patch -p1 < "$ROOT/patches/0002-mat2-windows.patch"
+    else
+        echo "mat2 Windows patch already applied"
+    fi
 )
 
 echo "==> Building the application"
 export PATH="$MINGW_PREFIX/bin:/usr/local/bin:$PATH"
 export GETTEXTDATADIR=/usr/share/gettext
-meson setup "$BUILD_DIR" --prefix="$PAYLOAD_DIR" -Ddevel=false
-meson compile -C "$BUILD_DIR"
-meson install -C "$BUILD_DIR"
+"$MESON" setup "$BUILD_DIR" --prefix="$PAYLOAD_DIR" -Ddevel=false
+"$MESON" compile -C "$BUILD_DIR"
+"$MESON" install -C "$BUILD_DIR"
 
 echo "==> Copying and pruning the runtime"
 cp -a "$MINGW_PREFIX" "$PAYLOAD_DIR/runtime"
