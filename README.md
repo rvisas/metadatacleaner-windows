@@ -46,10 +46,11 @@ Short version: install the UCRT64 GTK/Python stack, `pip install mat2==0.15.0 --
 ## Upstream tracking
 
 - Upstream: https://gitlab.com/metadatacleaner/metadatacleaner
-- `main` mirrors upstream; `windows` carries the port patches.
-- When upstream publishes a release, `windows` is rebased onto the new tag and the patches are re-applied. The procedure is in [`UPSTREAM.md`](UPSTREAM.md).
+- This repository is maintained as a **patch set** over a pinned upstream release, not as a permanent fork with shared Git history.
+- `patches/` contains the Windows delta; the port source lives on `main`.
+- When upstream publishes a release, the patches are re-applied to the new tree, the app is rebuilt, and the format tests are re-run. The procedure is in [`UPSTREAM.md`](UPSTREAM.md).
 
-This repository is a monitor of upstream, not a hard fork: the goal is to keep the Windows delta small and reviewable.
+The goal is to keep the Windows delta small and reviewable so it can follow upstream releases without becoming a separate product.
 
 ## Packaging
 

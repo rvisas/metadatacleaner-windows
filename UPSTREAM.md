@@ -1,22 +1,26 @@
 # Upstream tracking
 
 - **Upstream:** https://gitlab.com/metadatacleaner/metadatacleaner
+- **Current base:** `v4.0.1` (upstream `main` at `17e0b56`, which adds a post-release Flatpak manifest sync)
 - **License:** GPL-3.0-or-later
-- **Relationship:** unofficial Windows port, kept as close to upstream as possible.
+- **Relationship:** unofficial Windows port, maintained as a patch set.
 
-## Branches and remotes
+## Repository model
+
+This repository does not share Git history with upstream. It contains the upstream
+source tree at a pinned release plus the Windows patches, so the delta stays easy
+to read and re-apply.
 
 | Ref | Purpose |
 |---|---|
-| `main` | Mirror of upstream `main`. No Windows-specific commits. |
-| `windows` | `main` + the Windows port patches. This is the branch that is built. |
+| `main` | Port source: upstream tree + Windows patches. |
 | `origin` | `github.com/rvisas/metadatacleaner-windows` |
-| `upstream` | `gitlab.com/metadatacleaner/metadatacleaner` |
+| `upstream` | Reference remote (`gitlab.com/metadatacleaner/metadatacleaner`). Used to fetch tags and diff, never merged. |
 
 ## Windows patches
 
 The applied source is the source of truth; `patches/` keeps the diffs against the
-upstream tag for review and rebasing.
+upstream tag for review and re-application.
 
 | Patch | File | Reason |
 |---|---|---|
@@ -33,19 +37,30 @@ not vendored into this repository.
 
 ## Updating from upstream
 
-```bash
-git fetch upstream --tags
-git checkout main
-git merge --ff-only upstream/main
+1. Fetch the new tag and create a clean worktree:
 
-git checkout windows
-git rebase main          # or: git rebase vX.Y.Z
-# resolve conflicts, rebuild, test
-git push --force-with-lease origin windows
-```
+   ```bash
+   git fetch upstream --tags
+   git worktree add ../upstream-vX.Y.Z vX.Y.Z
+   ```
 
-After a rebase, rebuild and re-run the format tests (JPEG, PDF, DOCX, MP4) before
-tagging a release.
+2. Compare the new tree with the current base and re-apply the patches:
+
+   ```bash
+   git diff --no-index ../upstream-vX.Y.Z/src/metadata-cleaner.in src/metadata-cleaner.in
+   git diff --no-index ../upstream-vX.Y.Z/src/modules/file.py src/modules/file.py
+   # adjust the patched files, then regenerate patches/
+   ```
+
+3. Rebuild, run the format tests (JPEG, PDF, DOCX, MP4), and update `docs/BUILD.md`
+   if a dependency changed.
+
+4. Commit, tag, and remove the temporary worktree:
+
+   ```bash
+   git worktree remove ../upstream-vX.Y.Z
+   git tag vX.Y.Z-windows.1
+   ```
 
 ## Versioning
 
@@ -57,5 +72,5 @@ v4.0.1-windows.2   # port-only fixes
 v4.1.0-windows.1   # new upstream base
 ```
 
-The upstream base version is also recorded in the release notes, not in the
+The upstream base version is recorded here and in the release notes, not in the
 repository description.
