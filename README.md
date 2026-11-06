@@ -61,9 +61,9 @@ shortcuts plus an uninstaller. A separate portable ZIP is not part of the
 current scope.
 
 Binaries are published as GitHub Releases, not committed to the repository.
-The tag convention is `v4.0.1-windows.1`; a rebuild of the same upstream
-version increments the suffix (`v4.0.1-windows.2`). Every release includes a
-`.sha256` sidecar and `SHA256SUMS.txt` so downloads can be verified.
+The tag convention is `v4.0.1-windows`; future releases change only the version
+number (`v4.0.2-windows`, `v4.1.0-windows`). Every release includes a `.sha256`
+sidecar and `SHA256SUMS.txt` so downloads can be verified.
 
 Pushing a tag triggers the automatic release workflow; the full procedure,
 asset naming rationale and checksum commands are in

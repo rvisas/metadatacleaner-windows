@@ -9,14 +9,14 @@ downloads it.
 
 | Thing | Value |
 |---|---|
-| Tag | `v4.0.1-windows.1` |
+| Tag | `v4.0.1-windows` |
 | Installer | `MetadataCleaner-4.0.1-windows-x64-setup.exe` |
 | Checksum sidecar | `MetadataCleaner-4.0.1-windows-x64-setup.exe.sha256` |
 | Combined checksum | `SHA256SUMS.txt` |
 
-`-windows.N` is the port revision, not the upstream release. A rebuild of the
-same upstream version increments `N` (`v4.0.1-windows.2`) instead of moving the
-tag. `windows-x64` in the asset name is the same convention used by OBS Studio
+`-windows` identifies the port, not a revision of the upstream release. Future
+releases change only the version number (`v4.0.2-windows`, `v4.1.0-windows`).
+`windows-x64` in the asset name is the same convention used by OBS Studio
 (`OBS-Studio-33.0.1-Windows-x64-Installer.exe`), HandBrake
 (`HandBrake-1.11.2-x86_64-Win_GUI.exe`), qBittorrent
 (`qbittorrent_5.3.0_x64_setup.exe`), darktable
@@ -28,12 +28,12 @@ the OS, architecture or artifact type.
 
 ## Automatic release
 
-`.github/workflows/release.yml` runs when a tag matching `v*-windows.*` is
-pushed, and can also be started manually with a version and revision:
+`.github/workflows/release.yml` runs when a tag matching `v*-windows` is
+pushed, and can also be started manually with a version:
 
 ```bash
-git tag -a v4.0.1-windows.1 -m "Metadata Cleaner 4.0.1 for Windows"
-git push origin v4.0.1-windows.1
+git tag -a v4.0.1-windows -m "Metadata Cleaner 4.0.1 for Windows"
+git push origin v4.0.1-windows
 ```
 
 The job:
@@ -64,9 +64,9 @@ Then create the checksums and the draft release:
 $asset = Get-ChildItem dist\installer\*.exe | Select-Object -First 1
 $hash = (Get-FileHash $asset.FullName -Algorithm SHA256).Hash.ToLower()
 "$hash  $($asset.Name)" | Set-Content "$($asset.FullName).sha256" -Encoding ascii
-gh release create v4.0.1-windows.1 `
+gh release create v4.0.1-windows `
   $asset.FullName "$($asset.FullName).sha256" `
-  --title "Metadata Cleaner 4.0.1 for Windows" `
+  --title "v4.0.1-windows" `
   --prerelease --generate-notes
 ```
 

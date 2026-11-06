@@ -33,13 +33,11 @@ class ReleaseMetadataTests(unittest.TestCase):
 
     def test_port_specific_tag_does_not_collide_with_upstream(self) -> None:
         self.assertEqual(
-            release_metadata.release_tag("4.0.1"), "v4.0.1-windows.1"
+            release_metadata.release_tag("4.0.1"), "v4.0.1-windows"
         )
         self.assertEqual(
-            release_metadata.release_tag("4.0.1", 2), "v4.0.1-windows.2"
+            release_metadata.release_tag("4.1.0"), "v4.1.0-windows"
         )
-        with self.assertRaises(ValueError):
-            release_metadata.release_tag("4.0.1", 0)
 
     def test_sha256_and_checksum_line(self) -> None:
         payload = b"metadata-cleaner\n"

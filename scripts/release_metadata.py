@@ -22,11 +22,9 @@ def checksum_filename(installer_name: str) -> str:
     return f"{installer_name}.sha256"
 
 
-def release_tag(version: str, revision: int = 1) -> str:
-    """Return a port-specific tag, e.g. v4.0.1-windows.1."""
-    if revision < 1:
-        raise ValueError("revision must be at least 1")
-    return f"v{version}-windows.{revision}"
+def release_tag(version: str) -> str:
+    """Return the Windows tag, e.g. v4.0.1-windows."""
+    return f"v{version}-windows"
 
 
 def sha256_file(path: str | Path) -> str:

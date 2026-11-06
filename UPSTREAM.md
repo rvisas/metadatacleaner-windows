@@ -60,17 +60,16 @@ not vendored into this repository.
 
    ```bash
    git worktree remove ../upstream-vX.Y.Z
-   git tag vX.Y.Z-windows.1
+   git tag vX.Y.Z-windows
    ```
 
 ## Versioning
 
-Tags follow the upstream version plus a Windows revision:
+Tags follow the upstream version plus the Windows suffix:
 
 ```text
-v4.0.1-windows.1
-v4.0.1-windows.2   # port-only fixes
-v4.1.0-windows.1   # new upstream base
+v4.0.1-windows
+v4.1.0-windows   # new upstream base
 ```
 
 The upstream base version is recorded here and in the release notes, not in the
