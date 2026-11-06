@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://github.com/rvisas/metadatacleaner-windows/actions/workflows/tests.yml">
-    <img src="https://github.com/rvisas/metadatacleaner-windows/actions/workflows/tests.yml/badge.svg?branch=main" alt="Tests">
+    <img src="https://img.shields.io/github/actions/workflow/status/rvisas/metadatacleaner-windows/tests.yml?branch=main&amp;style=flat-square&amp;label=tests" alt="Tests">
   </a>
   <a href="https://github.com/rvisas/metadatacleaner-windows/releases">
     <img src="https://img.shields.io/github/v/release/rvisas/metadatacleaner-windows?include_prereleases&amp;style=flat-square&amp;label=release" alt="Release">
