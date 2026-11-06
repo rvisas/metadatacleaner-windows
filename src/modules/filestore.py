@@ -51,6 +51,11 @@ class FileStore(Gio.ListStore):
 
     __gtype_name__ = "FileStore"
 
+    # A GFileInfo created by an enumerator only contains the attributes that
+    # were requested.  Asking for an empty attribute list makes every child
+    # look like G_FILE_TYPE_UNKNOWN, so folder imports silently add nothing.
+    _DIRECTORY_ATTRIBUTES = "standard::name,standard::type"
+
     __gsignals__ = {
         "file-state-changed": (GObject.SIGNAL_RUN_LAST, None, (int,)),
         "state-changed": (GObject.SIGNAL_RUN_LAST, None, (int,)),
@@ -155,6 +160,9 @@ class FileStore(Gio.ListStore):
     ) -> None:
         self._set_state(FileStoreState.WORKING)
         all_gfiles = self._gather_all_gfiles(gfiles, recursive)
+        if not all_gfiles:
+            self._stop_adding_gfiles()
+            return
         self._set_progress(
             self.progress[0], self.progress[1] + len(all_gfiles)
         )
@@ -195,7 +203,9 @@ class FileStore(Gio.ListStore):
         gfiles: list[Gio.File] = []
         subdirs: list[Gio.File] = []
         children_enumerator = dir.enumerate_children(
-            "", Gio.FileQueryInfoFlags.NONE, None
+            self._DIRECTORY_ATTRIBUTES,
+            Gio.FileQueryInfoFlags.NONE,
+            None,
         )
         while True:
             info = children_enumerator.next_file(None)

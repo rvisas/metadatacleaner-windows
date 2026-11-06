@@ -75,6 +75,18 @@ jobs:
           VERSION: ${{ steps.version.outputs.version }}
         run: bash ./scripts/build-windows.sh
 
+      - name: Smoke test the built folder import
+        shell: msys2 {0}
+        env:
+          MC_PAYLOAD_DIR: ${{ github.workspace }}\dist\payload
+        run: |
+          PAYLOAD_WIN="$(cygpath -m "$MC_PAYLOAD_DIR")"
+          export PATH="$(cygpath -u "$MC_PAYLOAD_DIR")/runtime/bin:$PATH"
+          export XDG_DATA_DIRS="$PAYLOAD_WIN/share;$PAYLOAD_WIN/runtime/share"
+          export GSETTINGS_SCHEMA_DIR="$PAYLOAD_WIN/runtime/share/glib-2.0/schemas"
+          export GI_TYPELIB_PATH="$PAYLOAD_WIN/runtime/lib/girepository-1.0"
+          python -m unittest tests.test_runtime_folder -v
+
       - name: Install Inno Setup
         shell: pwsh
         run: |

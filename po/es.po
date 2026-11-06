@@ -52,7 +52,7 @@ msgstr "Atajos del teclado"
 
 #. translators: keyboard shortcut title. Closes the currently focused window
 msgid "Close Window"
-msgstr ""
+msgstr "Cerrar ventana"
 
 #. translators: keyboard shortcut title. Closes the app completely
 msgid "Quit"
@@ -64,31 +64,35 @@ msgstr "Archivos"
 
 #. translators: keyboard shortcut title. Opens the file picker
 msgid "Add Files"
-msgstr ""
+msgstr "Añadir archivos"
 
 #. translators: keyboard shortcut title. Opens the folder pickers
 msgid "Add Folders"
-msgstr ""
+msgstr "Añadir carpetas"
 
 #. translators: keyboard shortcut title. Starts the metadata cleaning process
 msgid "Clean Metadata"
-msgstr ""
+msgstr "Limpiar metadatos"
 
 #. translators: keyboard shortcut title. Removes all files from the queue/file list
 msgid "Remove all files from the list"
-msgstr ""
+msgstr "Quitar todos los archivos de la lista"
+
+#. translators: keyboard shortcut title. Clears the file list without deleting files on disk
+msgid "Clear list of files"
+msgstr "Vaciar la lista de archivos"
 
 #. translators: title in the dialog that shows up when clicking the main "clean" button
 msgid "Clean Metadata?"
-msgstr ""
+msgstr "¿Limpiar los metadatos?"
 
 #. translators: subtitle in the dialog that shows up when clicking the main "clean" button
 msgid "Make sure you backed up your files! This is irreversible."
-msgstr ""
+msgstr "Asegúrate de haber hecho una copia de seguridad de tus archivos. Esta acción es irreversible."
 
 #. translators: button in the dialog that shows up when clicking clean. This cancels the operation.
 msgid "_Cancel"
-msgstr ""
+msgstr "_Cancelar"
 
 #. translators: button in the dialog that shows up when clicking clean. This proceeds and cleans the files. Do not underline.
 msgid "Clean"
@@ -96,7 +100,7 @@ msgstr "Limpiar"
 
 #. translators: checkbox in the dialog that shows up when clicking clean. Selecting it will stop showing this dialog and instead clean the metadata instantly
 msgid "Don't ask again"
-msgstr ""
+msgstr "No volver a preguntar"
 
 #. translators: the main button at the bottom of the file list that cleans the file metadata. "Clean Metadata"
 msgid "_Clean"
@@ -104,7 +108,7 @@ msgstr "_Limpiar"
 
 #. translators: tooltip text for the prefix button in the file rows. Clicking it will remove the file from the list.
 msgid "Remove File from List"
-msgstr ""
+msgstr "Quitar archivo de la lista"
 
 #. translators: headerbar main menu item
 msgid "_New Window"
@@ -112,7 +116,11 @@ msgstr "Ventana _nueva"
 
 #. translators: headerbar main menu item. This one clears the file list, it will remove all files from the list. Please make sure it's clear that this will NOT delete the files on disk, it will only remove them from the list.
 msgid "_Remove All Files"
-msgstr ""
+msgstr "_Quitar todos los archivos"
+
+#. translators: headerbar main menu item. This one clears the file list, it will remove all files from the list. Please make sure it's clear that this will NOT delete the files on disk, it will only remove them from the list.
+msgid "Clea_r List of Files"
+msgstr "_Vaciar la lista de archivos"
 
 #. translators: headerbar main menu item
 msgid "_Keyboard Shortcuts"
@@ -128,7 +136,7 @@ msgstr "Menú principal"
 
 #. translators: tooltip text for a button next to the "clean" button. It opens a settings dialog for cleaning-process related settings.
 msgid "Settings"
-msgstr ""
+msgstr "Ajustes"
 
 #. translators: cleaning option row title
 msgid "Lightweight Cleaning"
@@ -141,7 +149,7 @@ msgid ""
 "might not be selectable anymore, compressed images might get compressed "
 "again… The lightweight mode, while not as thorough, will not make "
 "destructive changes to your files."
-msgstr ""
+msgstr "De forma predeterminada, el proceso de limpieza puede alterar un poco los datos de tus archivos para eliminar la mayor cantidad de metadatos posible. Por ejemplo, es posible que los textos de un PDF ya no se puedan seleccionar o que las imágenes comprimidas se vuelvan a comprimir. El modo ligero, aunque no es tan exhaustivo y puede dejar más metadatos, no realizará cambios destructivos en tus archivos."
 
 #. translators: button that cancels the cleaning process
 msgid "Cancel"
@@ -149,40 +157,40 @@ msgstr "Cancelar"
 
 #. translators: headerbar button menu item that opens the file picker
 msgid "Add Files…"
-msgstr ""
+msgstr "Añadir archivos…"
 
 #. translators: headerbar button menu item that opens the folder picker
 msgid "Add Folders…"
-msgstr ""
+msgstr "Añadir carpetas…"
 
 #. translators: overlay shown when dragging files above the app
 msgid "Drop files or folders to clean them"
-msgstr ""
+msgstr "Arrastra archivos o carpetas aquí para limpiarlos"
 
 #. translators: headerbar button that opens a menu to pick files or folders and add them to the list aka "Add Files/Folders"
 msgid "Add"
-msgstr ""
+msgstr "Añadir"
 
 #. translators: tooltip text on a headerbar button that toggles the side panel for metadata viewing
 msgid "Toggle Metadata"
-msgstr ""
+msgstr "Mostrar u ocultar metadatos"
 
 #. translators: subtitle in the empty view, drop as in drag-n-drop
 msgid "Drop files here to clean them"
-msgstr ""
+msgstr "Arrastra archivos aquí para limpiarlos"
 
 #. translators: button label that opens the file picker
 msgid "Open _Files…"
-msgstr ""
+msgstr "_Abrir archivos…"
 
 #. translators: button label that opens the folder picker. Please underline a different character than the one in the Open Files button
 msgid "Open F_olders…"
-msgstr ""
+msgstr "Abrir _carpetas…"
 
 #. translators: generic error message shown when the cleaning
 #. was unsuccessful but we don't know why
 msgid "An error occurred during the cleaning."
-msgstr ""
+msgstr "Se produjo un error durante la limpieza."
 
 #. translators: error message when a file is no longer
 #. available during cleaning. "Something
@@ -261,7 +269,7 @@ msgstr "El archivo se limpiará de todos modos para estar seguros."
 #. translators: message shown on the side panel when no file
 #. has been selected
 msgid "Select a file to view its metadata"
-msgstr ""
+msgstr "Selecciona un archivo para ver sus metadatos"
 
 #. translators: progress bar subtitle while loading files
 msgid "Processing file {}/{}"
@@ -274,14 +282,14 @@ msgstr "Limpiando archivo {}/{}"
 #, python-format
 msgid "%i file cleaned"
 msgid_plural "%i files cleaned"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%i archivo limpiado"
+msgstr[1] "%i archivos limpiados"
 
 #, python-format
 msgid "%i error occurred"
 msgid_plural "%i errors occurred"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Se produjo %i error"
+msgstr[1] "Se produjeron %i errores"
 
 #. translators: filter name while picking files
 msgid "All supported files"
@@ -289,7 +297,7 @@ msgstr "Todos los archivos compatibles"
 
 #. translators: about dialog button that opens weblate
 msgid "Translate"
-msgstr ""
+msgstr "Traducir"
 
 #. translators: Translate this string as your translator credits.
 #. Name only:    Jane Doe
@@ -305,11 +313,11 @@ msgstr ""
 #. translators: dialog title that has some info about the
 #. cleaning process
 msgid "Info"
-msgstr ""
+msgstr "Información"
 
 #. translators: title for a section about the cleaning process
 msgid "Metadata & Privacy"
-msgstr ""
+msgstr "Metadatos y privacidad"
 
 #. translators: paragraphs that describe the cleaning
 #. process. Please keep the newlines as is
@@ -328,11 +336,11 @@ msgid ""
 "applications automatically add author and company information to documents "
 "and spreadsheets. This is sensitive information and you may not want to "
 "disclose it."
-msgstr ""
+msgstr "Los metadatos son información que caracteriza a los datos. Se utilizan para documentar productos de datos. En esencia, los metadatos responden a quién, qué, cuándo, dónde, por qué y cómo de cada aspecto de los datos que se documentan.\n\nLos metadatos de un archivo pueden revelar mucho sobre ti. Las cámaras registran datos sobre cuándo y dónde se tomó una foto y qué cámara se utilizó. Las aplicaciones ofimáticas añaden automáticamente información sobre el autor y la empresa a documentos y hojas de cálculo. Esta información es sensible y es posible que no quieras divulgarla."
 
 #. translators: title for a section about the cleaning process
 msgid "Cleaning Process"
-msgstr ""
+msgstr "Proceso de limpieza"
 
 #. translators: paragraphs that describe the cleaning
 #. process. Please keep the newlines as is
@@ -354,11 +362,11 @@ msgid ""
 "\n"
 "Metadata Cleaner takes the content of  the file and puts it into a new one "
 "without metadata, ensuring that any undetected metadata is stripped."
-msgstr ""
+msgstr "Aunque el Limpiador de metadatos hace todo lo posible por mostrar los metadatos, el hecho de que no muestre ninguno no significa que un archivo esté libre de metadatos. No existe una forma fiable de detectar todos los metadatos posibles en formatos de archivo complejos. Por eso no deberías basarte en la presencia de metadatos para decidir si un archivo debe limpiarse.\n\nEl Limpiador de metadatos toma el contenido del archivo y lo coloca en uno nuevo sin metadatos, lo que garantiza la eliminación de cualquier metadato no detectado."
 
 #. translators: title for a section about the cleaning process
 msgid "Limitations"
-msgstr ""
+msgstr "Limitaciones"
 
 #. translators: paragraphs that describe the cleaning
 #. process. Please keep the newlines as
@@ -372,7 +380,7 @@ msgid ""
 "Be aware that metadata is not the only way of marking a file. If the content "
 "itself discloses personal information or has been watermarked, traditionally "
 "or via steganography, Metadata Cleaner will not protect you."
-msgstr ""
+msgstr "Ten en cuenta que los metadatos no son la única forma de marcar un archivo. Si el contenido en sí revela información personal o tiene una marca de agua, ya sea tradicional o mediante esteganografía, el Limpiador de metadatos no te protegerá."
 
 #~ msgid "View and clean metadata in files"
 #~ msgstr "Ver y limpiar los metadatos en los archivos"

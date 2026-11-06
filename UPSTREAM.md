@@ -28,6 +28,7 @@ upstream tag for review and re-application.
 | Home path | `src/modules/file.py` | `C:\Users\...` is not a valid regex; use `startswith`. |
 | Portal xattr | `src/modules/file.py` | `xattr::document-portal.host-path` only exists inside Flatpak. |
 | Taskbar identity | `src/metadata-cleaner.in` + installer | Explicit AppUserModelID and window icon so pinned shortcuts resolve to the app. |
+| Folder import | `src/modules/filestore.py` | Request `standard::name,standard::type` from GIO; an empty attribute list makes every child look unsupported. |
 | PDF URIs | `libmat2/pdf.py` (mat2) | `Path.as_uri()` produces `file:///C:/...`; fixes drive letters and `#`/spaces/accents. |
 | PDF temp fd | `libmat2/pdf.py` (mat2) | Close the `mkstemp` descriptor; Windows cannot delete an open file. |
 | Archive rewrite | `libmat2/archive.py` (mat2) | `os.replace` and writable permissions for DOCX/ODT/EPUB. |
