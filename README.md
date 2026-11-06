@@ -2,7 +2,7 @@
 
 Unofficial Windows 10/11 port of [Metadata Cleaner](https://gitlab.com/metadatacleaner/metadatacleaner), the GTK4 application for viewing and removing metadata from files.
 
-> **Status:** early port. The app builds and runs on Windows 11; metadata cleaning has been verified on JPEG, PDF, DOCX and MP4. The portable build and the installer are in progress.
+> **Status:** early port for Windows 10/11 x64. The app builds and runs on Windows 11; metadata cleaning has been verified on JPEG, PDF, DOCX and MP4. The Inno Setup installer is in progress.
 
 ## Why this exists
 
@@ -54,10 +54,7 @@ The goal is to keep the Windows delta small and reviewable so it can follow upst
 
 ## Packaging
 
-Planned deliverables:
-
-- A portable folder (`metadatacleaner-windows-portable.zip`) containing the app, the runtime and the external tools.
-- An Inno Setup installer (`MetadataCleaner-Setup-x.y.z.exe`) that wraps the same payload, with Start Menu/Desktop shortcuts and an uninstaller.
+The Windows deliverable is an Inno Setup installer (`MetadataCleaner-Setup-x.y.z.exe`). It bundles the application, the GTK/Python runtime and the external tools, and creates Start Menu/Desktop shortcuts plus an uninstaller. A separate portable ZIP is not part of the current scope.
 
 ## License
 
