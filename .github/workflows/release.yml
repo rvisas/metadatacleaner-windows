@@ -78,7 +78,7 @@ jobs:
         shell: msys2 {0}
         env:
           VERSION: ${{ steps.version.outputs.version }}
-        run: ./scripts/build-windows.sh
+        run: bash ./scripts/build-windows.sh
 
       - name: Install Inno Setup
         shell: pwsh

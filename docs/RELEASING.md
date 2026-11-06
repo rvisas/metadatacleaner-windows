@@ -54,7 +54,7 @@ workflow and release as stable.
 If the workflow is unavailable, build the payload in an MSYS2 UCRT64 shell:
 
 ```bash
-VERSION=4.0.1 ./scripts/build-windows.sh
+VERSION=4.0.1 bash ./scripts/build-windows.sh
 iscc /DAppVersion=4.0.1 installer\metadatacleaner.iss
 ```
 
