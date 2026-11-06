@@ -40,6 +40,12 @@ gcc -municode -mwindows -static -O2 -s -o ..\..\dist\payload\MetadataCleaner.exe
 
 `windres` embeds `branding\metadatacleaner-windows.ico` into the launcher.
 
+The `[Icons]` entries set `AppUserModelID` to
+`io.gitlab.metadatacleaner.metadatacleaner` and use the launcher as their icon.
+The application sets the same ID on its own process before creating the window,
+so a taskbar pin resolves to `MetadataCleaner.exe` instead of the underlying
+`pythonw.exe`.
+
 ## Build the installer
 
 1. Install [Inno Setup](https://jrsoftware.org/isinfo.php) 6.3 or newer.
