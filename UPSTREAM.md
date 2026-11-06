@@ -27,13 +27,16 @@ upstream tag for review and re-application.
 | Relocatable paths | `src/metadata-cleaner.in` | Derive `LOCALE_DIR` and `PKGDATA_DIR` from `__file__` instead of a POSIX prefix. |
 | Home path | `src/modules/file.py` | `C:\Users\...` is not a valid regex; use `startswith`. |
 | Portal xattr | `src/modules/file.py` | `xattr::document-portal.host-path` only exists inside Flatpak. |
+| Taskbar identity | `src/metadata-cleaner.in` + installer | Explicit AppUserModelID and window icon so pinned shortcuts resolve to the app. |
 | PDF URIs | `libmat2/pdf.py` (mat2) | `Path.as_uri()` produces `file:///C:/...`; fixes drive letters and `#`/spaces/accents. |
 | PDF temp fd | `libmat2/pdf.py` (mat2) | Close the `mkstemp` descriptor; Windows cannot delete an open file. |
 | Archive rewrite | `libmat2/archive.py` (mat2) | `os.replace` and writable permissions for DOCX/ODT/EPUB. |
 
 The two mat2 patches are carried in `patches/0002-mat2-windows.patch`. They are
 applied to the mat2 version pinned by the build (`0.15.0` at the time of writing),
-not vendored into this repository.
+not vendored into this repository. The AppUserModelID/icon change is in
+`patches/0003-windows-taskbar.patch`; the installer applies the matching ID to
+the Start Menu and desktop shortcuts.
 
 ## Updating from upstream
 

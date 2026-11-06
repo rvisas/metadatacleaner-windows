@@ -57,6 +57,27 @@ class WindowsPortGuardTests(unittest.TestCase):
         pdf = archive
         self.assertIn("as_uri()", pdf)
 
+    def test_taskbar_identity_is_configured(self) -> None:
+        entrypoint = (ROOT / "src" / "metadata-cleaner.in").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn(
+            "SetCurrentProcessExplicitAppUserModelID(APP_ID)", entrypoint
+        )
+        self.assertIn("Gtk.Window.set_default_icon_name(APP_ID)", entrypoint)
+
+        installer = (ROOT / "installer" / "metadatacleaner.iss").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn(
+            '#define AppUserModelID "io.gitlab.metadatacleaner.metadatacleaner"',
+            installer,
+        )
+        self.assertIn("AppUserModelID: \"{#AppUserModelID}\"", installer)
+        self.assertIn(
+            'IconFilename: "{app}\\{#AppExeName}"', installer
+        )
+
     def test_installer_asset_name_matches_release_helper(self) -> None:
         script = (ROOT / "installer" / "metadatacleaner.iss").read_text(
             encoding="utf-8"

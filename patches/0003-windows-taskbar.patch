@@ -1,0 +1,30 @@
+diff --git a/src/metadata-cleaner.in b/src/metadata-cleaner.in
+--- a/src/metadata-cleaner.in
++++ b/src/metadata-cleaner.in
+@@ -24,6 +24,13 @@
+ APP_ID = "@app_id@"
+ DEVEL = "@devel@" == "True"
+ VERSION = "@version@"
++
++# Windows needs an explicit AppUserModelID so taskbar buttons and pinned
++# shortcuts resolve to this application instead of the Python host process.
++if os.name == "nt":
++    import ctypes
++
++    ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(APP_ID)
+ 
+ # Derive the install layout from this script's location so the build can be
+ # relocated (needed for the Windows portable build, harmless on Linux).
+@@ -71,6 +78,12 @@
+         int: Exit status
+     """
+     from metadatacleaner.app import MetadataCleaner
++    from gi.repository import Gtk
++
++    if os.name == "nt":
++        # Give the GTK window the application icon instead of the Python icon.
++        Gtk.Window.set_default_icon_name(APP_ID)
++
+     app = MetadataCleaner(application_id=APP_ID, devel=DEVEL, version=VERSION)
+     signal.signal(signal.SIGINT, signal.SIG_DFL)
+     return app.run(sys.argv)

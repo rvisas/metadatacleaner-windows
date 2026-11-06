@@ -117,6 +117,14 @@ product.
 > warning is expected until the SignPath Foundation application is approved.
 > The checksum is still a reliable way to confirm that the download is intact.
 
+### Pinning to the taskbar
+
+This build registers a stable AppUserModelID and a shortcut icon, so the pinned
+button launches `MetadataCleaner.exe` and keeps the application logo. If you
+pinned an older build, unpin that icon once, install this version, and pin the
+new **Metadata Cleaner** entry from the Start Menu. Pinning the running window
+also works because both the window and the shortcut use the same AppUserModelID.
+
 ## Usage
 
 1. Open **Metadata Cleaner** from the Start Menu.
