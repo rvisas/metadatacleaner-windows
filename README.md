@@ -56,6 +56,8 @@ The goal is to keep the Windows delta small and reviewable so it can follow upst
 
 The Windows deliverable is an Inno Setup installer (`MetadataCleaner-Setup-x.y.z.exe`). It bundles the application, the GTK/Python runtime and the external tools, and creates Start Menu/Desktop shortcuts plus an uninstaller. A separate portable ZIP is not part of the current scope.
 
+The Inno Setup script lives in [`installer/metadatacleaner.iss`](installer/metadatacleaner.iss); code signing will use [SignPath Foundation](docs/SIGNPATH.md).
+
 ## License
 
 GPL-3.0-or-later, the same license as upstream. See [`LICENSE`](LICENSE) and [`LICENSES/`](LICENSES). mat2 is LGPL-3.0; exiftool, poppler and ffmpeg keep their own licenses.

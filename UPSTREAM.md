@@ -15,7 +15,7 @@ to read and re-apply.
 |---|---|
 | `main` | Port source: upstream tree + Windows patches. |
 | `origin` | `github.com/rvisas/metadatacleaner-windows` |
-| `upstream` | Reference remote (`gitlab.com/metadatacleaner/metadatacleaner`). Used to fetch tags and diff, never merged. |
+| `upstream` | Not configured by default. Add it only when updating (see below); it is used to fetch a tag and diff, never merged. |
 
 ## Windows patches
 
@@ -37,9 +37,10 @@ not vendored into this repository.
 
 ## Updating from upstream
 
-1. Fetch the new tag and create a clean worktree:
+1. Add the upstream remote if it is not configured, then fetch the new tag:
 
    ```bash
+   git remote add upstream https://gitlab.com/metadatacleaner/metadatacleaner.git
    git fetch upstream --tags
    git worktree add ../upstream-vX.Y.Z vX.Y.Z
    ```
