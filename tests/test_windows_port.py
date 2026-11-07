@@ -96,6 +96,20 @@ class WindowsPortGuardTests(unittest.TestCase):
         self.assertIn("GetPreviousVersion", script)
         self.assertIn("UpgradeWelcome", script)
 
+    def test_installer_drops_removed_translations(self) -> None:
+        script = (ROOT / "installer" / "metadatacleaner.iss").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("[InstallDelete]", script)
+        self.assertIn('Name: "{app}\\share\\locale"', script)
+        linguas = (ROOT / "po" / "LINGUAS").read_text(encoding="utf-8")
+        languages = [
+            line.strip()
+            for line in linguas.splitlines()
+            if line.strip() and not line.startswith("#")
+        ]
+        self.assertEqual(languages, ["es"])
+
     def test_build_outputs_stay_outside_the_repository(self) -> None:
         script = (ROOT / "scripts" / "build-windows.sh").read_text(
             encoding="utf-8"
