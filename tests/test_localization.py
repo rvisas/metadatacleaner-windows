@@ -5,7 +5,7 @@
 
 from __future__ import annotations
 
-import re
+import ast
 import unittest
 from pathlib import Path
 from xml.etree import ElementTree
@@ -90,6 +90,29 @@ class SpanishLocalizationTests(unittest.TestCase):
                 if text and text not in entries:
                     missing.append((path.name, text))
         self.assertEqual(missing, [], f"untranslated UI strings: {missing}")
+
+    def test_python_strings_have_a_translation(self) -> None:
+        entries = {
+            key.replace("\\n", "\n"): value
+            for key, value in load_spanish().items()
+        }
+        missing = set()
+        for path in (ROOT / "src").rglob("*.py"):
+            tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
+            for node in ast.walk(tree):
+                if not isinstance(node, ast.Call):
+                    continue
+                if not isinstance(node.func, ast.Name) or node.func.id != "_":
+                    continue
+                if not node.args:
+                    continue
+                argument = node.args[0]
+                if isinstance(argument, ast.Constant) and isinstance(
+                    argument.value, str
+                ):
+                    if argument.value and argument.value not in entries:
+                        missing.add(argument.value)
+        self.assertEqual(missing, set(), f"untranslated Python strings: {missing}")
 
     def test_no_active_translation_is_empty(self) -> None:
         entries = load_spanish()
