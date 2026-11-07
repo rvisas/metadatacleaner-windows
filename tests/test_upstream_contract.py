@@ -148,6 +148,13 @@ class UpstreamContractTests(unittest.TestCase):
         self.assertIn("v4.0.1", upstream)
         self.assertIn("4.0.1.3", upstream)
 
+    def test_readme_points_to_the_versioning_rules(self) -> None:
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("## Versioning", readme)
+        self.assertIn("derived from the upstream", readme)
+        self.assertIn("docs/versioning.md", readme)
+        self.assertIn("docs/upstream.md", readme)
+
 
 if __name__ == "__main__":
     unittest.main()

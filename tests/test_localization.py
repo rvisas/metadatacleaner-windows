@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import ast
+import re
 import unittest
 from pathlib import Path
 from xml.etree import ElementTree
@@ -118,6 +119,16 @@ class SpanishLocalizationTests(unittest.TestCase):
         entries = load_spanish()
         empty = [key for key, value in entries.items() if not value.strip()]
         self.assertEqual(empty, [], f"empty Spanish translations: {empty}")
+
+    def test_placeholders_are_preserved(self) -> None:
+        entries = load_spanish()
+        pattern = re.compile(r"\{[^{}]+\}")
+        for msgid, translation in entries.items():
+            with self.subTest(msgid=msgid):
+                self.assertEqual(
+                    set(pattern.findall(msgid)),
+                    set(pattern.findall(translation)),
+                )
 
 
 if __name__ == "__main__":

@@ -182,7 +182,9 @@ still work if mat2 supports them; the list is the tested set, not a hard limit.
 ## The Windows port
 
 The app is the upstream GTK4 application, not a rewrite. The Windows delta is
-kept small and reviewable:
+kept small and reviewable. The repository intentionally excludes Linux desktop
+integration, Flatpak, Flathub, AppStream and D-Bus packaging files; they are
+not part of the Windows product:
 
 - relocatable application paths and a native C launcher;
 - Windows home-path, xattr, PDF URI/temp-file and archive-replacement fixes;
