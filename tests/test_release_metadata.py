@@ -21,24 +21,31 @@ import release_metadata  # noqa: E402
 class ReleaseMetadataTests(unittest.TestCase):
     def test_installer_name_encodes_port_os_and_arch(self) -> None:
         self.assertEqual(
-            release_metadata.installer_filename("4.0.1"),
-            "MetadataCleaner-4.0.1-windows-x64-setup.exe",
+            release_metadata.installer_filename("4.0.1.1"),
+            "MetadataCleaner-4.0.1.1-windows-x64-setup.exe",
         )
 
     def test_checksum_sidecar_name(self) -> None:
-        name = release_metadata.installer_filename("4.0.1")
+        name = release_metadata.installer_filename("4.0.1.1")
         self.assertEqual(
             release_metadata.checksum_filename(name),
-            "MetadataCleaner-4.0.1-windows-x64-setup.exe.sha256",
+            "MetadataCleaner-4.0.1.1-windows-x64-setup.exe.sha256",
         )
 
     def test_port_specific_tag_does_not_collide_with_upstream(self) -> None:
         self.assertEqual(
-            release_metadata.release_tag("4.0.1"), "v4.0.1-windows"
+            release_metadata.release_tag("4.0.1.1"),
+            "v4.0.1.1-windows",
         )
         self.assertEqual(
-            release_metadata.release_tag("4.1.0"), "v4.1.0-windows"
+            release_metadata.release_tag("4.1.0.1"), "v4.1.0.1-windows"
         )
+
+    def test_invalid_versions_are_rejected(self) -> None:
+        with self.assertRaises(ValueError):
+            release_metadata.installer_filename("4.0")
+        with self.assertRaises(ValueError):
+            release_metadata.release_tag("v4.0.1")
 
     def test_version_is_consistent_across_build_inputs(self) -> None:
         meson = (ROOT / "meson.build").read_text(encoding="utf-8")

@@ -1,0 +1,34 @@
+name: Feature request
+description: Suggest an improvement for the Windows port
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is an unofficial port. Upstream behaviour belongs upstream first;
+        Windows-specific integration is in scope here.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is difficult or missing today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This is specific to Windows packaging or integration.
+        - label: This changes upstream application behaviour and may need an upstream discussion.

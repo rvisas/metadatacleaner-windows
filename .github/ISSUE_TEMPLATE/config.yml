@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/rvisas/metadatacleaner-windows/security/advisories/new
+    about: Report vulnerabilities privately; do not open a public issue.
+  - name: Upstream project
+    url: https://gitlab.com/metadatacleaner/metadatacleaner
+    about: Report upstream application behaviour to the upstream project.

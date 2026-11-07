@@ -5,59 +5,75 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 # Contributing
 
-## Translations
+This is an unofficial Windows port. Windows-specific fixes are in scope here;
+upstream application behavior should be discussed with the upstream project
+first. Read [`AGENTS.md`](AGENTS.md) and [`docs/architecture.md`](docs/architecture.md)
+before changing code.
 
-The project uses Weblate to manage translations. Head over [Metadata Cleaner's project page](https://hosted.weblate.org/projects/metadata-cleaner/) to start translating the application. If you need help, check out [Weblate's user documentation](https://docs.weblate.org/en/latest/user/translating.html).
+## Languages
 
-Current translation status:
-
-[![Translation status](https://hosted.weblate.org/widgets/metadata-cleaner/-/multi-auto.svg)](https://hosted.weblate.org/engage/metadata-cleaner/)
+The application and installer ship **English and Spanish only**. English is the
+source language; Spanish lives in `po/es.po`. Do not add another catalog unless
+the installer language list is intentionally changed too.
 
 ## Code
 
-The code of the application is in the `./src` directory.
-
-Before writing any code, please open a new issue to discuss your intended changes.
+The application source is under `src/`. Before writing code, open an issue to
+discuss the change. Keep the Windows delta small and reviewable: prefer a
+guarded Windows branch over a large rewrite, and document patches in
+[`docs/upstream.md`](docs/upstream.md).
 
 ### Conventions
 
-Metadata Cleaner is written in Python 3. It follows the [PEP 8](https://www.python.org/dev/peps/pep-0008/) style guide, the [PEP 257](https://www.python.org/dev/peps/pep-0257/) doctring conventions and the [PEP 484](https://www.python.org/dev/peps/pep-0484/) type hints.
+- Python 3, PEP 8, PEP 257 docstrings and PEP 484 type hints.
+- File and directory names are English; Python identifiers and comments are
+  English.
+- UI strings are English in source and translated in `po/es.po`.
+- No build output, installers, caches or downloaded updates in the repository.
 
-To check that your code follows these guidelines, have the programs `pre-commit` in your `PATH` and run this command (https://pre-commit.com/):
+Run the suite from the repository root:
 
 ```bash
-make precommit
-# or
+python -m unittest discover -s tests -v
+python -m compileall -q src tests
+git diff --check
+```
+
+Optional local hooks:
+
+```bash
+pip install pre-commit
 pre-commit run --all-files
-# or
-meson test -C builddir
-# or
-make test
 ```
 
 ### New files
 
-If you add new UI or Python files, run `make potfiles`. Add the UI files path to `./data/io.gitlab.metadatacleaner.metadatacleaner.gresource.xml` and the Python files path to `./src/**/meson.build`.
+If you add a UI or Python file, add its path to the appropriate
+`data/*.gresource.xml` or `src/**/meson.build` file. If it contains translatable
+text, add the string to `po/es.po` and run the localization tests.
 
 ### Licenses and copyright notices
 
-When you add a file, add the copyright notice at the top of the file, or in a separate file (named `original-file.ext.license`), following the [SPDX specification](https://spdx.dev/). For instance:
+Add an SPDX header to every new file, or a separate `original-file.ext.license`
+file, following the [SPDX specification](https://spdx.dev/):
 
-```txt
-SPDX-FileCopyrightText: Metadata Cleaner contributors
+```text
+SPDX-FileCopyrightText: 2026 <contributor>
 SPDX-License-Identifier: GPL-3.0-or-later
 ```
 
-If you [install `reuse`](https://reuse.readthedocs.io/en/stable/readme.html#installation-via-package-manager-recommended), you can use:
-* `make reuse` to add the copyright and license information to all files.
-* `meson test -C builddir` to check that all files have valid copyright and license information.
-
 ### Commit messages
 
-If you make a merge request with only one commit, specify in its message which part of the program you worked on, then what your changes do. If you make a merge request with multiple commits, they can be squashed into a single commit: you can change the commit message when making the merge request.
+Use an imperative English subject. For example:
 
-Message example:
+```text
+Folder import: request type attributes from GIO
+```
 
-```
-Status indicator: Add details about the current operation
-```
+Describe user-visible changes and tests in the body when useful.
+
+## Versioning
+
+Port-only fixes increment the last component (`4.0.1.1` → `4.0.1.2`). Never
+invent a new upstream component for a port change. See
+[`docs/versioning.md`](docs/versioning.md).

@@ -7,14 +7,23 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import re
 from pathlib import Path
 
 APP_NAME = "MetadataCleaner"
+_VERSION = re.compile(r"^\d+\.\d+\.\d+(?:\.\d+)?$")
+
+
+def _validate_version(version: str) -> str:
+    """Reject versions that cannot be used in a tag or file name."""
+    if _VERSION.fullmatch(version) is None:
+        raise ValueError(f"invalid port version: {version!r}")
+    return version
 
 
 def installer_filename(version: str) -> str:
     """Return the release asset name for a Windows installer."""
-    return f"{APP_NAME}-{version}-windows-x64-setup.exe"
+    return f"{APP_NAME}-{_validate_version(version)}-windows-x64-setup.exe"
 
 
 def checksum_filename(installer_name: str) -> str:
@@ -23,8 +32,8 @@ def checksum_filename(installer_name: str) -> str:
 
 
 def release_tag(version: str) -> str:
-    """Return the Windows tag, e.g. v4.0.1-windows."""
-    return f"v{version}-windows"
+    """Return the Windows tag, e.g. v4.0.1.1-windows."""
+    return f"v{_validate_version(version)}-windows"
 
 
 def sha256_file(path: str | Path) -> str:

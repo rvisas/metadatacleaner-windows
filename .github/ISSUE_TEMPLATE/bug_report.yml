@@ -1,0 +1,59 @@
+name: Bug report
+description: Report a problem with the Windows port
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for testing the port. For security problems, use the private
+        reporting process in SECURITY.md instead.
+  - type: input
+    id: version
+    attributes:
+      label: Metadata Cleaner version
+      description: The version shown in the installer or the About dialog.
+      placeholder: "4.0.1.1"
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: "Windows 11 24H2 (build 26100)"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Add ...
+        3. See ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: files
+    attributes:
+      label: File type or sample
+      description: Do not upload private files. A synthetic sample is enough if possible.
+      placeholder: "JPEG, PDF, DOCX, MP4 ..."
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or screenshots
+      description: Remove personal information before attaching anything.
+      render: text

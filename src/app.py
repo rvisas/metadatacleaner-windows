@@ -187,13 +187,14 @@ class MetadataCleaner(Adw.Application):
 
     def _present_update(self, update: updater.Update, window: Window) -> None:
         dialog = Adw.AlertDialog.new(
-            _("Update available"),
+            _("A new version is available"),
             _(
-                "Metadata Cleaner {version} is available. You have {current}."
-            ).format(version=update.version, current=self.version),
+                "Metadata Cleaner {version} is ready. Click “Update now” "
+                "to download and install it."
+            ).format(version=update.version),
         )
         dialog.add_response("later", _("Later"))
-        dialog.add_response("install", _("Download and install"))
+        dialog.add_response("install", _("Update now"))
         dialog.set_response_appearance(
             "install", Adw.ResponseAppearance.SUGGESTED
         )

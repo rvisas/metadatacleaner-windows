@@ -2,6 +2,7 @@
 
 - **Upstream:** https://gitlab.com/metadatacleaner/metadatacleaner
 - **Current base:** `v4.0.1` (upstream `main` at `17e0b56`, which adds a post-release Flatpak manifest sync)
+- **Current port version:** `4.0.1.1` (see [`versioning.md`](versioning.md))
 - **License:** GPL-3.0-or-later
 - **Relationship:** unofficial Windows port, maintained as a patch set.
 
@@ -10,6 +11,11 @@
 This repository does not share Git history with upstream. It contains the upstream
 source tree at a pinned release plus the Windows patches, so the delta stays easy
 to read and re-apply.
+
+The directory layout is deliberately stable across upstream updates. New
+upstream files are added under the existing `src/`, `data/` and `po/` trees;
+there is no need to recreate the repository or rename the port's directories
+when a new upstream tag appears.
 
 | Ref | Purpose |
 |---|---|
@@ -42,7 +48,14 @@ the Start Menu and desktop shortcuts.
 
 ## Updating from upstream
 
-1. Add the upstream remote if it is not configured, then fetch the new tag:
+1. Confirm the new upstream release and its tag:
+
+   ```bash
+   git ls-remote --tags https://gitlab.com/metadatacleaner/metadatacleaner.git
+   curl -sL "https://gitlab.com/api/v4/projects/metadatacleaner%2Fmetadatacleaner/releases?per_page=1"
+   ```
+
+2. Add the upstream remote if it is not configured, then fetch the new tag:
 
    ```bash
    git remote add upstream https://gitlab.com/metadatacleaner/metadatacleaner.git
@@ -50,7 +63,7 @@ the Start Menu and desktop shortcuts.
    git worktree add ../upstream-vX.Y.Z vX.Y.Z
    ```
 
-2. Compare the new tree with the current base and re-apply the patches:
+3. Compare the new tree with the current base and re-apply the patches:
 
    ```bash
    git diff --no-index ../upstream-vX.Y.Z/src/metadata-cleaner.in src/metadata-cleaner.in
@@ -58,24 +71,28 @@ the Start Menu and desktop shortcuts.
    # adjust the patched files, then regenerate patches/
    ```
 
-3. Rebuild, run the format tests (JPEG, PDF, DOCX, MP4), and update `docs/BUILD.md`
-   if a dependency changed.
+4. Rebuild, run the format tests (JPEG, PDF, DOCX, MP4) and the full test suite.
+   Update [`build.md`](build.md) if a dependency changed.
 
-4. Commit, tag, and remove the temporary worktree:
+5. Reset the port revision to `.1` and bump the upstream base in
+   `meson.build`, `installer/metadatacleaner.iss`, `scripts/build-windows.sh`
+   and [`versioning.md`](versioning.md). Example: upstream 4.0.2 becomes port
+   `4.0.2.1`.
+
+6. Commit, tag, and remove the temporary worktree:
 
    ```bash
    git worktree remove ../upstream-vX.Y.Z
-   git tag vX.Y.Z-windows
+   git tag v4.0.2.1-windows
+   git push origin v4.0.2.1-windows
    ```
+
+The Release workflow builds from that tag. Do not merge upstream history into
+`main`; keeping this repository as a source snapshot plus patches is what makes
+the Windows delta reviewable.
 
 ## Versioning
 
-Tags follow the upstream version plus the Windows suffix:
-
-```text
-v4.0.1-windows
-v4.1.0-windows   # new upstream base
-```
-
-The upstream base version is recorded here and in the release notes, not in the
-repository description.
+Port versions are `UPSTREAM.PORT`, for example `4.0.1.1`; tags add `-windows`.
+The full rules, comparison behavior and release examples are in
+[`versioning.md`](versioning.md).

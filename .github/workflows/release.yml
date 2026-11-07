@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Version without the v prefix (for example 4.0.2)"
+        description: "Version without the v prefix (for example 4.0.1.1)"
         required: true
-        default: "4.0.2"
+        default: "4.0.1.1"
 
 permissions:
   contents: write
@@ -28,13 +28,13 @@ jobs:
         run: |
           if ("${{ github.event_name }}" -eq "workflow_dispatch") {
             $version = "${{ inputs.version }}"
-          } elseif ("${{ github.ref_name }}" -match '^v(?<version>\d+\.\d+\.\d+)-windows$') {
+          } elseif ("${{ github.ref_name }}" -match '^v(?<version>\d+\.\d+\.\d+(?:\.\d+)?)-windows$') {
             $version = $Matches['version']
           } else {
-            throw "Tag must look like v4.0.1-windows"
+            throw "Tag must look like v4.0.1.1-windows"
           }
-          if ($version -notmatch '^\d+\.\d+\.\d+$') {
-            throw "Version must have three numeric components: $version"
+          if ($version -notmatch '^\d+\.\d+\.\d+(?:\.\d+)?$') {
+            throw "Version must have three or four numeric components: $version"
           }
           "version=$version" >> $env:GITHUB_OUTPUT
           "tag=v$version-windows" >> $env:GITHUB_OUTPUT
@@ -142,8 +142,9 @@ jobs:
           body: |
             Unofficial Windows port of Metadata Cleaner ${{ steps.version.outputs.version }}.
 
-            This build is **unsigned** while the SignPath Foundation application is
-            pending, so Windows SmartScreen may warn on first launch.
+            This build is **unsigned** while a code-signing provider is being
+            arranged, so Windows SmartScreen may warn on first launch. See the
+            repository's code-signing documentation for the current status.
 
             Verify the download before running it:
 

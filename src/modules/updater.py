@@ -24,10 +24,13 @@ RELEASES_URL = (
     "https://api.github.com/repos/rvisas/metadatacleaner-windows/releases"
     "?per_page=20"
 )
-_RELEASE_TAG = re.compile(r"^v(?P<version>\d+\.\d+\.\d+)-windows$")
-_INSTALLER = re.compile(
-    r"^MetadataCleaner-(?P<version>\d+\.\d+\.\d+)-windows-x64-setup\.exe$"
+_RELEASE_TAG = re.compile(
+    r"^v(?P<version>\d+\.\d+\.\d+(?:\.\d+)?)-windows$"
 )
+_INSTALLER = re.compile(
+    r"^MetadataCleaner-(?P<version>\d+\.\d+\.\d+(?:\.\d+)?)-windows-x64-setup\.exe$"
+)
+VersionTuple = tuple[int, int, int, int]
 _CHUNK_SIZE = 64 * 1024
 
 
@@ -47,19 +50,27 @@ class Update:
     notes: str = ""
 
 
-def parse_version(value: str) -> tuple[int, int, int] | None:
-    """Return a comparable version tuple, or None if it is not semver."""
-    match = re.fullmatch(r"(\d+)\.(\d+)\.(\d+)", value.strip())
+def parse_version(value: str) -> VersionTuple | None:
+    """Return a comparable four-part version tuple, or None if invalid.
+
+    Port releases use the upstream version plus a Windows revision, for
+    example ``4.0.1.1``. Three-part upstream values are accepted and the
+    missing revision is treated as zero.
+    """
+    match = re.fullmatch(
+        r"(\d+)\.(\d+)\.(\d+)(?:\.(\d+))?", value.strip()
+    )
     if match is None:
         return None
     return (
         int(match.group(1)),
         int(match.group(2)),
         int(match.group(3)),
+        int(match.group(4) or 0),
     )
 
 
-def _release_version(release: dict[str, Any]) -> tuple[str, tuple[int, int, int]] | None:
+def _release_version(release: dict[str, Any]) -> tuple[str, VersionTuple] | None:
     tag = release.get("tag_name")
     if not isinstance(tag, str):
         return None
@@ -81,7 +92,7 @@ def pick_update(
     if current is None:
         raise UpdateError(f"Invalid current version: {current_version!r}")
 
-    best: tuple[tuple[int, int, int], Update] | None = None
+    best: tuple[VersionTuple, Update] | None = None
     for release in releases:
         if release.get("draft"):
             continue

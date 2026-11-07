@@ -55,7 +55,7 @@ so a taskbar pin resolves to `MetadataCleaner.exe` instead of the underlying
 3. Compile with both directories explicit:
 
    ```bat
-   iscc /DAppVersion=4.0.2 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
+   iscc /DAppVersion=4.0.1.1 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
    ```
 
    The installer is written to `<build>\installer`, never to the repository.
@@ -92,7 +92,9 @@ python -c "from PIL import Image; Image.open('icon-256.png').convert('RGBA').sav
 
 ## Code signing
 
-Signing is handled through SignPath Foundation for this open-source project. See
-[`../docs/SIGNPATH.md`](../docs/SIGNPATH.md). Once the project is approved,
-uncomment `SignTool` and `SignedUninstaller` in the `.iss` and sign both the
-installer and the uninstaller. Do not commit certificates or private keys.
+Signing is handled through a code-signing provider for this open-source
+project; SignPath Foundation is the first option. See
+[`../docs/code-signing.md`](../docs/code-signing.md) for the alternatives and
+current status. Once a provider is approved, uncomment `SignTool` and
+`SignedUninstaller` in the `.iss` and sign both the installer and the
+uninstaller. Do not commit certificates or private keys.

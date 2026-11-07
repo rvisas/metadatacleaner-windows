@@ -2,10 +2,10 @@
 ; Requires Inno Setup 6.3 or newer (ArchitecturesAllowed=x64compatible is not
 ; available in older versions).
 ;
-; Build the payload first (see docs/BUILD.md and installer/README.md). The
+; Build the payload first (see docs/build.md and installer/README.md). The
 ; build script writes to a temporary directory outside this repository.
 ; Then compile with explicit input and output directories:
-;   iscc /DAppVersion=4.0.2 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
+;   iscc /DAppVersion=4.0.1.1 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
 ;
 ; The payload layout is:
 ;   payload\MetadataCleaner.exe
@@ -16,7 +16,7 @@
 
 #define AppName "Metadata Cleaner"
 #ifndef AppVersion
-#define AppVersion "4.0.2"
+#define AppVersion "4.0.1.1"
 #endif
 #define AppPublisher "Ronny Visa"
 #define AppURL "https://github.com/rvisas/metadatacleaner-windows"
@@ -60,13 +60,13 @@ RestartApplications=no
 UsePreviousAppDir=yes
 UsePreviousGroup=yes
 UsePreviousTasks=yes
-VersionInfoVersion={#AppVersion}.0
+VersionInfoVersion={#AppVersion}
 VersionInfoCompany={#AppPublisher}
 VersionInfoDescription={#AppName} installer
 VersionInfoProductName={#AppName}
 VersionInfoProductVersion={#AppVersion}
 
-; Code signing is configured once SignPath Foundation approves the project.
+; Code signing is configured once a provider approves the project.
 ; Uncomment and point SignTool at the signing command or the Inno Setup IDE
 ; tool entry. Never commit a certificate or private key.
 ; SignTool=signtool

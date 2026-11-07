@@ -133,6 +133,8 @@ class WindowsPortGuardTests(unittest.TestCase):
             "OutputBaseFilename=MetadataCleaner-{#AppVersion}-windows-x64-setup",
             script,
         )
+        self.assertIn("VersionInfoVersion={#AppVersion}", script)
+        self.assertNotIn("VersionInfoVersion={#AppVersion}.0", script)
 
     def test_installer_inputs_exist(self) -> None:
         script = (ROOT / "installer" / "metadatacleaner.iss").read_text(

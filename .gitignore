@@ -17,6 +17,19 @@ dist
 .deps
 *.log
 
+# Local release artifacts and downloaded updates
+*.exe
+*.msi
+*.msix
+MetadataCleaner-*-setup.exe*
+*.part
+*.mo
+
+# OS and editor metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
 # Flatpak temporary files
 .flatpak-builder
 

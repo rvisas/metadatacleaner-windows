@@ -5,12 +5,12 @@
 # Build the Windows payload from an MSYS2 UCRT64 shell. The workflow installs
 # the toolchain; this script only assumes the UCRT64 packages are present.
 #
-# Usage: VERSION=4.0.2 ./scripts/build-windows.sh
+# Usage: VERSION=4.0.1.1 ./scripts/build-windows.sh
 
 set -euo pipefail
 
 ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
-VERSION="${VERSION:-4.0.2}"
+VERSION="${VERSION:-4.0.1.1}"
 MINGW_PREFIX="${MINGW_PREFIX:-/ucrt64}"
 PYTHON="$MINGW_PREFIX/bin/python.exe"
 MESON="$MINGW_PREFIX/bin/meson.exe"

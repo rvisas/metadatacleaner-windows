@@ -312,20 +312,24 @@ msgid "Check GitHub for a newer Windows installer when the application starts. D
 msgstr "Comprueba en GitHub si hay un instalador más reciente para Windows cuando se inicia la aplicación. Los instaladores descargados se verifican con su suma de comprobación SHA-256."
 
 #. translators: update dialog title
-msgid "Update available"
-msgstr "Actualización disponible"
+msgid "A new version is available"
+msgstr "Hay una nueva versión disponible"
 
-#. translators: update dialog body. {version} is the new version and {current} is the installed version.
-msgid "Metadata Cleaner {version} is available. You have {current}."
-msgstr "La versión {version} de Metadata Cleaner está disponible. Tienes la {current}."
+#. translators: update dialog body. {version} is the new version.
+msgid ""
+"Metadata Cleaner {version} is ready. Click “Update now” to download and "
+"install it."
+msgstr ""
+"La versión {version} de Metadata Cleaner está lista. Haz clic en «Actualizar "
+"ahora» para descargarla e instalarla."
 
 #. translators: update dialog button to postpone the update
 msgid "Later"
 msgstr "Más tarde"
 
 #. translators: update dialog button to download and start the installer
-msgid "Download and install"
-msgstr "Descargar e instalar"
+msgid "Update now"
+msgstr "Actualizar ahora"
 
 #. translators: toast shown while the update installer is downloading
 msgid "Downloading update…"

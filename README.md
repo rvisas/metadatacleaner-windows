@@ -29,7 +29,7 @@
 </p>
 
 <p align="center">
-  <a href="docs/BUILD.md">Build from source</a>
+  <a href="docs/build.md">Build from source</a>
   &nbsp;·&nbsp;
   <a href="https://github.com/rvisas/metadatacleaner-windows/issues">Report a bug</a>
 </p>
@@ -41,9 +41,10 @@
 </p>
 
 > [!WARNING]
-> The current installer is unsigned while the SignPath Foundation application is
-> pending, so Windows SmartScreen may warn on first launch. Verify the SHA-256
-> checksum before running it.
+> The current installer is unsigned while a code-signing provider is being
+> arranged, so Windows SmartScreen may warn on first launch. Verify the SHA-256
+> checksum before running it; see [`docs/code-signing.md`](docs/code-signing.md)
+> for the available signing paths.
 
 ## At a glance
 
@@ -101,7 +102,7 @@ product.
 3. Verify the installer in PowerShell before running it:
 
    ```powershell
-   $version = "4.0.2"
+   $version = "4.0.1.1"
    $asset = "MetadataCleaner-$version-windows-x64-setup.exe"
    Get-FileHash ".\$asset" -Algorithm SHA256
    Get-Content ".\${asset}.sha256"
@@ -114,7 +115,8 @@ product.
 
 > [!NOTE]
 > The installer is not code-signed yet. SmartScreen's "unknown publisher"
-> warning is expected until the SignPath Foundation application is approved.
+> warning is expected until a signing provider is approved; see
+> [`docs/code-signing.md`](docs/code-signing.md) for the options.
 > The checksum is still a reliable way to confirm that the download is intact.
 
 ### Pinning to the taskbar
@@ -141,10 +143,11 @@ detected, the welcome page shows the version being replaced and the new one.
 The setup wizard is available in English and Spanish only.
 
 The application also checks GitHub for a newer Windows installer once per day.
-If one is available, it offers **Download and install**; the download is verified
-against the release SHA-256 before the installer is started. Automatic checks
-can be disabled in **Settings**, and **Check for Updates…** in the main menu
-performs an immediate check.
+When one is available it shows **A new version is available** with an
+**Update now** button; the download is verified against the release SHA-256
+before the installer is started. Automatic checks can be disabled in
+**Settings**, and **Check for Updates…** in the main menu performs an immediate
+check.
 
 ## Usage
 
@@ -185,20 +188,20 @@ kept small and reviewable:
 - a self-contained runtime with Python, GTK, poppler, exiftool and ffmpeg.
 
 The patches live in [`patches/`](patches) and the exact changes are documented
-in [`UPSTREAM.md`](UPSTREAM.md). The installer layout and launcher build are
+in [`docs/upstream.md`](docs/upstream.md). The installer layout and launcher build are
 described in [`installer/README.md`](installer/README.md).
 
 ## Build from source
 
 The build uses MSYS2 UCRT64 and Inno Setup 6.3 or newer. The complete package
 list, environment variables and troubleshooting notes are in
-[`docs/BUILD.md`](docs/BUILD.md).
+[`docs/build.md`](docs/build.md).
 
 ```bash
 git clone https://github.com/rvisas/metadatacleaner-windows.git
 cd metadatacleaner-windows
 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" bash scripts/build-windows.sh
-iscc /DAppVersion=4.0.2 \
+iscc /DAppVersion=4.0.1.1 \
   /DPayloadDir="$TMPDIR/metadata-cleaner-build\payload" \
   /DOutputDir="$TMPDIR/metadata-cleaner-build\installer" \
   installer\metadatacleaner.iss
@@ -221,6 +224,14 @@ python -m unittest discover -s tests -v
 The release workflow also builds the payload, runs the folder-import test
 against that exact payload, and only then compiles and publishes the installer.
 
+## Documentation
+
+- [Architecture](docs/architecture.md): runtime layers and module map.
+- [Versioning](docs/versioning.md): upstream base plus port revision.
+- [Upstream tracking](docs/upstream.md): how new upstream releases are applied.
+- [Code signing](docs/code-signing.md): SignPath, Azure, Certum, Store and CAs.
+- [Agent instructions](AGENTS.md): repository rules for AI-assisted changes.
+
 ## Contributing
 
 Issues and pull requests are welcome. Because this is a port, the most useful
@@ -229,7 +240,7 @@ contributions keep the Windows-specific delta small:
 - report Windows-specific bugs with the file type, Windows version and the
   exact error;
 - discuss upstream behaviour in the upstream project first;
-- keep patches in `patches/` and update [`UPSTREAM.md`](UPSTREAM.md) when the
+- keep patches in `patches/` and update [`docs/upstream.md`](docs/upstream.md) when the
   delta changes.
 
 For general project conventions, see [`CONTRIBUTING.md`](CONTRIBUTING.md).
