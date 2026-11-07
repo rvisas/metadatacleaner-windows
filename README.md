@@ -125,6 +125,13 @@ pinned an older build, unpin that icon once, install this version, and pin the
 new **Metadata Cleaner** entry from the Start Menu. Pinning the running window
 also works because both the window and the shortcut use the same AppUserModelID.
 
+### Language
+
+The installer and the application are available in **English** and **Spanish**
+only. The application follows the language chosen in the setup wizard; if that
+value is missing it falls back to the Windows display language, then to English.
+`MC_LANGUAGE=es` (or `en`) overrides the choice for a single launch.
+
 ### Updating
 
 The installer uses a stable application ID, so a newer installer updates the
