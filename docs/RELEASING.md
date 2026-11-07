@@ -9,9 +9,9 @@ downloads it.
 
 | Thing | Value |
 |---|---|
-| Tag | `v4.0.1-windows` |
-| Installer | `MetadataCleaner-4.0.1-windows-x64-setup.exe` |
-| Checksum sidecar | `MetadataCleaner-4.0.1-windows-x64-setup.exe.sha256` |
+| Tag | `v4.0.2-windows` |
+| Installer | `MetadataCleaner-4.0.2-windows-x64-setup.exe` |
+| Checksum sidecar | `MetadataCleaner-4.0.2-windows-x64-setup.exe.sha256` |
 | Combined checksum | `SHA256SUMS.txt` |
 
 `-windows` identifies the port, not a revision of the upstream release. Future
@@ -32,8 +32,8 @@ the OS, architecture or artifact type.
 pushed, and can also be started manually with a version:
 
 ```bash
-git tag -a v4.0.1-windows -m "Metadata Cleaner 4.0.1 for Windows"
-git push origin v4.0.1-windows
+git tag -a v4.0.2-windows -m "Metadata Cleaner 4.0.2 for Windows"
+git push origin v4.0.2-windows
 ```
 
 The job:
@@ -55,8 +55,8 @@ workflow and release as stable.
 If the workflow is unavailable, build the payload in an MSYS2 UCRT64 shell:
 
 ```bash
-VERSION=4.0.1 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" bash ./scripts/build-windows.sh
-iscc /DAppVersion=4.0.1 \
+VERSION=4.0.2 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" bash ./scripts/build-windows.sh
+iscc /DAppVersion=4.0.2 \
   /DPayloadDir="$TMPDIR/metadata-cleaner-build\payload" \
   /DOutputDir="$TMPDIR/metadata-cleaner-build\installer" \
   installer\metadatacleaner.iss
@@ -69,9 +69,9 @@ $build = Join-Path $env:TEMP "metadata-cleaner-build"
 $asset = Get-ChildItem (Join-Path $build "installer\*.exe") | Select-Object -First 1
 $hash = (Get-FileHash $asset.FullName -Algorithm SHA256).Hash.ToLower()
 "$hash  $($asset.Name)" | Set-Content "$($asset.FullName).sha256" -Encoding ascii
-gh release create v4.0.1-windows `
+gh release create v4.0.2-windows `
   $asset.FullName "$($asset.FullName).sha256" `
-  --title "v4.0.1-windows" `
+  --title "v4.0.2-windows" `
   --prerelease --generate-notes
 ```
 
@@ -80,15 +80,15 @@ gh release create v4.0.1-windows `
 Windows PowerShell:
 
 ```powershell
-Get-FileHash .\MetadataCleaner-4.0.1-windows-x64-setup.exe -Algorithm SHA256
-Get-Content .\MetadataCleaner-4.0.1-windows-x64-setup.exe.sha256
+Get-FileHash .\MetadataCleaner-4.0.2-windows-x64-setup.exe -Algorithm SHA256
+Get-Content .\MetadataCleaner-4.0.2-windows-x64-setup.exe.sha256
 ```
 
 The two hashes must match. On Linux or macOS, after downloading the asset and
 the sidecar into the same directory:
 
 ```bash
-sha256sum -c MetadataCleaner-4.0.1-windows-x64-setup.exe.sha256
+sha256sum -c MetadataCleaner-4.0.2-windows-x64-setup.exe.sha256
 ```
 
 `SHA256SUMS.txt` contains the same line in `sha256sum` format.

@@ -6,6 +6,7 @@
 from __future__ import annotations
 
 import hashlib
+import re
 import sys
 import tempfile
 import unittest
@@ -38,6 +39,34 @@ class ReleaseMetadataTests(unittest.TestCase):
         self.assertEqual(
             release_metadata.release_tag("4.1.0"), "v4.1.0-windows"
         )
+
+    def test_version_is_consistent_across_build_inputs(self) -> None:
+        meson = (ROOT / "meson.build").read_text(encoding="utf-8")
+        installer = (ROOT / "installer" / "metadatacleaner.iss").read_text(
+            encoding="utf-8"
+        )
+        script = (ROOT / "scripts" / "build-windows.sh").read_text(
+            encoding="utf-8"
+        )
+        meson_version = re.search(r"version:\s*'([^']+)'", meson)
+        installer_version = re.search(
+            r'#define AppVersion "([^"]+)"', installer
+        )
+        script_version = re.search(
+            r'VERSION="\$\{VERSION:-([^}]+)\}"', script
+        )
+        self.assertIsNotNone(meson_version)
+        self.assertIsNotNone(installer_version)
+        self.assertIsNotNone(script_version)
+        assert meson_version is not None
+        assert installer_version is not None
+        assert script_version is not None
+        versions = {
+            meson_version.group(1),
+            installer_version.group(1),
+            script_version.group(1),
+        }
+        self.assertEqual(len(versions), 1, versions)
 
     def test_sha256_and_checksum_line(self) -> None:
         payload = b"metadata-cleaner\n"

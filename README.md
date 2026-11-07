@@ -101,7 +101,7 @@ product.
 3. Verify the installer in PowerShell before running it:
 
    ```powershell
-   $version = "4.0.1"
+   $version = "4.0.2"
    $asset = "MetadataCleaner-$version-windows-x64-setup.exe"
    Get-FileHash ".\$asset" -Algorithm SHA256
    Get-Content ".\${asset}.sha256"
@@ -191,7 +191,7 @@ list, environment variables and troubleshooting notes are in
 git clone https://github.com/rvisas/metadatacleaner-windows.git
 cd metadatacleaner-windows
 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" bash scripts/build-windows.sh
-iscc /DAppVersion=4.0.1 \
+iscc /DAppVersion=4.0.2 \
   /DPayloadDir="$TMPDIR/metadata-cleaner-build\payload" \
   /DOutputDir="$TMPDIR/metadata-cleaner-build\installer" \
   installer\metadatacleaner.iss

@@ -5,7 +5,7 @@
 ; Build the payload first (see docs/BUILD.md and installer/README.md). The
 ; build script writes to a temporary directory outside this repository.
 ; Then compile with explicit input and output directories:
-;   iscc /DAppVersion=4.0.1 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
+;   iscc /DAppVersion=4.0.2 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
 ;
 ; The payload layout is:
 ;   payload\MetadataCleaner.exe
@@ -16,7 +16,7 @@
 
 #define AppName "Metadata Cleaner"
 #ifndef AppVersion
-#define AppVersion "4.0.1"
+#define AppVersion "4.0.2"
 #endif
 #define AppPublisher "Ronny Visa"
 #define AppURL "https://github.com/rvisas/metadatacleaner-windows"
