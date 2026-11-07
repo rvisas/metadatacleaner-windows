@@ -83,7 +83,8 @@ jobs:
           MC_PAYLOAD_DIR: ${{ runner.temp }}\metadata-cleaner-build\payload
         run: |
           PAYLOAD_WIN="$(cygpath -m "$MC_PAYLOAD_DIR")"
-          export PATH="$(cygpath -u "$MC_PAYLOAD_DIR")/runtime/bin:$PATH"
+          PAYLOAD_POSIX="$(cygpath -u "$MC_PAYLOAD_DIR")"
+          export PATH="$PAYLOAD_POSIX/runtime/bin:$PAYLOAD_POSIX/tools/exiftool:$PAYLOAD_POSIX/tools/ffmpeg:$PATH"
           export XDG_DATA_DIRS="$PAYLOAD_WIN/share;$PAYLOAD_WIN/runtime/share"
           export GSETTINGS_SCHEMA_DIR="$PAYLOAD_WIN/runtime/share/glib-2.0/schemas"
           export GI_TYPELIB_PATH="$PAYLOAD_WIN/runtime/lib/girepository-1.0"
