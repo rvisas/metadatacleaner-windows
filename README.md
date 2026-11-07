@@ -125,6 +125,20 @@ pinned an older build, unpin that icon once, install this version, and pin the
 new **Metadata Cleaner** entry from the Start Menu. Pinning the running window
 also works because both the window and the shortcut use the same AppUserModelID.
 
+### Updating
+
+The installer uses a stable application ID, so a newer installer updates the
+existing installation in place. You do not need to uninstall the previous
+version, and your settings and file list are kept. When a previous version is
+detected, the welcome page shows the version being replaced and the new one.
+The setup wizard is available in English and Spanish only.
+
+The application also checks GitHub for a newer Windows installer once per day.
+If one is available, it offers **Download and install**; the download is verified
+against the release SHA-256 before the installer is started. Automatic checks
+can be disabled in **Settings**, and **Check for Updates…** in the main menu
+performs an immediate check.
+
 ## Usage
 
 1. Open **Metadata Cleaner** from the Start Menu.
@@ -176,28 +190,29 @@ list, environment variables and troubleshooting notes are in
 ```bash
 git clone https://github.com/rvisas/metadatacleaner-windows.git
 cd metadatacleaner-windows
-bash scripts/build-windows.sh
-iscc /DAppVersion=4.0.1 installer\metadatacleaner.iss
+BUILD_ROOT="$TMPDIR/metadata-cleaner-build" bash scripts/build-windows.sh
+iscc /DAppVersion=4.0.1 \
+  /DPayloadDir="$TMPDIR/metadata-cleaner-build\payload" \
+  /DOutputDir="$TMPDIR/metadata-cleaner-build\installer" \
+  installer\metadatacleaner.iss
 ```
 
-`scripts/build-windows.sh` builds the portable payload; Inno Setup wraps it in
-the installer. The payload is a build artifact and is not committed to the
-repository.
+`scripts/build-windows.sh` builds the portable payload in `BUILD_ROOT` and
+Inno Setup writes the installer there too. Neither is committed, and the
+release workflow runs the same steps in GitHub Actions to publish the asset.
 
 ## Tests and releases
 
 The test suite covers release naming and SHA-256 generation, the Windows patch
-guardrails and the native launcher integration:
+guardrails, folder imports, Spanish/English localization, the update selector,
+and the native launcher integration:
 
 ```bash
 python -m unittest discover -s tests -v
 ```
 
-CI runs the same suite on every push to `main` and on pull requests. Releases
-are built automatically when a tag such as `v4.0.1-windows` is pushed; each
-release includes the installer, a `.sha256` sidecar and `SHA256SUMS.txt`. The
-tag convention, asset naming and verification commands are documented in
-[`docs/RELEASING.md`](docs/RELEASING.md).
+The release workflow also builds the payload, runs the folder-import test
+against that exact payload, and only then compiles and publishes the installer.
 
 ## Contributing
 

@@ -14,9 +14,10 @@ VERSION="${VERSION:-4.0.1}"
 MINGW_PREFIX="${MINGW_PREFIX:-/ucrt64}"
 PYTHON="$MINGW_PREFIX/bin/python.exe"
 MESON="$MINGW_PREFIX/bin/meson.exe"
-BUILD_DIR="${BUILD_DIR:-$ROOT/dist/build}"
-PAYLOAD_DIR="${PAYLOAD_DIR:-$ROOT/dist/payload}"
-TOOLS_DIR="$ROOT/dist/tools"
+BUILD_ROOT="${BUILD_ROOT:-${TMPDIR:-/tmp}/metadata-cleaner-build}"
+BUILD_DIR="${BUILD_DIR:-$BUILD_ROOT/build}"
+PAYLOAD_DIR="${PAYLOAD_DIR:-$BUILD_ROOT/payload}"
+TOOLS_DIR="${TOOLS_DIR:-$BUILD_ROOT/tools}"
 EXIFTOOL_VERSION="${EXIFTOOL_VERSION:-13.60}"
 
 if [[ ! -x "$PYTHON" ]]; then

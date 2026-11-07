@@ -137,10 +137,11 @@ glib-compile-schemas /c/mc-ephemeral/payload/share/glib-2.0/schemas
 
 The launcher is built last; see
 [`../installer/README.md`](../installer/README.md#launcher). Point
-`dist\payload` at the assembled directory, then compile the installer:
+`PayloadDir` at the assembled directory and `OutputDir` at a directory outside
+the repository, then compile the installer:
 
 ```bat
-iscc installer\metadatacleaner.iss
+iscc /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
 ```
 
 ## 7. Known build notes

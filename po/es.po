@@ -299,6 +299,58 @@ msgstr "Todos los archivos compatibles"
 msgid "Translate"
 msgstr "Traducir"
 
+#. translators: headerbar main menu item
+msgid "_Check for Updates…"
+msgstr "_Buscar actualizaciones…"
+
+#. translators: update option row title
+msgid "Check for Updates Automatically"
+msgstr "Buscar actualizaciones automáticamente"
+
+#. translators: update option row subtitle
+msgid "Check GitHub for a newer Windows installer when the application starts. Downloaded installers are verified with their SHA-256 checksum."
+msgstr "Comprueba en GitHub si hay un instalador más reciente para Windows cuando se inicia la aplicación. Los instaladores descargados se verifican con su suma de comprobación SHA-256."
+
+#. translators: update dialog title
+msgid "Update available"
+msgstr "Actualización disponible"
+
+#. translators: update dialog body. {version} is the new version and {current} is the installed version.
+msgid "Metadata Cleaner {version} is available. You have {current}."
+msgstr "La versión {version} de Metadata Cleaner está disponible. Tienes la {current}."
+
+#. translators: update dialog button to postpone the update
+msgid "Later"
+msgstr "Más tarde"
+
+#. translators: update dialog button to download and start the installer
+msgid "Download and install"
+msgstr "Descargar e instalar"
+
+#. translators: toast shown while the update installer is downloading
+msgid "Downloading update…"
+msgstr "Descargando la actualización…"
+
+#. translators: toast shown when the update check fails
+msgid "Could not check for updates."
+msgstr "No se pudieron buscar actualizaciones."
+
+#. translators: toast shown when no newer release exists
+msgid "You are using the latest version."
+msgstr "Ya tienes la versión más reciente."
+
+#. translators: toast shown when the update download fails
+msgid "Could not download the update."
+msgstr "No se pudo descargar la actualización."
+
+#. translators: toast shown when the update was downloaded but cannot be installed on this platform
+msgid "The update was downloaded."
+msgstr "La actualización se ha descargado."
+
+#. translators: toast shown when the downloaded installer cannot be started
+msgid "Could not start the update installer."
+msgstr "No se pudo iniciar el instalador de la actualización."
+
 #. translators: Translate this string as your translator credits.
 #. Name only:    Jane Doe
 #. Name + URL:   Jane Doe https://example.com/

@@ -46,6 +46,15 @@ class FolderImportRuntimeTests(unittest.TestCase):
         names = sorted(gfile.get_basename() for gfile in gfiles)
         self.assertEqual(names, ["note.txt", "one.jpg", "two.pdf"])
 
+    def test_update_module_is_installed(self) -> None:
+        self.assertIsNotNone(PAYLOAD)
+        payload = Path(PAYLOAD)  # type: ignore[arg-type]
+        package = payload / "share" / "metadata-cleaner"
+        sys.path.insert(1, str(package))
+        from metadatacleaner.modules import updater
+
+        self.assertEqual(updater.parse_version("4.0.1"), (4, 0, 1))
+
 
 if __name__ == "__main__":
     unittest.main()

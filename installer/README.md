@@ -6,10 +6,11 @@ shortcuts plus an uninstaller.
 
 ## Payload layout
 
-The script expects the payload under `dist\payload`:
+`scripts/build-windows.sh` writes the payload to a temporary directory outside
+the repository by default. Its layout is:
 
 ```
-dist\payload\
+payload\
   MetadataCleaner.exe      native launcher
   runtime\                 Python, GTK/Poppler DLLs, typelibs, schemas
   share\                   application data, icons, locales
@@ -17,9 +18,9 @@ dist\payload\
   tools\ffmpeg\            ffmpeg.exe (runtime DLLs come from runtime\bin)
 ```
 
-`MetadataCleaner.exe` is the entry point referenced by the shortcuts and the
-uninstaller. The payload is produced by the build/packaging step; see
-[`../docs/BUILD.md`](../docs/BUILD.md).
+The build is reproducible from source but it is deliberately not stored in the
+workspace: the installer is produced by the GitHub release workflow, and the
+local build directory is disposable.
 
 ## Launcher
 
@@ -35,7 +36,7 @@ Build it with MSYS2 UCRT64:
 ```bash
 cd installer\launcher
 windres MetadataCleaner.rc -O coff -o launcher.o
-gcc -municode -mwindows -static -O2 -s -o ..\..\dist\payload\MetadataCleaner.exe MetadataCleaner.c launcher.o
+gcc -municode -mwindows -static -O2 -s -o "<build>\payload\MetadataCleaner.exe" MetadataCleaner.c launcher.o
 ```
 
 `windres` embeds `branding\metadatacleaner-windows.ico` into the launcher.
@@ -49,18 +50,26 @@ so a taskbar pin resolves to `MetadataCleaner.exe` instead of the underlying
 ## Build the installer
 
 1. Install [Inno Setup](https://jrsoftware.org/isinfo.php) 6.3 or newer.
-2. Build `dist\payload`.
-3. Compile:
+2. Build the payload with `scripts/build-windows.sh`; its default output is
+   outside the repository (use `BUILD_ROOT` to choose the directory).
+3. Compile with both directories explicit:
 
    ```bat
-   iscc installer\metadatacleaner.iss
+   iscc /DAppVersion=4.0.1 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
    ```
 
-   The result is `dist\installer\MetadataCleaner-4.0.1-windows-x64-setup.exe`.
+   The installer is written to `<build>\installer`, never to the repository.
+   In GitHub Actions the same steps run automatically and publish the asset.
 
 The script installs per-user by default (`PrivilegesRequired=lowest`); the user
 can choose an all-users install from the privileges dialog. It targets Windows 10
 2004+ and Windows 11, x64.
+
+The installer uses one stable `AppId`, so running a newer installer updates the
+existing installation in place: no uninstall step is needed and settings are
+kept. The welcome page reports the installed and new versions when it detects a
+previous installation. The setup wizard is localized in English and Spanish
+only.
 
 ## Icon
 

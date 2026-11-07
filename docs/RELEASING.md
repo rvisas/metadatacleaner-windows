@@ -40,10 +40,11 @@ The job:
 
 1. installs MSYS2 UCRT64 and the GTK/Python toolchain;
 2. runs the same unit and launcher tests as CI;
-3. builds the payload with `scripts/build-windows.sh`;
-4. installs Inno Setup and compiles the installer;
-5. writes the `.sha256` sidecar and `SHA256SUMS.txt`;
-6. creates a **pre-release** with the installer and both checksum files.
+3. builds the payload outside the repository, in `RUNNER_TEMP`;
+4. runs the runtime folder-import and lightweight tests against that payload;
+5. installs Inno Setup and compiles the installer in `RUNNER_TEMP`;
+6. writes the `.sha256` sidecar and `SHA256SUMS.txt`;
+7. creates a **pre-release** with the installer and both checksum files.
 
 The workflow is a pre-release until code signing is approved. Once SignPath
 signs the launcher and installer, change `prerelease: true` to `false` in the
@@ -54,14 +55,18 @@ workflow and release as stable.
 If the workflow is unavailable, build the payload in an MSYS2 UCRT64 shell:
 
 ```bash
-VERSION=4.0.1 bash ./scripts/build-windows.sh
-iscc /DAppVersion=4.0.1 installer\metadatacleaner.iss
+VERSION=4.0.1 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" bash ./scripts/build-windows.sh
+iscc /DAppVersion=4.0.1 \
+  /DPayloadDir="$TMPDIR/metadata-cleaner-build\payload" \
+  /DOutputDir="$TMPDIR/metadata-cleaner-build\installer" \
+  installer\metadatacleaner.iss
 ```
 
 Then create the checksums and the draft release:
 
 ```powershell
-$asset = Get-ChildItem dist\installer\*.exe | Select-Object -First 1
+$build = Join-Path $env:TEMP "metadata-cleaner-build"
+$asset = Get-ChildItem (Join-Path $build "installer\*.exe") | Select-Object -First 1
 $hash = (Get-FileHash $asset.FullName -Algorithm SHA256).Hash.ToLower()
 "$hash  $($asset.Name)" | Set-Content "$($asset.FullName).sha256" -Encoding ascii
 gh release create v4.0.1-windows `
@@ -94,9 +99,15 @@ sha256sum -c MetadataCleaner-4.0.1-windows-x64-setup.exe.sha256
 
 - `tests/test_windows_port.py`: static guardrails for the relocatable entry
   point, the Windows home-path check, the document-portal guard, the mat2
-  patches and the installer asset name;
+  patches, installer languages, in-place upgrades and the installer asset name;
 - `tests/test_release_metadata.py`: tag and asset naming plus SHA-256
   generation;
+- `tests/test_filestore.py`, `tests/test_localization.py`,
+  `tests/test_lightweight.py`, `tests/test_updater.py` and
+  `tests/test_update_ui.py`: folder discovery, Spanish/English catalogs,
+  lightweight wiring and the update selector;
+- `tests/test_runtime_folder.py` and `tests/test_runtime_lightweight.py`:
+  run against the payload built by the release workflow;
 - `tests/test_launcher.py`: compiles a fake `pythonw.exe` and the real native
   launcher, then asserts the environment, working directory and forwarded
   arguments. It is skipped outside Windows or when `gcc` is not available.

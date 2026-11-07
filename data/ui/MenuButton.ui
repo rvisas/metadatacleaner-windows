@@ -25,6 +25,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <attribute name="action">app.shortcuts</attribute>
       </item>
       <item>
+        <!-- translators: headerbar main menu item -->
+        <attribute name="label" translatable="yes">_Check for Updates…</attribute>
+        <attribute name="action">app.check-updates</attribute>
+      </item>
+      <item>
         <!-- translators: headerbar main menu item. Metadata Cleaner is the app name. -->
         <attribute name="label" translatable="yes">_About Metadata Cleaner</attribute>
         <attribute name="action">win.about</attribute>

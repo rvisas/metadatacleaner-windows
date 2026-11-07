@@ -534,3 +534,7 @@ class Window(Adw.ApplicationWindow):
     def close_details_view(self) -> None:
         """Close the details view."""
         self._split_view.set_show_sidebar(False)
+
+    def show_toast(self, message: str) -> None:
+        """Show a short notification inside the window."""
+        self._toast_overlay.add_toast(Adw.Toast.new(title=message))

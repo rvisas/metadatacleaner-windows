@@ -32,6 +32,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
                 <property name="subtitle" translatable="yes">By default, the removal process might alter a bit the data of your files, in order to remove as much metadata as possible. For example, texts in PDF might not be selectable anymore, compressed images might get compressed again… The lightweight mode, while not as thorough, will not make destructive changes to your files.</property>
               </object>
             </child>
+            <child>
+              <object class="AdwSwitchRow">
+                <!-- translators: update option row title -->
+                <property name="title" translatable="yes">Check for Updates Automatically</property>
+                <property name="action-name">app.check-for-updates</property>
+                <!-- translators: update option row subtitle -->
+                <property name="subtitle" translatable="yes">Check GitHub for a newer Windows installer when the application starts. Downloaded installers are verified with their SHA-256 checksum.</property>
+              </object>
+            </child>
           </object>
         </child>
       </object>

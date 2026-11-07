@@ -9,6 +9,7 @@ drops one of the assumptions the port depends on.
 
 from __future__ import annotations
 
+import re
 import unittest
 from pathlib import Path
 
@@ -78,6 +79,37 @@ class WindowsPortGuardTests(unittest.TestCase):
             'IconFilename: "{app}\\{#AppExeName}"', installer
         )
 
+    def test_installer_languages_are_english_and_spanish(self) -> None:
+        script = (ROOT / "installer" / "metadatacleaner.iss").read_text(
+            encoding="utf-8"
+        )
+        section = script.split("[Languages]", 1)[1].split("[", 1)[0]
+        languages = re.findall(r'Name:\s+"([^"]+)"', section)
+        self.assertEqual(languages, ["english", "spanish"])
+
+    def test_installer_upgrades_in_place(self) -> None:
+        script = (ROOT / "installer" / "metadatacleaner.iss").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("UsePreviousAppDir=yes", script)
+        self.assertIn("UsePreviousGroup=yes", script)
+        self.assertIn("GetPreviousVersion", script)
+        self.assertIn("UpgradeWelcome", script)
+
+    def test_build_outputs_stay_outside_the_repository(self) -> None:
+        script = (ROOT / "scripts" / "build-windows.sh").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("BUILD_ROOT=", script)
+        self.assertIn("${TMPDIR:-/tmp}", script)
+        self.assertNotIn("$ROOT/dist", script)
+        installer = (ROOT / "installer" / "metadatacleaner.iss").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("#ifndef PayloadDir", installer)
+        self.assertIn("#ifndef OutputDir", installer)
+        self.assertIn("OutputDir={#OutputDir}", installer)
+
     def test_installer_asset_name_matches_release_helper(self) -> None:
         script = (ROOT / "installer" / "metadatacleaner.iss").read_text(
             encoding="utf-8"
@@ -92,7 +124,8 @@ class WindowsPortGuardTests(unittest.TestCase):
         script = (ROOT / "installer" / "metadatacleaner.iss").read_text(
             encoding="utf-8"
         )
-        self.assertIn("PayloadDir \"..\\dist\\payload\"", script)
+        self.assertIn("#ifndef PayloadDir", script)
+        self.assertIn('"{#PayloadDir}\\*"', script)
         icon = ROOT / "installer" / "branding" / "metadatacleaner-windows.ico"
         self.assertTrue(icon.is_file(), f"missing installer icon: {icon}")
         launcher = ROOT / "installer" / "launcher" / "MetadataCleaner.c"

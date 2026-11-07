@@ -7,5 +7,6 @@ sources = [
     'filestore.py',
     'logger.py',
     'metadata.py',
+    'updater.py',
 ]
 install_data(sources, install_dir: join_paths(moduledir, 'modules'))

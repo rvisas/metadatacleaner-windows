@@ -13,6 +13,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
             <default>false</default>
             <summary>Lightweight cleaning</summary>
         </key>
+        <key name="check-for-updates" type="b">
+            <default>true</default>
+            <summary>Check for updates automatically</summary>
+        </key>
+        <key name="last-update-check" type="x">
+            <default>0</default>
+            <summary>Timestamp of the last update check</summary>
+        </key>
         <key name="window-width" type="u">
             <default>800</default>
             <summary>Window width</summary>

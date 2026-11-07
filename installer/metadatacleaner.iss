@@ -2,15 +2,17 @@
 ; Requires Inno Setup 6.3 or newer (ArchitecturesAllowed=x64compatible is not
 ; available in older versions).
 ;
-; Build the payload first (see docs/BUILD.md and installer/README.md), then:
-;   iscc installer\metadatacleaner.iss
+; Build the payload first (see docs/BUILD.md and installer/README.md). The
+; build script writes to a temporary directory outside this repository.
+; Then compile with explicit input and output directories:
+;   iscc /DAppVersion=4.0.1 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
 ;
-; The script expects this layout:
-;   dist\payload\MetadataCleaner.exe
-;   dist\payload\runtime\...
-;   dist\payload\share\...
-;   dist\payload\tools\exiftool\...
-;   dist\payload\tools\ffmpeg\...
+; The payload layout is:
+;   payload\MetadataCleaner.exe
+;   payload\runtime\...
+;   payload\share\...
+;   payload\tools\exiftool\...
+;   payload\tools\ffmpeg\...
 
 #define AppName "Metadata Cleaner"
 #ifndef AppVersion
@@ -20,7 +22,12 @@
 #define AppURL "https://github.com/rvisas/metadatacleaner-windows"
 #define AppExeName "MetadataCleaner.exe"
 #define AppUserModelID "io.gitlab.metadatacleaner.metadatacleaner"
-#define PayloadDir "..\dist\payload"
+#ifndef PayloadDir
+  #error Define PayloadDir (the directory containing MetadataCleaner.exe)
+#endif
+#ifndef OutputDir
+  #error Define OutputDir (the installer output directory)
+#endif
 
 [Setup]
 AppId={{65A32700-214A-44C6-AA24-3D74B64BC43A}
@@ -36,7 +43,7 @@ DefaultDirName={autopf}\{#AppName}
 DefaultGroupName={#AppName}
 DisableProgramGroupPage=yes
 LicenseFile=..\LICENSE
-OutputDir=..\dist\installer
+OutputDir={#OutputDir}
 OutputBaseFilename=MetadataCleaner-{#AppVersion}-windows-x64-setup
 SetupIconFile=branding\metadatacleaner-windows.ico
 UninstallDisplayIcon={app}\{#AppExeName}
@@ -50,6 +57,9 @@ PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 CloseApplications=yes
 RestartApplications=no
+UsePreviousAppDir=yes
+UsePreviousGroup=yes
+UsePreviousTasks=yes
 VersionInfoVersion={#AppVersion}.0
 VersionInfoCompany={#AppPublisher}
 VersionInfoDescription={#AppName} installer
@@ -79,3 +89,39 @@ Name: "{autodesktop}\{#AppName}"; Filename: "{app}\{#AppExeName}"; WorkingDir: "
 
 [Run]
 Filename: "{app}\{#AppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(AppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
+
+[CustomMessages]
+english.UpgradeWelcome=Setup will update Metadata Cleaner from version %1 to %2. Your settings and file list will be kept.
+spanish.UpgradeWelcome=El instalador actualizará Metadata Cleaner de la versión %1 a la %2. Tus ajustes y la lista de archivos se conservarán.
+
+[Code]
+var
+  PreviousVersion: String;
+
+function GetPreviousVersion: String;
+var
+  Key: String;
+  Value: String;
+begin
+  Result := '';
+  Key := 'Software\Microsoft\Windows\CurrentVersion\Uninstall\' +
+    '{#SetupSetting("AppId")}' + '_is1';
+  if RegQueryStringValue(HKCU, Key, 'DisplayVersion', Value) then
+    Result := Value
+  else if RegQueryStringValue(HKLM, Key, 'DisplayVersion', Value) then
+    Result := Value;
+end;
+
+procedure InitializeWizard;
+var
+  Welcome: String;
+begin
+  PreviousVersion := GetPreviousVersion;
+  if (PreviousVersion <> '') and not WizardSilent then
+  begin
+    Welcome := ExpandConstant('{cm:UpgradeWelcome}');
+    StringChangeEx(Welcome, '%1', PreviousVersion, True);
+    StringChangeEx(Welcome, '%2', '{#AppVersion}', True);
+    WizardForm.WelcomeLabel2.Caption := Welcome;
+  end;
+end;
