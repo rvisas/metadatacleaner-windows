@@ -1,8 +1,9 @@
 # SPDX-FileCopyrightText: Metadata Cleaner contributors
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-xdg_config = configuration_data()
-xdg_config.set('bindir', bindir)
+# This Windows port intentionally ships no Linux desktop integration:
+# .desktop entries, AppStream metadata and D-Bus activation files are
+# excluded. Only the GResource bundle, GSettings schema and icons are needed.
 
 gnome.compile_resources(
   APP_ID,
@@ -10,54 +11,6 @@ gnome.compile_resources(
   gresource_bundle: true,
   install: true,
   install_dir: pkgdatadir,
-)
-
-desktop_file = i18n.merge_file(
-  type: 'desktop',
-  input: configure_file(
-    input: APP_ID + '.desktop.in',
-    output: APP_ID + '.desktop.in',
-    configuration: xdg_config,
-  ),
-  output: APP_ID + '.desktop',
-  po_dir: join_paths(meson.project_source_root(), 'po'),
-  install: true,
-  install_dir: join_paths(get_option('datadir'), 'applications')
-)
-
-# Validate Desktop file
-desktop_file_validate_exe = find_program('desktop-file-validate', required: false)
-if desktop_file_validate_exe.found()
-  test('Validate desktop file',
-    desktop_file_validate_exe,
-    args: [desktop_file]
-  )
-endif
-
-metainfo_file = i18n.merge_file(
-  input: APP_ID + '.metainfo.xml',
-  output: APP_ID + '.metainfo.xml',
-  type: 'xml',
-  po_dir: join_paths(meson.project_source_root(), 'po'),
-  install: true,
-  install_dir: join_paths(get_option('datadir'), 'metainfo')
-)
-
-# Validate MetaInfo file
-appstream_util = find_program('appstream-util', required: false)
-if appstream_util.found()
-  test(
-      'Validate appstream file',
-      appstream_util,
-      args: ['validate-relax', '--nonet', metainfo_file],
-  )
-endif
-
-configure_file(
-  input: APP_ID + '.service.in',
-  output: APP_ID + '.service',
-  configuration: xdg_config,
-  install_dir: dbusdir
 )
 
 install_data(

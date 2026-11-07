@@ -23,22 +23,17 @@ pacman -S --needed meson ninja gettext pkgconf glib2 glib2-devel libxml2 \
   mingw-w64-ucrt-x86_64-librsvg \
   mingw-w64-ucrt-x86_64-gdk-pixbuf2 \
   mingw-w64-ucrt-x86_64-ffmpeg \
-  mingw-w64-ucrt-x86_64-appstream \
   mingw-w64-ucrt-x86_64-adwaita-icon-theme \
   mingw-w64-ucrt-x86_64-hicolor-icon-theme \
   mingw-w64-ucrt-x86_64-shared-mime-info \
-  mingw-w64-ucrt-x86_64-desktop-file-utils \
   mingw-w64-ucrt-x86_64-gcc \
   mingw-w64-ucrt-x86_64-meson \
   mingw-w64-ucrt-x86_64-ninja
 ```
 
-`appstream` is needed at build time because `msgfmt` uses its `metainfo.its`
-rules. Copy them where the MSYS `msgfmt` can find them:
-
-```bash
-cp -f /ucrt64/share/gettext/its/* /usr/share/gettext/its/
-```
+The Windows port does not install Linux `.desktop`, AppStream or D-Bus files,
+so it does not need `appstream`, `desktop-file-utils` or their validation
+tools.
 
 ## 2. mat2 and exiftool
 
@@ -66,10 +61,9 @@ meson compile -C /c/mc-build/build
 meson install -C /c/mc-build/build
 ```
 
-The install step runs `glib-compile-schemas`, `gtk4-update-icon-cache` and
-`update-desktop-database`. If the last one is missing, either install the UCRT64
-package (`mingw-w64-ucrt-x86_64-desktop-file-utils`) or provide a no-op
-executable; it only updates a Linux desktop database.
+The install step runs `glib-compile-schemas` and `gtk4-update-icon-cache`.
+There is no `update-desktop-database` step because the Windows payload contains
+no Linux desktop entry.
 
 ## 4. Run
 

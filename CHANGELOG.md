@@ -7,6 +7,22 @@ four-part upstream-plus-port scheme described in
 
 ## [Unreleased]
 
+## [4.0.1.2] - 2026-11-07
+
+Second Windows port revision, based on upstream 4.0.1.
+
+### Fixed
+
+- `Metadata Cleaner` remains untranslated in Spanish; the window title, About
+  entry, dialogs and shortcuts now use the proper noun verbatim.
+- The Windows payload no longer includes Linux desktop entries, AppStream
+  metadata, D-Bus activation files or their build dependencies.
+
+### Changed
+
+- Added regression tests for the product name and for Windows-only packaging
+  scope.
+
 ## [4.0.1.1] - 2026-11-07
 
 First public Windows port revision, based on upstream 4.0.1.

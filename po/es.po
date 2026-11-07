@@ -27,7 +27,7 @@ msgstr ""
 #. Translators: app name
 #. translators: app name
 msgid "Metadata Cleaner"
-msgstr "Limpiador de metadatos"
+msgstr "Metadata Cleaner"
 
 #. Translators: desktop entry comment
 msgid "Clean metadata from your files"
@@ -35,7 +35,7 @@ msgstr "Limpiar los metadatos de sus archivos"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 msgid "Metadata;Remover;Cleaner;"
-msgstr "Metadata;Remover;Cleaner;Metadatos;Limpiador;"
+msgstr "Metadata;Remover;Cleaner;Metadatos;"
 
 #. translators: keyboard shortcut section title. "General shortcuts"
 #. translators: preferences window tab title, "general settings", unused at the moment
@@ -128,7 +128,7 @@ msgstr "Atajos del _teclado"
 
 #. translators: headerbar main menu item. Metadata Cleaner is the app name.
 msgid "_About Metadata Cleaner"
-msgstr "Acerca de Limpiador de _metadatos"
+msgstr "Acerca de _Metadata Cleaner"
 
 #. translators: tooltip text for the headerbar menu button
 msgid "Main Menu"
@@ -418,7 +418,7 @@ msgid ""
 "\n"
 "Metadata Cleaner takes the content of  the file and puts it into a new one "
 "without metadata, ensuring that any undetected metadata is stripped."
-msgstr "Aunque el Limpiador de metadatos hace todo lo posible por mostrar los metadatos, el hecho de que no muestre ninguno no significa que un archivo esté libre de metadatos. No existe una forma fiable de detectar todos los metadatos posibles en formatos de archivo complejos. Por eso no deberías basarte en la presencia de metadatos para decidir si un archivo debe limpiarse.\n\nEl Limpiador de metadatos toma el contenido del archivo y lo coloca en uno nuevo sin metadatos, lo que garantiza la eliminación de cualquier metadato no detectado."
+msgstr "Aunque Metadata Cleaner hace todo lo posible por mostrar los metadatos, el hecho de que no muestre ninguno no significa que un archivo esté libre de metadatos. No existe una forma fiable de detectar todos los metadatos posibles en formatos de archivo complejos. Por eso no deberías basarte en la presencia de metadatos para decidir si un archivo debe limpiarse.\n\nMetadata Cleaner toma el contenido del archivo y lo coloca en uno nuevo sin metadatos, lo que garantiza la eliminación de cualquier metadato no detectado."
 
 #. translators: title for a section about the cleaning process
 msgid "Limitations"
@@ -436,7 +436,7 @@ msgid ""
 "Be aware that metadata is not the only way of marking a file. If the content "
 "itself discloses personal information or has been watermarked, traditionally "
 "or via steganography, Metadata Cleaner will not protect you."
-msgstr "Ten en cuenta que los metadatos no son la única forma de marcar un archivo. Si el contenido en sí revela información personal o tiene una marca de agua, ya sea tradicional o mediante esteganografía, el Limpiador de metadatos no te protegerá."
+msgstr "Ten en cuenta que los metadatos no son la única forma de marcar un archivo. Si el contenido en sí revela información personal o tiene una marca de agua, ya sea tradicional o mediante esteganografía, Metadata Cleaner no te protegerá."
 
 #~ msgid "View and clean metadata in files"
 #~ msgstr "Ver y limpiar los metadatos en los archivos"

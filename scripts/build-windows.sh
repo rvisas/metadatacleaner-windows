@@ -5,12 +5,12 @@
 # Build the Windows payload from an MSYS2 UCRT64 shell. The workflow installs
 # the toolchain; this script only assumes the UCRT64 packages are present.
 #
-# Usage: VERSION=4.0.1.1 ./scripts/build-windows.sh
+# Usage: VERSION=4.0.1.2 ./scripts/build-windows.sh
 
 set -euo pipefail
 
 ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
-VERSION="${VERSION:-4.0.1.1}"
+VERSION="${VERSION:-4.0.1.2}"
 MINGW_PREFIX="${MINGW_PREFIX:-/ucrt64}"
 PYTHON="$MINGW_PREFIX/bin/python.exe"
 MESON="$MINGW_PREFIX/bin/meson.exe"
@@ -28,9 +28,6 @@ fi
 echo "==> Preparing ${PAYLOAD_DIR}"
 rm -rf "$BUILD_DIR" "$PAYLOAD_DIR"
 mkdir -p "$BUILD_DIR" "$PAYLOAD_DIR" "$TOOLS_DIR"
-
-# msgfmt needs the AppStream ITS rules from the UCRT64 prefix.
-cp -f "$MINGW_PREFIX/share/gettext/its/"* /usr/share/gettext/its/ 2>/dev/null || true
 
 echo "==> Installing mat2"
 "$PYTHON" -m pip install --no-deps --break-system-packages "mat2==0.15.0"

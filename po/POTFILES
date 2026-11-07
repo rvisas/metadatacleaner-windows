@@ -1,9 +1,6 @@
 # SPDX-FileCopyrightText: Metadata Cleaner contributors
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-./builddir/data/io.gitlab.metadatacleaner.metadatacleaner.desktop.in
-./data/io.gitlab.metadatacleaner.metadatacleaner.desktop.in
-./data/io.gitlab.metadatacleaner.metadatacleaner.service.in
 ./src/metadata-cleaner.in
 
 ./data/gtk/shortcuts-dialog.ui

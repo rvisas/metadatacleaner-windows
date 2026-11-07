@@ -55,7 +55,7 @@ so a taskbar pin resolves to `MetadataCleaner.exe` instead of the underlying
 3. Compile with both directories explicit:
 
    ```bat
-   iscc /DAppVersion=4.0.1.1 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
+   iscc /DAppVersion=4.0.1.2 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
    ```
 
    The installer is written to `<build>\installer`, never to the repository.

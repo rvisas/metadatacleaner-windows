@@ -3,7 +3,7 @@
 
 project(
   'metadata-cleaner',
-  version: '4.0.1.1',
+  version: '4.0.1.2',
   license: ['GPL-3.0-or-later', 'CC-BY-SA-4.0'],
   meson_version: '>= 0.59.0'
 )
@@ -17,7 +17,6 @@ prefix = get_option('prefix')
 bindir = prefix / get_option('bindir')
 datadir = prefix / get_option('datadir')
 localedir = prefix / get_option('localedir')
-dbusdir = datadir / 'dbus-1' / 'services'
 
 devel = get_option('devel')
 pkgdatadir = join_paths(get_option('prefix'), get_option('datadir'), meson.project_name())
@@ -47,6 +46,5 @@ subdir('tests')
 
 gnome.post_install(
   glib_compile_schemas: true,
-  gtk_update_icon_cache: true,
-  update_desktop_database: true
+  gtk_update_icon_cache: true
 )

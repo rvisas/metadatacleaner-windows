@@ -13,8 +13,10 @@ before changing code.
 ## Languages
 
 The application and installer ship **English and Spanish only**. English is the
-source language; Spanish lives in `po/es.po`. Do not add another catalog unless
-the installer language list is intentionally changed too.
+source language; Spanish lives in `po/es.po`. **Metadata Cleaner is a proper
+noun and must never be translated.** Do not add another catalog unless the
+installer language list is intentionally changed too. Do not add Linux desktop,
+Flatpak, Flathub, AppStream or D-Bus files; the Windows build does not use them.
 
 ## Code
 

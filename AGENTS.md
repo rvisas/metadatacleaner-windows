@@ -21,6 +21,12 @@ not share Git history with upstream.
   UI strings are English in source and Spanish in `po/es.po`.
 - **Only English and Spanish.** The installer offers exactly those two
   languages. Do not add another catalog or an installer language.
+- **The product name is a proper noun.** `Metadata Cleaner` is never
+  translated, in any language or any UI string. Translate the surrounding
+  words only; `tests/test_product_name.py` enforces this.
+- **Windows-only payload.** Do not add Linux desktop integration, Flatpak,
+  Flathub, AppStream, D-Bus activation or other OS-specific files that the
+  Windows build does not use. `tests/test_windows_scope.py` enforces this.
 - **Thorough cleaning is the default.** The lightweight switch must remain
   functional, but it is an explicit opt-in.
 - **Do not increase the upstream version for port-only changes.** Use the
@@ -37,7 +43,7 @@ not share Git history with upstream.
 
 ```text
 src/                 Python application and generated entry point
-data/                GSettings, icons, UI templates, metainfo
+data/                GSettings, icons and UI templates
 po/                  Spanish catalog; English is the source language
 installer/           Inno Setup script, C launcher, branding
 scripts/             Payload build and release metadata
@@ -60,14 +66,14 @@ Build a payload (MSYS2 UCRT64 shell; output stays outside the repository):
 
 ```bash
 export PATH=/ucrt64/bin:$PATH
-VERSION=4.0.1.1 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" \
+VERSION=4.0.1.2 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" \
   bash ./scripts/build-windows.sh
 ```
 
 Compile the installer after the payload exists:
 
 ```bash
-iscc /DAppVersion=4.0.1.1 \
+iscc /DAppVersion=4.0.1.2 \
   /DPayloadDir="$TMPDIR/metadata-cleaner-build\\payload" \
   /DOutputDir="$TMPDIR/metadata-cleaner-build\\installer" \
   installer/metadatacleaner.iss
@@ -76,9 +82,9 @@ iscc /DAppVersion=4.0.1.1 \
 Create a release from CI (preferred):
 
 ```bash
-git tag -a v4.0.1.1-windows -m "Metadata Cleaner 4.0.1.1 for Windows"
-git push origin v4.0.1.1-windows
-# or: gh workflow run Release -f version=4.0.1.1
+git tag -a v4.0.1.2-windows -m "Metadata Cleaner 4.0.1.2 for Windows"
+git push origin v4.0.1.2-windows
+# or: gh workflow run Release -f version=4.0.1.2
 ```
 
 ## Changing UI text
@@ -90,7 +96,7 @@ git push origin v4.0.1.1-windows
 
 ## Changing the updater or release names
 
-- Tags: `v<UPSTREAM>.<PORT>-windows`, for example `v4.0.1.1-windows`.
+- Tags: `v<UPSTREAM>.<PORT>-windows`, for example `v4.0.1.2-windows`.
 - Assets: `MetadataCleaner-<version>-windows-x64-setup.exe`.
 - Update the regexes in `src/modules/updater.py`, `scripts/release_metadata.py`
   and `.github/workflows/release.yml`, plus their tests.

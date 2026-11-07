@@ -32,7 +32,7 @@ AppUserModelID so taskbar pins resolve to the application rather than to
 | `src/modules/filestore.py` | Folder enumeration and batch list model. |
 | `src/modules/updater.py` | GitHub Releases selection, SHA-256 verification and installer download. |
 | `src/modules/language.py` | Installer/Windows language detection and normalization. |
-| `data/` | GSettings schema, icons, UI templates, metainfo and screenshot. |
+| `data/` | GSettings schema, icons, UI templates and screenshot. Linux desktop integration (desktop entries, AppStream, D-Bus) is intentionally excluded. |
 | `po/` | Spanish catalog (`es.po`) and translation template. English is the source language. |
 | `installer/` | Inno Setup script, native launcher and branding. |
 | `scripts/` | Payload build and release metadata helpers. |
@@ -94,5 +94,9 @@ release. See [`build.md`](build.md) and [`releasing.md`](releasing.md).
   logic can be tested headlessly.
 - Never write build output, installers, caches or downloaded updates into the
   repository.
+- `Metadata Cleaner` is a proper noun and is never translated; English and
+  Spanish UI strings keep it verbatim.
 - File and directory names are English, lowercase except for conventional
   uppercase documents (`README.md`, `LICENSE`, `AGENTS.md`).
+- The Windows payload must not include Linux desktop integration, Flatpak,
+  Flathub, AppStream or D-Bus files.

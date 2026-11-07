@@ -102,7 +102,7 @@ product.
 3. Verify the installer in PowerShell before running it:
 
    ```powershell
-   $version = "4.0.1.1"
+   $version = "4.0.1.2"
    $asset = "MetadataCleaner-$version-windows-x64-setup.exe"
    Get-FileHash ".\$asset" -Algorithm SHA256
    Get-Content ".\${asset}.sha256"
@@ -130,8 +130,9 @@ also works because both the window and the shortcut use the same AppUserModelID.
 ### Language
 
 The installer and the application are available in **English** and **Spanish**
-only. The application follows the language chosen in the setup wizard; if that
-value is missing it falls back to the Windows display language, then to English.
+only. **Metadata Cleaner is a proper noun and is never translated.** The
+application follows the language chosen in the setup wizard; if that value is
+missing it falls back to the Windows display language, then to English.
 `MC_LANGUAGE=es` (or `en`) overrides the choice for a single launch.
 
 ### Updating
@@ -191,6 +192,25 @@ The patches live in [`patches/`](patches) and the exact changes are documented
 in [`docs/upstream.md`](docs/upstream.md). The installer layout and launcher build are
 described in [`installer/README.md`](installer/README.md).
 
+## Versioning
+
+The version is derived from the upstream release, not chosen independently:
+
+```text
+MAJOR.MINOR.PATCH.PORT
+4    .0    .1    .1
+```
+
+`4.0.1` is the upstream base; `.1` is the Windows port revision. Port-only
+fixes increment the fourth component (`4.0.1.2` → `4.0.1.3`). When upstream publishes a new
+release, the base changes and the port revision restarts at `.1`
+(`4.0.2.1`). The port never publishes `4.0.2` unless upstream has published
+4.0.2.
+
+The canonical rules live in [`docs/versioning.md`](docs/versioning.md); the
+upstream update procedure is in [`docs/upstream.md`](docs/upstream.md), and
+agents must follow both as recorded in [`AGENTS.md`](AGENTS.md).
+
 ## Build from source
 
 The build uses MSYS2 UCRT64 and Inno Setup 6.3 or newer. The complete package
@@ -201,7 +221,7 @@ list, environment variables and troubleshooting notes are in
 git clone https://github.com/rvisas/metadatacleaner-windows.git
 cd metadatacleaner-windows
 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" bash scripts/build-windows.sh
-iscc /DAppVersion=4.0.1.1 \
+iscc /DAppVersion=4.0.1.2 \
   /DPayloadDir="$TMPDIR/metadata-cleaner-build\payload" \
   /DOutputDir="$TMPDIR/metadata-cleaner-build\installer" \
   installer\metadatacleaner.iss

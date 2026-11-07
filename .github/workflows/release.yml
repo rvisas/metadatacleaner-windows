@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Version without the v prefix (for example 4.0.1.1)"
+        description: "Version without the v prefix (for example 4.0.1.2)"
         required: true
-        default: "4.0.1.1"
+        default: "4.0.1.2"
 
 permissions:
   contents: write
@@ -31,7 +31,7 @@ jobs:
           } elseif ("${{ github.ref_name }}" -match '^v(?<version>\d+\.\d+\.\d+(?:\.\d+)?)-windows$') {
             $version = $Matches['version']
           } else {
-            throw "Tag must look like v4.0.1.1-windows"
+            throw "Tag must look like v4.0.1.2-windows"
           }
           if ($version -notmatch '^\d+\.\d+\.\d+(?:\.\d+)?$') {
             throw "Version must have three or four numeric components: $version"
@@ -56,11 +56,9 @@ jobs:
             mingw-w64-ucrt-x86_64-librsvg
             mingw-w64-ucrt-x86_64-gdk-pixbuf2
             mingw-w64-ucrt-x86_64-ffmpeg
-            mingw-w64-ucrt-x86_64-appstream
             mingw-w64-ucrt-x86_64-adwaita-icon-theme
             mingw-w64-ucrt-x86_64-hicolor-icon-theme
             mingw-w64-ucrt-x86_64-shared-mime-info
-            mingw-w64-ucrt-x86_64-desktop-file-utils
             mingw-w64-ucrt-x86_64-gcc
             mingw-w64-ucrt-x86_64-meson
             mingw-w64-ucrt-x86_64-ninja

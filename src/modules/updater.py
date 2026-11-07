@@ -54,7 +54,7 @@ def parse_version(value: str) -> VersionTuple | None:
     """Return a comparable four-part version tuple, or None if invalid.
 
     Port releases use the upstream version plus a Windows revision, for
-    example ``4.0.1.1``. Three-part upstream values are accepted and the
+    example ``4.0.1.2``. Three-part upstream values are accepted and the
     missing revision is treated as zero.
     """
     match = re.fullmatch(

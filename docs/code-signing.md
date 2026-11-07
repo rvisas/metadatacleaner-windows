@@ -35,19 +35,73 @@ Only Microsoft Store distribution currently guarantees no SmartScreen prompt.
 | **Sigstore / cosign** | Free | No Windows publisher identity | Not a Windows trust path | Good for Linux artifacts, container images and transparency logs; not a substitute for Authenticode. |
 | **Self-signed certificate** | Free | Whatever name you choose | Still warns; not trusted by other machines | Development and enterprise-managed deployments only. |
 
-### Recommendation for this repository
+### Can SignPath and the Microsoft Store be used together?
 
-1. Apply to **SignPath Foundation** first. The project is public,
-   GPL-3.0-or-later, builds from source in GitHub Actions and publishes a single
-   installer — exactly the profile the program targets.
-2. If SignPath rejects the project or the queue is too long, use **Certum Open
-   Source** (paid, publisher name visible) or **Azure Artifact Signing** if the
-   maintainer is in an eligible region.
-3. Consider the **Microsoft Store** later if the project is willing to produce
-   an MSIX package and follow Store policies. Store distribution is the only
-   reliable way to avoid SmartScreen warnings for every user.
-4. Do **not** buy an EV certificate solely for SmartScreen. Microsoft removed
-   the EV instant-reputation bypass in 2024.
+Yes. They solve different distribution paths and are not mutually exclusive:
+
+- **SignPath Foundation** signs the standalone Inno Setup `.exe` published on
+  GitHub Releases. The publisher shown is **SignPath Foundation**, because the
+  foundation owns the certificate and vouches that the binary was built from
+  this public repository. It is not issued in the maintainer's personal name.
+- **Microsoft Store** distributes an MSIX package. Microsoft re-signs the
+  package with its Store identity, and Store installations do not get a
+  SmartScreen warning. The publisher shown is the Partner Center publisher
+  identity, not the SignPath certificate.
+
+Using both is normal for a project that offers a direct installer and a Store
+package. The important rule is to keep the two channels separate:
+
+| Channel | Artifact | Signing | Updates |
+|---|---|---|---|
+| GitHub Releases | Inno Setup `.exe` | SignPath Foundation (or another Authenticode cert) | In-app updater downloads the next `.exe` |
+| Microsoft Store | MSIX | Microsoft re-signs after certification | Store updates |
+
+Do not install the Inno build and the Store/MSIX build side by side on the same
+machine unless they use different package identities and you have tested
+uninstall/upgrade behavior. They have separate update mechanisms and separate
+uninstall entries.
+
+Maintaining both installers is more work: two packaging jobs, two smoke tests,
+two release artifacts and two sets of upgrade tests. Keep one shared source
+tree and version number, and build both artifacts from the same tag.
+
+## Should I also register with OSSign?
+
+Not while SignPath is viable. OSSign is another free-for-OSS program, but:
+
+- its application queue was suspended at the time of writing;
+- it uses a different signing identity, so SmartScreen reputation does not
+  carry over from SignPath;
+- maintaining two certificates and two publisher identities fragments trust and
+  adds release complexity.
+
+Use OSSign only as a fallback if SignPath rejects the project. Do not collect
+free certificates from multiple providers “just in case”: pick one signing
+identity per distribution channel and stay consistent.
+
+## Why not my name as publisher?
+
+A code-signing certificate identifies the entity that the CA (or foundation)
+verified and that is legally responsible for the signature. SignPath Foundation
+is the certificate holder for its OSS program; it verifies the repository and
+the CI build, not the individual maintainer's identity. That is why the
+signature says **SignPath Foundation** rather than your name.
+
+If having your own name as publisher matters, use a certificate issued to you
+or your legal entity:
+
+- **Certum Open Source Code Signing** — “Open Source Developer” plus your name;
+- **Azure Artifact Signing** — your verified individual or organization;
+- an OV/EV certificate from DigiCert, Sectigo, GlobalSign or SSL.com.
+
+## Recommendation for this repository
+
+1. Apply to **SignPath Foundation** for the Inno Setup installer.
+2. Create a **Microsoft Store individual developer account** and evaluate an
+   MSIX package separately; do not replace the working `.exe` yet.
+3. Skip OSSign while SignPath is active.
+4. If SignPath rejects the project, choose **Certum Open Source** or **Azure
+   Artifact Signing** and keep that identity for all future `.exe` releases.
 
 ## What SignPath signs
 

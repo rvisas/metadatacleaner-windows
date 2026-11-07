@@ -8,7 +8,6 @@
 import gettext
 import locale
 import logging
-import mimetypes
 import os
 import signal
 import sys
@@ -104,12 +103,6 @@ def setup_resources() -> None:
     Gio.Resource._register(resource)
 
 
-def setup_mimetypes() -> None:
-    """Add a mime.types file for the Flatpak runtime."""
-    if Path("/.flatpak-info").exists():
-        mimetypes.init(files=mimetypes.knownfiles + ["/app/share/mime.types"])
-
-
 def run_app() -> int:
     """Run the application.
 
@@ -131,6 +124,5 @@ def run_app() -> int:
 if __name__ == "__main__":
     setup_i18n()
     setup_resources()
-    setup_mimetypes()
 
     sys.exit(run_app())

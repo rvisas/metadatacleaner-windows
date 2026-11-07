@@ -14,7 +14,7 @@ MAJOR.MINOR.PATCH.PORT
 ```
 
 `4.0.1` is the upstream base. The final `.1` is the Windows port revision. The
-current release is **4.0.1.1**.
+current release is **4.0.1.2**.
 
 ## Rules
 
@@ -37,9 +37,9 @@ current release is **4.0.1.1**.
 ## Tags and assets
 
 ```text
-Tag:      v4.0.1.1-windows
-Installer: MetadataCleaner-4.0.1.1-windows-x64-setup.exe
-Sidecar:   MetadataCleaner-4.0.1.1-windows-x64-setup.exe.sha256
+Tag:      v4.0.1.2-windows
+Installer: MetadataCleaner-4.0.1.2-windows-x64-setup.exe
+Sidecar:   MetadataCleaner-4.0.1.2-windows-x64-setup.exe.sha256
 ```
 
 The `-windows` suffix identifies the port and never changes. Only the version
@@ -49,7 +49,8 @@ number changes.
 
 | Date | Upstream tag | Upstream version | Port version | Notes |
 |---|---|---|---|---|
-| 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.1 | Current base; upstream `main` at `17e0b56` |
+| 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.2 | Current base; upstream `main` at `17e0b56` |
+| 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.1 | Previous port revision; product-name and Windows-scope cleanup |
 | 2026-11-07 | — | — | 4.0.2 (withdrawn) | Retired internal build number; it never represented an upstream release |
 
 Confirm the upstream release before changing the base:
