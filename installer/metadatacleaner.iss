@@ -5,7 +5,7 @@
 ; Build the payload first (see docs/build.md and installer/README.md). The
 ; build script writes to a temporary directory outside this repository.
 ; Then compile with explicit input and output directories:
-;   iscc /DAppVersion=4.0.1.2 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
+;   iscc /DAppVersion=4.0.1.3 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
 ;
 ; The payload layout is:
 ;   payload\MetadataCleaner.exe
@@ -16,7 +16,7 @@
 
 #define AppName "Metadata Cleaner"
 #ifndef AppVersion
-#define AppVersion "4.0.1.2"
+#define AppVersion "4.0.1.3"
 #endif
 #define AppPublisher "Ronny Visa"
 #define AppURL "https://github.com/rvisas/metadatacleaner-windows"
@@ -83,9 +83,12 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Source: "{#PayloadDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [InstallDelete]
-; Only English and Spanish are shipped. Remove translations left by an older
-; build so an upgrade matches a fresh installation.
+; Only English and Spanish are shipped. Remove translations and Linux desktop
+; integration left by an older build so an upgrade matches a fresh installation.
 Type: filesandordirs; Name: "{app}\share\locale"
+Type: filesandordirs; Name: "{app}\share\applications"
+Type: filesandordirs; Name: "{app}\share\metainfo"
+Type: filesandordirs; Name: "{app}\share\dbus-1"
 
 [Icons]
 Name: "{group}\{#AppName}"; Filename: "{app}\{#AppExeName}"; WorkingDir: "{app}"; IconFilename: "{app}\{#AppExeName}"; IconIndex: 0; AppUserModelID: "{#AppUserModelID}"

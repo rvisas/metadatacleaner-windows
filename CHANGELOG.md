@@ -7,6 +7,15 @@ four-part upstream-plus-port scheme described in
 
 ## [Unreleased]
 
+## [4.0.1.3] - 2026-11-07
+
+Third Windows port revision, based on upstream 4.0.1.
+
+### Fixed
+
+- Upgrades remove `share\applications`, `share\metainfo` and `share\dbus-1`
+  left by earlier builds, so the Linux integration cannot survive an update.
+
 ## [4.0.1.2] - 2026-11-07
 
 Second Windows port revision, based on upstream 4.0.1.

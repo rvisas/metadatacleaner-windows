@@ -146,7 +146,7 @@ class UpstreamContractTests(unittest.TestCase):
     def test_upstream_base_is_documented(self) -> None:
         upstream = (ROOT / "docs" / "upstream.md").read_text(encoding="utf-8")
         self.assertIn("v4.0.1", upstream)
-        self.assertIn("4.0.1.2", upstream)
+        self.assertIn("4.0.1.3", upstream)
 
 
 if __name__ == "__main__":

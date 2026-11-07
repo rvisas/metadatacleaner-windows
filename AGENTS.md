@@ -66,14 +66,14 @@ Build a payload (MSYS2 UCRT64 shell; output stays outside the repository):
 
 ```bash
 export PATH=/ucrt64/bin:$PATH
-VERSION=4.0.1.2 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" \
+VERSION=4.0.1.3 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" \
   bash ./scripts/build-windows.sh
 ```
 
 Compile the installer after the payload exists:
 
 ```bash
-iscc /DAppVersion=4.0.1.2 \
+iscc /DAppVersion=4.0.1.3 \
   /DPayloadDir="$TMPDIR/metadata-cleaner-build\\payload" \
   /DOutputDir="$TMPDIR/metadata-cleaner-build\\installer" \
   installer/metadatacleaner.iss
@@ -82,9 +82,9 @@ iscc /DAppVersion=4.0.1.2 \
 Create a release from CI (preferred):
 
 ```bash
-git tag -a v4.0.1.2-windows -m "Metadata Cleaner 4.0.1.2 for Windows"
-git push origin v4.0.1.2-windows
-# or: gh workflow run Release -f version=4.0.1.2
+git tag -a v4.0.1.3-windows -m "Metadata Cleaner 4.0.1.3 for Windows"
+git push origin v4.0.1.3-windows
+# or: gh workflow run Release -f version=4.0.1.3
 ```
 
 ## Changing UI text
@@ -96,7 +96,7 @@ git push origin v4.0.1.2-windows
 
 ## Changing the updater or release names
 
-- Tags: `v<UPSTREAM>.<PORT>-windows`, for example `v4.0.1.2-windows`.
+- Tags: `v<UPSTREAM>.<PORT>-windows`, for example `v4.0.1.3-windows`.
 - Assets: `MetadataCleaner-<version>-windows-x64-setup.exe`.
 - Update the regexes in `src/modules/updater.py`, `scripts/release_metadata.py`
   and `.github/workflows/release.yml`, plus their tests.

@@ -14,13 +14,13 @@ MAJOR.MINOR.PATCH.PORT
 ```
 
 `4.0.1` is the upstream base. The final `.1` is the Windows port revision. The
-current release is **4.0.1.2**.
+current release is **4.0.1.3**.
 
 ## Rules
 
 | Change | Example | Next version |
 |---|---|---|
-| Port-only fix or packaging change | Folder import fix on upstream 4.0.1 | `4.0.1.2` |
+| Port-only fix or packaging change | Folder import fix on upstream 4.0.1 | `4.0.1.3` |
 | New upstream release with port changes | Upstream releases 4.0.2 | `4.0.2.1` |
 | Upstream release with no port change yet | Upstream releases 4.0.2 | Rebase first; release `4.0.2.1` when the port is ready |
 | Documentation-only change | README or AGENTS.md | No release required |
@@ -37,9 +37,9 @@ current release is **4.0.1.2**.
 ## Tags and assets
 
 ```text
-Tag:      v4.0.1.2-windows
-Installer: MetadataCleaner-4.0.1.2-windows-x64-setup.exe
-Sidecar:   MetadataCleaner-4.0.1.2-windows-x64-setup.exe.sha256
+Tag:      v4.0.1.3-windows
+Installer: MetadataCleaner-4.0.1.3-windows-x64-setup.exe
+Sidecar:   MetadataCleaner-4.0.1.3-windows-x64-setup.exe.sha256
 ```
 
 The `-windows` suffix identifies the port and never changes. Only the version
@@ -49,8 +49,9 @@ number changes.
 
 | Date | Upstream tag | Upstream version | Port version | Notes |
 |---|---|---|---|---|
-| 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.2 | Current base; upstream `main` at `17e0b56` |
-| 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.1 | Previous port revision; product-name and Windows-scope cleanup |
+| 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.3 | Current base; installer cleanup |
+| 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.2 | Product name and Windows-only payload |
+| 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.1 | Initial public port revision |
 | 2026-11-07 | — | — | 4.0.2 (withdrawn) | Retired internal build number; it never represented an upstream release |
 
 Confirm the upstream release before changing the base:
@@ -71,7 +72,8 @@ curl -sL https://gitlab.com/api/v4/projects/metadatacleaner%2Fmetadatacleaner/re
    installer with checksums.
 
 The updater compares four-component tuples, so `4.0.1.1` is newer than
-`4.0.1.0`, and `4.0.1.2` is newer than `4.0.1.1`.
+`4.0.1.0`, `4.0.1.2` is newer than `4.0.1.1`, and `4.0.1.3` is newer than
+`4.0.1.2`.
 
 ## Why not SemVer build metadata?
 

@@ -69,12 +69,12 @@ def release(
 class VersionTests(unittest.TestCase):
     def test_parse_version(self) -> None:
         self.assertEqual(updater.parse_version("4.0.1"), (4, 0, 1, 0))
-        self.assertEqual(updater.parse_version("4.0.1.2"), (4, 0, 1, 2))
+        self.assertEqual(updater.parse_version("4.0.1.3"), (4, 0, 1, 3))
         self.assertEqual(
             updater.parse_version(" 10.20.30.40 "), (10, 20, 30, 40)
         )
         self.assertIsNone(updater.parse_version("4.0"))
-        self.assertIsNone(updater.parse_version("4.0.1.2.1"))
+        self.assertIsNone(updater.parse_version("4.0.1.3.1"))
         self.assertIsNone(updater.parse_version("v4.0.1"))
         self.assertIsNone(updater.parse_version("4.0.1-beta"))
 
@@ -86,16 +86,16 @@ class VersionTests(unittest.TestCase):
 class ReleaseSelectionTests(unittest.TestCase):
     def test_chooses_a_port_revision_over_its_upstream_base(self) -> None:
         update = updater.pick_update(
-            [release("v4.0.1.2-windows"), release("v4.0.1-windows")],
+            [release("v4.0.1.3-windows"), release("v4.0.1-windows")],
             "4.0.1",
         )
         self.assertIsNotNone(update)
-        self.assertEqual(update.version, "4.0.1.2")
+        self.assertEqual(update.version, "4.0.1.3")
 
     def test_does_not_offer_the_installed_port_revision(self) -> None:
         self.assertIsNone(
             updater.pick_update(
-                [release("v4.0.1.2-windows")], "4.0.1.2"
+                [release("v4.0.1.3-windows")], "4.0.1.3"
             )
         )
 

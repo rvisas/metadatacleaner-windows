@@ -53,7 +53,7 @@ class FolderImportRuntimeTests(unittest.TestCase):
         sys.path.insert(1, str(package))
         from metadatacleaner.modules import updater
 
-        self.assertEqual(updater.parse_version("4.0.1.2"), (4, 0, 1, 2))
+        self.assertEqual(updater.parse_version("4.0.1.3"), (4, 0, 1, 3))
 
 
 if __name__ == "__main__":

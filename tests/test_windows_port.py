@@ -110,6 +110,17 @@ class WindowsPortGuardTests(unittest.TestCase):
         ]
         self.assertEqual(languages, ["es"])
 
+    def test_installer_drops_removed_linux_integration(self) -> None:
+        script = (ROOT / "installer" / "metadatacleaner.iss").read_text(
+            encoding="utf-8"
+        )
+        for removed in ("applications", "metainfo", "dbus-1"):
+            with self.subTest(directory=removed):
+                self.assertIn(
+                    'Name: "{app}\\share\\' + removed + '"',
+                    script,
+                )
+
     def test_build_outputs_stay_outside_the_repository(self) -> None:
         script = (ROOT / "scripts" / "build-windows.sh").read_text(
             encoding="utf-8"

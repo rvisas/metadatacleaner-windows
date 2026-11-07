@@ -3,7 +3,7 @@
 
 project(
   'metadata-cleaner',
-  version: '4.0.1.2',
+  version: '4.0.1.3',
   license: ['GPL-3.0-or-later', 'CC-BY-SA-4.0'],
   meson_version: '>= 0.59.0'
 )
