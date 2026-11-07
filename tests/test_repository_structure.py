@@ -5,7 +5,7 @@
 
 from __future__ import annotations
 
-import subprocess
+import os
 import unittest
 from pathlib import Path
 
@@ -27,14 +27,19 @@ REQUIRED = {
 }
 
 
-def tracked_files() -> list[str]:
-    result = subprocess.run(
-        ["git", "-C", str(ROOT), "ls-files"],
-        check=True,
-        capture_output=True,
-        text=True,
-    )
-    return [line for line in result.stdout.splitlines() if line]
+def repository_files() -> list[str]:
+    """List files without requiring git to be installed in the CI shell."""
+    files: list[str] = []
+    for directory, dirnames, filenames in os.walk(ROOT):
+        dirnames[:] = [
+            name
+            for name in dirnames
+            if name not in {".git", "__pycache__", ".venv"}
+        ]
+        for filename in filenames:
+            path = Path(directory) / filename
+            files.append(path.relative_to(ROOT).as_posix())
+    return files
 
 
 class RepositoryStructureTests(unittest.TestCase):
@@ -50,7 +55,7 @@ class RepositoryStructureTests(unittest.TestCase):
                     self.assertEqual(path.name, path.name.lower())
 
     def test_tracked_paths_are_ascii(self) -> None:
-        for relative in tracked_files():
+        for relative in repository_files():
             with self.subTest(path=relative):
                 relative.encode("ascii")
 
@@ -63,7 +68,7 @@ class RepositoryStructureTests(unittest.TestCase):
             "Makefile",
         }
         obsolete_parts = {"build-aux", "dist", "__pycache__"}
-        for relative in tracked_files():
+        for relative in repository_files():
             with self.subTest(path=relative):
                 self.assertNotIn(relative, obsolete_paths)
                 self.assertFalse(
