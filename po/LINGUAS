@@ -1,48 +1,5 @@
 # SPDX-FileCopyrightText: Metadata Cleaner contributors
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-fr
-de
+# This Windows port ships English (source language) and Spanish only.
 es
-sv
-tr
-hr
-pt_BR
-nb_NO
-fi
-id
-lt
-it
-si
-nl
-da
-nn
-oc
-ru
-hu
-ja
-ko
-eu
-zh_CN
-ro
-cs
-gl
-pl
-pt
-zh_TW
-ca
-bn
-uk
-el
-az
-fy
-ta
-sr
-ar
-ur
-eo
-be
-bg
-hi
-sl
-kab

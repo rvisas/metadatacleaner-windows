@@ -125,3 +125,17 @@ begin
     WizardForm.WelcomeLabel2.Caption := Welcome;
   end;
 end;
+
+procedure CurStepChanged(CurStep: TSetupStep);
+var
+  Language: String;
+begin
+  if CurStep = ssPostInstall then
+  begin
+    Language := ActiveLanguage;
+    if (Language <> 'english') and (Language <> 'spanish') then
+      Language := 'english';
+    RegWriteStringValue(
+      HKCU, 'Software\Metadata Cleaner', 'Language', Language);
+  end;
+end;

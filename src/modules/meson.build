@@ -5,6 +5,7 @@ sources = [
     '__init__.py',
     'file.py',
     'filestore.py',
+    'language.py',
     'logger.py',
     'metadata.py',
     'updater.py',
