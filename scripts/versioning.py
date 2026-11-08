@@ -4,7 +4,7 @@
 """Compose and check the upstream-derived Windows port version.
 
 The upstream project uses three-component versions (4.0.1). The Windows port
-adds a fourth component for its own revision, so the result is 4.0.1.3.
+adds a fourth component for its own revision, so the result is 4.0.1.6.
 A future upstream 4.1.0 becomes 4.1.0.1, not 4.0.2.
 
 Windows and Inno Setup accept at most four numeric components. If upstream
@@ -67,12 +67,24 @@ def check_project() -> str:
     script = (ROOT / "scripts" / "build-windows.sh").read_text(
         encoding="utf-8"
     )
+    launcher_rc = (
+        ROOT / "installer" / "launcher" / "MetadataCleaner.rc"
+    ).read_text(encoding="utf-8")
     if f"version: '{version}'" not in meson:
         raise ValueError(f"meson.build does not contain {version}")
     if f'#define AppVersion "{version}"' not in installer:
         raise ValueError(f"the installer does not contain {version}")
     if f'VERSION="${{VERSION:-{version}}}"' not in script:
         raise ValueError(f"build-windows.sh does not contain {version}")
+    numeric = version.replace(".", ",")
+    if f"#define MC_VERSION {numeric}" not in launcher_rc:
+        raise ValueError(
+            f"launcher resource does not contain MC_VERSION {numeric}"
+        )
+    if f'#define MC_VERSION_STRING "{version}"' not in launcher_rc:
+        raise ValueError(
+            f"launcher resource does not contain MC_VERSION_STRING {version}"
+        )
     return version
 
 

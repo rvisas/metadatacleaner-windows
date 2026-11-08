@@ -40,6 +40,10 @@ gcc -municode -mwindows -static -O2 -s -o "<build>\payload\MetadataCleaner.exe" 
 ```
 
 `windres` embeds `branding\metadatacleaner-windows.ico` into the launcher.
+`MetadataCleaner.rc` also carries a `VERSIONINFO` block with the product name,
+file version and product version. Keep its `MC_VERSION` and
+`MC_VERSION_STRING` values in sync with the release;
+`python scripts/versioning.py check` rejects drift.
 
 The `[Icons]` entries set `AppUserModelID` to
 `io.gitlab.metadatacleaner.metadatacleaner` and use the launcher as their icon.
@@ -55,7 +59,7 @@ so a taskbar pin resolves to `MetadataCleaner.exe` instead of the underlying
 3. Compile with both directories explicit:
 
    ```bat
-   iscc /DAppVersion=4.0.1.5 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
+   iscc /DAppVersion=4.0.1.6 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
    ```
 
    The installer is written to `<build>\installer`, never to the repository.

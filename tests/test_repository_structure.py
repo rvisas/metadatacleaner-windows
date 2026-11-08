@@ -13,6 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = {
     "AGENTS.md",
     "CHANGELOG.md",
+    "CODE_SIGNING_POLICY.md",
+    "PRIVACY.md",
     "SECURITY.md",
     "docs/architecture.md",
     "docs/build.md",
@@ -82,8 +84,8 @@ class RepositoryStructureTests(unittest.TestCase):
     def test_versioning_document_matches_current_release(self) -> None:
         text = (ROOT / "docs" / "versioning.md").read_text(encoding="utf-8")
         meson = (ROOT / "meson.build").read_text(encoding="utf-8")
-        self.assertIn("4.0.1.5", text)
-        self.assertIn("version: '4.0.1.5'", meson)
+        self.assertIn("4.0.1.6", text)
+        self.assertIn("version: '4.0.1.6'", meson)
 
 
 if __name__ == "__main__":

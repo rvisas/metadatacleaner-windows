@@ -10,18 +10,18 @@ The answer is a four-component version:
 
 ```text
 MAJOR.MINOR.PATCH.PORT
-4    .0    .1    .3
+4    .0    .1    .6
 ```
 
-`4.0.1` is the upstream base. The final `.3` is the Windows port revision. The
-current release is **4.0.1.5**.
+`4.0.1` is the upstream base. The final `.6` is the Windows port revision. The
+current release is **4.0.1.6**.
 
 The source of truth is [`version.json`](../version.json):
 
 ```json
 {
   "upstream": "4.0.1",
-  "port": 3
+  "port": 6
 }
 ```
 
@@ -29,7 +29,7 @@ The source of truth is [`version.json`](../version.json):
 Meson, Inno Setup and build-script inputs agree:
 
 ```bash
-python scripts/versioning.py current       # 4.0.1.5
+python scripts/versioning.py current       # 4.0.1.6
 python scripts/versioning.py check         # fails if the files drift
 python scripts/versioning.py next-upstream 4.1.0   # 4.1.0.1
 ```
@@ -69,7 +69,7 @@ state.
 
 | Change | Example | Next version |
 |---|---|---|
-| Port-only fix or packaging change | Folder import fix on upstream 4.0.1 | `4.0.1.5` |
+| Port-only fix or packaging change | Folder import fix on upstream 4.0.1 | `4.0.1.6` |
 | New upstream release with port changes | Upstream releases 4.0.2 | `4.0.2.1` |
 | Upstream release with no port change yet | Upstream releases 4.0.2 | Rebase first; release `4.0.2.1` when the port is ready |
 | Documentation-only change | README or AGENTS.md | No release required |
@@ -86,9 +86,9 @@ state.
 ## Tags and assets
 
 ```text
-Tag:      v4.0.1.5-windows
-Installer: MetadataCleaner-4.0.1.5-windows-x64-setup.exe
-Sidecar:   MetadataCleaner-4.0.1.5-windows-x64-setup.exe.sha256
+Tag:      v4.0.1.6-windows
+Installer: MetadataCleaner-4.0.1.6-windows-x64-setup.exe
+Sidecar:   MetadataCleaner-4.0.1.6-windows-x64-setup.exe.sha256
 ```
 
 The `-windows` suffix identifies the port and never changes. Only the version
@@ -98,6 +98,7 @@ number changes.
 
 | Date | Upstream tag | Upstream version | Port version | Notes |
 |---|---|---|---|---|
+| 2026-11-08 | `v4.0.1` | 4.0.1 | 4.0.1.6 | Streaming folder imports, English documentation and SignPath policy |
 | 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.5 | Custom About title and localized links |
 | 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.4 | Spanish libadwaita catalogs and About links |
 | 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.3 | Installer cleanup for stale Linux directories |
@@ -115,16 +116,16 @@ curl -sL https://gitlab.com/api/v4/projects/metadatacleaner%2Fmetadatacleaner/re
 ## Releasing a port revision
 
 1. Make the fix on the current upstream base.
-2. Bump the last component in `meson.build`, the installer and
-   `scripts/build-windows.sh`.
+2. Bump the last component in `meson.build`, the installer,
+   `scripts/build-windows.sh` and `installer/launcher/MetadataCleaner.rc`.
 3. Run the full test suite locally.
 4. Tag `v4.0.1.N-windows` and push the tag.
 5. The Release workflow builds, tests, signs when configured, and publishes the
    installer with checksums.
 
 The updater compares four-component tuples, so `4.0.1.1` is newer than
-`4.0.1.0`, `4.0.1.2` is newer than `4.0.1.1`, and `4.0.1.5` is newer than
-`4.0.1.4`.
+`4.0.1.0`, `4.0.1.2` is newer than `4.0.1.1`, and `4.0.1.6` is newer than
+`4.0.1.5`.
 
 ## Why not SemVer build metadata?
 

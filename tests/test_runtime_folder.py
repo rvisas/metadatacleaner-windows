@@ -53,7 +53,7 @@ class FolderImportRuntimeTests(unittest.TestCase):
         sys.path.insert(1, str(package))
         from metadatacleaner.modules import updater
 
-        self.assertEqual(updater.parse_version("4.0.1.5"), (4, 0, 1, 5))
+        self.assertEqual(updater.parse_version("4.0.1.6"), (4, 0, 1, 6))
 
     def test_runtime_keeps_spanish_widget_catalogs(self) -> None:
         self.assertIsNotNone(PAYLOAD)

@@ -1,192 +1,235 @@
 # Code signing on Windows
 
-This project publishes a Win32 `.exe` installer, not an MSIX package. That
-limits the practical signing options: Windows trusts Authenticode signatures
-from certificates chaining to the Microsoft Trusted Root Program, and
-SmartScreen treats signed and unsigned files differently.
+This project publishes a Win32 Inno Setup installer, not an MSIX package. The
+chosen signing route is the **SignPath Foundation** open-source programme.
+Microsoft Store and MSIX distribution are explicitly out of scope for this
+repository.
 
-This document records the options, not a promise that the project is already
-signed. The current installer is unsigned and releases are pre-releases.
+This document records the signing plan, the application requirements and the
+release flow. It is not a claim that the project is already signed: the current
+installer is unsigned and releases are pre-releases until SignPath approves the
+project.
 
 ## Why signing matters
 
 - The installer and launcher show **Unknown publisher** without a trusted
-  signature.
+  Authenticode signature.
 - SmartScreen may show **Windows protected your PC** on first download.
-- A signature proves the binary came from the publisher and was not modified
-  after signing, provided the file is timestamped and verified.
+- A signature proves that the binary came from the publisher and was not
+  modified after signing, provided it is timestamped and verified.
 
-A signature does **not** guarantee that SmartScreen stays silent. Since 2024,
-OV and EV certificates follow the same reputation-building process: the first
-downloads of a new file can still warn until Microsoft has enough telemetry.
-Only Microsoft Store distribution currently guarantees no SmartScreen prompt.
+A signature does **not** guarantee that SmartScreen is silent immediately.
+Since 2024, OV and EV certificates follow the same reputation-building process:
+the first downloads of a new file can still warn until Microsoft has enough
+telemetry. SignPath Foundation builds reputation across releases signed with
+the same certificate.
 
-## Options for an open-source Windows project
+## Why SignPath Foundation
 
-| Option | Cost | Publisher shown | SmartScreen | Notes |
-|---|---|---|---|---|
-| **SignPath Foundation** | Free for qualifying OSS | SignPath Foundation | Builds reputation over time | Best fit for this project. Certificate is issued to the foundation, not to the maintainer. Signing runs in CI; private key stays in an HSM. |
-| **Microsoft Store (MSIX)** | Free developer account; Microsoft re-signs | Your Store publisher name | No warning for Store installs | Requires an MSIX package and Store certification. The current Inno Setup `.exe` is not MSIX; submitting a Win32 installer through the Store still requires the publisher to sign it. |
-| **Azure Artifact Signing** (formerly Trusted Signing) | From about US$9.99/month | Your verified organization or individual | Reputation builds over time | Public Trust availability is limited: organizations in the USA, Canada, EU and UK; individuals in the USA and Canada. Requires a paid Azure subscription. |
-| **Certum Open Source Code Signing** | From about €49/year (cloud) | “Open Source Developer” + your name | Reputation builds over time | Individual developers only; project must be public and non-commercial. It was free years ago; it is now paid. |
-| **OV certificate** (DigiCert, Sectigo, GlobalSign, SSL.com) | Roughly US$150–300/year | Your verified legal name | Reputation builds over time | Standard choice for commercial distribution. Private key must be on an HSM or token. |
-| **EV certificate** | Typically US$400+/year | Your verified legal name | Reputation builds over time; **no instant bypass since 2024** | Still useful for enterprise procurement, not for skipping SmartScreen. |
-| **OSSign** | Free for qualifying OSS | OSSign | Reputation builds over time | Newer OSS signing program; at the time of writing its application queue was suspended. Check current status. |
-| **Sigstore / cosign** | Free | No Windows publisher identity | Not a Windows trust path | Good for Linux artifacts, container images and transparency logs; not a substitute for Authenticode. |
-| **Self-signed certificate** | Free | Whatever name you choose | Still warns; not trusted by other machines | Development and enterprise-managed deployments only. |
+SignPath Foundation lets an eligible OSS project use a code-signing certificate
+issued to the foundation. The private key remains in SignPath's hardware
+security module (HSM); the repository and the build machine never hold it.
 
-### Can SignPath and the Microsoft Store be used together?
+The trust model is deliberately different from a certificate issued to an
+individual:
 
-Yes. They solve different distribution paths and are not mutually exclusive:
+- SignPath verifies the project and the public repository.
+- SignPath verifies that the signed artifact came from a trusted CI build.
+- Windows shows **SignPath Foundation** as the publisher, not the maintainer's
+  name.
+- Every production signing request requires manual approval.
 
-- **SignPath Foundation** signs the standalone Inno Setup `.exe` published on
-  GitHub Releases. The publisher shown is **SignPath Foundation**, because the
-  foundation owns the certificate and vouches that the binary was built from
-  this public repository. It is not issued in the maintainer's personal name.
-- **Microsoft Store** distributes an MSIX package. Microsoft re-signs the
-  package with its Store identity, and Store installations do not get a
-  SmartScreen warning. The publisher shown is the Partner Center publisher
-  identity, not the SignPath certificate.
+That last point is a feature, not a bug: a compromised GitHub token alone cannot
+produce a signed release.
 
-Using both is normal for a project that offers a direct installer and a Store
-package. The important rule is to keep the two channels separate:
+## Eligibility
 
-| Channel | Artifact | Signing | Updates |
-|---|---|---|---|
-| GitHub Releases | Inno Setup `.exe` | SignPath Foundation (or another Authenticode cert) | In-app updater downloads the next `.exe` |
-| Microsoft Store | MSIX | Microsoft re-signs after certification | Store updates |
+The official conditions are at <https://signpath.org/terms.html>. For this
+repository, the relevant requirements are:
 
-Do not install the Inno build and the Store/MSIX build side by side on the same
-machine unless they use different package identities and you have tested
-uninstall/upgrade behavior. They have separate update mechanisms and separate
-uninstall entries.
+- **OSI-approved license without commercial dual-licensing.** This project is
+  GPL-3.0-or-later.
+- **No malware or potentially unwanted programs.** The application removes
+  metadata locally; it has no telemetry, uploads, credential collection or
+  security-circumvention features.
+- **No proprietary components.** All project source and build scripts are
+  public. Bundled third-party runtimes keep their own OSS licenses.
+- **Maintained and released.** The repository has tagged releases and a public
+  build workflow.
+- **Documented.** The README describes the product, supported platforms and
+  download location.
+- **Verifiable builds.** GitHub Actions builds the payload and installer from
+  the tagged source tree. Prebuilt binaries are not uploaded by hand.
+- **MFA and signing roles.** The maintainer must enable MFA on GitHub and
+  SignPath, and the project must name authors, reviewers and approvers.
+- **Code signing policy on the project home page.** The exact phrase and the
+  required role/privacy information are in the repository README and in
+  [`CODE_SIGNING_POLICY.md`](../CODE_SIGNING_POLICY.md).
+- **Privacy policy.** See [`PRIVACY.md`](../PRIVACY.md). The application does
+  not upload files; the optional update check contacts GitHub only.
 
-Maintaining both installers is more work: two packaging jobs, two smoke tests,
-two release artifacts and two sets of upgrade tests. Keep one shared source
-tree and version number, and build both artifacts from the same tag.
+### Fork-specific risk
 
-## Should I also register with OSSign?
+SignPath's terms allow a modified upstream project only when the fork is
+visibly based on upstream, the release branches follow upstream, and the
+project satisfies the review and approval rules. This repository is an
+unofficial Windows port built from the upstream source tree plus documented
+patches. The application should describe that relationship plainly and let
+SignPath decide eligibility; approval is not guaranteed.
 
-Not while SignPath is viable. OSSign is another free-for-OSS program, but:
+## Application process
 
-- its application queue was suspended at the time of writing;
-- it uses a different signing identity, so SmartScreen reputation does not
-  carry over from SignPath;
-- maintaining two certificates and two publisher identities fragments trust and
-  adds release complexity.
+### 1. Prepare the repository
 
-Use OSSign only as a fallback if SignPath rejects the project. Do not collect
-free certificates from multiple providers “just in case”: pick one signing
-identity per distribution channel and stay consistent.
+Before applying, make sure the public repository contains:
 
-## Why not my name as publisher?
+- `LICENSE` at the root and SPDX headers on source files;
+- a README that explains what the application does and where releases are
+  downloaded;
+- a `Code signing policy` section with the exact SignPath phrase, team roles
+  and a privacy-policy link;
+- public GitHub Actions workflows that build the release artifacts;
+- at least one downloadable release in the form that should be signed;
+- MFA enabled on the maintainer's GitHub account.
 
-A code-signing certificate identifies the entity that the CA (or foundation)
-verified and that is legally responsible for the signature. SignPath Foundation
-is the certificate holder for its OSS program; it verifies the repository and
-the CI build, not the individual maintainer's identity. That is why the
-signature says **SignPath Foundation** rather than your name.
+The repository already contains these items. The signing policy and privacy
+policy are versioned with the source so reviewers can inspect them.
 
-If having your own name as publisher matters, use a certificate issued to you
-or your legal entity:
+### 2. Submit the application
 
-- **Certum Open Source Code Signing** — “Open Source Developer” plus your name;
-- **Azure Artifact Signing** — your verified individual or organization;
-- an OV/EV certificate from DigiCert, Sectigo, GlobalSign or SSL.com.
+Open <https://signpath.org/apply.html> and complete the form. The form is an
+embedded HubSpot form; the exact labels can change, but it asks for the
+following information:
 
-## Free options, ranked
+| Field | What to provide for this project |
+|---|---|
+| Project name | `Metadata Cleaner for Windows` |
+| Repository URL | `https://github.com/rvisas/metadatacleaner-windows` |
+| Project website/download page | The GitHub Releases page |
+| License | `GPL-3.0-or-later` (OSI-approved) |
+| Project description | Unofficial Windows port of Metadata Cleaner; GTK4/PyGObject; built with MSYS2 UCRT64 and GitHub Actions; one Inno Setup installer for Windows 10/11 x64 |
+| Maintainer contact | An address you monitor; SignPath may ask follow-up questions |
+| Code signing policy URL | `https://github.com/rvisas/metadatacleaner-windows/blob/main/CODE_SIGNING_POLICY.md` |
+| Privacy policy URL | `https://github.com/rvisas/metadatacleaner-windows/blob/main/PRIVACY.md` |
+| Build system | GitHub Actions, public workflow `.github/workflows/release.yml` |
+| Artifacts to sign | `MetadataCleaner.exe`, the Inno Setup installer and the uninstaller |
 
-For this project, from best to least useful:
+Keep the description factual. Do not claim that the project is affiliated with
+the upstream maintainers; it is an unofficial port.
 
-1. **SignPath Foundation** — free Authenticode signing for the Inno Setup
-   `.exe`; the publisher is the foundation, and SmartScreen reputation builds
-   across releases.
-2. **Microsoft Store MSIX** — free developer account and Store re-signing; the
-   only free route that avoids SmartScreen warnings, but it requires a separate
-   MSIX package and Store distribution.
-3. **OSSign** — free for qualifying OSS, but its application queue was suspended
-   at the time of writing; a fallback, not a concurrent second identity.
-4. **Sigstore** — free and useful for provenance/Linux/container artifacts, but
-   it is not a Windows SmartScreen/Authenticode trust path.
-5. **Self-signed certificate** — free, but not trusted by other machines; only
-   for development or enterprise-managed deployments.
+### 3. Review and approval
 
-There is no free option that shows the individual maintainer's name as the
-publisher. SignPath Foundation shows the foundation; if your name matters, use
-Certum Open Source, Azure Artifact Signing or an OV/EV certificate.
+SignPath reviews the repository, the release process, the signing policy and
+the project's public reputation. Reviewers may ask for clarification by email.
 
-## Recommendation for this repository
+**There is no published approval SLA.** Public reports from OSS maintainers
+range from roughly one week to more than a month; some applications are
+declined or asked to reapply after gaining more public traction. Plan the
+release schedule so signing is not on the critical path, and do not promise
+users a signed build on a specific date.
 
-1. Apply to **SignPath Foundation** for the Inno Setup installer.
-2. Create a **Microsoft Store individual developer account** and evaluate an
-   MSIX package separately; do not replace the working `.exe` yet.
-3. Skip OSSign while SignPath is active.
-4. If SignPath rejects the project, choose **Certum Open Source** or **Azure
-   Artifact Signing** and keep that identity for all future `.exe` releases.
+Approval is discretionary. SignPath Foundation is not a certificate authority
+and does not issue certificates in the maintainer's name; it accepts projects
+that it is willing to vouch for.
 
-## What SignPath signs
+### 4. Onboarding after approval
+
+After approval, SignPath provides access to an organization and project. The
+maintainer then configures:
+
+1. **GitHub integration** — install the SignPath GitHub App for the public
+   repository.
+2. **Trusted build system** — GitHub Actions, the repository and the release
+   tag/workflow pattern (for example `refs/tags/v*-windows`).
+3. **Artifact configuration** — the files to sign, with product-name and
+   product-version metadata restrictions. The launcher, installer and
+   uninstaller must carry consistent product metadata.
+4. **Signing policy** — a production policy such as `release-signing`, with
+   manual approval required for every release.
+5. **Roles** — authors, reviewers and approvers. This repository currently has
+   one maintainer, so the same person holds the roles; the policy still records
+   them explicitly.
+6. **API credentials** — create a SignPath API token and store it as the
+   GitHub Actions secret `SIGNPATH_API_TOKEN`; store the organization ID as a
+   repository variable. Never commit either value.
+
+The exact slugs and action version are shown in the SignPath project's CI
+integration page. They are project-specific and must not be guessed.
+
+## Release flow
+
+The signing step is intentionally separated from the build step:
+
+1. A tag `v<version>-windows` starts the release workflow.
+2. The workflow builds the payload and installer on a GitHub-hosted runner.
+3. It verifies the installer and uploads the unsigned artifacts.
+4. A signing job submits the artifacts to SignPath with the trusted-build
+   origin information.
+5. The approver reviews the origin, test results and version, then approves the
+   request in SignPath.
+6. The signed artifacts are downloaded, checked with `signtool verify /pa`, and
+   attached to the GitHub Release together with the SHA-256 sidecars.
+
+The SignPath action's default wait for approval is too short for a human
+reviewer. The workflow must allow a realistic timeout (for example one hour)
+and keep the unsigned build artifact available so a missed approval can be
+retried without rebuilding.
+
+Every production release requires a fresh approval. A previous approval does
+not authorize later binaries.
+
+## What gets signed
 
 | Artifact | Why |
 |---|---|
 | `MetadataCleaner.exe` | Native launcher the user runs |
 | `MetadataCleaner-<version>-windows-x64-setup.exe` | Installer downloaded from Releases |
-| `unins000.exe` | Uninstaller; Inno Setup can sign it with `SignedUninstaller=yes` |
+| `unins000.exe` | Uninstaller; Inno Setup signs it with `SignedUninstaller=yes` |
 
-Bundled dependencies (GTK, Python, exiftool, ffmpeg) keep their own signatures
-and licenses. SignPath signs the project's own artifacts.
+Bundled dependencies (GTK, Python, exiftool, ffmpeg and their DLLs) keep their
+own signatures and licenses. SignPath signs this project's own artifacts, not
+upstream binaries.
 
-## SignPath application checklist
+## Code signing policy
 
-- Public repository: <https://github.com/rvisas/metadatacleaner-windows>
-- OSI-approved license: GPL-3.0-or-later
-- Reproducible CI build with a documented process
-- Releases produced by the project, not uploaded prebuilt binaries
-- No malware, telemetry or license circumvention
+The public policy is in [`CODE_SIGNING_POLICY.md`](../CODE_SIGNING_POLICY.md).
+It contains the exact statement required by SignPath:
 
-The project description can say:
+> Free code signing provided by SignPath.io, certificate by SignPath Foundation.
 
-> `metadatacleaner-windows` is an unofficial, GPL-3.0-or-later Windows port of
-> the Metadata Cleaner GTK application. It is built from the upstream source
-> tree plus a small set of documented Windows patches, using MSYS2 UCRT64,
-> GTK4/libadwaita and PyGObject. It publishes one Inno Setup installer and
-> wants to sign its launcher, installer and uninstaller so users can verify the
-> publisher. The repository is public and contains full build instructions;
-> release artifacts are generated from tagged commits.
+It also names the project roles, links the privacy policy and states which
+artifacts are covered.
 
-## CI integration after approval
+## If SignPath declines
 
-1. Build the payload and compile the installer in GitHub Actions.
-2. Submit the unsigned installer, launcher and uninstaller to SignPath.
-3. Download the signed artifacts and attach them to the GitHub Release.
-4. Store the SignPath API token as a repository secret; never commit it.
-5. Uncomment `SignTool` and `SignedUninstaller` in
-   `installer/metadatacleaner.iss` only after the signing command exists.
+Do not collect multiple free signing identities concurrently. Use one of these
+fallbacks:
 
-The exact action name and parameters come with the SignPath project
-configuration.
+1. **OSSign** — free for qualifying OSS when its application queue is open;
+   it uses a different signing identity and reputation.
+2. **Certum Open Source Code Signing** — paid, but issued in the maintainer's
+   name as "Open Source Developer".
+3. **Azure Artifact Signing** (formerly Trusted Signing) — paid subscription;
+   availability depends on the maintainer's country.
+4. **OV/EV certificate** — paid; standard commercial route, with reputation
+   building rather than an instant SmartScreen bypass.
 
-## Linux and the rest of the free-software world
+Sigstore/cosign is useful for provenance and Linux/container artifacts, but it
+is not an Authenticode trust path for a Windows `.exe`. A self-signed
+certificate is for development or enterprise-managed deployment only.
 
-Linux distributions do not use Authenticode or SmartScreen. They sign at the
-package/repository layer:
+## Verification
 
-- **Debian/Ubuntu**: maintainers sign `.changes`/`.dsc` uploads; archive and
-  repository metadata are signed with GPG. Users trust the distro keyring.
-- **Fedora/openSUSE**: packages are signed by the distribution build system;
-  repository metadata is signed.
-- **Flatpak**: OSTree commits and repository metadata are GPG-signed; Flathub
-  manages its own signing infrastructure.
-- **Snap**: the Snap Store signs revisions; developers publish through the
-  store.
-- **AppImage**: developers commonly sign with GPG and publish a detached
-  signature or checksum; there is no OS-level trust prompt equivalent to
-  SmartScreen.
-- **Sigstore** is increasingly used for release provenance and keyless signing
-  in CI, especially for container images and language packages.
+After signing, verify the downloaded installer on Windows:
 
-None of those mechanisms make a Windows `.exe` trusted. Windows requires an
-Authenticode signature from a certificate chaining to the Microsoft Trusted
-Root Program, or distribution through the Microsoft Store.
+```powershell
+signtool verify /pa /v .\MetadataCleaner-<version>-windows-x64-setup.exe
+Get-AuthenticodeSignature .\MetadataCleaner-<version>-windows-x64-setup.exe |
+  Format-List Status, StatusMessage, SignerCertificate
+```
+
+The expected signer is **SignPath Foundation**. A valid signature does not
+replace the SHA-256 check: verify both.
 
 ## Current status
 
@@ -194,5 +237,5 @@ Root Program, or distribution through the Microsoft Store.
 - SHA-256 sidecars and `SHA256SUMS.txt` are published for manual verification.
 - The application verifies the SHA-256 of downloaded updates before running
   them.
-- Do not describe the installer as signed until a signature is visible in the
-  file properties and `signtool verify /pa` succeeds.
+- Do not describe the installer as signed until the file properties show a
+  valid Authenticode signature and `signtool verify /pa` succeeds.

@@ -42,10 +42,11 @@ AppUserModelID so taskbar pins resolve to the application rather than to
 ## Cleaning flow
 
 1. The user adds files or folders through the file chooser or drag and drop.
-2. `filestore.py` enumerates directories with
+2. `filestore.py` walks directories iteratively with
    `standard::name,standard::type`; this is required for GIO to report a type
    for each child. Unsupported files are ignored.
-3. Each `File` asks mat2 for metadata and displays the result before cleaning.
+3. Each file row is added to the model immediately; a shared worker pool asks
+   mat2 for metadata and updates the row when the inspection finishes.
 4. Cleaning uses mat2's thorough mode by default. The lightweight switch passes
    `lightweight_cleaning=True` to mat2 for the explicit lightweight path.
 5. The UI updates each row from the worker result on the GTK main loop.

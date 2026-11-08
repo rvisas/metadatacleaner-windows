@@ -7,6 +7,38 @@ four-part upstream-plus-port scheme described in
 
 ## [Unreleased]
 
+## [4.0.1.6] - 2026-11-08
+
+Sixth Windows port revision, based on upstream 4.0.1.
+
+### Changed
+
+- Folder and file imports now stream discoveries into the file list instead of
+  collecting the entire tree before showing the first row.
+- Replaced the per-directory recursive thread pools with one iterative walker
+  and a shared, bounded add pool.
+- Duplicate detection uses an indexed path set instead of scanning the whole
+  `Gio.ListStore` for every file.
+- Progress events are coalesced so a large import does not flood the GTK main
+  loop.
+- Added an automated Markdown link/anchor checker and a documentation test.
+- Documentation, README, release notes and issue templates are English-only;
+  the application UI remains English/Spanish.
+
+### Added
+
+- `CODE_SIGNING_POLICY.md` and `PRIVACY.md` for the SignPath Foundation
+  application and the project's public signing/privacy commitments.
+- A `Code signing policy` section on the project home page with the required
+  SignPath statement, roles and links.
+
+### Fixed
+
+- File rows are now appended before metadata parsing, so the UI remains
+  responsive while mat2 inspects a batch.
+- Removed stale website/font licensing text and a broken Open Font License link
+  from `LICENSE.md`.
+
 ## [4.0.1.5] - 2026-11-07
 
 Fifth Windows port revision, based on upstream 4.0.1.

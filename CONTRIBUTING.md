@@ -15,8 +15,10 @@ before changing code.
 The application and installer ship **English and Spanish only**. English is the
 source language; Spanish lives in `po/es.po`. **Metadata Cleaner is a proper
 noun and must never be translated.** Do not add another catalog unless the
-installer language list is intentionally changed too. Do not add Linux desktop,
-Flatpak, Flathub, AppStream or D-Bus files; the Windows build does not use them.
+installer language list is intentionally changed too. All project
+documentation — README, `docs/`, release notes and issue templates — is
+English. Do not add Linux desktop, Flatpak, Flathub, AppStream or D-Bus files;
+the Windows build does not use them.
 
 ## Code
 
@@ -76,6 +78,6 @@ Describe user-visible changes and tests in the body when useful.
 
 ## Versioning
 
-Port-only fixes increment the last component (`4.0.1.4` → `4.0.1.5`). Never
+Port-only fixes increment the last component (`4.0.1.5` → `4.0.1.6`). Never
 invent a new upstream component for a port change. See
 [`docs/versioning.md`](docs/versioning.md).

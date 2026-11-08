@@ -41,10 +41,10 @@
 </p>
 
 > [!WARNING]
-> The current installer is unsigned while a code-signing provider is being
-> arranged, so Windows SmartScreen may warn on first launch. Verify the SHA-256
-> checksum before running it; see [`docs/code-signing.md`](docs/code-signing.md)
-> for the available signing paths.
+> The current installer is unsigned while the SignPath Foundation application
+> is being prepared, so Windows SmartScreen may warn on first launch. Verify
+> the SHA-256 checksum before running it; see
+> [`docs/code-signing.md`](docs/code-signing.md) for the signing process.
 
 ## At a glance
 
@@ -102,7 +102,7 @@ product.
 3. Verify the installer in PowerShell before running it:
 
    ```powershell
-   $version = "4.0.1.5"
+   $version = "4.0.1.6"
    $asset = "MetadataCleaner-$version-windows-x64-setup.exe"
    Get-FileHash ".\$asset" -Algorithm SHA256
    Get-Content ".\${asset}.sha256"
@@ -194,6 +194,24 @@ The patches live in [`patches/`](patches) and the exact changes are documented
 in [`docs/upstream.md`](docs/upstream.md). The installer layout and launcher build are
 described in [`installer/README.md`](installer/README.md).
 
+## Code signing policy
+
+**Free code signing provided by [SignPath.io](https://about.signpath.io),
+certificate by [SignPath Foundation](https://signpath.org).**
+
+The Windows launcher, the Inno Setup installer and the generated uninstaller
+are the artifacts submitted for signing. Every production signing request
+requires manual approval after the GitHub Actions build and origin check.
+
+- **Authors / committers:** [@rvisas](https://github.com/rvisas)
+- **Reviewers:** [@rvisas](https://github.com/rvisas)
+- **Approvers:** [@rvisas](https://github.com/rvisas)
+
+The full policy is in [`CODE_SIGNING_POLICY.md`](CODE_SIGNING_POLICY.md).
+Privacy practices, including the optional GitHub update check, are documented
+in [`PRIVACY.md`](PRIVACY.md). The signing process and current status are in
+[`docs/code-signing.md`](docs/code-signing.md).
+
 ## Versioning
 
 The version is derived from the upstream release, not chosen independently:
@@ -204,7 +222,7 @@ MAJOR.MINOR.PATCH.PORT
 ```
 
 `4.0.1` is the upstream base; `.1` is the Windows port revision. Port-only
-fixes increment the fourth component (`4.0.1.5` → `4.0.1.6`). When upstream publishes a new
+fixes increment the fourth component (`4.0.1.6` → `4.0.1.7`). When upstream publishes a new
 release, the base changes and the port revision restarts at `.1`
 (`4.0.2.1`). The port never publishes `4.0.2` unless upstream has published
 4.0.2.
@@ -225,7 +243,7 @@ list, environment variables and troubleshooting notes are in
 git clone https://github.com/rvisas/metadatacleaner-windows.git
 cd metadatacleaner-windows
 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" bash scripts/build-windows.sh
-iscc /DAppVersion=4.0.1.5 \
+iscc /DAppVersion=4.0.1.6 \
   /DPayloadDir="$TMPDIR/metadata-cleaner-build\payload" \
   /DOutputDir="$TMPDIR/metadata-cleaner-build\installer" \
   installer\metadatacleaner.iss
@@ -253,7 +271,7 @@ against that exact payload, and only then compiles and publishes the installer.
 - [Architecture](docs/architecture.md): runtime layers and module map.
 - [Versioning](docs/versioning.md): upstream base plus port revision.
 - [Upstream tracking](docs/upstream.md): how new upstream releases are applied.
-- [Code signing](docs/code-signing.md): SignPath, Azure, Certum, Store and CAs.
+- [Code signing](docs/code-signing.md): SignPath Foundation application, release signing and fallback options.
 - [Agent instructions](AGENTS.md): repository rules for AI-assisted changes.
 
 ## Contributing

@@ -33,7 +33,24 @@ class FolderImportTests(unittest.TestCase):
 
     def test_empty_folder_does_not_leave_the_store_working(self) -> None:
         source = FILESTORE.read_text(encoding="utf-8")
-        self.assertIn("if not all_gfiles:\n            self._stop_adding_gfiles()", source)
+        self.assertIn("if not futures:\n                return", source)
+        self.assertIn("finally:\n            self._stop_adding_gfiles()", source)
+
+    def test_folder_walk_is_iterative_and_not_nested(self) -> None:
+        source = FILESTORE.read_text(encoding="utf-8")
+        # A new pool per directory was the old behavior: it creates one thread
+        # per directory and defeats the shared add pool.
+        self.assertNotIn("with ThreadPoolExecutor() as executor", source)
+        self.assertIn("def _iter_gfiles_from_dir", source)
+        self.assertIn("pending = [dir]", source)
+
+    def test_known_paths_index_replaces_linear_duplicate_scan(self) -> None:
+        source = FILESTORE.read_text(encoding="utf-8")
+        self.assertIn("self._known_paths", source)
+        self.assertNotIn(
+            "bool(list(filter(lambda x: x.path == gfile.get_path(), self)))",
+            source,
+        )
 
 
 if __name__ == "__main__":

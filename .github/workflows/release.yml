@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Version without the v prefix (for example 4.0.1.5)"
+        description: "Version without the v prefix (for example 4.0.1.6)"
         required: true
-        default: "4.0.1.5"
+        default: "4.0.1.6"
 
 permissions:
   contents: write
@@ -140,9 +140,10 @@ jobs:
           body: |
             Unofficial Windows port of Metadata Cleaner ${{ steps.version.outputs.version }}.
 
-            This build is **unsigned** while a code-signing provider is being
-            arranged, so Windows SmartScreen may warn on first launch. See the
-            repository's code-signing documentation for the current status.
+            This build is **unsigned** while the SignPath Foundation application
+            is being prepared, so Windows SmartScreen may warn on first launch.
+            See the [Code signing policy](https://github.com/rvisas/metadatacleaner-windows/blob/main/CODE_SIGNING_POLICY.md)
+            and the [privacy policy](https://github.com/rvisas/metadatacleaner-windows/blob/main/PRIVACY.md).
 
             Verify the download before running it:
 
