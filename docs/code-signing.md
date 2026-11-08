@@ -94,6 +94,27 @@ or your legal entity:
 - **Azure Artifact Signing** — your verified individual or organization;
 - an OV/EV certificate from DigiCert, Sectigo, GlobalSign or SSL.com.
 
+## Free options, ranked
+
+For this project, from best to least useful:
+
+1. **SignPath Foundation** — free Authenticode signing for the Inno Setup
+   `.exe`; the publisher is the foundation, and SmartScreen reputation builds
+   across releases.
+2. **Microsoft Store MSIX** — free developer account and Store re-signing; the
+   only free route that avoids SmartScreen warnings, but it requires a separate
+   MSIX package and Store distribution.
+3. **OSSign** — free for qualifying OSS, but its application queue was suspended
+   at the time of writing; a fallback, not a concurrent second identity.
+4. **Sigstore** — free and useful for provenance/Linux/container artifacts, but
+   it is not a Windows SmartScreen/Authenticode trust path.
+5. **Self-signed certificate** — free, but not trusted by other machines; only
+   for development or enterprise-managed deployments.
+
+There is no free option that shows the individual maintainer's name as the
+publisher. SignPath Foundation shows the foundation; if your name matters, use
+Certum Open Source, Azure Artifact Signing or an OV/EV certificate.
+
 ## Recommendation for this repository
 
 1. Apply to **SignPath Foundation** for the Inno Setup installer.
