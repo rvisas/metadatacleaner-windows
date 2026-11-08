@@ -200,7 +200,7 @@ described in [`installer/README.md`](installer/README.md).
 certificate by [SignPath Foundation](https://signpath.org).**
 
 The Windows launcher, the Inno Setup installer and the generated uninstaller
-are the artifacts submitted for signing. Every production signing request
+are the artifacts covered by this policy. Every production signing request
 requires manual approval after the GitHub Actions build and origin check.
 
 - **Authors / committers:** [@rvisas](https://github.com/rvisas)
