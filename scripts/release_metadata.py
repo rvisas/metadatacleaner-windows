@@ -32,7 +32,7 @@ def checksum_filename(installer_name: str) -> str:
 
 
 def release_tag(version: str) -> str:
-    """Return the Windows tag, e.g. v4.0.1.4-windows."""
+    """Return the Windows tag, e.g. v4.0.1.5-windows."""
     return f"v{_validate_version(version)}-windows"
 
 

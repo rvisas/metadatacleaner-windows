@@ -14,7 +14,7 @@ MAJOR.MINOR.PATCH.PORT
 ```
 
 `4.0.1` is the upstream base. The final `.3` is the Windows port revision. The
-current release is **4.0.1.4**.
+current release is **4.0.1.5**.
 
 The source of truth is [`version.json`](../version.json):
 
@@ -29,7 +29,7 @@ The source of truth is [`version.json`](../version.json):
 Meson, Inno Setup and build-script inputs agree:
 
 ```bash
-python scripts/versioning.py current       # 4.0.1.4
+python scripts/versioning.py current       # 4.0.1.5
 python scripts/versioning.py check         # fails if the files drift
 python scripts/versioning.py next-upstream 4.1.0   # 4.1.0.1
 ```
@@ -69,7 +69,7 @@ state.
 
 | Change | Example | Next version |
 |---|---|---|
-| Port-only fix or packaging change | Folder import fix on upstream 4.0.1 | `4.0.1.4` |
+| Port-only fix or packaging change | Folder import fix on upstream 4.0.1 | `4.0.1.5` |
 | New upstream release with port changes | Upstream releases 4.0.2 | `4.0.2.1` |
 | Upstream release with no port change yet | Upstream releases 4.0.2 | Rebase first; release `4.0.2.1` when the port is ready |
 | Documentation-only change | README or AGENTS.md | No release required |
@@ -86,9 +86,9 @@ state.
 ## Tags and assets
 
 ```text
-Tag:      v4.0.1.4-windows
-Installer: MetadataCleaner-4.0.1.4-windows-x64-setup.exe
-Sidecar:   MetadataCleaner-4.0.1.4-windows-x64-setup.exe.sha256
+Tag:      v4.0.1.5-windows
+Installer: MetadataCleaner-4.0.1.5-windows-x64-setup.exe
+Sidecar:   MetadataCleaner-4.0.1.5-windows-x64-setup.exe.sha256
 ```
 
 The `-windows` suffix identifies the port and never changes. Only the version
@@ -98,7 +98,8 @@ number changes.
 
 | Date | Upstream tag | Upstream version | Port version | Notes |
 |---|---|---|---|---|
-| 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.4 | About links and Spanish libadwaita catalogs |
+| 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.5 | Custom About title and localized links |
+| 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.4 | Spanish libadwaita catalogs and About links |
 | 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.3 | Installer cleanup for stale Linux directories |
 | 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.2 | Product name and Windows-only payload |
 | 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.1 | Initial public port revision |
@@ -122,8 +123,8 @@ curl -sL https://gitlab.com/api/v4/projects/metadatacleaner%2Fmetadatacleaner/re
    installer with checksums.
 
 The updater compares four-component tuples, so `4.0.1.1` is newer than
-`4.0.1.0`, `4.0.1.2` is newer than `4.0.1.1`, and `4.0.1.4` is newer than
-`4.0.1.3`.
+`4.0.1.0`, `4.0.1.2` is newer than `4.0.1.1`, and `4.0.1.5` is newer than
+`4.0.1.4`.
 
 ## Why not SemVer build metadata?
 

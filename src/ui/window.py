@@ -138,16 +138,26 @@ class Window(Adw.ApplicationWindow):
     def _present_about(self) -> None:
         app = self.get_application()
         about = Adw.AboutDialog.new()
+        about.set_title(_("About Metadata Cleaner"))
         about.set_application_icon("io.gitlab.metadatacleaner.metadatacleaner")
         about.set_application_name(app.name)
         about.set_version(app.version)
         about.set_license_type(Gtk.License.GPL_3_0)
         about.set_developer_name("Metadata Cleaner contributors")
-        about.set_website(
-            "https://github.com/rvisas/metadatacleaner-windows"
+        about.add_link(
+            # translators: about dialog link to the project's website
+            _("Website"),
+            "https://github.com/rvisas/metadatacleaner-windows",
         )
-        about.set_issue_url(
-            "https://github.com/rvisas/metadatacleaner-windows/issues"
+        about.add_link(
+            # translators: about dialog link to the issue tracker
+            _("Report an Issue"),
+            "https://github.com/rvisas/metadatacleaner-windows/issues",
+        )
+        about.add_link(
+            # translators: about dialog link to support
+            _("Support"),
+            "https://github.com/rvisas/metadatacleaner-windows/issues",
         )
         about.add_link(
             # translators: about dialog link to the port's documentation
@@ -158,9 +168,6 @@ class Window(Adw.ApplicationWindow):
             # translators: about dialog link to the upstream project
             _("Upstream project"),
             "https://gitlab.com/metadatacleaner/metadatacleaner/",
-        )
-        about.set_support_url(
-            "https://github.com/rvisas/metadatacleaner-windows/issues"
         )
         about.set_debug_info(
             (

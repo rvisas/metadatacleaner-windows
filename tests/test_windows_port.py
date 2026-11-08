@@ -100,13 +100,15 @@ class WindowsPortGuardTests(unittest.TestCase):
         window = (ROOT / "src" / "ui" / "window.py").read_text(
             encoding="utf-8"
         )
+        self.assertIn('about.set_title(_("About Metadata Cleaner"))', window)
+        self.assertIn('_("Website")', window)
+        self.assertIn('_("Report an Issue")', window)
+        self.assertIn('_("Support")', window)
         self.assertIn(
-            'about.set_website(\n            "https://github.com/rvisas/metadatacleaner-windows"',
-            window,
+            '"https://github.com/rvisas/metadatacleaner-windows"', window
         )
         self.assertIn(
-            'about.set_issue_url(\n            "https://github.com/rvisas/metadatacleaner-windows/issues"',
-            window,
+            '"https://github.com/rvisas/metadatacleaner-windows/issues"', window
         )
         self.assertIn(
             '"https://gitlab.com/metadatacleaner/metadatacleaner/"', window

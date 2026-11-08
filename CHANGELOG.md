@@ -7,18 +7,26 @@ four-part upstream-plus-port scheme described in
 
 ## [Unreleased]
 
+## [4.0.1.5] - 2026-11-07
+
+Fifth Windows port revision, based on upstream 4.0.1.
+
+### Fixed
+
+- The About dialog uses an explicit Spanish title and app-localized link
+  labels (Website, Report an Issue, Support, Documentation, Upstream project)
+  instead of relying on incomplete libadwaita translations.
+- No built-in English Website/Report an Issue rows are shown; all project
+  links point to this port, with a separate upstream-project link.
+
 ## [4.0.1.4] - 2026-11-07
 
 Fourth Windows port revision, based on upstream 4.0.1.
 
 ### Fixed
 
-- The About dialog and its native GTK/libadwaita labels stay in Spanish; the
-  runtime now keeps the Spanish catalogs instead of pruning all runtime
-  locales. The menu entry uses **Metadata Cleaner** untranslated.
-- About links point to this port: website and issue tracker to GitHub, an
-  explicit upstream-project link, and documentation to the repository. The
-  Weblate and Matrix links that only applied upstream were removed.
+- The About dialog and native GTK/libadwaita labels stay in Spanish; the
+  runtime keeps the Spanish catalogs instead of pruning all runtime locales.
 
 ### Changed
 

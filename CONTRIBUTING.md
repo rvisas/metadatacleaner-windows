@@ -76,6 +76,6 @@ Describe user-visible changes and tests in the body when useful.
 
 ## Versioning
 
-Port-only fixes increment the last component (`4.0.1.3` → `4.0.1.4`). Never
+Port-only fixes increment the last component (`4.0.1.4` → `4.0.1.5`). Never
 invent a new upstream component for a port change. See
 [`docs/versioning.md`](docs/versioning.md).

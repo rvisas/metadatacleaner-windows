@@ -6,11 +6,11 @@ contain installers or build output. Versioning is defined in
 
 ## Naming
 
-| Thing | Value for 4.0.1.4 |
+| Thing | Value for 4.0.1.5 |
 |---|---|
-| Tag | `v4.0.1.4-windows` |
-| Installer | `MetadataCleaner-4.0.1.4-windows-x64-setup.exe` |
-| Checksum sidecar | `MetadataCleaner-4.0.1.4-windows-x64-setup.exe.sha256` |
+| Tag | `v4.0.1.5-windows` |
+| Installer | `MetadataCleaner-4.0.1.5-windows-x64-setup.exe` |
+| Checksum sidecar | `MetadataCleaner-4.0.1.5-windows-x64-setup.exe.sha256` |
 | Combined checksum | `SHA256SUMS.txt` |
 
 `windows-x64` follows the convention used by OBS Studio
@@ -26,14 +26,14 @@ for before anyone downloads it.
 pushed, and can also be started manually with a version:
 
 ```bash
-git tag -a v4.0.1.4-windows -m "Metadata Cleaner 4.0.1.4 for Windows"
-git push origin v4.0.1.4-windows
+git tag -a v4.0.1.5-windows -m "Metadata Cleaner 4.0.1.5 for Windows"
+git push origin v4.0.1.5-windows
 ```
 
 Or:
 
 ```bash
-gh workflow run Release -f version=4.0.1.4
+gh workflow run Release -f version=4.0.1.5
 ```
 
 The job:
@@ -54,9 +54,9 @@ installer is signed, change `prerelease: true` to `false` and release as stable.
 If the workflow is unavailable, build the payload in an MSYS2 UCRT64 shell:
 
 ```bash
-VERSION=4.0.1.4 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" \
+VERSION=4.0.1.5 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" \
   bash ./scripts/build-windows.sh
-iscc /DAppVersion=4.0.1.4 \
+iscc /DAppVersion=4.0.1.5 \
   /DPayloadDir="$TMPDIR/metadata-cleaner-build\\payload" \
   /DOutputDir="$TMPDIR/metadata-cleaner-build\\installer" \
   installer/metadatacleaner.iss
@@ -69,9 +69,9 @@ $build = Join-Path $env:TEMP "metadata-cleaner-build"
 $asset = Get-ChildItem (Join-Path $build "installer\*.exe") | Select-Object -First 1
 $hash = (Get-FileHash $asset.FullName -Algorithm SHA256).Hash.ToLower()
 "$hash  $($asset.Name)" | Set-Content "$($asset.FullName).sha256" -Encoding ascii
-gh release create v4.0.1.4-windows `
+gh release create v4.0.1.5-windows `
   $asset.FullName "$($asset.FullName).sha256" `
-  --title "v4.0.1.4-windows" `
+  --title "v4.0.1.5-windows" `
   --prerelease --generate-notes
 ```
 
@@ -80,15 +80,15 @@ gh release create v4.0.1.4-windows `
 Windows PowerShell:
 
 ```powershell
-Get-FileHash .\MetadataCleaner-4.0.1.4-windows-x64-setup.exe -Algorithm SHA256
-Get-Content .\MetadataCleaner-4.0.1.4-windows-x64-setup.exe.sha256
+Get-FileHash .\MetadataCleaner-4.0.1.5-windows-x64-setup.exe -Algorithm SHA256
+Get-Content .\MetadataCleaner-4.0.1.5-windows-x64-setup.exe.sha256
 ```
 
 The two hashes must match. On Linux or macOS, after downloading the asset and
 the sidecar into the same directory:
 
 ```bash
-sha256sum -c MetadataCleaner-4.0.1.4-windows-x64-setup.exe.sha256
+sha256sum -c MetadataCleaner-4.0.1.5-windows-x64-setup.exe.sha256
 ```
 
 `SHA256SUMS.txt` contains the same line in `sha256sum` format.

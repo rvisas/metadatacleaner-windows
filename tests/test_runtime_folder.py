@@ -53,7 +53,14 @@ class FolderImportRuntimeTests(unittest.TestCase):
         sys.path.insert(1, str(package))
         from metadatacleaner.modules import updater
 
-        self.assertEqual(updater.parse_version("4.0.1.4"), (4, 0, 1, 4))
+        self.assertEqual(updater.parse_version("4.0.1.5"), (4, 0, 1, 5))
+
+    def test_runtime_keeps_spanish_widget_catalogs(self) -> None:
+        self.assertIsNotNone(PAYLOAD)
+        payload = Path(PAYLOAD)  # type: ignore[arg-type]
+        catalogs = payload / "runtime" / "share" / "locale" / "es" / "LC_MESSAGES"
+        self.assertTrue(catalogs.is_dir(), catalogs)
+        self.assertTrue(any(catalogs.glob("*.mo")), catalogs)
 
 
 if __name__ == "__main__":

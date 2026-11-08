@@ -126,6 +126,22 @@ msgstr "_Vaciar la lista de archivos"
 msgid "_Keyboard Shortcuts"
 msgstr "Atajos del _teclado"
 
+#. translators: about dialog title
+msgid "About Metadata Cleaner"
+msgstr "Acerca de Metadata Cleaner"
+
+#. translators: about dialog link to the project's website
+msgid "Website"
+msgstr "Sitio web"
+
+#. translators: about dialog link to the issue tracker
+msgid "Report an Issue"
+msgstr "Informar de un problema"
+
+#. translators: about dialog link to support
+msgid "Support"
+msgstr "Soporte"
+
 #. translators: about dialog link to the port's documentation
 msgid "Documentation"
 msgstr "Documentación"
