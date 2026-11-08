@@ -96,6 +96,24 @@ class WindowsPortGuardTests(unittest.TestCase):
         self.assertIn("GetPreviousVersion", script)
         self.assertIn("UpgradeWelcome", script)
 
+    def test_about_links_point_to_the_port_and_credit_upstream(self) -> None:
+        window = (ROOT / "src" / "ui" / "window.py").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn(
+            'about.set_website(\n            "https://github.com/rvisas/metadatacleaner-windows"',
+            window,
+        )
+        self.assertIn(
+            'about.set_issue_url(\n            "https://github.com/rvisas/metadatacleaner-windows/issues"',
+            window,
+        )
+        self.assertIn(
+            '"https://gitlab.com/metadatacleaner/metadatacleaner/"', window
+        )
+        self.assertNotIn("hosted.weblate.org", window)
+        self.assertNotIn("matrix.to", window)
+
     def test_installer_drops_removed_translations(self) -> None:
         script = (ROOT / "installer" / "metadatacleaner.iss").read_text(
             encoding="utf-8"
@@ -128,6 +146,7 @@ class WindowsPortGuardTests(unittest.TestCase):
         self.assertIn("BUILD_ROOT=", script)
         self.assertIn("${TMPDIR:-/tmp}", script)
         self.assertNotIn("$ROOT/dist", script)
+        self.assertIn("! -name 'es'", script)
         installer = (ROOT / "installer" / "metadatacleaner.iss").read_text(
             encoding="utf-8"
         )

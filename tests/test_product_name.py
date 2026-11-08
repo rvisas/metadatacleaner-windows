@@ -45,6 +45,14 @@ class ProductNameTests(unittest.TestCase):
             r'<property name="title" translatable="yes">Metadata Cleaner</property>',
         )
 
+    def test_about_menu_is_translated_with_the_untranslated_name(self) -> None:
+        catalog = CATALOG.read_text(encoding="utf-8")
+        self.assertIn(
+            'msgid "_About Metadata Cleaner"\n'
+            'msgstr "Acerca de _Metadata Cleaner"',
+            catalog,
+        )
+
     def test_installer_uses_the_name_in_spanish(self) -> None:
         installer = (ROOT / "installer" / "metadatacleaner.iss").read_text(
             encoding="utf-8"

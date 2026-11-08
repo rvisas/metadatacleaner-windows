@@ -7,6 +7,24 @@ four-part upstream-plus-port scheme described in
 
 ## [Unreleased]
 
+## [4.0.1.4] - 2026-11-07
+
+Fourth Windows port revision, based on upstream 4.0.1.
+
+### Fixed
+
+- The About dialog and its native GTK/libadwaita labels stay in Spanish; the
+  runtime now keeps the Spanish catalogs instead of pruning all runtime
+  locales. The menu entry uses **Metadata Cleaner** untranslated.
+- About links point to this port: website and issue tracker to GitHub, an
+  explicit upstream-project link, and documentation to the repository. The
+  Weblate and Matrix links that only applied upstream were removed.
+
+### Changed
+
+- Added `version.json` and `scripts/versioning.py` as the source/check for the
+  upstream-derived version.
+
 ## [4.0.1.3] - 2026-11-07
 
 Third Windows port revision, based on upstream 4.0.1.

@@ -5,12 +5,12 @@
 # Build the Windows payload from an MSYS2 UCRT64 shell. The workflow installs
 # the toolchain; this script only assumes the UCRT64 packages are present.
 #
-# Usage: VERSION=4.0.1.3 ./scripts/build-windows.sh
+# Usage: VERSION=4.0.1.4 ./scripts/build-windows.sh
 
 set -euo pipefail
 
 ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
-VERSION="${VERSION:-4.0.1.3}"
+VERSION="${VERSION:-4.0.1.4}"
 MINGW_PREFIX="${MINGW_PREFIX:-/ucrt64}"
 PYTHON="$MINGW_PREFIX/bin/python.exe"
 MESON="$MINGW_PREFIX/bin/meson.exe"
@@ -73,8 +73,14 @@ rm -rf \
     "$PAYLOAD_DIR/runtime/share/info" \
     "$PAYLOAD_DIR/runtime/share/terminfo" \
     "$PAYLOAD_DIR/runtime/share/zoneinfo" \
-    "$PAYLOAD_DIR/runtime/share/locale" \
     "$PAYLOAD_DIR/runtime/share/gir-1.0"
+# Keep the Spanish catalogs for GTK/libadwaita themselves. The app catalog is
+# installed separately; without these files the About dialog and native widgets
+# fall back to English even when the app language is Spanish.
+if [[ -d "$PAYLOAD_DIR/runtime/share/locale" ]]; then
+    find "$PAYLOAD_DIR/runtime/share/locale" -mindepth 1 -maxdepth 1 \
+        ! -name 'es' -exec rm -rf {} +
+fi
 find "$PAYLOAD_DIR/runtime/bin" -maxdepth 1 -type f -name '*.exe' \
     ! -name 'python.exe' \
     ! -name 'pythonw.exe' \

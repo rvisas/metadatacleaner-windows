@@ -2,7 +2,7 @@
 
 - **Upstream:** https://gitlab.com/metadatacleaner/metadatacleaner
 - **Current base:** `v4.0.1` (upstream `main` at `17e0b56`, which adds a post-release Flatpak manifest sync)
-- **Current port version:** `4.0.1.3` (see [`versioning.md`](versioning.md))
+- **Current port version:** `4.0.1.4` (see [`versioning.md`](versioning.md))
 - **License:** GPL-3.0-or-later
 - **Relationship:** unofficial Windows port, maintained as a patch set.
 
@@ -75,8 +75,9 @@ the Start Menu and desktop shortcuts.
    Update [`build.md`](build.md) if a dependency changed.
 
 5. Reset the port revision to `.1` and bump the upstream base in
-   `meson.build`, `installer/metadatacleaner.iss`, `scripts/build-windows.sh`
-   and [`versioning.md`](versioning.md). Example: upstream 4.0.2 becomes port
+   `version.json`; then sync `meson.build`, `installer/metadatacleaner.iss`,
+   `scripts/build-windows.sh` and [`versioning.md`](versioning.md). Run
+   `python scripts/versioning.py check`. Example: upstream 4.0.2 becomes port
    `4.0.2.1`.
 
 6. Commit, tag, and remove the temporary worktree:
@@ -93,6 +94,6 @@ the Windows delta reviewable.
 
 ## Versioning
 
-Port versions are `UPSTREAM.PORT`, for example `4.0.1.3`; tags add `-windows`.
+Port versions are `UPSTREAM.PORT`, for example `4.0.1.4`; tags add `-windows`.
 The full rules, comparison behavior and release examples are in
 [`versioning.md`](versioning.md).

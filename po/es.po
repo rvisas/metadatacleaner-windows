@@ -126,6 +126,14 @@ msgstr "_Vaciar la lista de archivos"
 msgid "_Keyboard Shortcuts"
 msgstr "Atajos del _teclado"
 
+#. translators: about dialog link to the port's documentation
+msgid "Documentation"
+msgstr "Documentación"
+
+#. translators: about dialog link to the upstream project
+msgid "Upstream project"
+msgstr "Proyecto upstream"
+
 #. translators: headerbar main menu item. Metadata Cleaner is the app name.
 msgid "_About Metadata Cleaner"
 msgstr "Acerca de _Metadata Cleaner"

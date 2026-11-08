@@ -24,6 +24,7 @@ REQUIRED = {
     ".github/workflows/tests.yml",
     "installer/metadatacleaner.iss",
     "scripts/build-windows.sh",
+    "version.json",
 }
 
 
@@ -81,8 +82,8 @@ class RepositoryStructureTests(unittest.TestCase):
     def test_versioning_document_matches_current_release(self) -> None:
         text = (ROOT / "docs" / "versioning.md").read_text(encoding="utf-8")
         meson = (ROOT / "meson.build").read_text(encoding="utf-8")
-        self.assertIn("4.0.1.3", text)
-        self.assertIn("version: '4.0.1.3'", meson)
+        self.assertIn("4.0.1.4", text)
+        self.assertIn("version: '4.0.1.4'", meson)
 
 
 if __name__ == "__main__":

@@ -142,20 +142,25 @@ class Window(Adw.ApplicationWindow):
         about.set_application_name(app.name)
         about.set_version(app.version)
         about.set_license_type(Gtk.License.GPL_3_0)
-        about.set_developer_name("Metadata Cleaner Developers")
+        about.set_developer_name("Metadata Cleaner contributors")
         about.set_website(
-            "https://gitlab.com/metadatacleaner/metadatacleaner/"
+            "https://github.com/rvisas/metadatacleaner-windows"
         )
         about.set_issue_url(
-            "https://gitlab.com/metadatacleaner/metadatacleaner/-/issues"
+            "https://github.com/rvisas/metadatacleaner-windows/issues"
         )
         about.add_link(
-            # translators: about dialog button that opens weblate
-            _("Translate"),
-            "https://hosted.weblate.org/engage/metadata-cleaner/",
+            # translators: about dialog link to the port's documentation
+            _("Documentation"),
+            "https://github.com/rvisas/metadatacleaner-windows#documentation",
+        )
+        about.add_link(
+            # translators: about dialog link to the upstream project
+            _("Upstream project"),
+            "https://gitlab.com/metadatacleaner/metadatacleaner/",
         )
         about.set_support_url(
-            "https://matrix.to/#/#metadata-cleaner:gnome.org"
+            "https://github.com/rvisas/metadatacleaner-windows/issues"
         )
         about.set_debug_info(
             (
