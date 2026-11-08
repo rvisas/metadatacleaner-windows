@@ -643,9 +643,6 @@ msgstr "Ten en cuenta que los metadatos no son la única forma de marcar un arch
 #~ msgid "Artwork"
 #~ msgstr "Arte"
 
-#~ msgid "Documentation"
-#~ msgstr "Documentación"
-
 #~ msgid "Translation"
 #~ msgstr "Traducción"
 
