@@ -11,7 +11,12 @@ Official conditions: <https://signpath.org/terms.html>
 
 | Form field | Required | Value for this project |
 |---|---|---|
-| Project Name | Yes | `Metadata Cleaner for Windows` |
+| Project Name | Yes | `Metadata Cleaner Windows Port` |
+
+Use **Metadata Cleaner Windows Port** in the SignPath form. The product and the
+GitHub heading remain **Metadata Cleaner for Windows**, but the generic phrase
+collides with an unrelated commercial product in search results; the repository
+URL is the authoritative identifier.
 | Repository URL | Yes | `https://github.com/rvisas/metadatacleaner-windows` |
 | Homepage URL | Yes | `https://github.com/rvisas/metadatacleaner-windows` |
 | Download URL | No | `https://github.com/rvisas/metadatacleaner-windows/blob/main/DOWNLOAD.md` |
