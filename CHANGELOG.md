@@ -7,6 +7,19 @@ four-part upstream-plus-port scheme described in
 
 ## [Unreleased]
 
+### Added
+
+- SignPath Foundation application preparation, code signing policy, privacy
+  policy, download page, governance, support, roadmap, threat model and
+  incident-response documentation.
+- CodeQL analysis, Dependabot updates and build provenance attestations.
+- Documentation link checking and repository-structure tests.
+
+### Changed
+
+- Repository metadata, issue templates and contribution docs now describe the
+  port as a distinct project and point to the current signing policy.
+
 ## [4.0.1.6] - 2026-11-08
 
 Sixth Windows port revision, based on upstream 4.0.1.
