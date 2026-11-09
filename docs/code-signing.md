@@ -101,9 +101,7 @@ Open <https://signpath.org/apply.html> and complete the form. The live form
 asks for the project name, repository and homepage URLs, an optional download
 page, privacy policy, tagline, category, description, reputation evidence,
 maintainer type, build system, contact details, discovery source and the
-required consents. The field-by-field values for this repository are maintained
-in [`signpath-application.md`](signpath-application.md) because the form labels
-and options can change.
+required consents.
 
 Two fields deserve special attention:
 
@@ -111,8 +109,8 @@ Two fields deserve special attention:
   [`DOWNLOAD.md`](../DOWNLOAD.md), which states the signing relationship and the
   current unsigned status.
 - **Reputation** must contain verifiable evidence. Do not invent stars,
-  downloads or media coverage; see the preparation page for the honest current
-  position.
+  downloads or media coverage. The project is an early-stage port; state that
+  plainly and let SignPath decide.
 
 Keep the description factual. Do not claim that the project is affiliated with
 the upstream maintainers; it is an unofficial port.

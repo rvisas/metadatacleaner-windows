@@ -36,8 +36,6 @@
   &nbsp;·&nbsp;
   <a href="docs/build.md">Build from source</a>
   &nbsp;·&nbsp;
-  <a href="SUPPORT.md">Support</a>
-  &nbsp;·&nbsp;
   <a href="https://github.com/rvisas/metadatacleaner-windows/issues">Report a bug</a>
 </p>
 
@@ -279,14 +277,7 @@ against that exact payload, and only then compiles and publishes the installer.
 - [Versioning](docs/versioning.md): upstream base plus port revision.
 - [Upstream tracking](docs/upstream.md): how new upstream releases are applied.
 - [Code signing](docs/code-signing.md): SignPath Foundation application, release signing and fallback options.
-- [SignPath application prep](docs/signpath-application.md): field-by-field values for the live form.
 - [Agent instructions](AGENTS.md): repository rules for AI-assisted changes.
-- [Support](SUPPORT.md): where to report bugs, security issues and upstream problems.
-- [Governance](GOVERNANCE.md): maintainer roles and signing approval.
-- [Threat model](THREAT_MODEL.md): security and privacy boundaries.
-- [Incident response](INCIDENT_RESPONSE.md): how a security or release incident is handled.
-- [Repository standards](docs/repository-standards.md): how the layout maps to high-visibility OSS projects.
-- [Roadmap](ROADMAP.md): direction without release-date promises.
 
 ## Contributing
 

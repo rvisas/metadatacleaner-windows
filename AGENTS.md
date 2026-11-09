@@ -111,6 +111,6 @@ git push origin v4.0.1.6-windows
 - `git diff --check` is clean.
 - No generated files are tracked.
 - Version numbers agree across `meson.build`, the Inno Setup script,
-  `scripts/build-windows.sh`, the launcher resource and `CITATION.cff`.
+  `scripts/build-windows.sh` and the launcher resource.
 - Documentation that mentions a command, path or version is updated.
 - A public release is built by GitHub Actions, not by committing an installer.
