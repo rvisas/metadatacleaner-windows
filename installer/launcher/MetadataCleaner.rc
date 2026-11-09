@@ -6,10 +6,10 @@
 1 ICON "../branding/metadatacleaner-windows.ico"
 
 #ifndef MC_VERSION
-#define MC_VERSION 4,0,1,6
+#define MC_VERSION 4,0,1,7
 #endif
 #ifndef MC_VERSION_STRING
-#define MC_VERSION_STRING "4.0.1.6"
+#define MC_VERSION_STRING "4.0.1.7"
 #endif
 
 VS_VERSION_INFO VERSIONINFO

@@ -4,7 +4,7 @@
 """Compose and check the upstream-derived Windows port version.
 
 The upstream project uses three-component versions (4.0.1). The Windows port
-adds a fourth component for its own revision, so the result is 4.0.1.6.
+adds a fourth component for its own revision, so the result is 4.0.1.7.
 A future upstream 4.1.0 becomes 4.1.0.1, not 4.0.2.
 
 Windows and Inno Setup accept at most four numeric components. If upstream

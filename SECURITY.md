@@ -4,7 +4,7 @@
 
 | Version | Supported |
 |---|---|
-| 4.0.1.6 | Yes |
+| 4.0.1.7 | Yes |
 | 4.0.1 and older | No |
 
 ## Reporting a vulnerability

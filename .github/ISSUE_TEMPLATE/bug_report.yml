@@ -13,7 +13,7 @@ body:
     attributes:
       label: Metadata Cleaner version
       description: The version shown in the installer or the About dialog.
-      placeholder: "4.0.1.6"
+      placeholder: "4.0.1.7"
     validations:
       required: true
   - type: input

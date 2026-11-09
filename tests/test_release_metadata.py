@@ -21,21 +21,21 @@ import release_metadata  # noqa: E402
 class ReleaseMetadataTests(unittest.TestCase):
     def test_installer_name_encodes_port_os_and_arch(self) -> None:
         self.assertEqual(
-            release_metadata.installer_filename("4.0.1.6"),
-            "MetadataCleaner-4.0.1.6-windows-x64-setup.exe",
+            release_metadata.installer_filename("4.0.1.7"),
+            "MetadataCleaner-4.0.1.7-windows-x64-setup.exe",
         )
 
     def test_checksum_sidecar_name(self) -> None:
-        name = release_metadata.installer_filename("4.0.1.6")
+        name = release_metadata.installer_filename("4.0.1.7")
         self.assertEqual(
             release_metadata.checksum_filename(name),
-            "MetadataCleaner-4.0.1.6-windows-x64-setup.exe.sha256",
+            "MetadataCleaner-4.0.1.7-windows-x64-setup.exe.sha256",
         )
 
     def test_port_specific_tag_does_not_collide_with_upstream(self) -> None:
         self.assertEqual(
-            release_metadata.release_tag("4.0.1.6"),
-            "v4.0.1.6-windows",
+            release_metadata.release_tag("4.0.1.7"),
+            "v4.0.1.7-windows",
         )
         self.assertEqual(
             release_metadata.release_tag("4.1.0.1"), "v4.1.0.1-windows"

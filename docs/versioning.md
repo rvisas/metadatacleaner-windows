@@ -10,18 +10,18 @@ The answer is a four-component version:
 
 ```text
 MAJOR.MINOR.PATCH.PORT
-4    .0    .1    .6
+4    .0    .1    .7
 ```
 
-`4.0.1` is the upstream base. The final `.6` is the Windows port revision. The
-current release is **4.0.1.6**.
+`4.0.1` is the upstream base. The final `.7` is the Windows port revision. The
+current release is **4.0.1.7**.
 
 The source of truth is [`version.json`](../version.json):
 
 ```json
 {
   "upstream": "4.0.1",
-  "port": 6
+  "port": 7
 }
 ```
 
@@ -29,7 +29,7 @@ The source of truth is [`version.json`](../version.json):
 Meson, Inno Setup and build-script inputs agree:
 
 ```bash
-python scripts/versioning.py current       # 4.0.1.6
+python scripts/versioning.py current       # 4.0.1.7
 python scripts/versioning.py check         # fails if the files drift
 python scripts/versioning.py next-upstream 4.1.0   # 4.1.0.1
 ```
@@ -69,7 +69,7 @@ state.
 
 | Change | Example | Next version |
 |---|---|---|
-| Port-only fix or packaging change | Folder import fix on upstream 4.0.1 | `4.0.1.6` |
+| Port-only fix or packaging change | Folder import fix on upstream 4.0.1 | `4.0.1.7` |
 | New upstream release with port changes | Upstream releases 4.0.2 | `4.0.2.1` |
 | Upstream release with no port change yet | Upstream releases 4.0.2 | Rebase first; release `4.0.2.1` when the port is ready |
 | Documentation-only change | README or AGENTS.md | No release required |
@@ -85,11 +85,11 @@ state.
 
 ## Tags and assets
 
-| Thing | Value for 4.0.1.6 |
+| Thing | Value for 4.0.1.7 |
 |---|---|
-| Tag | `v4.0.1.6-windows` |
-| Installer | `MetadataCleaner-4.0.1.6-windows-x64-setup.exe` |
-| Checksum sidecar | `MetadataCleaner-4.0.1.6-windows-x64-setup.exe.sha256` |
+| Tag | `v4.0.1.7-windows` |
+| Installer | `MetadataCleaner-4.0.1.7-windows-x64-setup.exe` |
+| Checksum sidecar | `MetadataCleaner-4.0.1.7-windows-x64-setup.exe.sha256` |
 | Combined checksum | `SHA256SUMS.txt` |
 
 `windows-x64` follows the convention used by OBS Studio
@@ -106,6 +106,7 @@ number changes.
 
 | Date | Upstream tag | Upstream version | Port version | Notes |
 |---|---|---|---|---|
+| 2026-11-08 | `v4.0.1` | 4.0.1 | 4.0.1.7 | Removed dead UI resources, merged release docs and dropped stale licensing/config files |
 | 2026-11-08 | `v4.0.1` | 4.0.1 | 4.0.1.6 | Streaming folder imports, English documentation and SignPath policy |
 | 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.5 | Custom About title and localized links |
 | 2026-11-07 | `v4.0.1` | 4.0.1 | 4.0.1.4 | Spanish libadwaita catalogs and About links |
@@ -135,7 +136,7 @@ contain installers or build output.
    installer with checksums.
 
 The updater compares four-component tuples, so `4.0.1.1` is newer than
-`4.0.1.0`, `4.0.1.2` is newer than `4.0.1.1`, and `4.0.1.6` is newer than
+`4.0.1.0`, `4.0.1.2` is newer than `4.0.1.1`, and `4.0.1.7` is newer than
 `4.0.1.5`.
 
 ### Automatic release
@@ -144,14 +145,14 @@ The updater compares four-component tuples, so `4.0.1.1` is newer than
 pushed, and can also be started manually with a version:
 
 ```bash
-git tag -a v4.0.1.6-windows -m "Metadata Cleaner 4.0.1.6 for Windows"
-git push origin v4.0.1.6-windows
+git tag -a v4.0.1.7-windows -m "Metadata Cleaner 4.0.1.7 for Windows"
+git push origin v4.0.1.7-windows
 ```
 
 Or:
 
 ```bash
-gh workflow run Release -f version=4.0.1.6
+gh workflow run Release -f version=4.0.1.7
 ```
 
 The job:
@@ -172,9 +173,9 @@ installer is signed, change `prerelease: true` to `false` and release as stable.
 If the workflow is unavailable, build the payload in an MSYS2 UCRT64 shell:
 
 ```bash
-VERSION=4.0.1.6 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" \
+VERSION=4.0.1.7 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" \
   bash ./scripts/build-windows.sh
-iscc /DAppVersion=4.0.1.6 \
+iscc /DAppVersion=4.0.1.7 \
   /DPayloadDir="$TMPDIR/metadata-cleaner-build\\payload" \
   /DOutputDir="$TMPDIR/metadata-cleaner-build\\installer" \
   installer/metadatacleaner.iss
@@ -187,9 +188,9 @@ $build = Join-Path $env:TEMP "metadata-cleaner-build"
 $asset = Get-ChildItem (Join-Path $build "installer\*.exe") | Select-Object -First 1
 $hash = (Get-FileHash $asset.FullName -Algorithm SHA256).Hash.ToLower()
 "$hash  $($asset.Name)" | Set-Content "$($asset.FullName).sha256" -Encoding ascii
-gh release create v4.0.1.6-windows `
+gh release create v4.0.1.7-windows `
   $asset.FullName "$($asset.FullName).sha256" `
-  --title "v4.0.1.6-windows" `
+  --title "v4.0.1.7-windows" `
   --prerelease --generate-notes
 ```
 
@@ -198,15 +199,15 @@ gh release create v4.0.1.6-windows `
 Windows PowerShell:
 
 ```powershell
-Get-FileHash .\MetadataCleaner-4.0.1.6-windows-x64-setup.exe -Algorithm SHA256
-Get-Content .\MetadataCleaner-4.0.1.6-windows-x64-setup.exe.sha256
+Get-FileHash .\MetadataCleaner-4.0.1.7-windows-x64-setup.exe -Algorithm SHA256
+Get-Content .\MetadataCleaner-4.0.1.7-windows-x64-setup.exe.sha256
 ```
 
 The two hashes must match. On Linux or macOS, after downloading the asset and
 the sidecar into the same directory:
 
 ```bash
-sha256sum -c MetadataCleaner-4.0.1.6-windows-x64-setup.exe.sha256
+sha256sum -c MetadataCleaner-4.0.1.7-windows-x64-setup.exe.sha256
 ```
 
 `SHA256SUMS.txt` contains the same line in `sha256sum` format.

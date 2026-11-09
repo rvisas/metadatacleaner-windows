@@ -107,7 +107,7 @@ follow new releases instead of drifting into a separate product.
 3. Verify the installer in PowerShell before running it:
 
    ```powershell
-   $version = "4.0.1.6"
+   $version = "4.0.1.7"
    $asset = "MetadataCleaner-$version-windows-x64-setup.exe"
    Get-FileHash ".\$asset" -Algorithm SHA256
    Get-Content ".\${asset}.sha256"
@@ -230,7 +230,7 @@ MAJOR.MINOR.PATCH.PORT
 ```
 
 `4.0.1` is the upstream base; `.1` is the Windows port revision. Port-only
-fixes increment the fourth component (`4.0.1.6` → `4.0.1.7`). When upstream publishes a new
+fixes increment the fourth component (`4.0.1.7` → `4.0.1.7`). When upstream publishes a new
 release, the base changes and the port revision restarts at `.1`
 (`4.0.2.1`). The port never publishes `4.0.2` unless upstream has published
 4.0.2.
@@ -251,7 +251,7 @@ list, environment variables and troubleshooting notes are in
 git clone https://github.com/rvisas/metadatacleaner-windows.git
 cd metadatacleaner-windows
 BUILD_ROOT="$TMPDIR/metadata-cleaner-build" bash scripts/build-windows.sh
-iscc /DAppVersion=4.0.1.6 \
+iscc /DAppVersion=4.0.1.7 \
   /DPayloadDir="$TMPDIR/metadata-cleaner-build\payload" \
   /DOutputDir="$TMPDIR/metadata-cleaner-build\installer" \
   installer\metadatacleaner.iss

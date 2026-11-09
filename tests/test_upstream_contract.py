@@ -146,7 +146,7 @@ class UpstreamContractTests(unittest.TestCase):
     def test_upstream_base_is_documented(self) -> None:
         upstream = (ROOT / "docs" / "upstream.md").read_text(encoding="utf-8")
         self.assertIn("v4.0.1", upstream)
-        self.assertIn("4.0.1.6", upstream)
+        self.assertIn("4.0.1.7", upstream)
 
     def test_readme_points_to_the_versioning_rules(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")

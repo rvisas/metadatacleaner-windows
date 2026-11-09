@@ -193,7 +193,7 @@ python -c "from PIL import Image; Image.open('icon-256.png').convert('RGBA').sav
 3. Compile with both directories explicit:
 
    ```bat
-   iscc /DAppVersion=4.0.1.6 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
+   iscc /DAppVersion=4.0.1.7 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss
    ```
 
    The installer is written to `<build>\installer`, never to the repository.

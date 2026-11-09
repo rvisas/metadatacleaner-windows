@@ -14,7 +14,7 @@ Describe the user-visible change and why it is needed.
 ## Versioning and release
 
 - [ ] Port-only change: version bumped in the last component (for example
-      `4.0.1.6` → `4.0.1.7`)
+      `4.0.1.7` → `4.0.1.7`)
 - [ ] Upstream change: base confirmed against upstream and port revision reset
       to `.1`
 - [ ] Documentation updated for commands, paths or versions that changed

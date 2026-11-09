@@ -5,20 +5,26 @@ All notable changes to this port are documented here. The format follows
 four-part upstream-plus-port scheme described in
 [`docs/versioning.md`](docs/versioning.md).
 
-## [Unreleased]
+## [4.0.1.7] - 2026-11-08
+
+Seventh Windows port revision, based on upstream 4.0.1. This revision only
+removes unused code and documentation; it does not change cleaning behavior.
 
 ### Added
 
-- SignPath Foundation application preparation, code signing policy, privacy
-  policy, download page, governance, support, roadmap, threat model and
-  incident-response documentation.
-- CodeQL analysis, Dependabot updates and build provenance attestations.
-- Documentation link checking and repository-structure tests.
+- CodeQL analysis, build provenance attestations and documentation/repository
+  guardrails.
 
 ### Changed
 
-- Repository metadata, issue templates and contribution docs now describe the
-  port as a distinct project and point to the current signing policy.
+- Removed the unused `CreditsRole` widget and template, the credits icon, the
+  unreferenced `style.css` and the shortcuts-dialog resource.
+- Removed the non-functional Keyboard Shortcuts menu item, which pointed to a
+  missing `app.shortcuts` action.
+- Merged `docs/releasing.md` into `docs/versioning.md`.
+- Folded licensing details into the README and removed `LICENSE.md`, the stale
+  gettext template and the unused Pyright configuration.
+- Removed unused imports from the application and details view.
 
 ## [4.0.1.6] - 2026-11-08
 

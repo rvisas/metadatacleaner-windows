@@ -7,9 +7,9 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Version without the v prefix (for example 4.0.1.6)"
+        description: "Version without the v prefix (for example 4.0.1.7)"
         required: true
-        default: "4.0.1.6"
+        default: "4.0.1.7"
 
 permissions:
   contents: write
@@ -33,7 +33,7 @@ jobs:
           } elseif ("${{ github.ref_name }}" -match '^v(?<version>\d+\.\d+\.\d+(?:\.\d+)?)-windows$') {
             $version = $Matches['version']
           } else {
-            throw "Tag must look like v4.0.1.6-windows"
+            throw "Tag must look like v4.0.1.7-windows"
           }
           if ($version -notmatch '^\d+\.\d+\.\d+(?:\.\d+)?$') {
             throw "Version must have three or four numeric components: $version"
