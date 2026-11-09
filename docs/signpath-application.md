@@ -62,6 +62,20 @@ project has no independent coverage yet, say so; SignPath can evaluate the
 quality of the repository, but it may decline an application that lacks
 external traction.
 
+### Improving reputation honestly
+
+Repository structure cannot manufacture adoption. If the first application is
+declined for reputation, improve the public signals before reapplying:
+
+- publish release notes in relevant privacy, Windows and open-source
+  communities where self-promotion is allowed;
+- ask the upstream project to list the port as an unofficial Windows build,
+  without claiming endorsement;
+- collect independent bug reports, reviews or package listings;
+- keep releases frequent enough to show maintenance;
+- do not buy stars, downloads or reviews, and do not describe the port as
+  official.
+
 ## Pre-application checklist
 
 - [x] Public repository.
