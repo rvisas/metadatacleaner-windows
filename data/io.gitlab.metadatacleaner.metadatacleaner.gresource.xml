@@ -5,13 +5,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
 -->
 <gresources>
 	<gresource prefix="/io/gitlab/metadatacleaner/metadatacleaner">
-		<file alias="style.css">style.css</file>
-		<file preprocess="xml-stripblanks" alias="shortcuts-dialog.ui">gtk/shortcuts-dialog.ui</file>
 		<file preprocess="xml-stripblanks" alias="icons/metadatacleaner-illustration.svg">icons/illustration.svg</file>
 		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-about-symbolic.svg">icons/about-symbolic.svg</file>
 		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-plus-symbolic.svg">icons/plus-symbolic.svg</file>
 		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-cancel-symbolic.svg">icons/cancel-symbolic.svg</file>
-		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-credits-symbolic.svg">icons/credits-symbolic.svg</file>
 		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-go-next-symbolic.svg">icons/go-next-symbolic.svg</file>
 		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-go-next-symbolic-rtl.svg">icons/go-next-symbolic-rtl.svg</file>
 		<file preprocess="xml-stripblanks" alias="icons/scalable/actions/metadatacleaner-remove-symbolic.svg">icons/remove-symbolic.svg</file>
@@ -25,7 +22,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 		<file preprocess="xml-stripblanks">ui/Badge.ui</file>
 		<file preprocess="xml-stripblanks">ui/CleaningWarningDialog.ui</file>
 		<file preprocess="xml-stripblanks">ui/CleanMetadataButton.ui</file>
-		<file preprocess="xml-stripblanks">ui/CreditsRole.ui</file>
 		<file preprocess="xml-stripblanks">ui/DetailsView.ui</file>
 		<file preprocess="xml-stripblanks">ui/FileRow.ui</file>
 		<file preprocess="xml-stripblanks">ui/FilesView.ui</file>

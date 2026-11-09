@@ -50,7 +50,7 @@ Sixth Windows port revision, based on upstream 4.0.1.
 - File rows are now appended before metadata parsing, so the UI remains
   responsive while mat2 inspects a batch.
 - Removed stale website/font licensing text and a broken Open Font License link
-  from `LICENSE.md`.
+  from the licensing section.
 
 ## [4.0.1.5] - 2026-11-07
 

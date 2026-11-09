@@ -25,7 +25,6 @@ DOCUMENTATION_FILES = [
     ROOT / "CHANGELOG.md",
     ROOT / "CODE_OF_CONDUCT.md",
     ROOT / "CONTRIBUTING.md",
-    ROOT / "LICENSE.md",
     ROOT / "SECURITY.md",
     *sorted((ROOT / "docs").glob("*.md")),
 ]

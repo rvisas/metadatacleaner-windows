@@ -6,7 +6,6 @@ sources = [
     'badge.py',
     'cleaningwarningdialog.py',
     'cleanmetadatabutton.py',
-    'creditsrole.py',
     'detailsview.py',
     'dropoverlay.py',
     'filerow.py',

@@ -21,11 +21,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
     <section>
       <item>
         <!-- translators: headerbar main menu item -->
-        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
-        <attribute name="action">app.shortcuts</attribute>
-      </item>
-      <item>
-        <!-- translators: headerbar main menu item -->
         <attribute name="label" translatable="yes">_Check for Updates…</attribute>
         <attribute name="action">app.check-updates</attribute>
       </item>

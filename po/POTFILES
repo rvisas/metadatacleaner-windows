@@ -3,7 +3,6 @@
 
 ./src/metadata-cleaner.in
 
-./data/gtk/shortcuts-dialog.ui
 ./data/ui/CleaningWarningDialog.ui
 ./data/ui/CleanMetadataButton.ui
 ./data/ui/FileRow.ui

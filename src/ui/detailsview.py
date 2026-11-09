@@ -4,9 +4,8 @@
 """View details of a file."""
 
 from gettext import gettext as _
-from typing import Optional
 
-from gi.repository import Adw, GLib, Gtk
+from gi.repository import Adw, Gtk
 from metadatacleaner import RESOURCE_PATH
 from metadatacleaner.modules.file import File, FileState
 from metadatacleaner.ui.metadataview import MetadataView

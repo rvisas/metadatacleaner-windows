@@ -300,6 +300,10 @@ For general project conventions, see [`CONTRIBUTING.md`](CONTRIBUTING.md).
 GPL-3.0-or-later, the same license as upstream. See [`LICENSE`](LICENSE) and
 [`LICENSES/`](LICENSES).
 
+- Source code: GPL-3.0-or-later.
+- Original artwork and translations: CC-BY-SA-4.0.
+- Additional icons from the GNOME Icon Development Kit: CC0-1.0.
+
 Metadata Cleaner, its name and its artwork belong to the upstream
 contributors. The screenshots are CC-BY-SA-4.0. mat2 is LGPL-3.0; exiftool,
 poppler and ffmpeg keep their own licenses.

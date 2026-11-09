@@ -9,7 +9,7 @@ import time
 from gettext import gettext as _
 from threading import Thread
 
-from gi.repository import Adw, Gdk, Gio, GLib, GObject, Gtk
+from gi.repository import Adw, Gdk, Gio, GLib, GObject
 from metadatacleaner.modules import updater
 from metadatacleaner.modules.logger import Logger as logger
 from metadatacleaner.ui.window import Window
