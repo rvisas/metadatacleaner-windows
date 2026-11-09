@@ -5,6 +5,14 @@ All notable changes to this port are documented here. The format follows
 four-part upstream-plus-port scheme described in
 [`docs/versioning.md`](docs/versioning.md).
 
+## [Unreleased]
+
+### Fixed
+
+- The installer now removes obsolete application files and Python bytecode
+  directories during an in-place upgrade, so the installed tree matches a
+  fresh installation.
+
 ## [4.0.1.7] - 2026-11-08
 
 Seventh Windows port revision, based on upstream 4.0.1. This revision only

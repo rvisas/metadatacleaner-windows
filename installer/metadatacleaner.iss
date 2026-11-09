@@ -89,6 +89,12 @@ Type: filesandordirs; Name: "{app}\share\locale"
 Type: filesandordirs; Name: "{app}\share\applications"
 Type: filesandordirs; Name: "{app}\share\metainfo"
 Type: filesandordirs; Name: "{app}\share\dbus-1"
+; Removed from the package in 4.0.1.7; delete it from upgrades so an updated
+; installation matches a fresh one.
+Type: files; Name: "{app}\share\metadata-cleaner\metadatacleaner\ui\creditsrole.py"
+Type: filesandordirs; Name: "{app}\share\metadata-cleaner\metadatacleaner\__pycache__"
+Type: filesandordirs; Name: "{app}\share\metadata-cleaner\metadatacleaner\modules\__pycache__"
+Type: filesandordirs; Name: "{app}\share\metadata-cleaner\metadatacleaner\ui\__pycache__"
 
 [Icons]
 Name: "{group}\{#AppName}"; Filename: "{app}\{#AppExeName}"; WorkingDir: "{app}"; IconFilename: "{app}\{#AppExeName}"; IconIndex: 0; AppUserModelID: "{#AppUserModelID}"
