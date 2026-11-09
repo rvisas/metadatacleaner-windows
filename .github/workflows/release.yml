@@ -149,8 +149,8 @@ jobs:
 
             This build is **unsigned** while the SignPath Foundation application
             is being prepared, so Windows SmartScreen may warn on first launch.
-            See the [Code signing policy](https://github.com/rvisas/metadatacleaner-windows/blob/main/CODE_SIGNING_POLICY.md)
-            and the [privacy policy](https://github.com/rvisas/metadatacleaner-windows/blob/main/PRIVACY.md).
+            See the [Code signing policy](https://github.com/rvisas/metadatacleaner-windows/blob/main/docs/code-signing.md#code-signing-policy)
+            and the [privacy policy](https://github.com/rvisas/metadatacleaner-windows/blob/main/docs/privacy.md).
 
             Verify the download before running it:
 

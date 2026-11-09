@@ -2,7 +2,7 @@
 ; Requires Inno Setup 6.3 or newer (ArchitecturesAllowed=x64compatible is not
 ; available in older versions).
 ;
-; Build the payload first (see docs/build.md and installer/README.md). The
+; Build the payload first (see docs/build.md). The
 ; build script writes to a temporary directory outside this repository.
 ; Then compile with explicit input and output directories:
 ;   iscc /DAppVersion=4.0.1.6 /DPayloadDir=<build>\payload /DOutputDir=<build>\installer installer\metadatacleaner.iss

@@ -32,7 +32,7 @@
 </p>
 
 <p align="center">
-  <a href="DOWNLOAD.md">Download</a>
+  <a href="#install">Download</a>
   &nbsp;·&nbsp;
   <a href="docs/build.md">Build from source</a>
   &nbsp;·&nbsp;
@@ -119,9 +119,11 @@ follow new releases instead of drifting into a separate product.
    can request an all-users installation.
 
 > [!NOTE]
-> The installer is not code-signed yet. SmartScreen's "unknown publisher"
-> warning is expected until a signing provider is approved; see
-> [`docs/code-signing.md`](docs/code-signing.md) for the options.
+> Release signing is provided by [SignPath.io](https://about.signpath.io) with a
+> certificate issued by [SignPath Foundation](https://signpath.org) once the
+> project is approved. Until then the installer is unsigned and SmartScreen's
+> "unknown publisher" warning is expected. See the
+> [Code signing policy](docs/code-signing.md#code-signing-policy).
 > The checksum is still a reliable way to confirm that the download is intact.
 
 ### Pinning to the taskbar
@@ -197,7 +199,7 @@ not part of the Windows product:
 
 The patches live in [`patches/`](patches) and the exact changes are documented
 in [`docs/upstream.md`](docs/upstream.md). The installer layout and launcher build are
-described in [`installer/README.md`](installer/README.md).
+described in [`docs/build.md`](docs/build.md).
 
 ## Code signing policy
 
@@ -212,9 +214,10 @@ requires manual approval after the GitHub Actions build and origin check.
 - **Reviewers:** [@rvisas](https://github.com/rvisas)
 - **Approvers:** [@rvisas](https://github.com/rvisas)
 
-The full policy is in [`CODE_SIGNING_POLICY.md`](CODE_SIGNING_POLICY.md).
+The full policy is in
+[`docs/code-signing.md`](docs/code-signing.md#code-signing-policy).
 Privacy practices, including the optional GitHub update check, are documented
-in [`PRIVACY.md`](PRIVACY.md). The signing process and current status are in
+in [`docs/privacy.md`](docs/privacy.md). The signing process and current status are in
 [`docs/code-signing.md`](docs/code-signing.md).
 
 ## Versioning

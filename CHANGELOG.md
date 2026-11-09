@@ -40,7 +40,7 @@ Sixth Windows port revision, based on upstream 4.0.1.
 
 ### Added
 
-- `CODE_SIGNING_POLICY.md` and `PRIVACY.md` for the SignPath Foundation
+- A code signing policy and a privacy policy for the SignPath Foundation
   application and the project's public signing/privacy commitments.
 - A `Code signing policy` section on the project home page with the required
   SignPath statement, roles and links.

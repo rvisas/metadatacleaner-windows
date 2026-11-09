@@ -24,13 +24,9 @@ DOCUMENTATION_FILES = [
     ROOT / "AGENTS.md",
     ROOT / "CHANGELOG.md",
     ROOT / "CODE_OF_CONDUCT.md",
-    ROOT / "CODE_SIGNING_POLICY.md",
     ROOT / "CONTRIBUTING.md",
-    ROOT / "DOWNLOAD.md",
     ROOT / "LICENSE.md",
-    ROOT / "PRIVACY.md",
     ROOT / "SECURITY.md",
-    ROOT / "installer" / "README.md",
     *sorted((ROOT / "docs").glob("*.md")),
 ]
 
