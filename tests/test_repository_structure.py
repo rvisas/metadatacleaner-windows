@@ -18,7 +18,6 @@ REQUIRED = {
     "docs/build.md",
     "docs/code-signing.md",
     "docs/privacy.md",
-    "docs/releasing.md",
     "docs/upstream.md",
     "docs/versioning.md",
     ".github/workflows/codeql.yml",

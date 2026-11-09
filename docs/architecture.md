@@ -84,7 +84,8 @@ The Inno Setup payload contains the application prefix, a pruned UCRT64 runtime,
 exiftool and ffmpeg. `scripts/build-windows.sh` writes all build output outside
 the repository. The GitHub Actions release workflow builds and tests the payload
 on `windows-latest`, compiles the installer, writes checksums and publishes the
-release. See [`build.md`](build.md) and [`releasing.md`](releasing.md).
+release. See [`build.md`](build.md) and
+[`versioning.md`](versioning.md#releasing-a-port-revision).
 
 ## Design boundaries
 

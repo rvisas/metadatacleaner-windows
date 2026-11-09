@@ -277,7 +277,7 @@ against that exact payload, and only then compiles and publishes the installer.
 ## Documentation
 
 - [Architecture](docs/architecture.md): runtime layers and module map.
-- [Versioning](docs/versioning.md): upstream base plus port revision.
+- [Versioning and releasing](docs/versioning.md): upstream base, port revision and release process.
 - [Upstream tracking](docs/upstream.md): how new upstream releases are applied.
 - [Code signing](docs/code-signing.md): SignPath Foundation application, release signing and fallback options.
 - [Agent instructions](AGENTS.md): repository rules for AI-assisted changes.

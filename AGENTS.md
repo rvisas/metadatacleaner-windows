@@ -50,7 +50,7 @@ installer/           Inno Setup script, C launcher, branding
 scripts/             Payload build, release metadata and docs checks
 patches/             Diffs against upstream and the pinned mat2
 tests/               Static guardrails and runtime tests
-docs/                Architecture, build, release, upstream, versioning, signing
+docs/                Architecture, build, upstream, versioning/releasing, signing
 .github/workflows/   Tests, release and CodeQL automation
 ```
 
