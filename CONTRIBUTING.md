@@ -8,7 +8,8 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 This is an unofficial Windows port. Windows-specific fixes are in scope here;
 upstream application behavior should be discussed with the upstream project
 first. Read [`AGENTS.md`](AGENTS.md) and [`docs/architecture.md`](docs/architecture.md)
-before changing code.
+before changing code. See [`SUPPORT.md`](SUPPORT.md) for support scope and
+[`GOVERNANCE.md`](GOVERNANCE.md) for maintainer and signing roles.
 
 ## Languages
 

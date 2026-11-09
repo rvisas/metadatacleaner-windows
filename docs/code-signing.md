@@ -97,22 +97,22 @@ policy are versioned with the source so reviewers can inspect them.
 
 ### 2. Submit the application
 
-Open <https://signpath.org/apply.html> and complete the form. The form is an
-embedded HubSpot form; the exact labels can change, but it asks for the
-following information:
+Open <https://signpath.org/apply.html> and complete the form. The live form
+asks for the project name, repository and homepage URLs, an optional download
+page, privacy policy, tagline, category, description, reputation evidence,
+maintainer type, build system, contact details, discovery source and the
+required consents. The field-by-field values for this repository are maintained
+in [`signpath-application.md`](signpath-application.md) because the form labels
+and options can change.
 
-| Field | What to provide for this project |
-|---|---|
-| Project name | `Metadata Cleaner for Windows` |
-| Repository URL | `https://github.com/rvisas/metadatacleaner-windows` |
-| Project website/download page | The GitHub Releases page |
-| License | `GPL-3.0-or-later` (OSI-approved) |
-| Project description | Unofficial Windows port of Metadata Cleaner; GTK4/PyGObject; built with MSYS2 UCRT64 and GitHub Actions; one Inno Setup installer for Windows 10/11 x64 |
-| Maintainer contact | An address you monitor; SignPath may ask follow-up questions |
-| Code signing policy URL | `https://github.com/rvisas/metadatacleaner-windows/blob/main/CODE_SIGNING_POLICY.md` |
-| Privacy policy URL | `https://github.com/rvisas/metadatacleaner-windows/blob/main/PRIVACY.md` |
-| Build system | GitHub Actions, public workflow `.github/workflows/release.yml` |
-| Artifacts to sign | `MetadataCleaner.exe`, the Inno Setup installer and the uninstaller |
+Two fields deserve special attention:
+
+- **Download URL** must point to a page that mentions SignPath Foundation. Use
+  [`DOWNLOAD.md`](../DOWNLOAD.md), which states the signing relationship and the
+  current unsigned status.
+- **Reputation** must contain verifiable evidence. Do not invent stars,
+  downloads or media coverage; see the preparation page for the honest current
+  position.
 
 Keep the description factual. Do not claim that the project is affiliated with
 the upstream maintainers; it is an unofficial port.

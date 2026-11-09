@@ -117,7 +117,8 @@ curl -sL https://gitlab.com/api/v4/projects/metadatacleaner%2Fmetadatacleaner/re
 
 1. Make the fix on the current upstream base.
 2. Bump the last component in `meson.build`, the installer,
-   `scripts/build-windows.sh` and `installer/launcher/MetadataCleaner.rc`.
+   `scripts/build-windows.sh`, `installer/launcher/MetadataCleaner.rc` and
+   `CITATION.cff`.
 3. Run the full test suite locally.
 4. Tag `v4.0.1.N-windows` and push the tag.
 5. The Release workflow builds, tests, signs when configured, and publishes the

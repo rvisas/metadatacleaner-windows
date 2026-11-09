@@ -13,6 +13,8 @@ on:
 
 permissions:
   contents: write
+  id-token: write
+  attestations: write
 
 jobs:
   release:
@@ -31,7 +33,7 @@ jobs:
           } elseif ("${{ github.ref_name }}" -match '^v(?<version>\d+\.\d+\.\d+(?:\.\d+)?)-windows$') {
             $version = $Matches['version']
           } else {
-            throw "Tag must look like v4.0.1.5-windows"
+            throw "Tag must look like v4.0.1.6-windows"
           }
           if ($version -notmatch '^\d+\.\d+\.\d+(?:\.\d+)?$') {
             throw "Version must have three or four numeric components: $version"
@@ -129,6 +131,11 @@ jobs:
           "ASSET_SHA256=$hash" >> $env:GITHUB_ENV
           "ASSET_SIDECAR=$sidecar" >> $env:GITHUB_ENV
           "ASSET_CHECKSUMS=$checksums" >> $env:GITHUB_ENV
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: ${{ env.ASSET }}
 
       - name: Publish the release
         uses: softprops/action-gh-release@v2

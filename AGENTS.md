@@ -47,11 +47,11 @@ src/                 Python application and generated entry point
 data/                GSettings, icons and UI templates
 po/                  Spanish catalog; English is the source language
 installer/           Inno Setup script, C launcher, branding
-scripts/             Payload build and release metadata
+scripts/             Payload build, release metadata and docs checks
 patches/             Diffs against upstream and the pinned mat2
 tests/               Static guardrails and runtime tests
 docs/                Architecture, build, release, upstream, versioning, signing
-.github/workflows/   Tests and release automation
+.github/workflows/   Tests, release, CodeQL and Scorecard automation
 ```
 
 ## Commands
@@ -110,7 +110,7 @@ git push origin v4.0.1.6-windows
 - The full suite passes locally.
 - `git diff --check` is clean.
 - No generated files are tracked.
-- Version numbers agree across `meson.build`, the Inno Setup script and
-  `scripts/build-windows.sh`.
+- Version numbers agree across `meson.build`, the Inno Setup script,
+  `scripts/build-windows.sh`, the launcher resource and `CITATION.cff`.
 - Documentation that mentions a command, path or version is updated.
 - A public release is built by GitHub Actions, not by committing an installer.

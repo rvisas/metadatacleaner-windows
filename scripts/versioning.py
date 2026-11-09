@@ -70,12 +70,15 @@ def check_project() -> str:
     launcher_rc = (
         ROOT / "installer" / "launcher" / "MetadataCleaner.rc"
     ).read_text(encoding="utf-8")
+    citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
     if f"version: '{version}'" not in meson:
         raise ValueError(f"meson.build does not contain {version}")
     if f'#define AppVersion "{version}"' not in installer:
         raise ValueError(f"the installer does not contain {version}")
     if f'VERSION="${{VERSION:-{version}}}"' not in script:
         raise ValueError(f"build-windows.sh does not contain {version}")
+    if f'version: "{version}"' not in citation:
+        raise ValueError(f"CITATION.cff does not contain {version}")
     numeric = version.replace(".", ",")
     if f"#define MC_VERSION {numeric}" not in launcher_rc:
         raise ValueError(

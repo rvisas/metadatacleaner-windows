@@ -19,6 +19,9 @@
   <a href="LICENSE">
     <img src="https://img.shields.io/github/license/rvisas/metadatacleaner-windows?style=flat-square" alt="License">
   </a>
+  <a href="https://github.com/rvisas/metadatacleaner-windows/actions/workflows/codeql.yml">
+    <img src="https://github.com/rvisas/metadatacleaner-windows/actions/workflows/codeql.yml/badge.svg?branch=main" alt="CodeQL">
+  </a>
   <img src="https://img.shields.io/badge/platform-Windows%2010%2F11%20x64-0078D4?style=flat-square" alt="Windows 10/11 x64">
 </p>
 
@@ -29,7 +32,11 @@
 </p>
 
 <p align="center">
+  <a href="DOWNLOAD.md">Download</a>
+  &nbsp;·&nbsp;
   <a href="docs/build.md">Build from source</a>
+  &nbsp;·&nbsp;
+  <a href="SUPPORT.md">Support</a>
   &nbsp;·&nbsp;
   <a href="https://github.com/rvisas/metadatacleaner-windows/issues">Report a bug</a>
 </p>
@@ -68,8 +75,8 @@ used for years. So I built the version I was missing: the same GTK workflow,
 running natively on Windows, with the same cleaning engine underneath.
 
 This repository is that port. It is deliberately kept close to the maintained
-upstream so it can follow new releases instead of drifting into a separate
-product.
+[upstream project](https://gitlab.com/metadatacleaner/metadatacleaner) so it can
+follow new releases instead of drifting into a separate product.
 
 ## Features
 
@@ -272,7 +279,14 @@ against that exact payload, and only then compiles and publishes the installer.
 - [Versioning](docs/versioning.md): upstream base plus port revision.
 - [Upstream tracking](docs/upstream.md): how new upstream releases are applied.
 - [Code signing](docs/code-signing.md): SignPath Foundation application, release signing and fallback options.
+- [SignPath application prep](docs/signpath-application.md): field-by-field values for the live form.
 - [Agent instructions](AGENTS.md): repository rules for AI-assisted changes.
+- [Support](SUPPORT.md): where to report bugs, security issues and upstream problems.
+- [Governance](GOVERNANCE.md): maintainer roles and signing approval.
+- [Threat model](THREAT_MODEL.md): security and privacy boundaries.
+- [Incident response](INCIDENT_RESPONSE.md): how a security or release incident is handled.
+- [Repository standards](docs/repository-standards.md): how the layout maps to high-visibility OSS projects.
+- [Roadmap](ROADMAP.md): direction without release-date promises.
 
 ## Contributing
 
