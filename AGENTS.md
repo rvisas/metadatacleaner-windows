@@ -51,7 +51,7 @@ scripts/             Payload build, release metadata and docs checks
 patches/             Diffs against upstream and the pinned mat2
 tests/               Static guardrails and runtime tests
 docs/                Architecture, build, release, upstream, versioning, signing
-.github/workflows/   Tests, release, CodeQL and Scorecard automation
+.github/workflows/   Tests, release and CodeQL automation
 ```
 
 ## Commands

@@ -49,12 +49,12 @@ here for that reason.
 | License and attribution | `LICENSE`, `LICENSE.md`, `LICENSES/`, `AUTHORS.md` |
 | Contributing and conduct | `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, `AGENTS.md` |
 | Support and governance | `SUPPORT.md`, `GOVERNANCE.md`, `CODEOWNERS` |
-| Security | `SECURITY.md`, `THREAT_MODEL.md`, `INCIDENT_RESPONSE.md`, CodeQL, Scorecard |
+| Security | `SECURITY.md`, `THREAT_MODEL.md`, `INCIDENT_RESPONSE.md`, CodeQL |
 | Privacy and signing | `PRIVACY.md`, `CODE_SIGNING_POLICY.md`, `docs/code-signing.md` |
 | Release discipline | `CHANGELOG.md`, `CITATION.cff`, `docs/versioning.md`, provenance attestation |
 | Documentation | `docs/architecture.md`, `docs/build.md`, `docs/releasing.md`, `docs/upstream.md`, `docs/signpath-application.md` |
 | Tests | `tests/` unit, static and runtime payload tests |
-| Automation | tests, release, CodeQL, Scorecard and Dependabot |
+| Automation | tests, release, CodeQL and Dependabot |
 
 ## Deliberate differences
 
